@@ -2,28 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79a4b73f-11c2-4b5e-a2bf-eb3449912f5a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/User.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/default.htm" afterPath="$PROJECT_DIR$/index.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/404.html" afterPath="$PROJECT_DIR$/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/submissions/add.html" afterPath="$PROJECT_DIR$/submissions/add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agencies/agency-detail.html" afterPath="$PROJECT_DIR$/agencies/agency-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agents/agent-detail.html" afterPath="$PROJECT_DIR$/agents/agent-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contact.html" afterPath="$PROJECT_DIR$/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default-full.html" afterPath="$PROJECT_DIR$/templates/default-full.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default-left.html" afterPath="$PROJECT_DIR$/templates/default-left.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default-right.html" afterPath="$PROJECT_DIR$/templates/default-right.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agencies/default.htm" afterPath="$PROJECT_DIR$/agencies/default.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agents/default.htm" afterPath="$PROJECT_DIR$/agents/default.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/properties/default.htm" afterPath="$PROJECT_DIR$/properties/default.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/submissions/default.htm" afterPath="$PROJECT_DIR$/submissions/default.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/submissions/edit.html" afterPath="$PROJECT_DIR$/submissions/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/faq.html" afterPath="$PROJECT_DIR$/faq.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontpage-map-vertical.html" afterPath="$PROJECT_DIR$/frontpage-map-vertical.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontpage-slider.html" afterPath="$PROJECT_DIR$/frontpage-slider.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.html" afterPath="$PROJECT_DIR$/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pricing.html" afterPath="$PROJECT_DIR$/pricing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/properties/property-detail.html" afterPath="$PROJECT_DIR$/properties/property-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/register.html" afterPath="$PROJECT_DIR$/register.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/404.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/agencies/agency-detail.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/agencies/default.htm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/agents/agent-detail.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/agents/default.htm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/contact.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/faq.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontpage-map-vertical.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontpage-slider.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pricing.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/properties/default.htm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/properties/property-detail.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/register.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/submissions/add.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/submissions/default.htm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/submissions/edit.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/default-full.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/default-left.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/default-right.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="brocante.iws" />
@@ -47,50 +45,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.htm" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.htm" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="123.75" vertical-offset="2970" max-vertical-offset="40995">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$USER_HOME$/public_html/models/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.050167225" vertical-offset="0" max-vertical-offset="1380">
-              <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pricing.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pricing.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="14085">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="agent-detail.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/agents/agent-detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.75" vertical-offset="90" max-vertical-offset="20805">
+            <state vertical-scroll-proportion="-5.2941175" vertical-offset="2970" max-vertical-offset="40995">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -164,20 +122,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brocante" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brocante" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -241,12 +185,18 @@
       <created>1401959430237</created>
       <updated>1401959430237</updated>
     </task>
+    <task id="LOCAL-00001" summary="[ADD] Directories">
+      <created>1401960537890</created>
+      <updated>1401960537890</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -281,35 +231,13 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="[ADD] Directories" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ADD] Directories" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/agents/agent-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.75" vertical-offset="90" max-vertical-offset="20805">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pricing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14085">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="123.75" vertical-offset="2970" max-vertical-offset="40995">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="598">
@@ -318,10 +246,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/public_html/models/User.php">
+    <entry file="file://$PROJECT_DIR$/index.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.050167225" vertical-offset="0" max-vertical-offset="1380">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        <state vertical-scroll-proportion="-5.2941175" vertical-offset="2970" max-vertical-offset="40995">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
