@@ -1,3 +1,40 @@
+<?php
+
+session_start();
+
+ob_start();
+
+    
+    
+    if (isset($_GET['section'] ) )
+    {
+    
+        $controller_file = dirname(__FILE__).'/Controller/'.$_GET['section'].'Controller.php';
+        
+        if ( is_file($controller_file))
+        {
+            include $controller_file ;
+            $controller = .$_GET['section'].'Controller' ; 
+            if(class_exists($controller))
+            {
+                $c = new $controller ;
+                $action = $_GET['action'] ;
+                if (method_exists($c,$action) )
+                {
+                    $c->$action() ;
+                }
+            }
+        }
+    }
+
+
+$content = ob_get_clean();
+
+?>
+
+
+
+
 <!DOCTYPE html>
 
 
@@ -2711,6 +2748,9 @@
     <!-- /#footer -->
 </div>
 </div>
+
+<?php echo $content 
+?>
 <!-- /#footer-wrapper -->
 <script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3&#038;sensor=true&#038;ver=3.6'></script>
 <script type='text/javascript' src='assets/js/aviators-map.js'></script>
