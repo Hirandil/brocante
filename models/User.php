@@ -30,37 +30,37 @@
 
         public function getId()
         {
-            return this->_id;
+            return $this->_id;
         }
 
         public function getEmail()
         {
-            return this->_email;
+            return $this->_email;
         }
 
         public function getFirstName()
         {
-            return this->_firstName;
+            return $this->_firstName;
         }
 
         public function getLastName()
         {
-            return this->_lastName;
+            return $this->_lastName;
         }
 
         public function getAddress()
         {
-            return this->_address;
+            return $this->_address;
         }
 
         public function getPhone()
         {
-            return this->_phone;
+            return $this->_phone;
         }
 
         public function getPassword()
         {
-            return this->_password;
+            return $this->_password;
         }
 
         // Setters
@@ -118,7 +118,7 @@
 
         public function setPassword($pass)
         {
-            $this->_password = $password;
+            $this->_password = $pass;
         }
     }
 ?>
