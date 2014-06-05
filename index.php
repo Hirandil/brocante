@@ -14,7 +14,7 @@ ob_start();
         if ( is_file($controller_file))
         {
             include $controller_file ;
-            $controller = .$_GET['section'].'Controller' ; 
+            $controller = $_GET['section'].'Controller' ; 
             if(class_exists($controller))
             {
                 $c = new $controller ;
