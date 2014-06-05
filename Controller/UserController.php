@@ -34,8 +34,9 @@ class UserController extends Controller
             }
 
         }
-        else
-            include 'views/connect.php';
+        else{
+            //include 'views/connect.php';
+            echo '<p>Salut</p>';}
     }
 
     public function logout(){

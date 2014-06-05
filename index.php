@@ -4,7 +4,7 @@ session_start();
 
 ob_start();
 
-    
+ini_set('display_errors', 1);
     
     if (isset($_GET['section'] ) )
     {
