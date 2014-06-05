@@ -14,13 +14,18 @@ class UserController extends Controller
 
     public function login(){
         if (isset($_POST['userLogin']) && isset($_POST['password'])){
-            if ( $this->_um->exists($_POST['userEmail'])){
-                $user = $this->_um->get($_POST['userEmail']);
+            if ( $this->_um->exists($_POST['userLogin'])){
+                $user = $this->_um->get($_POST['userLogin']);
                 $_SESSION['password'] = $_POST['password'];
-                if (sha1($_POST['password']) == $user->getPassword()){
+                echo $_POST['password'].' '.$user->getEmail();
+                if ($_POST['password'] == $user->getPassword()){
+                        echo 'Salut';
                     $_SESSION['userLogin'] = $_POST['userLogin'];
                     $_SESSION['userId'] = $user->getId();
                     // TODO : Redirection connecte
+
+                    header('Location: index.php');
+                    echo 'Header';
                 }
                 else
                     $_SESSION['Message'] = 'Mauvais mot de passe';
@@ -30,14 +35,14 @@ class UserController extends Controller
             else{
                 // TODO : Redirection non connecte
                 $_SESSION['Message'] = 'Compte invalide';
-                header('Location: index.php');
+                echo '<p>SALUT</p>';
 
             }
 
         }
-        else{
-            //include 'views/connect.php';
-            echo '<p>Salut</p>';}
+        else
+            include 'views/login.html';
+            //echo '<p>Salut</p>';}
     }
 
     public function logout(){
