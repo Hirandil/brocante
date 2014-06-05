@@ -26,131 +26,119 @@
             $this->_password = $data['password'];
         }
 
-        // Getters
-
-        public function getId()
-        {
-<<<<<<< HEAD
-            return this->_id;
-=======
-            return $this->_id;
->>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
-        }
-
-        public function getEmail()
-        {
-<<<<<<< HEAD
-            return this->_email;
-=======
-            return $this->_email;
->>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
-        }
-
-        public function getFirstName()
-        {
-<<<<<<< HEAD
-            return this->_firstName;
-=======
-            return $this->_firstName;
->>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
-        }
-
-        public function getLastName()
-        {
-<<<<<<< HEAD
-            return this->_lastName;
-=======
-            return $this->_lastName;
->>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
-        }
-
-        public function getAddress()
-        {
-<<<<<<< HEAD
-            return this->_address;
-=======
-            return $this->_address;
->>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
-        }
-
-        public function getPhone()
-        {
-<<<<<<< HEAD
-            return this->_phone;
-=======
-            return $this->_phone;
->>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
-        }
-
-        public function getPassword()
-        {
-<<<<<<< HEAD
-            return this->_password;
-=======
-            return $this->_password;
->>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
-        }
-
-        // Setters
-
-        public function setId($id)
-        {
-            $id = (int) $id;
-        	if ($id >0)
-        	{
-        		$this->_id = $id;
-        	}
-
-  		}
-
-  		public function setEmail($email)
-  		{
-  		    if(is_string($email))
-  		    {
-  		        $this->_email = $email;
-  		    }
-  		}
-
-
-  		public function setFirstName($firstName)
-  		{
-            if(is_string($firstName))
-             {
-                $this->_firstName = $firstName;
-       	     }
-        }
-
-        public function setLastName($lastName)
-        {
-             if(is_string($lastName))
-             {
-                 $this->_lastName = $lastName;
-             }
-        }
-
+        /**
+         * @param mixed $address
+         */
         public function setAddress($address)
         {
-             if(is_string($address))
-  		     {
-   		         $this->_address = $address;
-             }
+            $this->_address = $address;
         }
 
+        /**
+         * @return mixed
+         */
+        public function getAddress()
+        {
+            return $this->_address;
+        }
+
+        /**
+         * @param mixed $email
+         */
+        public function setEmail($email)
+        {
+            $this->_email = $email;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getEmail()
+        {
+            return $this->_email;
+        }
+
+        /**
+         * @param mixed $firstName
+         */
+        public function setFirstName($firstName)
+        {
+            if (is_string($firstName))
+            $this->_firstName = $firstName;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getFirstName()
+        {
+            return $this->_firstName;
+        }
+
+        /**
+         * @param mixed $id
+         */
+        public function setId($id)
+        {
+            $this->_id = $id;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getId()
+        {
+            return $this->_id;
+        }
+
+        /**
+         * @param mixed $lastName
+         */
+        public function setLastName($lastName)
+        {
+            if (is_string($lastName))
+                $this->_lastName = $lastName;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getLastName()
+        {
+            return $this->_lastName;
+        }
+
+        /**
+         * @param mixed $password
+         */
+        public function setPassword($password)
+        {
+            $this->_password = $password;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getPassword()
+        {
+            return $this->_password;
+        }
+
+        /**
+         * @param mixed $phone
+         */
         public function setPhone($phone)
         {
-            if(is_string($phone))
-            {
-                $this->_phone = $phone;
-            }
+            $this->_phone = $phone;
         }
 
-        public function setPassword($pass)
+        /**
+         * @return mixed
+         */
+        public function getPhone()
         {
-<<<<<<< HEAD
-            $this->_password = $password;
-=======
-            $this->_password = $pass;
->>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
+            return $this->_phone;
         }
+
     }
-?>
+
