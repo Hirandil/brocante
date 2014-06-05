@@ -63,21 +63,21 @@
                             <li class="language-en">
                                 <a href="#" class="language-active">
                                     <img class="iclflag"
-                                         src="assets/img/flags/en.png" alt="en"
+                                         src="../assets/img/flags/en.png" alt="en"
                                          title="English"/>
                                 </a>
                             </li>
                             <li class="language-fr">
                                 <a href="#">
                                     <img class="language-flag"
-                                         src="assets/img/flags/fr.png" alt="fr"
+                                         src="../assets/img/flags/fr.png" alt="fr"
                                          title="Français"/>
                                 </a>
                             </li>
                             <li class="language-de">
                                 <a href="#">
                                     <img class="language-flag"
-                                         src="assets/img/flags/de.png" alt="de"
+                                         src="../assets/img/flags/de.png" alt="de"
                                          title="Deutsch"/>
                                 </a>
                             </li>
@@ -85,7 +85,7 @@
                                 <a href="#">
 
                                     <img class="language-flag"
-                                         src="assets/img/flags/it.png" alt="it"
+                                         src="../assets/img/flags/it.png" alt="it"
                                          title="Italiano"/>
                                 </a>
                             </li>
@@ -96,7 +96,7 @@
                 <div class="branding pull-left">
                     <div class="logo">
                         <a href="index.htm" title="Home">
-                            <img src="assets/img/logo.png" alt="Home">
+                            <img src="../assets/img/logo.png" alt="Home">
                         </a>
                     </div>
                     <!-- /.logo -->
@@ -221,7 +221,7 @@
 
 <div class="breadcrumb pull-left">
     <!-- Breadcrumb NavXT 4.4.0 -->
-    <a title="Go to Properta." href="index.htm" class="home">Properta</a> &gt; Page
+    <a title="Go to Properta." href="/index.php" class="home">Properta</a> &gt; Page
 </div>
 
 <!-- /.breadcrumb -->
@@ -241,23 +241,23 @@
                     <div class="row">
                         <div class="span4 offset4">
                             <ul class="tabs nav nav-tabs">
-                                <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
-                                <li><a href="#register" data-toggle="tab">Register</a></li>
+                                <li class="active"><a href="#login" data-toggle="tab">Connexion</a></li>
+                                <li><a href="#register" data-toggle="tab">Inscription</a></li>
                             </ul>
                             <!-- /.nav -->
 
                             <div class="tab-content">
                                 <div class="tab-pane active" id="login">
-                                    <form method="post" action="javascript:void(0)">
+                                    <form method="post" action="/index.php?section=User&action=login">
 
                                         <div class="control-group">
                                             <label class="control-label">
-                                                Login
+                                                Email
                                                 <span class="form-required">*</span>
                                             </label>
 
                                             <div class="controls">
-                                                <input type="text" name="log" required="required">
+                                                <input type="text" name="userLogin" required="required">
                                             </div>
                                             <!-- /.controls -->
                                         </div>
@@ -265,19 +265,19 @@
 
                                         <div class="control-group">
                                             <label class="control-label">
-                                                Password
+                                                Mot de passe
                                                 <span class="form-required">*</span>
                                             </label>
 
                                             <div class="controls">
-                                                <input type="password" name="pwd" required="required">
+                                                <input type="password" name="password" required="required">
                                             </div>
                                             <!-- /.controls -->
                                         </div>
                                         <!-- /.control-group -->
 
                                         <div class="form-actions">
-                                            <input type="submit" value="Login"
+                                            <input type="submit" value="Se connecter"
                                                    class="btn btn-primary arrow-right">
                                         </div>
                                         <!-- /.form-actions -->
@@ -287,7 +287,7 @@
 
                                 <div class="tab-pane " id="register">
                                     <form method="post"
-                                          action="javascript:void(0)">
+                                          action="/brocante/index.php?section=User&action=register">
 
                                         <div class="control-group">
                                             <label class="control-label">
@@ -329,31 +329,7 @@
                         <!-- /.span4-->
 
 
-                        <div class="span4 offset4">
-                            <article class="status-publish entry">
-                                <header class="entry-header">
-                                    <h1 class="page-header entry-title">
-                                        <a href="login" rel="bookmark">Login Template</a>
-                                    </h1>
 
-                                </header>
-                                <!-- .entry-header -->
-
-                                <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                        euismod ipsum a gravida tristique. Aliquam eu posuere sapien. Nunc
-                                        non nunc nisl. Class aptent taciti sociosqu ad litora torquent per
-                                        conubia nostra, per inceptos himenaeos. Nam diam odio, convallis
-                                        eget scelerisque eget, posuere ut purus. Suspendisse rhoncus felis
-                                        vel lorem porttitor, at blandit leo bibendum. Curabitur convallis
-                                        eget velit at accumsan. Sed sed augue blandit, facilisis magna vel,
-                                        tristique mauris. Sed facilisis, quam eu ornare mollis, lectus sem
-                                        sagittis est, sed cursus enim diam ut diam. </p>
-                                </div>
-                                <!-- .entry-content -->
-                            </article>
-                            <!-- /#post -->
-                        </div>
 
                     </div>
                     <!-- /.row -->
@@ -383,7 +359,7 @@
             <div class="property clearfix">
                 <div class="image">
                     <a href="properties/property-detail.html">
-                        <img width="570" height="425" src="assets/img/property/19.jpg"
+                        <img width="570" height="425" src="../assets/img/property/19.jpg"
                              class="thumbnail-image " alt="19"/>
                     </a>
                 </div>
@@ -562,7 +538,7 @@
             <div class="agent clearfix">
                 <div class="image">
                     <a href="agents/agent-detail.html">
-                        <img src="assets/img/agents/2.jpg" alt="Cynthia G. Stenson">
+                        <img src="../assets/img/agents/2.jpg" alt="Cynthia G. Stenson">
                     </a>
                 </div>
                 <!-- /.image -->
@@ -588,7 +564,7 @@
             <div class="agent clearfix">
                 <div class="image">
                     <a href="agents/agent-detail.html">
-                        <img src="assets/img/agents/1.jpg" alt="Stephen E. Kennedy">
+                        <img src="../assets/img/agents/1.jpg" alt="Stephen E. Kennedy">
                     </a>
                 </div>
                 <!-- /.image -->
@@ -842,15 +818,15 @@
 </div>
 <!-- /#footer-wrapper -->
 <script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3&#038;sensor=true&#038;ver=3.6'></script>
-<script type='text/javascript' src='assets/js/aviators-map.js'></script>
-<script type='text/javascript' src='assets/js/gmap3.infobox.min.js'></script>
-<script type='text/javascript' src='assets/js/bootstrap.min.js'></script>
-<script type='text/javascript' src='assets/js/retina.js'></script>
-<script type='text/javascript' src='assets/js/gmap3.clusterer.js'></script>
-<script type='text/javascript' src='assets/js/jquery.ezmark.js'></script>
-<script type='text/javascript' src='assets/js/carousel.js'></script>
-<script type='text/javascript' src='assets/js/jquery.bxslider.js'></script>
-<script type='text/javascript' src='assets/js/properta.js'></script>
-<script type='text/javascript' src='assets/js/jquery.bxslider.min.js'></script>
+<script type='text/javascript' src='../assets/js/aviators-map.js'></script>
+<script type='text/javascript' src='../assets/js/gmap3.infobox.min.js'></script>
+<script type='text/javascript' src='../assets/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='../assets/js/retina.js'></script>
+<script type='text/javascript' src='../assets/js/gmap3.clusterer.js'></script>
+<script type='text/javascript' src='../assets/js/jquery.ezmark.js'></script>
+<script type='text/javascript' src='../assets/js/carousel.js'></script>
+<script type='text/javascript' src='../assets/js/jquery.bxslider.js'></script>
+<script type='text/javascript' src='../assets/js/properta.js'></script>
+<script type='text/javascript' src='../assets/js/jquery.bxslider.min.js'></script>
 </body>
 </html>
