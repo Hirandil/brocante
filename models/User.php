@@ -30,37 +30,65 @@
 
         public function getId()
         {
+<<<<<<< HEAD
             return this->_id;
+=======
+            return $this->_id;
+>>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
         }
 
         public function getEmail()
         {
+<<<<<<< HEAD
             return this->_email;
+=======
+            return $this->_email;
+>>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
         }
 
         public function getFirstName()
         {
+<<<<<<< HEAD
             return this->_firstName;
+=======
+            return $this->_firstName;
+>>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
         }
 
         public function getLastName()
         {
+<<<<<<< HEAD
             return this->_lastName;
+=======
+            return $this->_lastName;
+>>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
         }
 
         public function getAddress()
         {
+<<<<<<< HEAD
             return this->_address;
+=======
+            return $this->_address;
+>>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
         }
 
         public function getPhone()
         {
+<<<<<<< HEAD
             return this->_phone;
+=======
+            return $this->_phone;
+>>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
         }
 
         public function getPassword()
         {
+<<<<<<< HEAD
             return this->_password;
+=======
+            return $this->_password;
+>>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
         }
 
         // Setters
@@ -118,7 +146,11 @@
 
         public function setPassword($pass)
         {
+<<<<<<< HEAD
             $this->_password = $password;
+=======
+            $this->_password = $pass;
+>>>>>>> 4e8676b67cb11c38fb8be863f58d186b6d1766c0
         }
     }
 ?>
