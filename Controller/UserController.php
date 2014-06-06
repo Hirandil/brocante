@@ -62,7 +62,7 @@ class UserController extends Controller
             }
             else{
                 // TODO : Complété création tableau
-                $array = array('id' => 0, 'email' => $_POST['userLogin'],'firstName'  => $_POST['firstName'],'lastName' => $_POST['lastName'], 'password' => $_POST['password'],'address' => $_POST['address'],'phone' => $_POST['phone']);
+                $array = array('id' => 0, 'email' => $_POST['userLogin'],'firstName'  => $_POST['firstName'],'lastName' => $_POST['lastName'], 'password' => sha1($_POST['password']),'address' => $_POST['address'],'phone' => $_POST['phone']);
                 $user = new User($array);
                 $this->_um->create($user);
                 $_SESSION['Message'] = 'Compte crée';
