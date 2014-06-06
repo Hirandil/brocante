@@ -51,8 +51,8 @@ class UserController extends Controller
     }
 
     public function register(){
-        if ( isset($_POST['userLogin']) && isset($_POST['password'])){
-            if($this->_um->exists($_POST['email']) || ($_POST['userEmail'] == "" )|| ($_POST['password'])){
+        if ( isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
+            if($this->_um->exists($_POST['userLogin'])){
                 $_SESSION['Message'] = 'Utilisateur existe déjà';
                 header('Location: index.php');
             }
@@ -62,7 +62,7 @@ class UserController extends Controller
             }
             else{
                 // TODO : Complété création tableau
-                $array = array('id' => 0, 'email' => $_POST['email'], 'password' => $_POST['password']);
+                $array = array('id' => 0, 'email' => $_POST['userLogin'],'firstName'  => $_POST['firstName'],'lastName' => $_POST['lastName'], 'password' => $_POST['password'],'address' => $_POST['address'],'phone' => $_POST['phone']);
                 $user = new User($array);
                 $this->_um->create($user);
                 $_SESSION['Message'] = 'Compte crée';

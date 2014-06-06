@@ -287,20 +287,31 @@
 
                                 <div class="tab-pane " id="register">
                                     <form method="post"
-                                          action="/brocante/index.php?section=User&action=register">
+                                          action="/index.php?section=User&action=register">
 
                                         <div class="control-group">
                                             <label class="control-label">
-                                                Username
+                                                Nom
                                                 <span class="form-required" title="This field is required.">*</span>
                                             </label>
 
                                             <div class="controls">
-                                                <input type="text" required="required" name="user_login">
+                                                <input type="text" required="required" name="lastName">
                                             </div>
                                             <!-- /.controls -->
                                         </div>
-                                        <!-- /.control-group -->
+
+                                        <div class="control-group">
+                                            <label class="control-label">
+                                                Prénom
+                                                <span class="form-required" title="This field is required.">*</span>
+                                            </label>
+
+                                            <div class="controls">
+                                                <input type="text" required="required" name="firstName">
+                                            </div>
+                                            <!-- /.controls -->
+                                        </div>
 
                                         <div class="control-group">
                                             <label class="control-label">
@@ -309,14 +320,64 @@
                                             </label>
 
                                             <div class="controls">
-                                                <input type="email" required="required" name="user_email">
+                                                <input type="email" required="required" name="userLogin">
+                                            </div>
+                                            <!-- /.controls -->
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label">
+                                                Adresse
+                                                <span class="form-required" title="This field is required.">*</span>
+                                            </label>
+
+                                            <div class="controls">
+                                                <input type="text" required="required" name="address">
+                                            </div>
+                                            <!-- /.controls -->
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label">
+                                                Téléphone
+                                                <span class="form-required" title="This field is required.">*</span>
+                                            </label>
+
+                                            <div class="controls">
+                                                <input type="text" required="required" name="phone">
+                                            </div>
+                                            <!-- /.controls -->
+                                        </div>
+
+
+                                        <div class="control-group">
+                                            <label class="control-label">
+                                                Mot de passe
+                                                <span class="form-required">*</span>
+                                            </label>
+
+                                            <div class="controls">
+                                                <input type="password" name="password" required="required">
+                                            </div>
+                                            <!-- /.controls -->
+                                        </div>
+                                        <!-- /.control-group -->
+
+                                        <div class="control-group">
+                                            <label class="control-label">
+                                                Confirmer le mot de passe
+                                                <span class="form-required">*</span>
+                                            </label>
+
+                                            <div class="controls">
+                                                <input type="password" name="password2" required="required">
                                             </div>
                                             <!-- /.controls -->
                                         </div>
                                         <!-- /.control-group -->
 
                                         <div class="form-actions">
-                                            <input type="submit" value="Register" class="btn btn-primary arrow-right">
+                                            <input type="submit" value="S'inscrire" class="btn btn-primary arrow-right">
                                         </div>
                                         <!-- /.form-actions -->
                                     </form>
