@@ -17,15 +17,12 @@ class UserController extends Controller
             if ( $this->_um->exists($_POST['userLogin'])){
                 $user = $this->_um->get($_POST['userLogin']);
                 $_SESSION['password'] = $_POST['password'];
-                echo $_POST['password'].' '.$user->getEmail();
-                if ($_POST['password'] == $user->getPassword()){
-                        echo 'Salut';
+                if (sha1($_POST['password']) == $user->getPassword()){
                     $_SESSION['userLogin'] = $_POST['userLogin'];
                     $_SESSION['userId'] = $user->getId();
                     // TODO : Redirection connecte
 
                     header('Location: index.php');
-                    echo 'Header';
                 }
                 else
                     $_SESSION['Message'] = 'Mauvais mot de passe';
@@ -35,14 +32,14 @@ class UserController extends Controller
             else{
                 // TODO : Redirection non connecte
                 $_SESSION['Message'] = 'Compte invalide';
-                echo '<p>SALUT</p>';
 
             }
 
         }
         else
+        {
             include 'views/login.html';
-            //echo '<p>Salut</p>';}
+        }
     }
 
     public function logout(){
@@ -72,27 +69,37 @@ class UserController extends Controller
 
         }
         else{
-            include 'views/register.php';
+            include 'views/login.html';
         }
     }
 
     public function update(){
-        if (isset($_SESSION['email']) && isset($_POST['password']) && isset($_POST['password']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
-            if($_POST['password'] != $_POST['password']){
-                $_SESSION['Message'] = 'Mots de passe non identiques';
-                // TODO : Redirigé vers la connexion
-                header('Location: index.php');
+        if(isset($_SESSION['userLogin'])){
+            $user = $this->_um->get($_SESSION['userId']);
+            if (isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['newPassword']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
+                if(sha1($_POST['password']) != $user->getPassword()){
+                    echo "sha1";
+                    $_SESSION['Message'] = 'Mots de passe non identiques';
+                    // TODO : Redirigé vers la connexion
+                    header('Location: index.php?section=user&action=update');
+                }
+                else{
+                    $user->setAddress($_POST['address']);
+                    $user->setEmail($_POST['userLogin']);
+                    $user->setFirstName($_POST['firstName']);
+                    $user->setLastName($_POST['lastName']);
+                    $user->setPassword(sha1($_POST['newPassword']));
+                    $user->setPhone($_POST['phone']);
+                    $this->_um->update($user);
+                }
             }
-            else{
-                $user = $this->_um->get($_SESSION['userId']);
-                $user->setAddress($_POST['address']);
-                $user->setEmail($_POST['email']);
-                $user->setFirstName($_POST['firstName']);
-                $user->setLastName($_POST['lastName']);
-                $user->setPassword($_POST['password']);
-                $user->setPhone($_POST['phone']);
+            else
+            {
+                include('views/update.php');
             }
         }
+        else
+            header('Location: index.php');
     }
 }
 ?>

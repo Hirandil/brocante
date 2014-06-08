@@ -92,8 +92,14 @@
 
         public function update($user)
         {
-            $q = $this->_db->prepare('UPDATE users SET WHERE email = :mail');
-            $q->bindValue(':mail', $info, PDO::PARAM_STR);
+            $q = $this->_db->prepare('UPDATE users SET email= :mail,firstName = :fn,lastName = :ln,address = :addr,phone = :ph,password = :pass WHERE id = :id');
+            $q->bindValue(':mail', $user->getEmail(), PDO::PARAM_STR);
+            $q->bindValue(':id', $user->getId(), PDO::PARAM_INT);
+            $q->bindValue(':fn', $user->getFirstName(), PDO::PARAM_STR);
+            $q->bindValue(':ln', $user->getLastName(), PDO::PARAM_STR);
+            $q->bindValue(':addr', $user->getAddress(), PDO::PARAM_STR);
+            $q->bindValue(':ph', $user->getPhone(), PDO::PARAM_STR);
+            $q->bindValue(':pass', $user->getPassword(), PDO::PARAM_STR);
             $q->execute();
         }
     }
