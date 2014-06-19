@@ -23,6 +23,7 @@ class UserController extends Controller
                     // TODO : Redirection connecte
 
                     header('Location: index.php');
+                    echo 'Header';
                 }
                 else
                     $_SESSION['Message'] = 'Mauvais mot de passe';
@@ -32,6 +33,7 @@ class UserController extends Controller
             else{
                 // TODO : Redirection non connecte
                 $_SESSION['Message'] = 'Compte invalide';
+                //echo '<p>SALUT</p>';
 
             }
 
@@ -75,7 +77,7 @@ class UserController extends Controller
 
     public function update(){
         if(isset($_SESSION['userLogin'])){
-            $user = $this->_um->get($_SESSION['userId']);
+            $user = $this->_um->get(intval($_SESSION['userId']));
             if (isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['newPassword']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
                 if(sha1($_POST['password']) != $user->getPassword()){
                     echo "sha1";
@@ -95,6 +97,7 @@ class UserController extends Controller
             }
             else
             {
+
                 include('views/update.php');
             }
         }

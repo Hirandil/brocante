@@ -142,8 +142,8 @@
 <!--                                </ul>-->
                             </li>
 
-                            <li class="menu-item menu-item-parent">
-                                <a href="#">Pages</a>
+                            <li class="menu-item ">
+                                <a href="/index.php?section=Manifestation&action=add">Déposer une annonce</a>
 <!--                                <ul class="sub-menu">-->
 <!--                                    <li class="menu-item"><a href="404.html">404 page</a></li>-->
 <!--                                    <li class="menu-item"><a href="faq.html">FAQ page</a></li>-->
@@ -178,7 +178,7 @@
 
                 <div class="pull-right">
                     <div class="list-property">
-                        <a href="submissions/default.htm">Lister les propriétés<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
+                        <a href="manifestations/default.htm">Lister les propriétés<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
                         </a>
                     </div>
                     <!-- /.list-property -->

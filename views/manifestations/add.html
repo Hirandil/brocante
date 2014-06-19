@@ -1,0 +1,403 @@
+<div id="content" class="clearfix">
+
+<div class="container">
+<div class="row">
+
+
+<div id="main" class="span12">
+
+<h1 class="page-header">Ajouter une brocante</h1>
+
+<div class="progressbar">
+    <div class="progressbar-inner">
+        <div class="row">
+            <div class="item span4">
+                <div class="number">1</div>
+                <strong>Info</strong>
+            </div>
+            <!-- /.item  -->
+
+            <div class="item span4">
+                <div class="number">2</div>
+                <strong>Type</strong>
+            </div>
+            <!-- /.item  -->
+
+            <div class="item span4">
+                <div class="number">3</div>
+                <strong>Details</strong>
+            </div>
+            <!-- /.item  -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.progressbar-inner -->
+</div>
+<!-- /.progressbar -->
+<form method="post" action="/index.php?section=Manifestation&action=add" class="submission-form form-vertical">
+<div class="row">
+<div class="span4">
+    <input type="hidden" name="post_type" value="">
+    <div class="control-group">
+        <label class="control-label" for="address">
+            Nom de la manifestation
+        </label>
+
+        <div class="controls">
+            <input type="text" name="title" size="30" value="" id="title" autocomplete="off" required="required">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="address">
+            Rue / Voie
+        </label>
+
+        <div class="controls">
+            <input type="text" name="route" size="30" value="" id="addressGoogle" autocomplete="off" required="required" onchange="completeOthers()">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Ville
+        </label>
+
+        <div class="controls">
+            <input type="text" name="city" size="30" value="" id="cityGoogle"  required="required" disabled >
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Département
+        </label>
+
+        <div class="controls">
+            <input type="text" name="department" size="30" value="" id="departmentGoogle"  required="required" disabled>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Région
+        </label>
+
+        <div class="controls">
+            <input type="text" name="region" size="30" value="" id="regionGoogle"  required="required" disabled>
+        </div>
+    </div>
+
+
+
+    <div class="control-group">
+        <label class="control-label" for="inputDate">
+            Date de début
+            <!--<span class="form-required" title="This field is required.">*</span>-->
+        </label>
+
+        <div class="controls">
+            <input type="date" name="dateStart" id="inputDate" name="date" required="required">
+        </div>
+        <!-- /.controls -->
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputDate">
+            Date de fin
+            <!--<span class="form-required" title="This field is required.">*</span>-->
+        </label>
+
+        <div class="controls">
+            <input type="date" name="dateEnd" name="date" required="required">
+        </div>
+        <!-- /.controls -->
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputDate">
+            Heure de début
+            <!--<span class="form-required" title="This field is required.">*</span>-->
+        </label>
+
+        <div class="controls">
+            <input type="time" name="timeStart" id="inputDate" name="date" required="required">
+        </div>
+        <!-- /.controls -->
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputDate">
+            Heure de fin
+            <!--<span class="form-required" title="This field is required.">*</span>-->
+        </label>
+
+        <div class="controls">
+            <input type="time" name="timeEnd" id="inputDate" name="date" required="required">
+        </div>
+        <!-- /.controls -->
+    </div>
+</div>
+
+<div class="span4">
+    <div class="control-group">
+        <label class="control-label">
+            Type de manifestation
+        </label>
+
+        <div class="controls">
+            <ul class="unstyled">
+
+                <li id='amenities-8' class="popular-category"><label class="selectit"><input value="8" type="checkbox"
+                                                                                             name="tax_input[amenities][]"
+                                                                                             id="in-amenities-8"/> Air
+                        conditioning</label></li>
+
+                <li id='amenities-9' class="popular-category"><label class="selectit"><input value="9" type="checkbox"
+                                                                                             name="tax_input[amenities][]"
+                                                                                             id="in-amenities-9"/>
+                        Balcony</label></li>
+
+                <li id='amenities-10'><label class="selectit"><input value="10" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-10"/> Bedding</label></li>
+
+                <li id='amenities-11' class="popular-category"><label class="selectit"><input value="11" type="checkbox"
+                                                                                              name="tax_input[amenities][]"
+                                                                                              id="in-amenities-11"/>
+                        Cable TV</label></li>
+
+                <li id='amenities-12'><label class="selectit"><input value="12" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-12"/> Cleaning after exit</label>
+                </li>
+
+                <li id='amenities-13'><label class="selectit"><input value="13" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-13"/> Cofee pot</label></li>
+
+                <li id='amenities-14'><label class="selectit"><input value="14" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-14"/> Computer</label></li>
+
+                <li id='amenities-15'><label class="selectit"><input value="15" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-15"/> Cot</label></li>
+
+                <li id='amenities-16'><label class="selectit"><input value="16" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-16"/> Dishwasher</label></li>
+
+                <li id='amenities-17'><label class="selectit"><input value="17" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-17"/> DVD</label></li>
+
+                <li id='amenities-18' class="popular-category"><label class="selectit"><input value="18" type="checkbox"
+                                                                                              name="tax_input[amenities][]"
+                                                                                              id="in-amenities-18"/> Fan</label>
+                </li>
+
+                <li id='amenities-19' class="popular-category"><label class="selectit"><input value="19" type="checkbox"
+                                                                                              name="tax_input[amenities][]"
+                                                                                              id="in-amenities-19"/>
+                        Fridge</label></li>
+
+                <li id='amenities-20'><label class="selectit"><input value="20" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-20"/> Grill</label></li>
+
+                <li id='amenities-21'><label class="selectit"><input value="21" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-21"/> Hairdryer</label></li>
+
+                <li id='amenities-22'><label class="selectit"><input value="22" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-22"/> Heating</label></li>
+
+                <li id='amenities-23'><label class="selectit"><input value="23" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-23"/> Hi-fi</label></li>
+
+                <li id='amenities-24' class="popular-category"><label class="selectit"><input value="24" type="checkbox"
+                                                                                              name="tax_input[amenities][]"
+                                                                                              id="in-amenities-24"/>
+                        Internet</label></li>
+
+                <li id='amenities-25'><label class="selectit"><input value="25" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-25"/> Iron</label></li>
+
+                <li id='amenities-26'><label class="selectit"><input value="26" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-26"/> Juicer</label></li>
+
+                <li id='amenities-27'><label class="selectit"><input value="27" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-27"/> Lift</label></li>
+
+                <li id='amenities-28'><label class="selectit"><input value="28" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-28"/> Microwave</label></li>
+
+                <li id='amenities-29'><label class="selectit"><input value="29" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-29"/> Oven</label></li>
+
+                <li id='amenities-30' class="popular-category"><label class="selectit"><input value="30" type="checkbox"
+                                                                                              name="tax_input[amenities][]"
+                                                                                              id="in-amenities-30"/>
+                        Parking</label></li>
+
+                <li id='amenities-31'><label class="selectit"><input value="31" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-31"/> Parquet</label></li>
+
+                <li id='amenities-32'><label class="selectit"><input value="32" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-32"/> Radio</label></li>
+
+                <li id='amenities-33'><label class="selectit"><input value="33" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-33"/> Roof terrace</label></li>
+
+                <li id='amenities-34'><label class="selectit"><input value="34" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-34"/> Smoking allowed</label></li>
+
+                <li id='amenities-35' class="popular-category"><label class="selectit"><input value="35" type="checkbox"
+                                                                                              name="tax_input[amenities][]"
+                                                                                              id="in-amenities-35"/>
+                        Terrace</label></li>
+
+                <li id='amenities-36'><label class="selectit"><input value="36" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-36"/> Toaster</label></li>
+
+                <li id='amenities-37' class="popular-category"><label class="selectit"><input value="37" type="checkbox"
+                                                                                              name="tax_input[amenities][]"
+                                                                                              id="in-amenities-37"/>
+                        Towelwes</label></li>
+
+                <li id='amenities-38'><label class="selectit"><input value="38" type="checkbox"
+                                                                     name="tax_input[amenities][]"
+                                                                     id="in-amenities-38"/> Use of pool</label></li>
+
+                <li id='amenities-39' class="popular-category"><label class="selectit"><input value="39" type="checkbox"
+                                                                                              name="tax_input[amenities][]"
+                                                                                              id="in-amenities-39"/>
+                        Video</label></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="span4">
+    <div class="control-group">
+        <label class="control-label">
+            Prix d'entrée </label>
+
+        <div class="controls">
+            <div class="input-append">
+                <input type="number" name="price" value="">
+                <span class="add-on">€</span>
+            </div>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Nombre d'exposants </label>
+
+        <div class="controls">
+            <div class="input-append">
+                <input type="number" name="numberSellers" value="">
+            </div>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Tarif d'exposants </label>
+
+        <div class="controls">
+            <div class="input-append">
+                <input type="number" name="priceSellers" value="">
+            </div>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="address">
+            Image
+        </label>
+
+        <div class="controls">
+            <input type="file" name="image">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            Parking à proximité </label>
+
+        <div class="controls">
+
+            <ul class="unstyled">
+                <li>
+                    <label>
+                        <input type="radio" name="_property_meta[contract_type]" value="rent"/>
+                        &nbsp;&nbsp;Oui </label>
+                </li>
+
+                <li>
+                    <label>
+                        <input type="radio" name="_property_meta[contract_type]" value="sale"/>
+                        &nbsp;&nbsp;Non </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="description">
+            Informations complémentaires
+        </label>
+
+        <div class="controls">
+            <textarea id="description" rows="4" name="content" style="min-height:225px;"></textarea>
+        </div>
+    </div>
+
+</div>
+
+<div class="form-actions">
+    <input type="submit" class="btn btn-primary" value="Ajouter">
+</div>
+</form>
+
+</div>
+<!-- /#main -->
+</div>
+<!-- /.row -->
+</div>
+<!-- /.container -->
+
+</div>
+
+        <script>
+            $( document ).ready(function() {
+                var options = {
+                   // types: ['(regions)'],
+                    componentRestrictions: {country: 'fr'}
+                };
+                var input = /** @type {HTMLInputElement} */(
+                        document.getElementById('addressGoogle'));
+                var autocomplete = new google.maps.places.Autocomplete(input,options);
+
+                completeOthers = function(){
+                    setTimeout(function() {
+                        console.log(autocomplete.gm_accessors_.place.Sc.place);
+                        var address_components = autocomplete.gm_accessors_.place.Sc.place.address_components;
+
+                        document.getElementById('cityGoogle').value = address_components[2].long_name;
+                        document.getElementById('departmentGoogle').value = address_components[3].long_name;
+                        document.getElementById('regionGoogle').value = address_components[4].long_name;
+                        ;
+                    }, 200);
+
+                }
+
+            });
+
+
+        </script>

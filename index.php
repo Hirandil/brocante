@@ -85,7 +85,6 @@ $content = ob_get_clean();
     <script type='text/javascript' src='assets/libraries/chosen/chosen.jquery.min.js'></script>
     <script type='text/javascript' src='assets/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>
     <script type='text/javascript' src='assets/libraries/rs-plugin/js/jquery.themepunch.plugins.min.js'></script>
-
     <title> CodiOne </title>
 </head>
 
