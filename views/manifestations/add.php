@@ -19,7 +19,7 @@
 
             <div class="item span4">
                 <div class="number">2</div>
-                <strong>Type</strong>
+                <strong>Date et Type</strong>
             </div>
             <!-- /.item  -->
 
@@ -34,7 +34,7 @@
     <!-- /.progressbar-inner -->
 </div>
 <!-- /.progressbar -->
-<form method="post" action="/index.php?section=Manifestation&action=add" class="submission-form form-vertical">
+<form method="POST" action="/index.php?section=Manifestation&action=add" class="submission-form form-vertical">
 <div class="row">
 <div class="span4">
     <input type="hidden" name="post_type" value="">
@@ -44,7 +44,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="title" size="30" value="" id="title" autocomplete="off" required="required">
+            <input type="text" name="title" size="30" id="title" autocomplete="off" required="required">
         </div>
     </div>
     <div class="control-group">
@@ -53,7 +53,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="route" size="30" value="" id="addressGoogle" autocomplete="off" required="required" onchange="completeOthers()">
+            <input type="text" name="route" size="30" id="addressGoogle" autocomplete="off" required="required" onchange="completeOthers()">
         </div>
     </div>
     <div class="control-group">
@@ -62,7 +62,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="city" size="30" value="" id="cityGoogle"  required="required" disabled >
+            <input type="text" name="city" size="30" id="cityGoogle" required="required"  >
         </div>
     </div>
     <div class="control-group">
@@ -71,7 +71,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="department" size="30" value="" id="departmentGoogle"  required="required" disabled>
+            <input type="text" name="department" size="30"  id="departmentGoogle" required="required" >
         </div>
     </div>
     <div class="control-group">
@@ -80,7 +80,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="region" size="30" value="" id="regionGoogle"  required="required" disabled>
+            <input type="text" name="region" size="30" id="regionGoogle" required="required" >
         </div>
     </div>
 
@@ -108,7 +108,7 @@
         </label>
 
         <div class="controls">
-            <input type="date" name="dateEnd"  id="inputDate" required="required">
+            <input type="date" name="dateEnd" id="inputDate" required="required">
         </div>
         <!-- /.controls -->
     </div>
@@ -140,78 +140,18 @@
         </label>
 
         <div class="controls">
-            <ul class="unstyled">
 
-                <li id='amenities-8' class="popular-category"><label class="selectit"><input value="8" type="checkbox"
-                                                                                             name="tax_input[amenities][]"
-                                                                                             id="in-amenities-8"/> Air
-                        conditioning</label></li>
+            <select name="type">
+                <?php
 
-                <li id='amenities-9' class="popular-category"><label class="selectit"><input value="9" type="checkbox"
-                                                                                             name="tax_input[amenities][]"
-                                                                                             id="in-amenities-9"/>
-                        Balcony</label></li>
-
-                <li id='amenities-10'><label class="selectit"><input value="10" type="checkbox"
-                                                                     name="tax_input[amenities][]"
-                                                                     id="in-amenities-10"/> Bedding</label></li>
-
-                <li id='amenities-11' class="popular-category"><label class="selectit"><input value="11" type="checkbox"
-                                                                                              name="tax_input[amenities][]"
-                                                                                              id="in-amenities-11"/>
-                        Cable TV</label></li>
-
-                <li id='amenities-12'><label class="selectit"><input value="12" type="checkbox"
-                                                                     name="tax_input[amenities][]"
-                                                                     id="in-amenities-12"/> Cleaning after exit</label>
-                </li>
-
-                <li id='amenities-13'><label class="selectit"><input value="13" type="checkbox"
-                                                                     name="tax_input[amenities][]"
-                                                                     id="in-amenities-13"/> Cofee pot</label></li>
-
-                <li id='amenities-14'><label class="selectit"><input value="14" type="checkbox"
-                                                                     name="tax_input[amenities][]"
-                                                                     id="in-amenities-14"/> Computer</label></li>
-
-                <li id='amenities-15'><label class="selectit"><input value="15" type="checkbox"
-                                                                     name="tax_input[amenities][]"
-                                                                     id="in-amenities-15"/> Cot</label></li>
-
-                <li id='amenities-16'><label class="selectit"><input value="16" type="checkbox"
-                                                                     name="tax_input[amenities][]"
-                                                                     id="in-amenities-16"/> Dishwasher</label></li>
-
-                <li id='amenities-17'><label class="selectit"><input value="17" type="checkbox"
-                                                                     name="tax_input[amenities][]"
-                                                                     id="in-amenities-17"/> DVD</label></li>
-
-                <li id='amenities-18' class="popular-category"><label class="selectit"><input value="18" type="checkbox"
-                                                                                              name="tax_input[amenities][]"
-                                                                                              id="in-amenities-18"/> Fan</label>
-                </li>
-
-                <li id='amenities-19' class="popular-category"><label class="selectit"><input value="19" type="checkbox"
-                                                                                              name="tax_input[amenities][]"
-                                                                                              id="in-amenities-19"/>
-                        Fridge</label></li>
-
-                <li id='amenities-20'><label class="selectit"><input value="20" type="checkbox"
-                                                                     name="tax_input[amenities][]"
-                                                                     id="in-amenities-20"/> Grill</label></li>
-
-                <li id='amenities-21'><label class="selectit"><input value="21" type="checkbox"
-                                                                     name="tax_input[amenities][]"
-                                                                     id="in-amenities-21"/> Hairdryer</label></li>
-
-                <li id='amenities-22'><label class="selectit"><input value="22" type="checkbox"
-                                                                     name="tax_input[amenities][]"
-                                                                     id="in-amenities-22"/> Heating</label></li>
-
-                <li id='amenities-23'><label class="selectit"><input value="23" type="checkbox"
-                                                                     name="tax_input[amenities][]"
-                                                                     id="in-amenities-23"/> Hi-fi</label></li>
-            </ul>
+                foreach($types as $t)
+                {
+                    ?>
+                    <option value="<?php echo $t->getId() ?>" > <?php echo $t->getLibelle() ?> </option>
+                <?php
+                }
+                ?>
+            </select>
         </div>
     </div>
 </div>

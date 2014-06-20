@@ -22,7 +22,9 @@
 
         public function add(){
             if ( isset($_SESSION['userLogin']) ){
-                if ( isset($_POST['title']) && isset($_POST['route']) && isset($_POST['city']) && isset($_POST['department']) && isset($_POST['region']) && isset($_POST['dateStart']) && isset($_POST['dateEnd']) && isset($_POST['timeStart']) && isset($_POST['dateEnd'])){
+                //echo $_POST['department'];
+                if ( isset($_POST['title'],$_POST['route'],$_POST['city'],$_POST['department'],$_POST['region'],$_POST['dateStart'],$_POST['dateEnd'],$_POST['timeStart'],$_POST['timeEnd'])){
+
                     // TODO : Verifie si c'est pas vide
                     // TODO : Completer le tableau
                     $array = array('idManifestation' => 0, 'name' => $_POST['title'],'city'  => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'country' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] );
@@ -32,8 +34,11 @@
 
                     header('Location: index.php');
                 }
-                else
-                    include 'views/manifestations/add.html';
+                else{
+                    $types = $this->_tm->getAll();
+//                    echo $types;
+                    include 'views/manifestations/add.php';
+                }
             }
             else{
                 include 'views/login.html';

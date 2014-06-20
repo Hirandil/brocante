@@ -1,184 +1,184 @@
-
 <div id="content" class="clearfix">
 <div class="map-wrapper">
     <div class="map">
-
-
         <script type="text/javascript">
+            $(document).ready(function() {
+                $('#francemap').vectorMap({
+                    map: 'france_fr',
+                    hoverOpacity: 0.5,
+                    hoverColor: false,
+                    backgroundColor: "#ffffff",
+                    colors: couleurs,
+                    borderColor: "#ffffff",
+                    selectedColor: "#EC0000",
+                    enableZoom: false,
+                    showTooltip: true,
+                    onRegionClick: function(element, code, region)
+                    {
+                        var message = 'Département : "'
+                            + region
+                            + '" || Code : "'
+                            + code
+                            + '"';
 
-            var infoBoxes = [];
-
-            var property1 = '<div class="infobox clearfix"><div class="close"><img src="assets/img/close.png" alt=""></div><div class="image"><a href="properties/property-detail" ><img src="assets/img/property/17.jpg" alt="677 Cottage Terrace" width="130px"></a><div class="contract-type">For sale</div></div><div class="info"><div class="title"><a href="properties/property-detail">677 Cottage Terrace</a></div><div class="location">Spring Valley</div><div class="property-info clearfix"><div class="area"><i class="icon icon-normal-cursor-scale-up"></i>650m<sup>2</sup></div><div class="bedrooms"><i class="icon icon-normal-bed"></i>1</div><div class="bathrooms"><i class="icon icon-normal-shower"></i>1</div></div><div class="price">59,600 €</div><div class="link"><a href="properties/property-detail">View more</a></div></div></div>';
-            var property2 = '<div class="infobox clearfix"><div class="close"><img src="assets/img/close.png" alt=""></div><div class="image"><a href="properties/property-detail"><img src="assets/img/property/19.jpg" alt="643 37th Ave" width="130px"></a><div class="contract-type">For sale</div></div><div class="info"><div class="title"><a href="properties/property-detail">643 37th Ave</a></div><div class="location">Burrville</div><div class="property-info clearfix"><div class="area"><i class="icon icon-normal-cursor-scale-up"></i>800m<sup>2</sup></div><div class="bedrooms"><i class="icon icon-normal-bed"></i>2</div><div class="bathrooms"><i class="icon icon-normal-shower"></i>2</div></div><div class="price">Contact us</div><div class="link"><a href="properties/property-detail">View more</a></div></div></div>';
-            var property3 = '<div class="infobox clearfix"><div class="close"><img src="assets/img/close.png" alt=""></div><div class="image"><a href="properties/property-detail" ><img src="assets/img/property/17.jpg" alt="677 Cottage Terrace" width="130px"></a>                  <div class="contract-type">For sale</div></div><div class="info"><div class="title"><a href="properties/property-detail">677 Cottage Terrace</a></div><div class="location">Spring Valley</div><div class="property-info clearfix"><div class="area"><i class="icon icon-normal-cursor-scale-up"></i>650m<sup>2</sup></div><div class="bedrooms"><i class="icon icon-normal-bed"></i>1</div><div class="bathrooms"><i class="icon icon-normal-shower"></i>1</div></div><div class="price">59,600 €</div><div class="link"><a href="properties/property-detail">View more</a></div></div></div>';
-
-            for (var i=0;i< 15 ;i++)
-            {
-                infoBoxes.push(property1);
-                infoBoxes.push(property2);
-                infoBoxes.push(property3);
-            }
-
-            jQuery(document).ready(function ($) {
-                var map = $('#map').aviators_map({
-                    locations: new Array([38.951399, -76.958463], [38.942855, -76.959149], [38.935945, -76.954085], [38.924194, -76.962497], [38.929335, -76.966402], [38.950131, -76.975286], [38.941386, -76.976745], [38.912975, -76.973269], [38.927266, -76.985156], [38.936813, -76.987173], [38.941653, -76.995885], [38.929235, -76.995627], [38.922024, -77.001378], [38.920788, -77.020304], [38.926531, -77.007558], [38.939384, -77.018115], [38.939217, -77.070257], [38.931539, -77.103517], [38.942454, -77.05352], [38.930571, -77.086007], [38.947194, -77.109696], [38.949864, -77.094762], [38.940685, -77.095964], [38.932474, -77.026441], [38.932941, -77.034165], [38.932641, -77.044079], [38.932908, -77.061674], [38.931372, -77.07781], [38.926665, -77.101457], [38.929135, -77.101671], [38.919086, -77.108538], [38.910103, -77.104504], [38.920221, -77.084033], [38.915513, -77.089741], [38.918752, -77.095105], [38.912073, -77.00597], [38.90486, -77.024724], [38.918418, -77.010605], [38.928868, -77.021377], [38.920154, -77.010562], [38.915847, -77.069699], [38.926164, -77.056739], [38.925045, -77.040063], [38.922591, -77.034291]),
-                    types: new Array('family-house', 'villa', 'cottage', 'single-home', 'family-house', 'cottage', 'apartment', 'building-area', 'apartment', 'family-house', 'villa', 'family-house', 'villa', 'single-home', 'cottage', 'villa', 'condo', 'apartment', 'single-home', 'cottage', 'family-house', 'villa', 'apartment', 'apartment', 'villa', 'villa', 'apartment', 'cottage', 'villa', 'family-house', 'building-area', 'family-house', 'family-house', 'cottage', 'apartment', 'cottage', 'family-house', 'villa', 'cottage', 'condo', 'building-area', 'family-house', 'single-home', 'apartment'),
-                    contents: infoBoxes,
-                    transparentMarkerImage: 'assets/img/marker-transparent.png',
-                    transparentClusterImage: 'assets/img/markers/cluster-transparent.png',
-                    zoom: 14,
-                    center: {
-                        latitude: 38.932307,
-                        longitude: -77.034258
-                    },
-                    filterForm: '.map-filtering',
-                    enableGeolocation: '',
-                    pixelOffsetX: -75,
-                    pixelOffsetY: -200
+                        alert(message);
+                    }
                 });
             });
         </script>
 
-        <div id="map" class="map-inner" style="height: 700px"></div>
-        <!-- /.map-inner -->
-
-        <div class="container">
+        <div class="container" style="height:0px;">
             <div class="row">
-                <div class="span12">
-
-                    <div class="property-filter widget filter-horizontal">
+                <div class="span3">
+                    <div class="property-filter widget">
                         <div class="content">
-                            <form method="get" action="javascript:void(0);" class="form-inline map-filtering">
+                            <form method="get" action="javascript:void(0);">
+                                <div class="location control-group">
+                                    <label class="control-label">
+                                        Location
+                                    </label>
 
-                                <div class="property-types" style="height:1px !important; overflow: hidden;">
-                                    <div class="property-type apartment">
-                                        <label for="filter_type_6">
-                                            <input type="checkbox" name="filter_type[]" title="Apartment"
-                                                   id="filter_type_6" class="no-ezmark" value="6"> Apartment
-                                        </label>
+                                    <div class="controls">
+                                        <select name="filter_location">
+                                            <option>-</option>
+                                            <option>Barney Circle</option>
+                                            <option>Benning</option>
+                                            <option>Benning Heights</option>
+                                            <option>Benning Ridge</option>
+                                            <option>Burrville</option>
+                                            <option>Capitol Hill</option>
+                                            <option>Capitol View</option>
+                                            <option>Central Northeast</option>
+                                            <option>Civic Betterment</option>
+                                            <option>Judiciary Square</option>
+                                            <option>Kingman Park</option>
+                                            <option>Navy Yard</option>
+                                            <option>Near Northeast</option>
+                                            <option>Spring Valley</option>
+                                            <option>Sursum Corda</option>
+                                            <option>Swampoodle</option>
+                                        </select>
                                     </div>
-                                    <div class="property-type building-area ">
-                                        <label for="filter_type_42">
-                                            <input type="checkbox" name="filter_type[]" title="Building Area"
-                                                   id="filter_type_42" class="no-ezmark" value="42"> Building Area
-                                        </label>
-                                    </div>
-                                    <div class="property-type condo ">
-                                        <label for="filter_type_43">
-                                            <input type="checkbox" name="filter_type[]" title="Condo"
-                                                   id="filter_type_43" class="no-ezmark" value="43"> Condo
-                                        </label>
-                                    </div>
-                                    <div class="property-type cottage ">
-                                        <label for="filter_type_44">
-                                            <input type="checkbox" name="filter_type[]" title="Cottage"
-                                                   id="filter_type_44" class="no-ezmark" value="44"> Cottage
-                                        </label>
-                                    </div>
-                                    <div class="property-type family-house ">
-                                        <label for="filter_type_41">
-                                            <input type="checkbox" name="filter_type[]" title="Family House"
-                                                   id="filter_type_41" class="no-ezmark" value="41"> Family House
-                                        </label>
-                                    </div>
-                                    <div class="property-type single-home ">
-                                        <label for="filter_type_40">
-                                            <input type="checkbox" name="filter_type[]" title="Single Home"
-                                                   id="filter_type_40" class="no-ezmark" value="40"> Single Home
-                                        </label>
-                                    </div>
-                                    <div class="property-type villa ">
-                                        <label for="filter_type_45">
-                                            <input type="checkbox" name="filter_type[]" title="Villa"
-                                                   id="filter_type_45" class="no-ezmark" value="45"> Villa
-                                        </label>
-                                    </div>
+                                    <!-- /.controls -->
                                 </div>
-                                <!-- /.property-types -->
-                                <div class="general">
-                                    <select name="filter_location" id="inputLocation-" class="location">
-                                        <option value="">Lieu</option>
-                                        <option value="7">Barney Circle</option>
-                                        <option value="56">Benning</option>
-                                        <option value="54">Benning Heights</option>
-                                        <option value="55">Benning Ridge</option>
-                                        <option value="57">Burrville</option>
-                                        <option value="47">Capitol Hill</option>
-                                        <option value="58">Capitol View</option>
-                                        <option value="59">Central Northeast</option>
-                                        <option value="60">Civic Betterment</option>
-                                        <option value="48">Judiciary Square</option>
-                                        <option value="49">Kingman Park</option>
-                                        <option value="50">Navy Yard</option>
-                                        <option value="51">Near Northeast</option>
-                                        <option value="65">Spring Valley</option>
-                                        <option value="52">Sursum Corda</option>
-                                        <option value="53">Swampoodle</option>
-                                    </select>
+                                <!-- /.control-group -->
 
-                                    <select name="filter_bedrooms" id="inputBeds-" class="beds">
-                                        <option value="">Lits</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
+                                <div class="type control-group">
+                                    <label class="control-label">
+                                        Type
+                                    </label>
 
-                                    <select name="filter_bathrooms" id="inputBaths-" class="baths">
-                                        <option value="">Salle de bain</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-
-                                    <select name="filter_price_from" id="inputPriceFrom-" class="price-from">
-                                        <option value="">Prix de</option>
-                                        <option value="1000">1,000 €</option>
-                                        <option value="20000">20,000 €</option>
-                                        <option value="50000">50,000 €</option>
-                                        <option value="100000">100,000 €</option>
-                                    </select>
-
-                                    <select name="filter_price_to" id="inputPriceTo-" class="price-to">
-                                        <option value="">Prix jusqu'à</option>
-                                        <option value="1000">1,000 €</option>
-                                        <option value="20000">20,000 €</option>
-                                        <option value="50000">50,000 €</option>
-                                        <option value="100000">100,000 €</option>
-                                    </select>
-
-                                    <input type="text" value="" name="filter_area_from" id="inputAreaFrom-"
-                                           placeholder="Zone de">
-
-                                    <input type="text" value="" name="filter_area_to" id="inputAreaTo-"
-                                           placeholder="Zone à">
-
-                                    <button class="btn btn-primary btn-large">Filtrer!</button>
+                                    <div class="controls">
+                                        <select name="filter_type">
+                                            <option>-</option>
+                                            <option>Apartment</option>
+                                            <option>Building Area</option>
+                                            <option>Condo</option>
+                                            <option>Cottage</option>
+                                            <option>Family House</option>
+                                            <option>Single Home</option>
+                                            <option>Villa</option>
+                                        </select>
+                                    </div>
+                                    <!-- /.controls -->
                                 </div>
-                                <!-- /.general -->
+                                <!-- /.control-group -->
+
+
+                                <div class="rent control-group">
+                                    <div class="controls">
+                                        <label class="checkbox">
+                                            <input type="checkbox" value="rent"> Rent
+                                        </label>
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+                                <!-- /.control-group -->
+
+                                <div class="sale control-group">
+                                    <div class="controls">
+                                        <label class="checkbox">
+                                            <input type="checkbox" value="sale"> Sale
+                                        </label>
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+                                <!-- /.control-group -->
+
+                                <div class="price-from control-group">
+                                    <label class="control-label">
+                                        Price From
+                                    </label>
+
+                                    <div class="controls">
+                                        <select name="filter_price_from">
+                                            <option value="">-</option>
+                                            <option value="1000">1,000 €</option>
+                                            <option value="20000">20,000 €</option>
+                                            <option value="50000">50,000 €</option>
+                                            <option value="100000">100,000 €</option>
+                                        </select>
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+                                <!-- /.control-group -->
+
+                                <div class="price-to control-group">
+                                    <label class="control-label">
+                                        Price To
+                                    </label>
+
+                                    <div class="controls">
+                                        <select name="filter_price_to">
+                                            <option value="">-</option>
+                                            <option value="1000">1,000 €</option>
+                                            <option value="20000">20,000 €</option>
+                                            <option value="50000">50,000 €</option>
+                                            <option value="100000">100,000 €</option>
+                                        </select>
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+                                <!-- /.control-group -->
+
+                                <div class="area-from control-group">
+                                    <label class="control-label">
+                                        Area From
+                                    </label>
+
+                                    <div class="controls">
+                                        <input type="text" value="" name="filter_area_from">
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+                                <!-- /.control-group -->
+
+                                <div class="area-to control-group">
+                                    <label class="control-label">
+                                        Area To
+                                    </label>
+
+                                    <div class="controls">
+                                        <input type="text" value="" name="filter_area_to">
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+                                <!-- /.control-group -->
+
+                                <div class="form-actions">
+                                    <button class="btn btn-primary btn-large">Filter now!</button>
+                                </div>
+                                <!-- /.form-actions -->
                             </form>
                         </div>
                         <!-- /.content -->
-                    </div>
-                    <!-- /.property-filter -->                        </div>
-                <!-- /.span12 -->
+                    </div><!-- /.property-filter -->                    </div>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container -->        </div>
+
+        <div id="francemap" class="map-inner" style="height: 750px"></div>
+        <!-- /.map-inner -->
+    </div>
     <!-- /.map -->
 </div>
 
@@ -187,19 +187,38 @@
 <div class="row">
 
 <div class="sidebar span3">
-<div id="quick-search" class="widget widget-search"><h2>Recherche rapide</h2>
+<div id="quick-search" class="widget widget-search"><h2>Quick Search</h2>
 
     <div class="content">
         <form method="get" class="site-search" action="javascript:void(0);">
-            <input class="search-query form-text" placeholder="Recherche" type="text" name="s" id="s" value="">
-            <button type="submit" class="btn"> Rechercher </button>
+            <input class="search-query form-text" placeholder="Search" type="text" name="s" id="s" value="">
+            <button type="submit" class="btn">Search</button>
         </form>
         <!-- /.site-search -->
     </div>
     <!-- /.inner -->
-</div>                               <div id="mostrecentproperties_widget-2" class="widget properties">
+</div>                <div id="partners_widget-2" class="widget partners">
 
-    <h2>Les récentes propriétés</h2>
+    <h2>Partners</h2>
+
+    <div class="partners">
+        <div class="row">
+            <div class="span3">
+                <div class="partner">
+                    <a href="http://www.facebook.com">
+                        <img width="270" height="70" src="assets/img/partners/themeforest.png"
+                             class="thumbnail-image" alt="themeforest"/>
+                    </a>
+                </div>
+            </div>
+            <!-- /.span3 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.partners -->
+</div>                <div id="mostrecentproperties_widget-2" class="widget properties">
+
+    <h2>Most Recent Properties</h2>
 
     <div class="content">
         <div class="property clearfix">
@@ -223,7 +242,7 @@
                 <!-- /.location -->
 
                 <div class="price">
-                    Nous contacter
+                    Contact us
                 </div>
                 <!-- /.price -->
             </div>
@@ -267,7 +286,7 @@
                 <!-- /.location -->
 
                 <div class="price">
-                    500 € <span class="suffix">/ par mois</span></div>
+                    500 € <span class="suffix">/ per month</span></div>
                 <!-- /.price -->
             </div>
             <!-- /.wrapper -->
@@ -348,7 +367,7 @@
 
 </div>                <div id="agencies_widget-2" class="widget agencies">
 
-    <h2>Les agences</h2>
+    <h2>Agencies</h2>
 
     <div class="content">
         <div class="agency clearfix">
@@ -364,11 +383,11 @@
                     <h2>Beverly Hills Real Estate</h2>
 
                     <div class="properties-count">
-                        <span class="number">2</span> Propriétés
+                        <span class="number">2</span> properties
                     </div>
                     <!-- /.properties-count -->
 
-                    <a href="index.htm" class="btn">Voir le profil</a>
+                    <a href="default.htm" class="btn">View profile</a>
                 </div>
                 <!-- /.info -->
             </div>
@@ -381,7 +400,7 @@
             <!-- /.address -->
 
             <div class="email">
-                <a href="mailto:sample@example.com">exemple@exemple.com</a>
+                <a href="mailto:sample@example.com">sample@example.com</a>
             </div>
             <!-- /.email -->
 
@@ -405,11 +424,11 @@
                     <h2>Colombia Real Estate</h2>
 
                     <div class="properties-count">
-                        <span class="number">6</span> Propriétés
+                        <span class="number">6</span> properties
                     </div>
                     <!-- /.properties-count -->
 
-                    <a href="index.htm" class="btn">Voir le profil</a>
+                    <a href="default.htm" class="btn">View profile</a>
                 </div>
                 <!-- /.info -->
             </div>
@@ -422,7 +441,7 @@
             <!-- /.address -->
 
             <div class="email">
-                <a href="mailto:sample@example.com">exemple@exemple.com</a>
+                <a href="mailto:sample@example.com">sample@example.com</a>
             </div>
             <!-- /.email -->
 
@@ -441,7 +460,7 @@
 
 <div id="main" class="span9">
 
-<h2>Meilleurs propriétés </h2>
+<h2>Featured Properties</h2>
 <div class="properties-grid featured">
 <div class="row">
     <div class="span3">
@@ -648,10 +667,10 @@
 <!-- /.properties-grid -->
 
 <div class="show-all">
-    <a href="properties/default.htm">Montrer tout</a>
+    <a href="properties/default.htm">Show all</a>
 </div>                <hr>
 
-<h1 class="page-header">Propriétés récentes </h1>
+<h1 class="page-header">Recent Properties</h1>
 <div class="properties-grid">
 <div class="row-fluid">
 <div class="span3">
@@ -733,7 +752,7 @@
             <!-- /.rent-sale -->
 
             <div class="price">
-                500 € <span class="suffix">/ par mois</span></div>
+                500 € <span class="suffix">/ per month</span></div>
             <!-- /.price -->
 
         </div>
@@ -1182,7 +1201,7 @@
 </div>
 <!-- /.properties-grid -->
 <div class="show-all">
-    <a href="properties/default.htm">Montrer tout</a>
+    <a href="properties/default.htm">Show all</a>
 </div>                <hr>
 
 <div id="features-grid" class="features-grid widget">
@@ -1201,9 +1220,10 @@
                         <div class="content span2">
                             <h3>Real Front end submission</h3>
 
-                            <p>CodiOne permet à vos utilisateurs d'ajouter leur propriétés</p>
+                            <p>Properta allows your users to add their own properties in real front-end
+                                page.</p>
 
-                            <p><a href="index.htm">Montrer tout<i class="icon icon-normal-right-arrow-circle"></i></a>
+                            <p><a href="default.htm">Show All<i class="icon icon-normal-right-arrow-circle"></i></a>
                             </p>
                         </div>
                         <!-- /.content -->
@@ -1224,9 +1244,9 @@
                         <div class="content span2">
                             <h3>Translation Ready &amp; WPML Support</h3>
 
-                            <p>Traduit CodiOne dans ton langage avec les PO files</p>
+                            <p>Translate Properta to your language using PO files or WPML</p>
 
-                            <p><a href="index.htm">Montrer tout<i class="icon icon-normal-right-arrow-circle"></i></a>
+                            <p><a href="default.htm">Show All<i class="icon icon-normal-right-arrow-circle"></i></a>
                             </p>
                         </div>
                         <!-- /.content -->
@@ -1247,8 +1267,9 @@
                         <div class="content span2">
                             <h3>dsIDXPress for WP Support</h3>
 
+                            <p>Properta supports leading IDX/MLS real estate search WP plugin.</p>
 
-                            <p><a href="index.htm">Montrer tout<i class="icon icon-normal-right-arrow-circle"></i></a>
+                            <p><a href="default.htm">Show All<i class="icon icon-normal-right-arrow-circle"></i></a>
                             </p>
                         </div>
                         <!-- /.content -->
@@ -1260,7 +1281,7 @@
     </div>
 </div>
 <div id="carouselproperties" class="property-carousel widget">
-<h2>Propriétés </h2>
+<h2>Carousel Properties</h2>
 <div class="carousel">
 <ul class="bxslider properties-grid unstyled">
 <li>
@@ -1283,7 +1304,7 @@
             <!-- /.rent-sale -->
 
             <div class="price">
-                Contacter nous
+                Contact us
             </div>
             <!-- /.price -->
 
@@ -1795,7 +1816,7 @@
             <!-- /.rent-sale -->
 
             <div class="price">
-                900 € <span class="suffix">par Mois</span></div>
+                900 € <span class="suffix">per Month</span></div>
             <!-- /.price -->
 
             <div class="reduced">
@@ -1914,9 +1935,71 @@
 
 </div>
 
+<div id="partners_widget-3" class="widget partners">
 
-</div>
-</div>
+    <h2>Partners</h2>
+
+    <div class="partners">
+        <div class="row">
+            <div class="span3">
+                <div class="partner">
+                    <a href="http://www.facebook.com">
+                        <img width="270" height="70" src="assets/img/partners/themeforest.png"
+                             class="thumbnail-image " alt="themeforest"/>
+                    </a>
+                </div>
+            </div>
+            <!-- /.span3 -->
+            <div class="span3">
+                <div class="partner">
+                    <a href="../www.activeden.net/default.htm">
+                        <img width="270" height="70" src="assets/img/partners/activeden.png"
+                             class="thumbnail-image " alt="activeden"/>
+                    </a>
+                </div>
+            </div>
+            <!-- /.span3 -->
+            <div class="span3">
+                <div class="partner">
+                    <a href="../www.3docean.net/default.htm">
+                        <img width="270" height="70" src="assets/img/partners/3docean.png"
+                             class="thumbnail-image " alt="3docean"/>
+                    </a>
+                </div>
+            </div>
+            <!-- /.span3 -->
+            <div class="span3">
+                <div class="partner">
+                    <a href="../www.codecanyon.net/default.htm">
+                        <img width="270" height="70" src="assets/img/partners/code-canyon.png"
+                             class="thumbnail-image " alt="code-canyon"/>
+                    </a>
+                </div>
+            </div>
+            <!-- /.span3 -->
+            <div class="span3">
+                <div class="partner">
+                    <a href="../www.photodune.net/default.htm">
+                        <img width="270" height="70" src="assets/img/partners/photo-dune.png"
+                             class="thumbnail-image " alt="photo-dune"/>
+                    </a>
+                </div>
+            </div>
+            <!-- /.span3 -->
+            <div class="span3">
+                <div class="partner">
+                    <a href="../www.graphicriver.net/default.htm">
+                        <img width="270" height="70" src="assets/img/partners/graphic-river.png"
+                             class="thumbnail-image " alt="graphic-river"/>
+                    </a>
+                </div>
+            </div>
+            <!-- /.span3 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.partners -->
+</div>            </div>
 <!-- /#main -->
 
 </div>
