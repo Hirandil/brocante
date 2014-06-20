@@ -169,6 +169,16 @@
 <!--                                </ul>-->
                             </li>
 
+
+                            <li class="menu-item menu-item-parent">
+                                <a href="/index.php?section=Manifestation&action=search">Rechercher </a>
+                                <!--                                <ul class="sub-menu">-->
+                                <!--                                    <li class="menu-item"><a href="templates/default-left.html">Left sidebar</a></li>-->
+                                <!--                                    <li class="menu-item"><a href="templates/default-right.html">Right sidebar</a></li>-->
+                                <!--                                    <li class="menu-item"><a href="templates/default-full.html">Full width</a></li>-->
+                                <!--                                </ul>-->
+                            </li>
+
                             <li class="menu-item">
                                 <a href="contact.html">Contact</a>
                             </li>

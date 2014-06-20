@@ -12,7 +12,7 @@
         private $_libelle;
 
         public function __construct (array $data){
-            $this->_id = $data['idType'];
+            $this->_id = $data['id'];
             $this->_libelle = $data['libelle'];
         }
 

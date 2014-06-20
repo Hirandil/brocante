@@ -10,7 +10,8 @@
         public function __construct()
         {
             try {
-                $this->_db = new PDO(SQL_DSN,SQL_USERNAME,SQL_PASSWORD);
+                $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+                $this->_db = new PDO(SQL_DSN,SQL_USERNAME,SQL_PASSWORD,$pdo_options);
                 }
             catch(Exception $e)
             {

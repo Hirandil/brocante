@@ -59,4 +59,13 @@ class typeManager{
         $q->bindValue(':id', $t->getId(), PDO::PARAM_INT);
         $q->bindValue(':libelle', $t->getLibelle(), PDO::PARAM_STR);
     }
+
+    public function getAll(){
+        $q = $this->_db->prepare('SELECT * from Types');
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC)){
+            $types[] = new Type($data);
+        }
+        return $types;
+    }
 }

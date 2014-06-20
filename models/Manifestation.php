@@ -5,7 +5,7 @@
         private $_name;
         private $_city;
         private $_department;
-        private $_country;
+        private $_region;
         private $_address;
         private $_start;
         private $_end;
@@ -22,7 +22,7 @@
             $this->_name = $data['name'];
             $this->_city = $data['city'];
             $this->_department = $data['department'];
-            $this->_country = $data['country'];
+            $this->_region = $data['region'];
             $this->_address = $data['address'];
             $this->_start = $data['start'];
             $this->_end = $data['end'];
@@ -69,19 +69,19 @@
         }
 
         /**
-         * @param mixed $country
+         * @param mixed $region
          */
-        public function setCountry($country)
+        public function setRegion($region)
         {
-            $this->_country = $country;
+            $this->_region = $region;
         }
 
         /**
          * @return mixed
          */
-        public function getCountry()
+        public function getRegion()
         {
-            return $this->_country;
+            return $this->_region;
         }
 
         /**
