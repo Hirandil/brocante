@@ -1,15 +1,30 @@
 <?php
-    //require_once 'models/User.php';
-    require_once 'models/manifestationManager.php';
+    require_once 'models/User.php';
     require_once 'models/Manifestation.php';
+    require_once 'models/userManager.php';
+    require_once 'models/manifestationManager.php';
     require_once 'Controller/Controller.php';
 
     class ManifestationController extends Controller
     {
+        private $_um;
         private $_mm;
 
         public function __construct(){
             parent::__construct();
+            $this->_um = new UserManager($this->_db);
+            $this->_mm = new manifestationManager(($this->_db));
+        }
+
+        public function create() {
+            if(isset($_POST['name']) && isset($_POST['organiser']))
+            {
+
+            }
+            else
+            {
+                include('views/createManif.php');
+            }
             $this->_mm = new manifestationManager($this->_db);
         }
 

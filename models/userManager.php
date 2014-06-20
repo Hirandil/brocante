@@ -52,7 +52,7 @@
         {
             $data = NULL ;
             if (is_string($info)) {
-                echo('OK');
+
                 $q = $this->_db->prepare('SELECT * FROM users WHERE email = :mail');
                 $q->bindValue(':mail', $info, PDO::PARAM_STR);
                 $q->execute();
