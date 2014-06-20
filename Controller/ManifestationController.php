@@ -50,11 +50,11 @@
                     $filtre['where'][] = 'type=:type';
                     $filtre['PDOargument']['type'] = htmlspecialchars($_POST['type']);
                 }
-                if($_POST['region'] != "------") {
+                if($_POST['region'] != null) {
                     $filtre['where'][] = 'region=:region';
                     $filtre['PDOargument']['region'] = htmlspecialchars($_POST['region']);
                 }
-                if($_POST['department'] != "------") {
+                if($_POST['department'] != null) {
                     $filtre['where'][] = 'department=:department';
                     $filtre['PDOargument']['region'] = htmlspecialchars($_POST['department']);
                 }
@@ -75,7 +75,7 @@
            else
            {
                $types = $this->_tm->getAll();
-               include('views/manifestations/search.html');
+               include('views/manifestations/search.php');
            }
         }
 

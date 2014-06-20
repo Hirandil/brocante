@@ -12,6 +12,7 @@
             try {
                 $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
                 $this->_db = new PDO(SQL_DSN,SQL_USERNAME,SQL_PASSWORD,$pdo_options);
+                $this->_db->exec('SET NAMES utf8');
                 }
             catch(Exception $e)
             {

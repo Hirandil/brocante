@@ -42,7 +42,18 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="type" size="30" value="" id="type" autocomplete="off" >
+            <select name="type" id="type" size="30" >
+                <option value="------" selected>------</option>
+                <?php
+
+                foreach($types as $t)
+                {
+                    ?>
+                    <option value="<?php echo $t->getId() ?>" > <?php echo $t->getLibelle() ?> </option>
+                <?php
+                }
+                ?>
+            </select>
         </div>
     </div>
     <div class="control-group">
@@ -51,7 +62,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="region" size="30" value="" id="region" disabled >
+            <input type="text" name="region" size="30" value="" id="region" >
         </div>
     </div>
     <div class="control-group">
