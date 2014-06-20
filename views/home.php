@@ -176,7 +176,7 @@
             </div>
         </div>
 
-        <div id="francemap" class="map-inner" style="height: 750px"></div>
+        <div id="francemap" class="map-inner" style="height: 750px;margin-top: 150px;"></div>
         <!-- /.map-inner -->
     </div>
     <!-- /.map -->
