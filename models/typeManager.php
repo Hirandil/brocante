@@ -8,7 +8,7 @@
 
 include_once('models/Type.php');
 
-class typeManger{
+class typeManager{
 
     private $_db;
 
