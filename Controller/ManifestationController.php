@@ -22,17 +22,18 @@
 
         public function add(){
             if ( isset($_SESSION['userLogin']) ){
-                //echo $_POST['department'];
+
                 if ( isset($_POST['title'],$_POST['route'],$_POST['city'],$_POST['department'],$_POST['region'],$_POST['dateStart'],$_POST['dateEnd'],$_POST['timeStart'],$_POST['timeEnd'])){
 
                     // TODO : Verifie si c'est pas vide
                     // TODO : Completer le tableau
-                    $array = array('idManifestation' => 0, 'name' => $_POST['title'],'city'  => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'country' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] );
+                    $array = array('idManifestation' => 0, 'name' => $_POST['title'],'city' => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'region' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] , 'idOrganiser' => $_SESSION['userId']);
                     $manifestation = new Manifestation($array);
                     $this->_mm->create($manifestation);
                     $_SESSION['Manifestation crée'];
-
-                    header('Location: index.php');
+                    echo $_POST['timeEnd'];
+                    //header('Location: index.php');
+                    include 'views/manifestations/add.php';
                 }
                 else{
                     $types = $this->_tm->getAll();

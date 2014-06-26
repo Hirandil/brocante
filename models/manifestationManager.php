@@ -42,6 +42,7 @@ class manifestationManager
         }
         catch(Exception $e)
         {
+            echo $e;
             echo "Error at manifestation creation";
         }
     }
