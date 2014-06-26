@@ -150,4 +150,27 @@ class manifestationManager
         }
         return $manifestations;
     }
+    public function getSoon($time,$limit)
+    {
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE TO_DAYS(start) - TO_DAYS(NOW()) < '.$time.' LIMIT '.$limit);
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
+
+    public function getLast()
+    {
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE createdAt ');
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
+
 }
+?>

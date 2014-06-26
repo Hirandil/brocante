@@ -87,6 +87,10 @@
            }
         }
 
+        public function index() {
+
+        }
+
 
     }
 ?>

@@ -6,7 +6,7 @@
 
 <div id="main" class="span12">
 
-<h1 class="page-header"> Rechercher</h1>
+<h1 class="page-header"> Rechercher </h1>
 
 <div class="progressbar">
     <div class="progressbar-inner">

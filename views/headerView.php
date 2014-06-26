@@ -51,7 +51,7 @@
 
                     <div class="site-name">
                         <a href="index.php" title="Home" class="brand">
-                            CodiOne
+                            Brocante
                         </a>
                     </div>
                     <!-- /.site-name -->
@@ -63,7 +63,7 @@
                             <a href="http://www.facebook.com" class="facebook"><i>F</i></a>
                         </li>
 
-                        <li class="leaf google-plus"><a href="http://plus.google.com" class="google"><i>g</i></a></li>
+                        <li class="leaf google-plus"><a href="http://plus.google.com" class="google"><i></i></a></li>
 
                         <li class="leaf twitter"><a href="http://www.twitter.com" class="twitter"><i>T</i></a></li>
                     </ul>
@@ -76,7 +76,6 @@
                 <div class="user-area pull-right">
                     <div class="menu-anonymous-container">
                         <ul id="menu-anonymous" class="nav nav-pills">
-                            <li class="menu-item"><a href="/index.php"> Ajouter une manifestation  </a></li>
                             <li class="menu-item"><a href="/index.php?section=User&action=login"> Se connecter </a></li>
                             <li class="menu-item"><a href="/index.php?section=User&action=register"> S'inscrire </a></li>
                         </ul>
@@ -185,7 +184,7 @@
 
             <div class="breadcrumb pull-left">
                 <!-- Breadcrumb NavXT 4.4.0 -->
-                <a title="CodiOne." href="index.php" class="home">CodiOne</a> &gt; Page
+                <a title="Brocante." href="index.php" class="home">Brocante</a> &gt;
             </div>
 
             <!-- /.breadcrumb -->

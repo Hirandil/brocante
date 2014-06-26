@@ -316,6 +316,11 @@
             <!-- /.info -->
         </div>
         <!-- /.content -->
+        <div class="sm-col-3">
+        <div id="text-3" class="widget widget-text">
+            <div class="textwidget">&copy; 2014 Brocante, Tous droits réservés </div>
+        </div>
+        </div>
 
     </div>
 </div>
