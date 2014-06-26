@@ -63,15 +63,9 @@
                             <a href="http://www.facebook.com" class="facebook"><i>F</i></a>
                         </li>
 
-                        <li class="leaf flickr"><a href="http://www.flickr.com" class="flickr"><i>n</i></a></li>
-
                         <li class="leaf google-plus"><a href="http://plus.google.com" class="google"><i>g</i></a></li>
 
-                        <li class="leaf linkedin"><a href="htp://linkedin.com" class="linkedin"><i>l</i></a></li>
-
                         <li class="leaf twitter"><a href="http://www.twitter.com" class="twitter"><i>T</i></a></li>
-
-                        <li class="last leaf vimeo"><a href="http://vimeo.com" class="vimeo"><i>v</i></a></li>
                     </ul>
                 </div>
 
@@ -82,6 +76,7 @@
                 <div class="user-area pull-right">
                     <div class="menu-anonymous-container">
                         <ul id="menu-anonymous" class="nav nav-pills">
+                            <li class="menu-item"><a href="/index.php"> Ajouter une manifestation  </a></li>
                             <li class="menu-item"><a href="/index.php?section=User&action=login"> Se connecter </a></li>
                             <li class="menu-item"><a href="/index.php?section=User&action=register"> S'inscrire </a></li>
                         </ul>
@@ -95,6 +90,7 @@
                 <div class="user-area pull-right">
                     <div class="menu-anonymous-container">
                         <ul id="menu-anonymous" class="nav nav-pills">
+                            <li class="menu-item"><a href="/index.php"> Ajouter une manifestation  </a></li>
                             <li class="menu-item"><a href="/index.php?section=User&action=update"> Mon compte  </a></li>
                             <li class="menu-item"><a href="/index.php?section=User&action=logout"> Déconnexion </a></li>
                         </ul>
@@ -115,7 +111,7 @@
 
                     <div class="nav-collapse collapse">
                         <ul id="menu-main" class="nav">
-                            <li class="menu-item active-menu-item menu-item-parent">
+                            <li class="menu-item active-menu-item ">
                                 <a href="index.php"> Accueil</a>
 <!--                                <ul class="sub-menu">-->
 <!--                                    <li class="menu-item"><a href="frontpage-slider.html">Revolution slider</a></li>-->
@@ -124,8 +120,8 @@
 <!--                                </ul>-->
                             </li>
 
-                            <li class="menu-item menu-item-parent">
-                                <a href="#">Lister</a>
+                            <li class="menu-item ">
+                                <a href="/index.php?section=Manifestation&action=add">Annoncer un évènement</a>
 
 <!--                                <ul class="sub-menu">-->
 <!--                                    <li class="menu-item"><a href="properties/default.htm">Properties listing</a></li>-->
@@ -143,7 +139,7 @@
                             </li>
 
                             <li class="menu-item ">
-                                <a href="/index.php?section=Manifestation&action=add">Déposer une annonce</a>
+                                <a href="/index.php?section=Manifestation&action=search">Recherche Avancée</a>
 <!--                                <ul class="sub-menu">-->
 <!--                                    <li class="menu-item"><a href="404.html">404 page</a></li>-->
 <!--                                    <li class="menu-item"><a href="faq.html">FAQ page</a></li>-->
@@ -151,8 +147,8 @@
 <!--                                </ul>-->
                             </li>
 
-                            <li class="menu-item menu-item-parent">
-                                <a href="#">Soumissions</a>
+                            <li class="menu-item ">
+                                <a href="#">Legislation & Organisation</a>
 <!--                                <ul class="sub-menu">-->
 <!--                                    <li class="menu-item"><a href="submissions/default.htm">List submissions</a></li>-->
 <!--                                    <li class="menu-item"><a href="submissions/add.html">Add submission</a></li>-->
@@ -160,8 +156,8 @@
 <!--                                </ul>-->
                             </li>
 
-                            <li class="menu-item menu-item-parent">
-                                <a href="#">Templates</a>
+                            <li class="menu-item ">
+                                <a href="#">Bien vendre & bien acheter</a>
 <!--                                <ul class="sub-menu">-->
 <!--                                    <li class="menu-item"><a href="templates/default-left.html">Left sidebar</a></li>-->
 <!--                                    <li class="menu-item"><a href="templates/default-right.html">Right sidebar</a></li>-->
@@ -169,26 +165,16 @@
 <!--                                </ul>-->
                             </li>
 
-
-                            <li class="menu-item menu-item-parent">
-                                <a href="/index.php?section=Manifestation&action=search">Rechercher </a>
-                                <!--                                <ul class="sub-menu">-->
-                                <!--                                    <li class="menu-item"><a href="templates/default-left.html">Left sidebar</a></li>-->
-                                <!--                                    <li class="menu-item"><a href="templates/default-right.html">Right sidebar</a></li>-->
-                                <!--                                    <li class="menu-item"><a href="templates/default-full.html">Full width</a></li>-->
-                                <!--                                </ul>-->
-                            </li>
-
-                            <li class="menu-item">
-                                <a href="contact.html">Contact</a>
-                            </li>
+<!--                            <li class="menu-item">-->
+<!--                                <a href="contact.html">Aide</a>-->
+<!--                            </li>-->
                         </ul>
                     </div>
                 </div>
 
                 <div class="pull-right">
                     <div class="list-property">
-                        <a href="manifestations/default.htm">Lister les propriétés<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
+                        <a href="manifestations/default.htm">Aide<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
                         </a>
                     </div>
                     <!-- /.list-property -->

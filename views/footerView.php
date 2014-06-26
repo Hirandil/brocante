@@ -6,7 +6,7 @@
 <div id="footer-top">
 <div id="footer-top-inner" class="container">
 <div class="row">
-<div class="span3">
+<div class="span6">
     <div id="mostrecentproperties_widget-3" class="widget properties">
 
         <h2>Les plus récentes</h2>
@@ -159,117 +159,12 @@
     </div>
 </div>
 
-<div class="span3">
-    <div id="nav_menu-2" class="widget widget-nav_menu"><h2>Liens utiles</h2>
 
-        <div class="menu-helpful-links-container">
-            <ul id="menu-helpful-links" class="menu">
-                <li class="menu-item"><a
-                        href="templates/default-left.html"> Brocante</a></li>
-                <li class="menu-item"><a
-                        href="templates/default-right.html"> Vide-grenier.com</a></li>
-                <li class="menu-item"><a
-                        href="templates/default-full.html"> Lien utile </a></li>
 
-            </ul>
-        </div>
-    </div>
-</div>
-
-<div class="span3">
-    <div id="agents_widget-2" class="widget our-agents">
-
-        <h2>Agents</h2>
-
-        <div class="content">
-            <div class="agent clearfix">
-                <div class="image">
-                    <a href="agents/agent-detail.html">
-                        <img src="assets/img/agents/2.jpg" alt="Cynthia G. Stenson">
-                    </a>
-                </div>
-                <!-- /.image -->
-
-                <div class="name">
-                    <a href="agents/agent-detail.html">Cynthia G. Stenson</a>
-                </div>
-                <!-- /.name -->
-
-                <div class="phone">
-                    <i class="icon icon-normal-phone"></i>
-                    985-632-254
-                </div>
-                <!-- /.phone -->
-
-                <div class="email">
-                    <i class="icon icon-normal-mail"></i>
-                    <a href="mailto:cynthia@example.com">cynthia@example.com</a>
-                </div>
-                <!-- /.email -->
-            </div>
-            <!-- /.agent -->
-            <div class="agent clearfix">
-                <div class="image">
-                    <a href="agents/agent-detail.html">
-                        <img src="assets/img/agents/1.jpg" alt="Stephen E. Kennedy">
-                    </a>
-                </div>
-                <!-- /.image -->
-
-                <div class="name">
-                    <a href="agents/agent-detail.html">Stephen E. Kennedy</a>
-                </div>
-                <!-- /.name -->
-
-                <div class="phone">
-                    <i class="icon icon-normal-phone"></i>
-                    987-852-123
-                </div>
-                <!-- /.phone -->
-
-                <div class="email">
-                    <i class="icon icon-normal-mail"></i>
-                    <a href="mailto:stephen@example.com">stephen@example.com</a>
-                </div>
-                <!-- /.email -->
-            </div>
-            <!-- /.agent -->
-            <div class="agent clearfix">
-                <div class="image">
-                    <a href="agents/agent-detail.html">
-                        <img src="assets/img/agents/2.jpg" alt="Myrtle J. Metz">
-                    </a>
-                </div>
-                <!-- /.image -->
-
-                <div class="name">
-                    <a href="agents/agent-detail.html">Myrtle J. Metz</a>
-                </div>
-                <!-- /.name -->
-
-                <div class="phone">
-                    <i class="icon icon-normal-phone"></i>
-                    987-963-654
-                </div>
-                <!-- /.phone -->
-
-                <div class="email">
-                    <i class="icon icon-normal-mail"></i>
-                    <a href="mailto:myrtle@example.com">myrtle@example.com</a>
-                </div>
-                <!-- /.email -->
-            </div>
-            <!-- /.agent -->
-        </div>
-        <!-- /.content -->
-
-    </div>
-</div>
-
-<div class="span3">
+<div class="span6">
     <div id="featuredproperties_widget-2" class="widget properties">
 
-        <h2>Les meilleurs</h2>
+        <h2>Les plus visitées</h2>
 
         <div class="content">
             <div class="property clearfix">
