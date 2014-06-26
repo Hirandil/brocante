@@ -20,9 +20,7 @@ class manifestationManager
 
     public function create(Manifestation $m)
     {
-        $q = $this->_db->prepare('INSERT INTO Manifestations (name,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,idOrganiser) VALUES(:name,:city,:region,:dept,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser) ');
-        echo $m->getName();
-        //echo 'INSERT INTO Manifestations (name,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,organiser) VALUES(:name,:city,:region,:dept,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser)';
+        $q = $this->_db->prepare('INSERT INTO Manifestations (name,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,idOrganiser,image) VALUES(:name,:city,:region,:dept,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser,:image) ');
         $q->bindValue(':name', $m->getName(), PDO::PARAM_STR);
         $q->bindValue(':city', $m->getCity(), PDO::PARAM_STR);
         $q->bindValue(':dept', $m->getDepartment(), PDO::PARAM_STR);
@@ -37,6 +35,7 @@ class manifestationManager
         $q->bindValue(':exNumb', $m->getExhibitorNumber(), PDO::PARAM_INT);
         $q->bindValue(':exPrice', $m->getExhibitorPrice(), PDO::PARAM_INT);
         $q->bindValue(':organiser', $m->getIdOrganiser(), PDO::PARAM_INT);
+        $q->bindValue(':image', $m->getImage(), PDO::PARAM_STR);
         try
         {
             $q->execute();
@@ -103,7 +102,7 @@ class manifestationManager
 
     public function update(Manifestation $m)
     {
-        $q = $this->_db->prepare('UPDATE Manifestations SET name= :name ,city= :city,department = :dept,region = :region,address = :add,start = :start,end = :end ,type = :type,schedule = :schedule,site = :site,price = :price,exhibitorNumber = :exNumb,exhibitorPrice = :exPrice,idOrganiser = :organiser WHERE idManifestation = :id');
+        $q = $this->_db->prepare('UPDATE Manifestations SET name= :name ,city= :city,department = :dept,region = :region,address = :add,start = :start,end = :end ,type = :type,schedule = :schedule,site = :site,price = :price,exhibitorNumber = :exNumb,exhibitorPrice = :exPrice,idOrganiser = :organiser,image = :image WHERE idManifestation = :id');
         $q->bindValue(':id', $m->getId(), PDO::PARAM_INT);
         $q->bindValue(':name', $m->getName(), PDO::PARAM_STR);
         $q->bindValue(':city', $m->getCity(), PDO::PARAM_STR);
@@ -119,6 +118,7 @@ class manifestationManager
         $q->bindValue(':exNumb', $m->getExhibitorNumber(), PDO::PARAM_INT);
         $q->bindValue(':exPrice', $m->getExhibitorPrice(), PDO::PARAM_INT);
         $q->bindValue(':organiser', $m->getIdOrganiser(), PDO::PARAM_INT);
+        $q->bindValue(':image', $m->getImage(), PDO::PARAM_STR);
         $q->execute();
     }
 
@@ -164,7 +164,7 @@ class manifestationManager
 
     public function getLast()
     {
-        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE createdAt ');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY createdAt LIMIT 3');
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {

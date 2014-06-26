@@ -16,6 +16,7 @@
         private $_price;
         private $_exhibitorNumber;
         private $_exhibitorPrice;
+        private $_image;
 
         public function __construct (array $data){
             $this->_id = $data['idManifestation'];
@@ -33,9 +34,17 @@
             $this->_price = $data['price'];
             $this->_exhibitorNumber = $data['exhibitorNumber'];
             $this->_exhibitorPrice = $data['exhibitorPrice'];
-
+            $this->_image = $data['image'];
         }
 
+        public function getImage()
+        {
+            return $this->_image;
+        }
+
+        public function setImage($url){
+            $this->_image = $url;
+        }
         /**
          * @param mixed $address
          */

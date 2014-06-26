@@ -102,8 +102,6 @@ $content = ob_get_clean();
 
 <?php
     include('views/headerView.php');
-    if(isset($_SESSION['message']))
-        echo $_SESSION['message'];
     echo $content;
     if(!isset($_GET['section']))
     {
