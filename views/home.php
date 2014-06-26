@@ -34,6 +34,7 @@
                 <div class="span3">
                     <div class="property-filter widget">
                         <div class="content">
+                            <p style="color:white;border-bottom: 1px; border-style:solid">Rechercher une manifestation</p>
                             <form method="get" action="javascript:void(0);">
                                 <div class="location control-group">
                                     <label class="control-label">
@@ -81,11 +82,62 @@
                             </form>
                         </div>
                         <!-- /.content -->
-                    </div><!-- /.property-filter -->                    </div>
+                    </div><!-- /.property-filter -->
+
+                    <br>
+
+
+                    <div class="property-filter widget">
+                        <div class="content">
+                            <p style="color:white;border-bottom: 1px; border-style:solid">S'inscrire à la newsletter</p>
+                            <p style="color:white; font-size:75%;">Recevez directement dans votre boite mail la liste des ventes qui ont lieu près de chez vous</p>
+                            <form method="get" action="javascript:void(0);">
+
+                                <!-- /.control-group -->
+
+                                <div class="type control-group">
+                                    <label class="control-label">
+                                        Email
+                                    </label>
+
+                                    <div class="controls">
+                                        <input type="text" id="departmentGoogle" name="department" >
+
+
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+                                <!-- /.control-group -->
+                                <div class="type control-group">
+                                    <label class="control-label">
+                                        Code postal
+                                    </label>
+
+                                    <div class="controls">
+                                        <input type="text" id="cityGoogle" name="city" >
+
+
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+
+
+                                <div class="form-actions">
+                                    <button class="btn btn-primary btn-large"> S'inscrire !</button>
+                                </div>
+                                <!-- /.form-actions -->
+                            </form>
+                        </div>
+                        <!-- /.content -->
+                    </div>
+
+                </div>
             </div>
         </div>
 
-        <div id="francemap" class="map-inner" style="height: 750px;margin-top: 150px;"></div>
+
+
+        <div id="francemap" class="map-inner" style="height: 750px;margin-top: 150px; padding-left: 150px"></div>
         <!-- /.map-inner -->
     </div>
     <!-- /.map -->
