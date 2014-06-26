@@ -175,7 +175,7 @@
 
         <div class="controls">
             <div class="input-append">
-                <input type="number" name="numberSellers" value="">
+                <input type="number" name="exhibitorNumber" value="">
             </div>
         </div>
     </div>
@@ -185,7 +185,7 @@
 
         <div class="controls">
             <div class="input-append">
-                <input type="number" name="priceSellers" value="">
+                <input type="number" name="exhibitorPrice" value="">
             </div>
         </div>
     </div>
@@ -220,12 +220,21 @@
         </div>
     </div>
     <div class="control-group">
+        <label class="control-label" for="address">
+            Site internet
+        </label>
+
+        <div class="controls">
+            <input type="text" name="site" size="30" id="site" autocomplete="off" >
+        </div>
+    </div>
+    <div class="control-group">
         <label class="control-label" for="description">
             Informations complémentaires
         </label>
 
         <div class="controls">
-            <textarea id="description" rows="4" name="content" style="min-height:225px;"></textarea>
+            <textarea id="description" rows="4" name="content" style="min-height:150px;"></textarea>
         </div>
     </div>
 
