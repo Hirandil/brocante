@@ -20,8 +20,9 @@ class manifestationManager
 
     public function create(Manifestation $m)
     {
-        $q = $this->_db->prepare('INSERT INTO Manifestations (name,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,organiser) VALUES(:name,:city,:region,:dept,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser) ');
-
+        $q = $this->_db->prepare('INSERT INTO Manifestations (name,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,idOrganiser) VALUES(:name,:city,:region,:dept,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser) ');
+        echo $m->getName();
+        //echo 'INSERT INTO Manifestations (name,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,organiser) VALUES(:name,:city,:region,:dept,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser)';
         $q->bindValue(':name', $m->getName(), PDO::PARAM_STR);
         $q->bindValue(':city', $m->getCity(), PDO::PARAM_STR);
         $q->bindValue(':dept', $m->getDepartment(), PDO::PARAM_STR);
@@ -49,7 +50,7 @@ class manifestationManager
 
     public function exists($id)
     {
-        $q = $this->_db->prepare('SELECT COUNT(*) FROM Manifestations WHERE id = :id');
+        $q = $this->_db->prepare('SELECT COUNT(*) FROM Manifestations WHERE idManifestation = :id');
         $q->bindValue(':id', $id, PDO::PARAM_INT);
         $q->execute();
         if(!$q->fetchColumn(0))
@@ -72,7 +73,7 @@ class manifestationManager
         else {
             $id = (int) $info;
 
-            $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE id = :id');
+            $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE idManifestation = :id');
             $q->bindValue(':id', $id, PDO::PARAM_INT);
             $q->execute();
             $data = $q->fetch(PDO::FETCH_ASSOC);
@@ -94,7 +95,7 @@ class manifestationManager
         else {
             $id = (int) $info;
 
-            $q = $this->_db->prepare('DELETE FROM Manifestations WHERE id = :id');
+            $q = $this->_db->prepare('DELETE FROM Manifestations WHERE idManifestation = :id');
             $q->bindValue(':id', $id, PDO::PARAM_INT);
             $q->execute();
         }
@@ -102,7 +103,7 @@ class manifestationManager
 
     public function update(Manifestation $m)
     {
-        $q = $this->_db->prepare('UPDATE Manifestations SET name= :name ,city= :city,department = :dept,region = :region,address = :add,start = :start,end = :end ,type = :type,schedule = :schedule,site = :site,price = :price,exhibitorNumber = :exNumb,exhibitorPrice = :exPrice,organiser = :organiser WHERE id = :id');
+        $q = $this->_db->prepare('UPDATE Manifestations SET name= :name ,city= :city,department = :dept,region = :region,address = :add,start = :start,end = :end ,type = :type,schedule = :schedule,site = :site,price = :price,exhibitorNumber = :exNumb,exhibitorPrice = :exPrice,idOrganiser = :organiser WHERE idManifestation = :id');
         $q->bindValue(':id', $m->getId(), PDO::PARAM_INT);
         $q->bindValue(':name', $m->getName(), PDO::PARAM_STR);
         $q->bindValue(':city', $m->getCity(), PDO::PARAM_STR);
@@ -126,7 +127,7 @@ class manifestationManager
         $manifestations = NULL;
         try
         {
-            $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE'.implode(' AND ', $filtre['where']).' ORDER BY start');
+            $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE '.implode(' AND ', $filtre['where']).' ORDER BY start');
             $q->execute($filtre['PDOargument']);
             while($data = $q->fetch(PDO::FETCH_ASSOC))
             {

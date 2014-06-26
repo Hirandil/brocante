@@ -1,7 +1,7 @@
 
 <div id="content" class="clearfix">
 
-<div class="map-wrapper">
+<div class="map-wrapper" >
     <div class="map">
         <script type="text/javascript">
             $(document).ready(function() {

@@ -31,7 +31,7 @@
                     $this->_mm->create($manifestation);
                     $_SESSION['message'] = 'Manifestation crée';
 
-                    header('Location: index.php');
+                    //header('Location: index.php');
 
                     }
                     else{
@@ -71,13 +71,13 @@
                 {
 
                     $manifestations = $this->_mm->search($filtre);
-                    include('views/manifestations/results.html');
+                    include('views/manifestations/results.php');
 
                 }
                 else
                 {
                     $manifestations = $this->_mm->getAll();
-                    include('views/manifestations/results.html');
+                    include('views/manifestations/results.php');
                 }
            }
            else
