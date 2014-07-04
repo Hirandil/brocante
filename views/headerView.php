@@ -57,7 +57,17 @@
                     <!-- /.site-name -->
                 </div>
 
+                <div class="contact-top">
+                    <ul class="menu nav">
+                        <li class="first leaf facebook">
+                            <a href="http://www.facebook.com" class="facebook"><i>F</i></a>
+                        </li>
 
+                        <li class="leaf google-plus"><a href="http://plus.google.com" class="google"><i>g</i></a></li>
+
+                        <li class="leaf twitter"><a href="http://www.twitter.com" class="twitter"><i>T</i></a></li>
+                    </ul>
+                </div>
 
                 <?php
                 if(!isset($_SESSION['userLogin']))
@@ -163,7 +173,7 @@
 
                 <div class="pull-right">
                     <div class="list-property">
-                        <a href="manifestations/default.htm">Aide<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
+                        <a href="">Aide<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
                         </a>
                     </div>
                     <!-- /.list-property -->

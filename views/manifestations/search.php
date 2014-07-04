@@ -13,21 +13,16 @@
         <div class="row">
             <div class="item span4">
                 <div class="number">1</div>
-                <strong>Info</strong>
+                <strong>Type ou Location</strong>
             </div>
             <!-- /.item  -->
 
             <div class="item span4">
                 <div class="number">2</div>
-                <strong>Type</strong>
+                <strong>Par Date</strong>
             </div>
             <!-- /.item  -->
 
-            <div class="item span4">
-                <div class="number">3</div>
-                <strong>Details</strong>
-            </div>
-            <!-- /.item  -->
         </div>
         <!-- /.row -->
     </div>
@@ -35,14 +30,13 @@
 </div>
 <!-- /.progressbar -->
 <form method="post" action="/index.php?section=Manifestation&action=search" class="submission-form form-vertical">
-    <input type="hidden" name="idType" id="idType" value="">
     <div class="control-group">
         <label class="control-label" for="type">
             Type de la manifestation
         </label>
 
         <div class="controls">
-            <select name="type" id="type" size="30" >
+            <select name="type" id="type" size="30" style="width: 35%;">
                 <option value="------" selected>------</option>
                 <?php
 
@@ -76,7 +70,7 @@
     </div>
 
 
-        <button type="submit" > Rechercher </button>
+        <button type="submit" class="btn btn-primary arrow-right" > Rechercher </button>
 
 
 
