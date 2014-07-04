@@ -92,7 +92,20 @@
         }
 
         public function show(){
-            include 'views/manifestations/show.php';
+
+            if (isset($_GET['id'])){
+                $id = (int) htmlspecialchars($_GET['id']);
+                if($this->_mm->exists($id)){
+                    $manifestation = $this->_mm->get($id);
+                    include 'views/manifestations/show.php';
+                }
+                else{
+                    header('Location: index.php');
+                }
+            }
+            else
+                header('Location: index.php');
+
         }
 
 

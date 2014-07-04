@@ -5,7 +5,7 @@
 <div class="row">
 
 <div class="sidebar span8">
-<h2>Marché aux puces de Wittelsheim</h2>
+<h2><?php echo $manifestation->getName() ?></h2>
 <div class="property clearfix">
     <div class="image">
         <a href="property-detail.html">
@@ -18,12 +18,12 @@
     <div class="wrapper">
         <div class="title">
             <h3><a href="property-detail.html">
-                    643 37th Ave
+                    <?php echo $manifestation->getAddress() ?>
                 </a></h3>
         </div>
         <!-- /.title -->
 
-        <div class="location">Burrville</div>
+        <div class="location"><?php echo $manifestation->getCity() ?></div>
         <!-- /.location -->
 
         <div class="price">
@@ -34,67 +34,73 @@
     <!-- /.wrapper -->
 </div>
 <div class="property-info clearfix">
+    <h5 style=" border-bottom: 1px solid #f69679; ">Localisation</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
-        800m<sup>2</sup>
+        <?php echo $manifestation->getAddress() ?>, <?php echo $manifestation->getCity() ?>, <?php echo $manifestation->getRegion() ?>, <?php echo $manifestation->getDepartment() ?>
     </div>
-    <!-- /.area -->
-
     <div class="bedrooms">
         <i class="icon icon-normal-bed"></i>
         2
     </div>
-    <!-- /.bedrooms -->
     <br>
-    <h5>Localisation</h5>
+    <h5 style=" border-bottom: 1px solid #f69679; ">Horaires</h5>
+    <div class="area">
+        <i class="icon icon-normal-cursor-scale-up"></i>
+        <?php echo $manifestation->getSchedule() ?>
+    </div>
+    <br>
+    <h5 style=" border-bottom: 1px solid #f69679; ">Site web de l'organisateur</h5>
+    <div class="area">
+        <i class="icon icon-normal-cursor-scale-up"></i>
+        <?php
+        if($manifestation->getSite()=='')
+            echo 'Non renseigné';
+        else
+            echo $manifestation->getSite();
+        ?>
+    </div>
+    <br>
+    <h5 style=" border-bottom: 1px solid #f69679; ">Commentaires</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
         800m<sup>2</sup>
     </div>
     <br>
-    <h5>Horaires</h5>
+    <h5 style=" border-bottom: 1px solid #f69679; ">Prix d'entrée</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
-        800m<sup>2</sup>
+        <?php
+        if($manifestation->getPrice()=='')
+            echo 'Non renseigné';
+        else
+            echo $manifestation->getPrice();
+        ?>
     </div>
     <br>
-    <h5>Site web de l'organisateur</h5>
+    <h5 style=" border-bottom: 1px solid #f69679; ">Nombre d'exposants</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
-        800m<sup>2</sup>
+        <?php
+        if($manifestation->getExhibitorNumber()=='')
+            echo 'Non renseigné';
+        else
+            echo $manifestation->getExhibitorNumber();
+        ?>
     </div>
     <br>
-    <h5>Commentaires</h5>
+    <h5 style=" border-bottom: 1px solid #f69679; ">Tarif pour exposant</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
-        800m<sup>2</sup>
+        <?php
+        if($manifestation->getExhibitorPrice()=='')
+            echo 'Non renseigné';
+        else
+            echo $manifestation->getExhibitorPrice();
+        ?>
     </div>
     <br>
-    <h5>Informations pratiques</h5>
-    <div class="area">
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        800m<sup>2</sup>
-    </div>
-    <br>
-    <h5>Prix d'entrée</h5>
-    <div class="area">
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        800m<sup>2</sup>
-    </div>
-    <br>
-    <h5>Nombre d'exposants</h5>
-    <div class="area">
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        800m<sup>2</sup>
-    </div>
-    <br>
-    <h5>Tarif pour exposant</h5>
-    <div class="area">
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        800m<sup>2</sup>
-    </div>
-    <br>
-    <h5>Parking à proximité</h5>
+    <h5 style=" border-bottom: 1px solid #f69679; ">Parking à proximité</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
         800m<sup>2</sup>
@@ -104,93 +110,6 @@
 
 <div id="agencies_widget-2" class="widget agencies">
 
-    <h2>Agencies</h2>
-
-    <div class="content">
-        <div class="agency clearfix">
-            <div class="header">
-                <div class="image">
-                    <a href="../agencies/agency-detail.html">
-                        <img src="../assets/img/agency-small-tmp.png" alt="Beverly Hills Real Estate">
-                    </a>
-                </div>
-                <!-- /.image -->
-
-                <div class="info">
-                    <h2>Beverly Hills Real Estate</h2>
-
-                    <div class="properties-count">
-                        <span class="number">2</span> properties
-                    </div>
-                    <!-- /.properties-count -->
-
-                    <a href="default.htm" class="btn">View profile</a>
-                </div>
-                <!-- /.info -->
-            </div>
-            <!-- /.header -->
-
-            <div class="address">
-                4265 Broadway Avenue<br/>
-                Johnson City, TN 37601
-            </div>
-            <!-- /.address -->
-
-            <div class="email">
-                <a href="mailto:sample@example.com">sample@example.com</a>
-            </div>
-            <!-- /.email -->
-
-            <div class="phone">
-                (401) 852-987
-            </div>
-            <!-- /.phone -->
-
-        </div>
-        <!-- /.agency -->
-        <div class="agency clearfix">
-            <div class="header">
-                <div class="image">
-                    <a href="../agencies/agency-detail.html">
-                        <img src="../assets/img/agency-small-tmp.png" alt="Colombia Real Estate">
-                    </a>
-                </div>
-                <!-- /.image -->
-
-                <div class="info">
-                    <h2>Colombia Real Estate</h2>
-
-                    <div class="properties-count">
-                        <span class="number">6</span> properties
-                    </div>
-                    <!-- /.properties-count -->
-
-                    <a href="default.htm" class="btn">View profile</a>
-                </div>
-                <!-- /.info -->
-            </div>
-            <!-- /.header -->
-
-            <div class="address">
-                485 Shinn Avenue<br/>
-                Pittsburgh, PA 15222
-            </div>
-            <!-- /.address -->
-
-            <div class="email">
-                <a href="mailto:sample@example.com">sample@example.com</a>
-            </div>
-            <!-- /.email -->
-
-            <div class="phone">
-                (401) 458-965
-            </div>
-            <!-- /.phone -->
-
-        </div>
-        <!-- /.agency -->
-    </div>
-    <!-- /.content -->
 
 </div></div>
 <!-- /#sidebar -->
