@@ -30,6 +30,8 @@
 </div>
 <!-- /.progressbar -->
 <form method="post" action="/index.php?section=Manifestation&action=search" class="submission-form form-vertical">
+<div class="row">
+  <div class="span4">
     <div class="control-group">
         <label class="control-label" for="type">
             Type de la manifestation
@@ -72,11 +74,35 @@
 
         <button type="submit" class="btn btn-primary arrow-right" > Rechercher </button>
 
-
-
 </div>
 </form>
 <!-- /#main -->
+<div class="span4">
+
+    <div class="control-group">
+        <label class="control-label" for="start">
+            À partir du
+        </label>
+    </div>
+
+    <div class="controls">
+        <input type="date" name="start" id="start">
+    </div>
+
+    <div class="control-group">
+        <label class="control-group" for="end">
+            Jusqu'au
+        </label>
+    </div>
+    <div class="controls">
+        <input type="date" name="end" id="end">
+    </div>
+
+
+</div>
+
+</div>
+
 </div>
 <!-- /.row -->
 </div>

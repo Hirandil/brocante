@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="871cdad1-21c6-4249-acbf-a09d7093d49c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/headerView.php" afterPath="$PROJECT_DIR$/views/headerView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/properta.css" afterPath="$PROJECT_DIR$/assets/css/properta.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller/ManifestationController.php" afterPath="$PROJECT_DIR$/Controller/ManifestationController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/manifestationManager.php" afterPath="$PROJECT_DIR$/models/manifestationManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manifestations/results.php" afterPath="$PROJECT_DIR$/views/manifestations/results.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manifestations/search.php" afterPath="$PROJECT_DIR$/views/manifestations/search.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -29,19 +29,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="search.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="search.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/manifestations/search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="48" selection-start="903" selection-end="903" vertical-scroll-proportion="-4.375" vertical-offset="390" max-vertical-offset="1725">
-              <folding />
+            <state line="93" column="20" selection-start="2478" selection-end="2478" vertical-scroll-proportion="0.8055105" vertical-offset="898" max-vertical-offset="2115">
+              <folding>
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="manifestationManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/manifestationManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="5" selection-start="659" selection-end="659" vertical-scroll-proportion="19.25" vertical-offset="867" max-vertical-offset="1785">
+            <state line="128" column="9" selection-start="4976" selection-end="4976" vertical-scroll-proportion="-11.416667" vertical-offset="1571" max-vertical-offset="2850">
+              <folding>
+                <marker date="1404474537222" expanded="true" signature="349:613" placeholder="INSERT INTO ..." />
+                <marker date="1404474537222" expanded="true" signature="1884:1947" placeholder="SELECT COUNT..Manifestations..." />
+                <marker date="1404474537222" expanded="true" signature="2259:2307" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1404474537222" expanded="true" signature="2585:2641" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1404474537222" expanded="true" signature="2990:3036" placeholder="DELETE FROM ..." />
+                <marker date="1404474537222" expanded="true" signature="3223:3277" placeholder="DELETE FROM ..." />
+                <marker date="1404474537222" expanded="true" signature="3465:3775" placeholder="UPDATE Manif..." />
+                <marker date="1404474537222" expanded="true" signature="5514:5542" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1404474537222" expanded="true" signature="6175:6223" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1404474537222" expanded="true" signature="6498:6573" placeholder="SELECT * FRO..Manifestations..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/manifestations/add.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="247" column="6" selection-start="7088" selection-end="7088" vertical-scroll-proportion="-137.625" vertical-offset="402" max-vertical-offset="4320">
               <folding />
             </state>
           </provider>
@@ -50,27 +72,16 @@
       <file leaf-file-name="ManifestationController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controller/ManifestationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="514" selection-start="1887" selection-end="1887" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="1575">
+            <state line="97" column="66" selection-start="4562" selection-end="4562" vertical-scroll-proportion="-13.5" vertical-offset="1131" max-vertical-offset="1950">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="results.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="results.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/manifestations/results.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="2" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.92715234" vertical-offset="220" max-vertical-offset="1260">
-              <folding>
-                <element signature="e#6#90#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Manifestation.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Manifestation.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="24" selection-start="462" selection-end="462" vertical-scroll-proportion="-9.708333" vertical-offset="37" max-vertical-offset="4440">
+            <state line="61" column="46" selection-start="1614" selection-end="1614" vertical-scroll-proportion="-20.083334" vertical-offset="358" max-vertical-offset="1140">
               <folding />
             </state>
           </provider>
@@ -102,13 +113,13 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Controller/Controller.php" />
         <option value="$PROJECT_DIR$/models/Manifestation.php" />
-        <option value="$PROJECT_DIR$/models/manifestationManager.php" />
-        <option value="$PROJECT_DIR$/Controller/ManifestationController.php" />
         <option value="$PROJECT_DIR$/views/footerView.php" />
         <option value="$PROJECT_DIR$/views/headerView.php" />
-        <option value="$PROJECT_DIR$/views/manifestations/search.php" />
         <option value="$PROJECT_DIR$/assets/css/properta.css" />
+        <option value="$PROJECT_DIR$/Controller/ManifestationController.php" />
+        <option value="$PROJECT_DIR$/models/manifestationManager.php" />
         <option value="$PROJECT_DIR$/views/manifestations/results.php" />
+        <option value="$PROJECT_DIR$/views/manifestations/search.php" />
       </list>
     </option>
   </component>
@@ -320,13 +331,18 @@
       <created>1403792421697</created>
       <updated>1403792421697</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="[UPDATE] results">
+      <created>1404467067830</created>
+      <updated>1404467067830</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31743667" sideWeight="0.49961567" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11624441" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -343,33 +359,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31743667" sideWeight="0.49961567" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11624441" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32974634" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31743667" sideWeight="0.50038433" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24980783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -393,7 +386,8 @@
     <MESSAGE value="[ADD] Vue search" />
     <MESSAGE value="[UPDATE] INdex" />
     <MESSAGE value="[UPDATE] Add search + db" />
-    <option name="LAST_COMMIT_MESSAGE" value="[UPDATE] Add search + db" />
+    <MESSAGE value="[UPDATE] results" />
+    <option name="LAST_COMMIT_MESSAGE" value="[UPDATE] results" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -599,19 +593,9 @@
         <state line="175" column="33" selection-start="9210" selection-end="9210" vertical-scroll-proportion="0.4041451" vertical-offset="2391" max-vertical-offset="2970" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/manifestationManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="51" selection-start="4831" selection-end="4831" vertical-scroll-proportion="2.9015543" vertical-offset="45" max-vertical-offset="2670" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/global.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="0.1266892" vertical-offset="0" max-vertical-offset="592" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/manifestations/add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="197" column="44" selection-start="5708" selection-end="5708" vertical-scroll-proportion="0.49913645" vertical-offset="2666" max-vertical-offset="4320" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/properta.css">
@@ -633,20 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/manifestations/search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="48" selection-start="903" selection-end="903" vertical-scroll-proportion="-4.375" vertical-offset="390" max-vertical-offset="1725">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/ManifestationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="514" selection-start="1887" selection-end="1887" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="1575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="5" selection-start="659" selection-end="659" vertical-scroll-proportion="19.25" vertical-offset="867" max-vertical-offset="1785">
@@ -656,16 +626,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Manifestation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="24" selection-start="462" selection-end="462" vertical-scroll-proportion="-9.708333" vertical-offset="37" max-vertical-offset="4440">
+        <state line="18" column="24" selection-start="462" selection-end="462" vertical-scroll-proportion="0.37763372" vertical-offset="37" max-vertical-offset="4440">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/manifestations/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="247" column="6" selection-start="7088" selection-end="7088" vertical-scroll-proportion="-137.625" vertical-offset="402" max-vertical-offset="4320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/manifestationManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="9" selection-start="4976" selection-end="4976" vertical-scroll-proportion="-11.416667" vertical-offset="1571" max-vertical-offset="2850">
+          <folding>
+            <marker date="1404474537222" expanded="true" signature="349:613" placeholder="INSERT INTO ..." />
+            <marker date="1404474537222" expanded="true" signature="1884:1947" placeholder="SELECT COUNT..Manifestations..." />
+            <marker date="1404474537222" expanded="true" signature="2259:2307" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1404474537222" expanded="true" signature="2585:2641" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1404474537222" expanded="true" signature="2990:3036" placeholder="DELETE FROM ..." />
+            <marker date="1404474537222" expanded="true" signature="3223:3277" placeholder="DELETE FROM ..." />
+            <marker date="1404474537222" expanded="true" signature="3465:3775" placeholder="UPDATE Manif..." />
+            <marker date="1404474537222" expanded="true" signature="5514:5542" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1404474537222" expanded="true" signature="6175:6223" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1404474537222" expanded="true" signature="6498:6573" placeholder="SELECT * FRO..Manifestations..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/ManifestationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="66" selection-start="4562" selection-end="4562" vertical-scroll-proportion="-13.5" vertical-offset="1131" max-vertical-offset="1950">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/manifestations/results.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="2" selection-start="1286" selection-end="1286" vertical-scroll-proportion="0.92715234" vertical-offset="220" max-vertical-offset="1260">
+        <state line="61" column="46" selection-start="1614" selection-end="1614" vertical-scroll-proportion="-20.083334" vertical-offset="358" max-vertical-offset="1140">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/manifestations/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="20" selection-start="2478" selection-end="2478" vertical-scroll-proportion="0.8055105" vertical-offset="898" max-vertical-offset="2115">
           <folding>
-            <element signature="e#6#90#0" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

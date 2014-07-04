@@ -66,10 +66,35 @@
                     $filtre['where'][] = 'department=:department';
                     $filtre['PDOargument']['region'] = htmlspecialchars($_POST['department']);
                 }
+               if($_POST['start'] != null){
+                   $filtre['where'][] = 'start>=:start';
+                   $filtre['PDOargument']['start'] = htmlspecialchars($_POST['start']);
+               }
+               if($_POST['end'] != null){
+                   $filtre['where'][] = 'end<=:end';
+                   $filtre['PDOargument']['end'] = htmlspecialchars($_POST['end']);
+               }
 
                 if (!empty($filtre))
                 {
+                  /*  $manif_page = 5;
+                    $nb_total = sizeof($this->_mm->getAll());
+                    $nb_page = ceil($nb_total/$manif_page);
 
+                    if(isset($_GET['page']))
+                    {
+                        $pageActuelle=intval($_GET['page']);
+
+                        if($pageActuelle>$nb_page)
+                        {
+                            $pageActuelle=$nb_page;
+                        }
+                    }
+                    else
+                    {
+                        $pageActuelle=1;
+                    }
+                    $premiereEntree=($pageActuelle-1)*$manif_page;*/
                     $manifestations = $this->_mm->search($filtre);
                     include('views/manifestations/results.php');
 
