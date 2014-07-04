@@ -122,6 +122,7 @@
                 $id = (int) htmlspecialchars($_GET['id']);
                 if($this->_mm->exists($id)){
                     $manifestation = $this->_mm->get($id);
+                    $nearTowns = $this->_mm->getNearTowns($manifestation->getDepartment());
                     include 'views/manifestations/show.php';
                 }
                 else{

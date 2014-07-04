@@ -39,10 +39,10 @@
         <i class="icon icon-normal-cursor-scale-up"></i>
         <?php echo $manifestation->getAddress() ?>, <?php echo $manifestation->getCity() ?>, <?php echo $manifestation->getRegion() ?>, <?php echo $manifestation->getDepartment() ?>
     </div>
-    <div class="bedrooms">
-        <i class="icon icon-normal-bed"></i>
-        2
-    </div>
+<!--    <div class="bedrooms">-->
+<!--        <i class="icon icon-normal-bed"></i>-->
+<!--        2-->
+<!--    </div>-->
     <br>
     <h5 style=" border-bottom: 1px solid #f69679; ">Horaires</h5>
     <div class="area">
@@ -131,17 +131,32 @@
 
 
 
-        <h2>Brocantes du département</h2>
+        <h2>Carte des brocantes du département</h2>
 
         <div id="property-map"
              style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden; -webkit-transform: translateZ(0);">
         </div>
-<br>
+        <br>
 
+        <h2>Brocantes aux alentours</h2>
+        <ul>
+            <?php
+                foreach($nearTowns as $nearTown)
+                {
+                    ?>
+                    <li><a href="index.php?section=Manifestation&action=show&id=<?php echo $nearTown->getId(); ?>"> <?php echo $nearTown->getName() ?> à <?php echo $nearTown->getCity() ?></a></li>
+                <?php
+                }
+                ?>
+
+
+<!--            <li>> Brocante ville 2</li>-->
+<!--            <li>> Brocante ville 3</li>-->
+        </ul>
     <div class="property-filter widget" style="background-color: #003f4f;">
         <div class="content">
             <p style="color:white;border-bottom: 1px; border-style:solid">S'inscrire à la newsletter</p>
-            <p style="color:white; font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes de la région Alsace</p>
+            <p style="color:white; font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes de la région <?php echo $manifestation->getDepartment() ?></p>
             <form method="get" action="javascript:void(0);">
 
                     <div class="type control-group">
@@ -173,6 +188,8 @@
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
                 function LoadMapProperty() {
+                    var geocoder;
+                    geocoder = new google.maps.Geocoder();
                     var locations = new Array(
                         [38.951399, -76.958463]
                     );
@@ -182,44 +199,61 @@
                     var markers = new Array();
                     var plainMarkers = new Array();
 
-                    var mapOptions = {
-                        center: new google.maps.LatLng(38.951399, -76.958463),
-                        zoom: 14,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP,
-                        scrollwheel: false
-                    };
+                    var results = new Array();
+                    geocoder.geocode( { 'address': '<?php echo $manifestation->getAddress() ?>'}, function(results, status) {
+                        /* Si l'adresse a pu être géolocalisée */
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            console.log(results)
+                            results = results;
 
-                    var map = new google.maps.Map(document.getElementById('property-map'), mapOptions);
+                            var mapOptions = {
+                                center: new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng()),
+                                zoom: 14,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                scrollwheel: false
+                            };
 
-                    $.each(locations, function (index, location) {
-                        var marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(location[0], location[1]),
-                            map: map,
-                            icon: '../assets/img/marker-transparent.png'
-                        });
+                            var map = new google.maps.Map(document.getElementById('property-map'), mapOptions);
 
-                        var myOptions = {
-                            draggable: true,
-                            content: '<div class="marker ' + types[index] + '"><div class="marker-inner"></div></div>',
-                            disableAutoPan: true,
-                            pixelOffset: new google.maps.Size(-21, -58),
-                            position: new google.maps.LatLng(location[0], location[1]),
-                            closeBoxURL: "",
-                            isHidden: false,
-                            // pane: "mapPane",
-                            enableEventPropagation: true
-                        };
-                        marker.marker = new InfoBox(myOptions);
-                        marker.marker.isHidden = false;
-                        marker.marker.open(map, marker);
-                        markers.push(marker);
+                            $.each(locations, function (index, location) {
+                                var marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng()),
+                                    map: map,
+                                    icon: '../assets/img/marker-transparent.png'
+                                });
+
+                                var myOptions = {
+                                    draggable: true,
+                                    content: '<div class="marker ' + types[index] + '"><div class="marker-inner"></div></div>',
+                                    disableAutoPan: true,
+                                    pixelOffset: new google.maps.Size(-21, -58),
+                                    position: new google.maps.LatLng(location[0], location[1]),
+                                    closeBoxURL: "",
+                                    isHidden: false,
+                                    // pane: "mapPane",
+                                    enableEventPropagation: true
+                                };
+                                marker.marker = new InfoBox(myOptions);
+                                marker.marker.isHidden = false;
+                                marker.marker.open(map, marker);
+                                markers.push(marker);
+                            });
+
+                            google.maps.event.addListener(map, 'zoom_changed', function () {
+                                $.each(markers, function (index, marker) {
+                                    marker.infobox.close();
+                                });
+                            });
+
+                        }
                     });
+                    //console.log(results)
 
-                    google.maps.event.addListener(map, 'zoom_changed', function () {
-                        $.each(markers, function (index, marker) {
-                            marker.infobox.close();
-                        });
-                    });
+
+
+
+
+
                 }
 
                 google.maps.event.addDomListener(window, 'load', LoadMapProperty);

@@ -18,7 +18,7 @@
             ?>
             <div class="property clearfix">
                 <div class="image">
-                    <a href="properties/property-detail.html">
+                    <a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId(); ?>">
                         <img width="570" height="425" src=<?php echo $m->getImage(); ?>
                              class="thumbnail-image " alt="19"/>
                     </a>
@@ -27,7 +27,7 @@
 
                 <div class="wrapper">
                     <div class="title">
-                        <h3><a href="properties/property-detail.html">
+                        <h3><a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId(); ?>">
                                 <?php echo $m->getName(); ?>
                             </a></h3>
                     </div>
@@ -64,8 +64,8 @@
                 ?>
                 <div class="property clearfix">
                     <div class="image">
-                        <a href="properties/property-detail.html">
-                            <img width="570" height="425" src=<?php echo $m->getImage(); ?>
+                        <a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId(); ?>">
+                            <img width="570" heix   ght="425" src=<?php echo $m->getImage(); ?>
                             class="thumbnail-image " alt="19"/>
                         </a>
                     </div>
@@ -73,7 +73,7 @@
 
                     <div class="wrapper">
                         <div class="title">
-                            <h3><a href="properties/property-detail.html">
+                            <h3><a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId(); ?>">
                                     <?php echo $m->getName(); ?>
                                 </a></h3>
                         </div>

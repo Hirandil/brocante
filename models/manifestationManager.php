@@ -175,7 +175,7 @@ class manifestationManager
 
     public function getNearTowns($dept)
     {
-        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept ORDER BY id LIMIT 0,3');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept ORDER BY idManifestation LIMIT 0,3');
         $q->bindValue(':dept', $dept, PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
