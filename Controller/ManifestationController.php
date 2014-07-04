@@ -91,6 +91,10 @@
 
         }
 
+        public function show(){
+            include 'views/manifestations/show.php';
+        }
+
 
     }
 ?>

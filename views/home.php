@@ -94,16 +94,16 @@
                             <form method="get" action="javascript:void(0);">
 
                                 <!-- /.control-group -->
-
+                                <?php
+                                if(!isset($_SESSION['userLogin']))
+                                {
+                                ?>
                                 <div class="type control-group">
                                     <label class="control-label">
                                         Email
                                     </label>
-
                                     <div class="controls">
-                                        <input type="text" id="departmentGoogle" name="department" >
-
-
+                                        <input type="text" id="departmentGoogle" name="department" disabled>
                                     </div>
                                     <!-- /.controls -->
                                 </div>
@@ -112,19 +112,43 @@
                                     <label class="control-label">
                                         Code postal
                                     </label>
-
                                     <div class="controls">
-                                        <input type="text" id="cityGoogle" name="city" >
-
-
+                                        <input type="text" id="cityGoogle" name="city" disabled>
                                     </div>
                                     <!-- /.controls -->
                                 </div>
-
-
                                 <div class="form-actions">
-                                    <button class="btn btn-primary btn-large"> S'inscrire !</button>
+                                    <a href="/index.php?section=User&action=register" class="btn btn-primary btn-large" > S'inscrire !</a>
                                 </div>
+                                <?php
+                                }
+                                else{
+                                    ?>
+                                <div class="type control-group">
+                                    <label class="control-label">
+                                        Email
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" id="departmentGoogle" name="department" >
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+                                <!-- /.control-group -->
+                                <div class="type control-group">
+                                    <label class="control-label">
+                                        Code postal
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" id="cityGoogle" name="city" >
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+                                <div class="form-actions">
+                                <button class="btn btn-primary btn-large"> S'inscrire !</button>
+                                    </div>
+                                <?php
+                                }
+                                ?>
                                 <!-- /.form-actions -->
                             </form>
                         </div>
