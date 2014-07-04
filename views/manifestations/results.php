@@ -6,7 +6,15 @@
  * Time: 12:45
  */
 ?>
-
+<div id="content" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <div id="main" class="span12"
+<h1> Résultats :</h1>
+            <?php
+                if(sizeof($manifestations) > 0)
+                {
+            ?>
 <table class="table submissions-table">
     <thead>
     <tr>
@@ -22,7 +30,6 @@
     foreach((array)$manifestations as $manif)
        {
 ?>
-
     <tr>
         <td class="thumbnail">
             <a href="/index.php/section=Manifestation&action=show&id=<?php echo $manif->getId();?>">
@@ -44,29 +51,19 @@
             <strong class="publish"><?php echo date_format(DateTime::createFromFormat('Y-m-d',$manif->getStart()),('d-m-Y'))." au ".date_format(DateTime::createFromFormat('Y-m-d',$manif->getEnd()),('d-m-Y'));?></strong>
         </td>
 
-    </tr>
-    <tr class="sep">
-        <td colspan="5"></td>
-    </tr>
+        </tr>
+        <tr class="sep">
+            <td colspan="5"></td>
+        </tr>
 <?php
         }
+    }
+    else {
+        echo 'Aucun résultat n\'a été trouvé';
+    }
 ?>
     </tbody>
 </table>
-
-<div class="pagination pagination-centered">
-    <ul class="unstyled">
-        <li><a href="#">Previous</a></li>
-        <li><a href="#" class="inactive">1</a></li>
-        <li class="active"><a href="#">2</a></li>
-        <li><a href="#" class="inactive">3</a>
-        </li>
-        <li><a href="#" class="inactive">4</a>
-        </li>
-        <li><a href="#">Next</a></li>
-        <li><a href="#">Last</a></li>
-    </ul>
-</div>
 
 
 </div>
@@ -76,4 +73,4 @@
 </div>
 <!-- /.container -->
 
-</div>x
+</div>

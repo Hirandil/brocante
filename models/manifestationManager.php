@@ -164,7 +164,19 @@ class manifestationManager
 
     public function getLast()
     {
-        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY createdAt LIMIT 3');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY id LIMIT 3');
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
+
+    public function getNearTowns($dept)
+    {
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept ORDER BY id LIMIT 0,3');
+        $q->bindValue(':dept', $dept, PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {
