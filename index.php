@@ -101,6 +101,7 @@ $content = ob_get_clean();
     <script type='text/javascript' src='assets/libraries/chosen/chosen.jquery.min.js'></script>
     <script type='text/javascript' src='assets/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>
     <script type='text/javascript' src='assets/libraries/rs-plugin/js/jquery.themepunch.plugins.min.js'></script>
+    <script type="text/javascript" src="assets/js/notify.min.js"></script>
     <title> CodiOne </title>
 </head>
 
@@ -109,10 +110,6 @@ $content = ob_get_clean();
 
 <?php
     include('views/headerView.php');
-    if(isset($_SESSION['message'])){
-        echo $_SESSION['message'];
-        $_SESSION['message']= "";
-    }
     echo $content;
     if(!isset($_GET['section']))
     {
@@ -120,5 +117,21 @@ $content = ob_get_clean();
     }
 
     include('views/footerView.php');
+
+    if(isset($_SESSION['message'])){
+    echo $_SESSION['message'];
+    ?>
+    <script>
+        $.notify(
+            '<?php echo $_SESSION['message']?>',
+            {
+                className: "success",
+                position:"bottom right"
+            }
+        );
+    </script>
+    <?php
+        $_SESSION['message']= "";
+    }
 ?>
 

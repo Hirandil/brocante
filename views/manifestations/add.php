@@ -307,9 +307,10 @@
                 var autocomplete = new google.maps.places.Autocomplete(input,options);
 
                 completeOthers = function(){
+                    console.log('CompleteOthers')
                     setTimeout(function() {
-                        console.log(autocomplete.gm_accessors_.place.Sc.place);
-                        var address_components = autocomplete.gm_accessors_.place.Sc.place.address_components;
+                        console.log(autocomplete);
+                        var address_components = autocomplete.gm_accessors_.place.Nc.place.address_components;
 
                         document.getElementById('cityGoogle').value = address_components[2].long_name;
                         document.getElementById('departmentGoogle').value = address_components[3].long_name;
