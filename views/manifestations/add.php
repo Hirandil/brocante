@@ -5,8 +5,20 @@
 
 
 <div id="main" class="span12">
+<?php
+    if($_GET['action'] == 'add')
+    {
+        $update = false;
+        echo '<h1 class="page-header">Ajouter une brocante</h1>';
+    }
+    else
+    {
+        $update = true;
+        echo  '<h1 class="page-header">Modifier une brocante</h1>';
+    }
+?>
 
-<h1 class="page-header">Ajouter une brocante</h1>
+
 
 <div class="progressbar">
     <div class="progressbar-inner">
@@ -34,9 +46,21 @@
     <!-- /.progressbar-inner -->
 </div>
 <!-- /.progressbar -->
-<form method="POST" action="/index.php?section=Manifestation&action=add" class="submission-form form-vertical">
+
+<form method="POST" <?php if(!$update)
+                            echo 'action="/index.php?section=Manifestation&action=add"';
+                          else
+                            echo 'action="/index.php?section=Manifestation&action=update"';
+                    ?>
+                    class="submission-form form-vertical"
+                    enctype="multipart/form-data">
 <div class="row">
 <div class="span4">
+    <?php
+       if($update){
+         echo '<input type="hidden" name="manifId" value="'.$manifestation->getId().'">';
+       }
+    ?>
     <input type="hidden" name="post_type" value="">
     <div class="control-group">
         <label class="control-label" for="address">
@@ -44,7 +68,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="title" size="30" id="title" autocomplete="off" required="required">
+            <input type="text" name="title" size="30" id="title" autocomplete="off" required="required" <?php if($update){echo 'value="'.$manifestation->getName().'"';}?>>
         </div>
     </div>
     <div class="control-group">
@@ -53,7 +77,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="route" size="30" id="addressGoogle" autocomplete="off" required="required" onchange="completeOthers()">
+            <input type="text" name="route" size="30" id="addressGoogle" autocomplete="off" required="required" onchange="completeOthers()" <?php if($update){echo 'value="'.$manifestation->getAddress().'"';}?>>
         </div>
     </div>
     <div class="control-group">
@@ -62,7 +86,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="city" size="30" id="cityGoogle" required="required"  >
+            <input type="text" name="city" size="30" id="cityGoogle" required="required" <?php if($update){echo 'value="'.$manifestation->getCity().'"';}?> >
         </div>
     </div>
     <div class="control-group">
@@ -71,7 +95,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="department" size="30"  id="departmentGoogle" required="required" >
+            <input type="text" name="department" size="30"  id="departmentGoogle" required="required" <?php if($update){echo 'value="'.$manifestation->getDepartment().'"';}?>>
         </div>
     </div>
     <div class="control-group">
@@ -80,7 +104,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="region" size="30" id="regionGoogle" required="required" >
+            <input type="text" name="region" size="30" id="regionGoogle" required="required" <?php if($update){echo 'value="'.$manifestation->getRegion().'"';}?> >
         </div>
     </div>
 
@@ -97,7 +121,7 @@
         </label>
 
         <div class="controls">
-            <input type="date" name="dateStart" id="inputDate" required="required">
+            <input type="date" name="dateStart" id="inputDate" required="required" <?php if($update){echo 'value="'.$manifestation->getStart().'"';}?>>
         </div>
         <!-- /.controls -->
     </div>
@@ -108,7 +132,7 @@
         </label>
 
         <div class="controls">
-            <input type="date" name="dateEnd" id="inputDate" required="required">
+            <input type="date" name="dateEnd" id="inputDate" required="required" <?php if($update){echo 'value="'.$manifestation->getEnd().'"';}?>>
         </div>
         <!-- /.controls -->
     </div>
@@ -119,7 +143,7 @@
         </label>
 
         <div class="controls">
-            <input type="time" name="timeStart" id="inputDate"  required="required">
+            <input type="time" name="timeStart" id="inputDate"  required="required" <?php if($update){echo 'value='.$start;}?>>
         </div>
         <!-- /.controls -->
     </div>
@@ -130,7 +154,7 @@
         </label>
 
         <div class="controls">
-            <input type="time" name="timeEnd" id="inputDate"  required="required">
+            <input type="time" name="timeEnd" id="inputDate"  required="required" <?php if($update){echo 'value='.$end;}?>>
         </div>
         <!-- /.controls -->
     </div>
@@ -143,12 +167,20 @@
 
             <select name="type">
                 <?php
-
                 foreach($types as $t)
                 {
-                    ?>
-                    <option value="<?php echo $t->getId() ?>" > <?php echo $t->getLibelle() ?> </option>
-                <?php
+                    if($update){
+                        if($manifestation->getType() == $t->getId()){
+                            echo '<option value="'.$t->getId().'" selected = true >.'.$t->getLibelle().'</option>';
+
+                        }
+                        else{
+                            echo '<option value="'.$t->getId().'">.'.$t->getLibelle().'</option>';
+                        }
+                    }
+                    else {
+                        echo '<option value="'.$t->getId().'">.'.$t->getLibelle().'</option>';
+                    }
                 }
                 ?>
             </select>
@@ -164,7 +196,7 @@
 
         <div class="controls">
             <div class="input-append">
-                <input type="number" name="price" value="">
+                <input type="number" name="price" <?php if($update){echo 'value="'.$manifestation->getPrice().'"';}?>>
                 <span class="add-on">€</span>
             </div>
         </div>
@@ -175,7 +207,7 @@
 
         <div class="controls">
             <div class="input-append">
-                <input type="number" name="exhibitorNumber" value="">
+                <input type="number" name="exhibitorNumber" <?php if($update){echo 'value="'.$manifestation->getExhibitorNumber().'"';}?>>
             </div>
         </div>
     </div>
@@ -185,7 +217,7 @@
 
         <div class="controls">
             <div class="input-append">
-                <input type="number" name="exhibitorPrice" value="">
+                <input type="number" name="exhibitorPrice" <?php if($update){echo 'value="'.$manifestation->getExhibitorPrice().'"';}?>>
             </div>
         </div>
     </div>
@@ -195,7 +227,7 @@
         </label>
 
         <div class="controls">
-            <input type="file" name="image">
+            <input type="file" name="image" id="image">
         </div>
     </div>
     <div class="control-group">
@@ -225,7 +257,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="site" size="30" id="site" autocomplete="off" >
+            <input type="text" name="site" size="30" id="site" autocomplete="off" <?php if($update){echo 'value="'.$manifestation->getSite().'"';}?>>
         </div>
     </div>
     <div class="control-group">
@@ -241,7 +273,17 @@
 </div>
 
 <div class="form-actions">
-    <input type="submit" class="btn btn-primary" value="Ajouter">
+    <?php
+        if($_GET['action'] == 'add')
+        {
+            echo '<input type="submit" class="btn btn-primary" value="Ajouter">';
+        }
+        else
+        {
+            $update = true;
+            echo  '<input type="submit" class="btn btn-primary" value="Modifier">';
+        }
+    ?>
 </div>
 </form>
 

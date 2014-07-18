@@ -85,7 +85,6 @@ class manifestationManager
     {
         $data = NULL ;
         if (is_string($info)) {
-
             $q = $this->_db->prepare('DELETE FROM Manifestations WHERE name = :nameM');
             $q->bindValue(':nameM', $info, PDO::PARAM_STR);
             $q->execute();
@@ -93,7 +92,6 @@ class manifestationManager
         }
         else {
             $id = (int) $info;
-
             $q = $this->_db->prepare('DELETE FROM Manifestations WHERE idManifestation = :id');
             $q->bindValue(':id', $id, PDO::PARAM_INT);
             $q->execute();
@@ -143,6 +141,7 @@ class manifestationManager
 
     public function getAll()
     {
+        $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations');
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -153,6 +152,7 @@ class manifestationManager
     }
     public function getSoon($time,$limit)
     {
+        $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE TO_DAYS(start) - TO_DAYS(NOW()) < '.$time.' LIMIT '.$limit);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -164,7 +164,8 @@ class manifestationManager
 
     public function getLast()
     {
-        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY id LIMIT 3');
+        $manifestations = NULL;
+        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY idManifestation LIMIT 3');
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {
@@ -175,6 +176,7 @@ class manifestationManager
 
     public function getNearTowns($dept)
     {
+        $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept ORDER BY idManifestation LIMIT 0,3');
         $q->bindValue(':dept', $dept, PDO::PARAM_STR);
         $q->execute();
@@ -185,5 +187,17 @@ class manifestationManager
         return $manifestations;
     }
 
+    public function getMyManifestations($userId)
+    {
+        $manifestations = array();
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE idOrganiser = :id');
+        $q->bindValue(':id', $userId, PDO::PARAM_INT);
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
 }
 ?>

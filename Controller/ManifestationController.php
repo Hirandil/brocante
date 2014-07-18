@@ -20,21 +20,46 @@
             $this->_tm = new typeManager($this->_db);
         }
 
+
+
         public function add(){
             if ( isset($_SESSION['userLogin']) ){
 
                 if ( isset($_POST['title'],$_POST['route'],$_POST['city'],$_POST['department'],$_POST['region'],$_POST['dateStart'],$_POST['dateEnd'],$_POST['timeStart'],$_POST['timeEnd'],$_POST['type'])){
                     if ( ($_POST['title'] != "") && ($_POST['route'] != "") && ($_POST['city'] != "") && ($_POST['department'] != "") && ($_POST['region'] != "") && ($_POST['dateStart'] != "") && ($_POST['dateEnd'] != "") && ($_POST['timeStart'] != "") && ($_POST['timeEnd'] != "") && ($_POST['type'] != "")){
-                    $schedule = "De ".$_POST['timeStart']." à ".$_POST['timeEnd'];
-                    $array = array('idManifestation' => 0, 'name' => $_POST['title'],'city' => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'region' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] , 'idOrganiser' => $_SESSION['userId'],'type' => $_POST['type'],'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => "");
-                    $manifestation = new Manifestation($array);
-                    $this->_mm->create($manifestation);
-                    $_SESSION['message'] = 'Manifestation crée';
 
-                    //header('Location: index.php');
+                        function upload($index,$destination,$maxsize=FALSE,$extensions=FALSE)
+                        {
+                            if (!isset($_FILES[$index]) OR $_FILES[$index]['error'] > 0) return FALSE;
+
+                            if ($maxsize !== FALSE AND $_FILES[$index]['size'] > $maxsize) return FALSE;
+
+                            $ext = substr(strrchr($_FILES[$index]['name'],'.'),1);
+                            if ($extensions !== FALSE AND !in_array($ext,$extensions)) return FALSE;
+
+                            return move_uploaded_file($_FILES[$index]['tmp_name'],$destination);
+                        }
+
+                        $nom = md5(uniqid(rand(), true));
+                        $ext = substr(strrchr($_FILES['image']['name'],'.'),1);
+                        $path = "assets/img/manifestations/".$nom.".".$ext;
+                        $schedule = "De ".$_POST['timeStart']." à ".$_POST['timeEnd'];
+                        $valid_extensions = array( 'jpg' , 'jpeg' ,'png' );
+                        if(!(upload('image',$path,6291456,$valid_extensions))){
+                            $_SESSION['message'] = "Il y a eu un problème lors de l'upload du fichier";
+                         //   header('Location: index.php?section=Manifestation&action=add');
+                        }
+                        echo $path;
+                        $array = array('idManifestation' => 0, 'name' => $_POST['title'],'city' => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'region' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] , 'idOrganiser' => $_SESSION['userId'],'type' => $_POST['type'],'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path);
+                        $manifestation = new Manifestation($array);
+                        $this->_mm->create($manifestation);
+                        $_SESSION['message'] = 'Manifestation crée';
+
+                       //header('Location: index.php?section=Manifestation&action=add');
 
                     }
                     else{
+                        $types = $this->_tm->getAll();
                         include 'views/manifestations/add.php';
                     }
                 }
@@ -48,32 +73,59 @@
             }
         }
 
+        public function destroy() {
+
+            if(isset($_GET['id'])){
+               $manif = $this->_mm->get((int)$_GET['id']);
+                if($manif->getIdOrganiser() == $_SESSION['userId']){
+                    $this->_mm->destroy((int)$_GET['id']);
+                    header('Location: /index.php?section=User&action=manifestations');
+                }
+                else{
+                    header('Location: index.php');
+                }
+            }
+        }
+
         public function search() {
 
-           if(isset($_POST['type'],$_POST['region'],$_POST['department']))
+           if(isset($_POST['region'],$_POST['department']))
            {
                 $filtre = array();
                 $manifestations = NULL;
-                if(($_POST['type']) != "------") {
-                    $filtre['where'][] = 'type=:type';
-                    $filtre['PDOargument']['type'] = htmlspecialchars($_POST['type']);
+
+                if(isset($_POST['city'])){
+                    if($_POST['city'] != null){
+                        $filtre['where'][] = 'city=:city';
+                        $filtre['PDOargument']['city'] = htmlspecialchars($_POST['city']);
+                    }
                 }
+
+                if(isset($_POST['type'],$_POST['start'],$_POST['end'])){
+                    if($_POST['start'] != null){
+                        $filtre['where'][] = 'start>=:start';
+                        $filtre['PDOargument']['start'] = htmlspecialchars($_POST['start']);
+                    }
+                    if($_POST['end'] != null){
+                        $filtre['where'][] = 'end<=:end';
+                        $filtre['PDOargument']['end'] = htmlspecialchars($_POST['end']);
+                    }
+                    if(($_POST['type']) != "------" && $_POST['type'] != null) {
+                        $filtre['where'][] = 'type=:type';
+                        $filtre['PDOargument']['type'] = htmlspecialchars($_POST['type']);
+                    }
+
+                }
+
+
                 if($_POST['region'] != null) {
                     $filtre['where'][] = 'region=:region';
                     $filtre['PDOargument']['region'] = htmlspecialchars($_POST['region']);
                 }
                 if($_POST['department'] != null) {
                     $filtre['where'][] = 'department=:department';
-                    $filtre['PDOargument']['region'] = htmlspecialchars($_POST['department']);
+                    $filtre['PDOargument']['department'] = htmlspecialchars($_POST['department']);
                 }
-               if($_POST['start'] != null){
-                   $filtre['where'][] = 'start>=:start';
-                   $filtre['PDOargument']['start'] = htmlspecialchars($_POST['start']);
-               }
-               if($_POST['end'] != null){
-                   $filtre['where'][] = 'end<=:end';
-                   $filtre['PDOargument']['end'] = htmlspecialchars($_POST['end']);
-               }
 
                 if (!empty($filtre))
                 {
@@ -116,6 +168,10 @@
 
         }
 
+        public function Region(){
+
+        }
+
         public function show(){
 
             if (isset($_GET['id'])){
@@ -134,6 +190,29 @@
 
         }
 
+        public function update() {
+
+            if ( isset($_POST['title'],$_POST['route'],$_POST['city'],$_POST['department'],$_POST['region'],$_POST['dateStart'],$_POST['dateEnd'],$_POST['timeStart'],$_POST['timeEnd'],$_POST['type'])){
+
+                $schedule = "De ".$_POST['timeStart']." à ".$_POST['timeEnd'];
+                $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'],'city' => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'region' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] , 'idOrganiser' => $_SESSION['userId'],'type' => $_POST['type'],'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => "");
+                $manifestation = new Manifestation($array);
+                $this->_mm->update($manifestation);
+                header('Location: index.php?section=Manifestation&action=show&id='.$manifestation->getId());
+            }
+            else{
+                $types = $this->_tm->getAll();
+                $manifestation = $this->_mm->get((int)$_GET['id']);
+                if($manifestation->getIdOrganiser() == $_SESSION['userId']){
+                    $start = substr($manifestation->getSchedule(),3,5);
+                    $end = substr($manifestation->getSchedule(),11,6);
+                    include_once('views/manifestations/add.php');
+                }
+                else{
+                    header('Location: index.php');
+                }
+            }
+        }
 
     }
 ?>

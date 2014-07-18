@@ -17,13 +17,15 @@
                     showTooltip: true,
                     onRegionClick: function(element, code, region)
                     {
-                        var message = 'Département : "'
+                        /*var message = 'Département : "'
                             + region
                             + '" || Code : "'
                             + code
                             + '"';
 
-                        alert(message);
+                        alert(message);*/
+                        //window.location.href = "www.google.com";
+                        window.location.href = "index.php?section=Manifestation&action=Region&zipCode="+code;
                     }
                 });
             });
@@ -35,7 +37,7 @@
                     <div class="property-filter widget">
                         <div class="content">
                             <p style="color:white;border-bottom: 1px; border-style:solid">Rechercher une manifestation</p>
-                            <form method="get" action="javascript:void(0);">
+                            <form method="POST" action="/index.php?section=Manifestation&action=search">
                                 <div class="location control-group">
                                     <label class="control-label">
                                         Région
@@ -76,7 +78,7 @@
 
 
                                 <div class="form-actions">
-                                    <button class="btn btn-primary btn-large"> Filtrer !</button>
+                                    <button type="submit" class="btn btn-primary btn-large"> Filtrer !</button>
                                 </div>
                                 <!-- /.form-actions -->
                             </form>

@@ -10,7 +10,14 @@
     <div class="container">
         <div class="row">
             <div id="main" class="span12"
-<h1> Résultats :</h1>
+                 div class="clearfix">
+                <div class="pull-left">
+                    <h1 class="page-header">Résultats :</h1>
+                </div>
+                <!-- /.pull-left -->
+
+                <!-- /.pull-right -->
+            </div>
             <?php
                 if(sizeof($manifestations) > 0)
                 {

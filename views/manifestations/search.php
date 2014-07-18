@@ -77,7 +77,7 @@
 </div>
 </form>
 <!-- /#main -->
-<div class="span4">
+<div class="span4" style="height: 500px;">
 
     <div class="control-group">
         <label class="control-label" for="start">

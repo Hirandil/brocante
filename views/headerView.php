@@ -5,41 +5,7 @@
     <div class="container">
         <div class="top-inner inverted">
             <div class="header clearfix">
-                <div id="language-switch" class="languages">
-                    <div id="lang_sel_list" class="lang_sel_list_horizontal">
-                        <ul>
-                            <li class="language-en">
-                                <a href="#" class="language-active">
-                                    <img class="iclflag"
-                                         src="assets/img/flags/en.png" alt="en"
-                                         title="English"/>
-                                </a>
-                            </li>
-                            <li class="language-fr">
-                                <a href="#">
-                                    <img class="language-flag"
-                                         src="assets/img/flags/fr.png" alt="fr"
-                                         title="Français"/>
-                                </a>
-                            </li>
-                            <li class="language-de">
-                                <a href="#">
-                                    <img class="language-flag"
-                                         src="assets/img/flags/de.png" alt="de"
-                                         title="Deutsch"/>
-                                </a>
-                            </li>
-                            <li class="language-it">
-                                <a href="#">
 
-                                    <img class="language-flag"
-                                         src="assets/img/flags/it.png" alt="it"
-                                         title="Italiano"/>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
 
                 <div class="branding pull-left">
                     <div class="logo">
@@ -89,7 +55,8 @@
                 <div class="user-area pull-right">
                     <div class="menu-anonymous-container">
                         <ul id="menu-anonymous" class="nav nav-pills">
-                            <li class="menu-item"><a href="/index.php"> Ajouter une manifestation  </a></li>
+                            <li class="menu-item"><a href="/index.php?section=Manifestation&action=add"> Ajouter une manifestation  </a></li>
+                            <li class="menu-item"><a href="/index.php?section=User&action=manifestations"> Mes manifestations  </a></li>
                             <li class="menu-item"><a href="/index.php?section=User&action=update"> Mon compte  </a></li>
                             <li class="menu-item"><a href="/index.php?section=User&action=logout"> Déconnexion </a></li>
                         </ul>

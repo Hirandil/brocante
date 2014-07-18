@@ -8,7 +8,6 @@
 <h2><?php echo $manifestation->getName() ?></h2>
 <div class="property clearfix">
     <div class="image">
-        <a href="property-detail.html">
             <img width="570" height="425" src="../assets/img/property/19.jpg"
                  class="thumbnail-image " alt="19"/>
         </a>
@@ -17,9 +16,9 @@
 
     <div class="wrapper">
         <div class="title">
-            <h3><a href="property-detail.html">
+            <h3>
                     <?php echo $manifestation->getAddress() ?>
-                </a></h3>
+                </h3>
         </div>
         <!-- /.title -->
 

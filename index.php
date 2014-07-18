@@ -8,22 +8,29 @@ ini_set('display_errors', 1);
     
     if (isset($_GET['section'] ) )
     {
-    
-        $controller_file = dirname(__FILE__).'/Controller/'.$_GET['section'].'Controller.php';
-        
-        if ( is_file($controller_file))
+        if(isset($_GET['action']))
         {
-            include $controller_file ;
-            $controller = $_GET['section'].'Controller' ; 
-            if(class_exists($controller))
+            $controller_file = dirname(__FILE__).'/Controller/'.$_GET['section'].'Controller.php';
+
+            if ( is_file($controller_file))
             {
-                $c = new $controller ;
-                $action = $_GET['action'] ;
-                if (method_exists($c,$action) )
+                include $controller_file ;
+                $controller = $_GET['section'].'Controller' ;
+                if(class_exists($controller))
                 {
-                    $c->$action() ;
+                    $c = new $controller ;
+                    $action = $_GET['action'] ;
+                    if (method_exists($c,$action) )
+                    {
+                        $c->$action() ;
+                    }
                 }
             }
+        }
+        else{
+            include 'Controller/ManifestationController.php';
+            $controller = new ManifestationController();
+            $controller->index();
         }
     }
     else {
@@ -102,6 +109,10 @@ $content = ob_get_clean();
 
 <?php
     include('views/headerView.php');
+    if(isset($_SESSION['message'])){
+        echo $_SESSION['message'];
+        $_SESSION['message']= "";
+    }
     echo $content;
     if(!isset($_GET['section']))
     {
