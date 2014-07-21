@@ -102,4 +102,21 @@
             $q->bindValue(':pass', $user->getPassword(), PDO::PARAM_STR);
             $q->execute();
         }
+
+        public function updateToPro($info)
+        {
+            $data = NULL ;
+            if (is_string($info)) {
+                $q = $this->_db->prepare('UPDATE FROM users SET professional = 1 where email = :info');
+                $q->bindValue(':info', $info, PDO::PARAM_STR);
+                $q->execute();
+
+            }
+            else {
+                $id = (int) $info;
+                $q = $this->_db->prepare('UPDATE FROM users SET professional = 1 where id = :id');
+                $q->bindValue(':id', $id, PDO::PARAM_INT);
+                $q->execute();
+            }
+        }
     }

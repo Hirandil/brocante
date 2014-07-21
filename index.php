@@ -102,7 +102,7 @@ $content = ob_get_clean();
     <script type='text/javascript' src='assets/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>
     <script type='text/javascript' src='assets/libraries/rs-plugin/js/jquery.themepunch.plugins.min.js'></script>
     <script type="text/javascript" src="assets/js/notify.min.js"></script>
-    <title> CodiOne </title>
+    <title> 123Brocante </title>
 </head>
 
 <body class="home page page-template">
@@ -111,10 +111,10 @@ $content = ob_get_clean();
 <?php
     include('views/headerView.php');
     echo $content;
-    if(!isset($_GET['section']))
+    /*if(!isset($_GET['section']))
     {
         include('views/home.php');
-    }
+    }*/
 
     include('views/footerView.php');
 

@@ -17,7 +17,7 @@
 
                     <div class="site-name">
                         <a href="index.php" title="Home" class="brand">
-                            Brocante
+                            123Brocante
                         </a>
                     </div>
                     <!-- /.site-name -->

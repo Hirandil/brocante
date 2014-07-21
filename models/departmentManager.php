@@ -30,6 +30,19 @@ class departmentManager
         return $m;
     }
 
+    public function getAll()
+    {
+        $departments = NULL;
+        $q = $this->_db->prepare('SELECT * FROM department ORDER BY zipCode');
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $departments[] = new Department($data);
+        }
+
+        return $departments;
+    }
+
     public function getAutoComplete($info){
 
         $departments = NULL;

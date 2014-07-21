@@ -173,7 +173,8 @@
         }
 
         public function index() {
-
+            $departments = $this->_dm->getAll();
+            include('views/home.php');
         }
 
         public function Department(){
@@ -181,6 +182,17 @@
             $department = $this->_dm->get($_GET['zipCode']);
             $region = $this->_rm->get((int)$department->getRegion());
             $manifestations = $this->_mm->getByDepartment($department->getName());
+            $manifByDate = array();
+            foreach((array)$manifestations as $m)
+            {
+                if(!array_key_exists($m->getStart(),$manifByDate)){
+                    $manifByDate[$m->getStart()] = [];
+                    $manifByDate[$m->getStart()][] = $m;
+                }
+                else{
+                    $manifByDate[$m->getStart()][] = $m;
+                }
+            }
             include('views/department/show.php');
 
         }

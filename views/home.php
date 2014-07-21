@@ -172,7 +172,15 @@
 <!-- /.map-wrapper -->
 
 <!-- /.container -->
-
+  <div class="container">
+      <?php
+            foreach((array)$departments as $d)
+            {
+      ?>
+            <p><?php echo "<a href=\"index.php?section=Manifestation&action=Department&zipCode=".$d->getZipCode()."\">(".$d->getZipCode().")"." ".$d->getName()."</a>"?></p>
+      <?php
+            }
+      ?>
 </div>
 
 <script>

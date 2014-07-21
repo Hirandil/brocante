@@ -98,11 +98,39 @@ class manifestationManager
         }
     }
 
+    public function getProByDepartment($dept)
+    {
+        $manifestations = NULL;
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept AND idOrganiser in
+                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation');
+        $q->bindValue(':dept',$dept,PDO::PARAM_STR);
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
+
     public function getByDepartment($dept)
     {
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept ORDER BY idManifestation');
         $q->bindValue(':dept',$dept,PDO::PARAM_STR);
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
+
+    public function getProByRegion($region){
+
+        $manifestations = NULL;
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE region = :region AND idOrganiser in
+                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation');
+        $q->bindValue(':region',$region,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {

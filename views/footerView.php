@@ -134,7 +134,6 @@
 <!-- /#footer-top -->
 
 
-</div>
 
 
 <!-- /#footer-wrapper -->
