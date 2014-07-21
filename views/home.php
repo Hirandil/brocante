@@ -25,7 +25,7 @@
 
                         alert(message);*/
                         //window.location.href = "www.google.com";
-                        window.location.href = "index.php?section=Manifestation&action=Region&zipCode="+code;
+                        window.location.href = "index.php?section=Manifestation&action=Department&zipCode="+code;
                     }
                 });
             });

@@ -8,7 +8,7 @@
 <h2><?php echo $manifestation->getName() ?></h2>
 <div class="property clearfix">
     <div class="image">
-            <img width="570" height="425" src="../assets/img/property/19.jpg"
+            <img width="570" height="425" src="<?php echo $manifestation->getImage()?>"
                  class="thumbnail-image " alt="19"/>
         </a>
     </div>

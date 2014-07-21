@@ -2,9 +2,13 @@
     require_once 'models/User.php';
     require_once 'models/Type.php';
     require_once 'models/Manifestation.php';
+    require_once 'models/Region.php';
+    require_once 'models/Department.php';
     require_once 'models/userManager.php';
     require_once 'models/manifestationManager.php';
     require_once 'models/typeManager.php';
+    require_once 'models/departmentManager.php';
+    require_once 'models/regionManager.php';
     require_once 'Controller/Controller.php';
 
     class ManifestationController extends Controller
@@ -12,12 +16,16 @@
         private $_um;
         private $_mm;
         private $_tm;
+        private $_rm;
+        private $_dm;
 
         public function __construct(){
             parent::__construct();
             $this->_um = new UserManager($this->_db);
             $this->_mm = new manifestationManager(($this->_db));
             $this->_tm = new typeManager($this->_db);
+            $this->_rm = new regionManager($this->_db);
+            $this->_dm = new departmentManager($this->_db);
         }
 
 
@@ -168,8 +176,20 @@
 
         }
 
+        public function Department(){
+
+            $department = $this->_dm->get($_GET['zipCode']);
+            $region = $this->_rm->get((int)$department->getRegion());
+            $manifestations = $this->_mm->getByDepartment($department->getName());
+            include('views/department/show.php');
+
+        }
+
         public function Region(){
 
+            $region = $this->_rm->get((int)$_GET['id']);
+            $manifestations = $this->_mm->getByDepartment($region->getName());
+            include('views/region/show.php');
         }
 
         public function show(){

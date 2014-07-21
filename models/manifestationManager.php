@@ -20,7 +20,7 @@ class manifestationManager
 
     public function create(Manifestation $m)
     {
-        $q = $this->_db->prepare('INSERT INTO Manifestations (name,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,idOrganiser,image) VALUES(:name,:city,:region,:dept,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser,:image) ');
+        $q = $this->_db->prepare('INSERT INTO Manifestations (name,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,idOrganiser,image) VALUES(:name,:city,:dept,:region,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser,:image) ');
         $q->bindValue(':name', $m->getName(), PDO::PARAM_STR);
         $q->bindValue(':city', $m->getCity(), PDO::PARAM_STR);
         $q->bindValue(':dept', $m->getDepartment(), PDO::PARAM_STR);
@@ -96,6 +96,32 @@ class manifestationManager
             $q->bindValue(':id', $id, PDO::PARAM_INT);
             $q->execute();
         }
+    }
+
+    public function getByDepartment($dept)
+    {
+        $manifestations = NULL;
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept ORDER BY idManifestation');
+        $q->bindValue(':dept',$dept,PDO::PARAM_STR);
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
+
+    public function getByRegion($region)
+    {
+        $manifestations = NULL;
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE region = :region ORDER BY idManifestation');
+        $q->bindValue(':region',$region,PDO::PARAM_STR);
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
     }
 
     public function update(Manifestation $m)

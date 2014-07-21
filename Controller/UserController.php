@@ -24,18 +24,18 @@ class UserController extends Controller
                 if (sha1($_POST['password']) == $user->getPassword()){
                     $_SESSION['userLogin'] = $_POST['userLogin'];
                     $_SESSION['userId'] = $user->getId();
-                    // TODO : Redirection connecte
 
                     header('Location: index.php');
                 }
                 else
-                    $_SESSION['Message'] = 'Mauvais mot de passe';
-
+                {
+                    $_SESSION['message'] = 'Mauvais mot de passe';
+                    header('Location: index.php?section=User&action=login');
+                }
 
             }
             else{
-                // TODO : Redirection non connecte
-                $_SESSION['Message'] = 'Compte invalide';
+                $_SESSION['message'] = 'Compte inexistant';
 
             }
 
