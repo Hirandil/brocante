@@ -58,6 +58,7 @@ class typeManager{
         $q = $this->_db->prepare('UPDATE Types SET libelle= :libelle WHERE id = :id');
         $q->bindValue(':id', $t->getId(), PDO::PARAM_INT);
         $q->bindValue(':libelle', $t->getLibelle(), PDO::PARAM_STR);
+        $q->execute();
     }
 
     public function getAll(){

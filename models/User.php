@@ -12,6 +12,7 @@
         private $_address;
         private $_phone;
         private $_password;
+        private $_admin;
 
         // Functions
 
@@ -24,6 +25,23 @@
             $this->_address = $data['address'];
             $this->_phone = $data['phone'];
             $this->_password = $data['password'];
+            $this->_admin = $data['admin'];
+        }
+
+        /**
+         * @param mixed $admin
+         */
+        public function setAdmin($admin)
+        {
+            $this->_admin = $admin;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getAdmin()
+        {
+            return $this->_admin;
         }
 
         /**
