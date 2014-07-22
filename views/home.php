@@ -173,14 +173,16 @@
 
 <!-- /.container -->
   <div class="container">
+      <ul>
       <?php
             foreach((array)$departments as $d)
             {
       ?>
-            <p><?php echo "<a href=\"index.php?section=Manifestation&action=Department&zipCode=".$d->getZipCode()."\">(".$d->getZipCode().")"." ".$d->getName()."</a>"?></p>
+            <li style="display: inline-block;"><?php echo "<a href=\"index.php?section=Manifestation&action=Department&zipCode=".$d->getZipCode()."\">(".$d->getZipCode().")"." ".$d->getName().",</a>"?></li>
       <?php
             }
       ?>
+          </ul>
 </div>
 
 <script>
