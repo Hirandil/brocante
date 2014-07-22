@@ -5,7 +5,7 @@
 <div class="row">
 
 <div class="sidebar span8">
-<h2><?php echo $manifestation->getName() ?></h2>
+<h1 class="titleH1"><?php echo $manifestation->getName() ?></h1>
 <div class="property clearfix">
     <div class="image">
             <img width="570" height="425" src="<?php echo $manifestation->getImage()?>"
@@ -33,8 +33,8 @@
     <!-- /.wrapper -->
 </div>
 <div class="property-info clearfix">
-    <h5 style=" border-bottom: 1px solid #f69679; ">Localisation</h5>
-    <div class="area">
+    <h5  class="showH5">Localisation</h5>
+    <div class="area" >
         <i class="icon icon-normal-cursor-scale-up"></i>
         <?php echo $manifestation->getAddress() ?>, <?php echo $manifestation->getCity() ?>, <?php echo $manifestation->getRegion() ?>, <?php echo $manifestation->getDepartment() ?>
     </div>
@@ -43,13 +43,13 @@
 <!--        2-->
 <!--    </div>-->
     <br>
-    <h5 style=" border-bottom: 1px solid #f69679; ">Horaires</h5>
+    <h5 class="showH5">Horaires</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
         <?php echo $manifestation->getSchedule() ?>
     </div>
     <br>
-    <h5 style=" border-bottom: 1px solid #f69679; ">Site web de l'organisateur</h5>
+    <h5 class="showH5">Site web de l'organisateur</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
         <?php
@@ -60,13 +60,13 @@
         ?>
     </div>
     <br>
-    <h5 style=" border-bottom: 1px solid #f69679; ">Commentaires</h5>
+    <h5 class="showH5">Commentaires</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
         800m<sup>2</sup>
     </div>
     <br>
-    <h5 style=" border-bottom: 1px solid #f69679; ">Prix d'entrée</h5>
+    <h5 class="showH5">Prix d'entrée</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
         <?php
@@ -77,7 +77,7 @@
         ?>
     </div>
     <br>
-    <h5 style=" border-bottom: 1px solid #f69679; ">Nombre d'exposants</h5>
+    <h5 class="showH5">Nombre d'exposants</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
         <?php
@@ -88,7 +88,7 @@
         ?>
     </div>
     <br>
-    <h5 style=" border-bottom: 1px solid #f69679; ">Tarif pour exposant</h5>
+    <h5 class="showH5">Tarif pour exposant</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
         <?php
@@ -99,7 +99,7 @@
         ?>
     </div>
     <br>
-    <h5 style=" border-bottom: 1px solid #f69679; ">Parking à proximité</h5>
+    <h5 class="showH5">Parking à proximité</h5>
     <div class="area">
         <i class="icon icon-normal-cursor-scale-up"></i>
         800m<sup>2</sup>
@@ -137,9 +137,11 @@
         </div>
         <br>
 
-        <h2>Brocantes aux alentours</h2>
-        <ul>
-            <?php
+    <div class="alentourBlock">
+        <div class="content" style="margin-bottom: 20px">
+            <p style="border-bottom: 1px; border-style:solid">Brocantes aux alentours</p>
+            <ul>
+                <?php
                 foreach($nearTowns as $nearTown)
                 {
                     ?>
@@ -147,15 +149,18 @@
                 <?php
                 }
                 ?>
-
+            </ul>
+        </div>
+        <!-- /.content -->
+    </div>
 
 <!--            <li>> Brocante ville 2</li>-->
 <!--            <li>> Brocante ville 3</li>-->
-        </ul>
-    <div class="property-filter widget" style="background-color: #003f4f;">
-        <div class="content">
-            <p style="color:white;border-bottom: 1px; border-style:solid">S'inscrire à la newsletter</p>
-            <p style="color:white; font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes de la région <?php echo $manifestation->getDepartment() ?></p>
+
+    <div class="alentourBlock" >
+        <div class="content" style="margin-bottom: 20px">
+            <p style="border-bottom: 1px; border-style:solid">Abonnez-vous aux alertes</p>
+            <p style="font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes de la région <?php echo $manifestation->getDepartment() ?></p>
             <form method="get" action="javascript:void(0);">
 
                     <div class="type control-group">
@@ -167,9 +172,9 @@
                     <p style="color:white; font-size:75%;">Je veux être alerté :</p>
                     <div class="control-group">
                         <div class="controls">
-                            <input type="radio" name="" value="male"><p style="color:white; font-size:75%;margin-left: 10%;">la veille</p>
-                            <input type="radio" name="" value="female"><p style="color:white; font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
-                            <input type="radio" name="" value="male"><p style="color:white; font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
+                            <input type="radio" name="" value="male"><p style="font-size:75%;margin-left: 10%;">la veille</p>
+                            <input type="radio" name="" value="female"><p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
+                            <input type="radio" name="" value="male"><p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
                         </div>
                     </div>
                     <!-- /.control-group -->
@@ -183,6 +188,18 @@
         </div>
         <!-- /.content -->
     </div>
+<div class="alentourBlock">
+    <div class="content" style="margin-bottom: 20px">
+        <p style="border-bottom: 1px; border-style:solid">Brocantes du département</p>
+        <ul>
+            <li>Brocante aujourd'hui</li>
+            <li>Brocante demain</li>
+            <li>Brocante Week end</li>
+            <li>Brocante Juin 2014</li>
+        </ul>
+    </div>
+    <!-- /.content -->
+</div>
 
         <script type="text/javascript">
             jQuery(document).ready(function ($) {

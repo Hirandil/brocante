@@ -173,6 +173,7 @@
         }
 
         public function index() {
+            $regions = $this->_rm->getAll();
             $departments = $this->_dm->getAll();
             include('views/home.php');
         }

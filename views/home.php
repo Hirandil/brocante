@@ -44,7 +44,17 @@
                                     </label>
 
                                     <div class="controls">
-                                        <input type="text" id="regionGoogle" name="region" >
+                                        <select id="selectRegion" name="region">
+                                            <option value="null">--------------------------</option>
+                                        <?php
+                                        foreach((array)$regions as $r)
+                                        {
+                                            ?>
+                                            <option value="<?php echo $r->getName()?>" id="<?php echo $r->getId()?>"><?php echo $r->getName()?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                        </select>
                                     </div>
                                     <!-- /.controls -->
                                 </div>
@@ -56,7 +66,9 @@
                                     </label>
 
                                     <div class="controls">
-                                    <input type="text" id="departmentGoogle" name="department" >
+                                        <select id="selectDepartment" name="department">
+                                            <option value="null">--------------------------</option>
+                                        </select>
 
 
                                     </div>
@@ -91,7 +103,7 @@
 
                     <div class="property-filter widget">
                         <div class="content">
-                            <p style="color:white;border-bottom: 1px; border-style:solid">S'inscrire à la newsletter</p>
+                            <p style="color:white;border-bottom: 1px; border-style:solid">Abonnez-vous aux alertes</p>
                             <p style="color:white; font-size:75%;">Recevez directement dans votre boite mail la liste des ventes qui ont lieu près de chez vous</p>
                             <form method="get" action="javascript:void(0);">
 
@@ -173,12 +185,12 @@
 
 <!-- /.container -->
   <div class="container">
-      <ul>
+      <ul id="listDepartment">
       <?php
             foreach((array)$departments as $d)
             {
       ?>
-            <li style="display: inline-block;"><?php echo "<a href=\"index.php?section=Manifestation&action=Department&zipCode=".$d->getZipCode()."\">(".$d->getZipCode().")"." ".$d->getName().",</a>"?></li>
+            <li style="display: inline-block;"><?php echo "<input type=\"hidden\" id=".$d->getId()." value=".$d->getRegion()."></input><a href=\"index.php?section=Manifestation&action=Department&zipCode=".$d->getZipCode()."\">(".$d->getZipCode().")"." ".$d->getName()."</a>,"?></li>
       <?php
             }
       ?>
@@ -211,6 +223,35 @@
             }, 200);
 
         }
+
+        $( "#selectRegion" )
+            .change(function () {
+                var str = "";
+                var output = [];
+                $( "#selectRegion option:selected" ).each(function() {
+                    if($(this)[0].value == 'null' )
+                        $('#selectDepartment').trigger("liszt:updated");
+                    else{
+                        var RegionID = $(this).attr('id')
+
+                        $("#listDepartment li input").each(function(){
+                            if( $(this)[0].value == RegionID){
+                                var departmentName = $(this).next()[0].text.match(/.*\).(.*)/)[1]
+                                output.push('<option value="'+ departmentName +'">'+ $(this).next()[0].text +'</option>');
+                            }
+                        })
+                        $('#selectDepartment').html(output.join(''));
+//                       console.log($('#selectDepartment').chosen());
+
+                        $('#selectDepartment').trigger("liszt:updated");
+                    }
+                    //str += $( this ).text() + " ";
+                });
+
+
+                //console.log(str)
+            })
+            .change();
 
     });
 

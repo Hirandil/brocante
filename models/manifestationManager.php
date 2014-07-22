@@ -253,5 +253,6 @@ class manifestationManager
         }
         return $manifestations;
     }
+
 }
 ?>

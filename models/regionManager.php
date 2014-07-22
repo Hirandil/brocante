@@ -40,6 +40,19 @@ class regionManager
         return $r;
     }
 
+    public function getAll()
+    {
+        $regions = NULL;
+        $q = $this->_db->prepare('SELECT * FROM region');
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $regions[] = new Region($data);
+        }
+
+        return $regions;
+    }
+
     public function getAutoComplete($info){
 
         $q = $this->_db->prepare('SELECT * FROM region WHERE name like \''.$info.'%\'');

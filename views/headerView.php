@@ -79,56 +79,26 @@
                         <ul id="menu-main" class="nav">
                             <li class="menu-item active-menu-item ">
                                 <a href="index.php"> Accueil</a>
-<!--                                <ul class="sub-menu">-->
-<!--                                    <li class="menu-item"><a href="frontpage-slider.html">Revolution slider</a></li>-->
-<!--                                    <li class="menu-item"><a href="frontpage-map-vertical.html.html">Homepage - Vertical filter</a></li>-->
-<!--                                    <li class="menu-item"><a href="index.php">Homepage - Horizontal filter</a></li>-->
-<!--                                </ul>-->
                             </li>
 
-                            <li class="menu-item ">
-                                <a href="/index.php?section=Manifestation&action=add">Annoncer un évènement</a>
-
-<!--                                <ul class="sub-menu">-->
-<!--                                    <li class="menu-item"><a href="properties/default.htm">Properties listing</a></li>-->
-<!--                                    <li class="menu-item"><a href="properties/property-detail.html">Property detail</a></li>-->
-<!---->
-<!--                                    <li class="menu-item"><a href="agencies/default.htm">Agencies listing</a></li>-->
-<!--                                    <li class="menu-item"><a href="agencies/agency-detail.html">Agencies detail</a></li>-->
-<!---->
-<!--                                    <li class="menu-item"><a href="agents/default.htm">Agents listing</a></li>-->
-<!--                                    <li class="menu-item"><a href="agents/agent-detail.html">Agent detail</a></li>-->
-<!---->
-<!--                                    <li class="menu-item"><a href="register.html">Register</a></li>-->
-<!--                                    <li class="menu-item"><a href="login.html">Login</a></li>-->
-<!--                                </ul>-->
-                            </li>
+<!--                            <li class="menu-item ">-->
+<!--                                <a href="/index.php?section=Manifestation&action=add">Annoncer un évènement</a>-->
+<!--                            </li>-->
 
                             <li class="menu-item ">
                                 <a href="/index.php?section=Manifestation&action=search">Recherche Avancée</a>
-<!--                                <ul class="sub-menu">-->
-<!--                                    <li class="menu-item"><a href="404.html">404 page</a></li>-->
-<!--                                    <li class="menu-item"><a href="faq.html">FAQ page</a></li>-->
-<!--                                    <li class="menu-item"><a href="pricing.html">Pricing</a></li>-->
-<!--                                </ul>-->
                             </li>
 
                             <li class="menu-item ">
                                 <a href="#">Legislation & Organisation</a>
-<!--                                <ul class="sub-menu">-->
-<!--                                    <li class="menu-item"><a href="submissions/default.htm">List submissions</a></li>-->
-<!--                                    <li class="menu-item"><a href="submissions/add.html">Add submission</a></li>-->
-<!--                                    <li class="menu-item"><a href="submissions/edit.html">Edit submission</a></li>-->
-<!--                                </ul>-->
+                            </li>
+
+                            <li class="menu-item ">
+                                <a href="#">Actualités</a>
                             </li>
 
                             <li class="menu-item ">
                                 <a href="#">Bien vendre & bien acheter</a>
-<!--                                <ul class="sub-menu">-->
-<!--                                    <li class="menu-item"><a href="templates/default-left.html">Left sidebar</a></li>-->
-<!--                                    <li class="menu-item"><a href="templates/default-right.html">Right sidebar</a></li>-->
-<!--                                    <li class="menu-item"><a href="templates/default-full.html">Full width</a></li>-->
-<!--                                </ul>-->
                             </li>
 
 <!--                            <li class="menu-item">-->
@@ -140,7 +110,7 @@
 
                 <div class="pull-right">
                     <div class="list-property">
-                        <a href="">Aide<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
+                        <a href="/index.php?section=Manifestation&action=add">Ajouter une manifestation<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
                         </a>
                     </div>
                     <!-- /.list-property -->

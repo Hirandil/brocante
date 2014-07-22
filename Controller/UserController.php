@@ -83,6 +83,16 @@ class UserController extends Controller
         include('views/manifestations/mine.php');
     }
 
+    public function updatePro(){
+        if (isset($_SESSION['userLogin'])){
+            $user = $this->_um->get((int)$_SESSION['userId']);
+            include('views/pricing.php');
+        }
+        else{
+            header('Location: index.php?section=user&action=login');
+        }
+    }
+
     public function update(){
         if(isset($_SESSION['userLogin'])){
             $user = $this->_um->get((int)$_SESSION['userId']);

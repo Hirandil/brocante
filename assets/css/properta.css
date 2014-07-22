@@ -7,3 +7,21 @@
     padding-top: 20px;
     position: relative;
 }
+.titleH1{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.size14{
+    font-size: 14px;
+}
+.showH5{
+    border-bottom: 1px solid #f69679;
+    font-size: 18px;
+}
+.alentourBlock{
+    border: 1px solid #f69679;
+    margin-bottom: 20px;
+    padding: 15px 20px 0px 20px;
+
+}
