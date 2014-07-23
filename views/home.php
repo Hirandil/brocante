@@ -199,6 +199,9 @@
 
 <script>
     $( document ).ready(function() {
+
+        var availableTags = [];
+
         var options = {
             componentRestrictions: {country: 'fr'},
             types: ['cities']
@@ -252,6 +255,39 @@
                 //console.log(str)
             })
             .change();
+
+        $( "#cityGoogle" )
+            .keypress(function () {
+                console.log()
+                if ($(this).val().length < 1){
+                    console.log('Ne rien faire');
+                }
+                else{
+                    $.ajax({
+                        url: "http://localhost/autocomplete.php",
+                        type: 'POST',
+                        data: {
+                            'key': $(this).val()
+                        }
+                    })
+                        .done(function( data ) {
+                            console.log(JSON.parse(data))
+                            availableTags.slice(0)
+                            availableTags = JSON.parse(data)
+                            $( "#cityGoogle" ).autocomplete({
+                                source: availableTags
+                            });
+                            console.log(data)
+
+                    });
+                }
+                //console.log(str)
+            })
+            .change();
+
+        console.log(availableTags)
+
+
 
     });
 

@@ -79,7 +79,7 @@ $content = ob_get_clean();
           href='http://fonts.googleapis.com/css?family=Open+Sans%3A400%2C700%2C300&#038;subset=latin%2Clatin-ext&#038;ver=3.6'
           type='text/css' media='all'/>
 
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
     <link rel='stylesheet' id='revolution-fullwidth' href='assets/libraries/rs-plugin/css/fullwidth.css' type='text/css' media='all'/>
     <link rel='stylesheet' id='revolution-settings' href='assets/libraries/rs-plugin/css/settings.css' type='text/css' media='all'/>
     <link rel='stylesheet' id='bootstrap-css' href='assets/libraries/bootstrap/css/bootstrap.min.css' type='text/css' media='all'/>
@@ -94,6 +94,7 @@ $content = ob_get_clean();
     <link rel='stylesheet' id='properta-css' href='assets/css/properta.css' type='text/css' media='all'/>
 
     <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
     <script src="assets/js/jquery.vmap.js" type="text/javascript"></script>
     <script src="assets/js/jquery.vmap.france.js" type="text/javascript"></script>
     <script src="assets/js/jquery.vmap.colorsFrance.js" type="text/javascript"></script>
