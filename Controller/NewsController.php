@@ -34,7 +34,6 @@
                             $news = new News($array);
                             $this->_nm->create($news);
                             $_SESSION['message'] = "Post crée";
-                            echo "created";
                             header('Location: index.php?section=News&action=all');
                         }
                         else{
@@ -57,6 +56,19 @@
             public function all(){
                 $news = $this->_nm->getAll();
                 include('views/news/news.php');
+                print_r($news);
+            }
+
+            public function update(){
+                $update = true;
+                include('views/news/add.php');
+            }
+
+            public function show(){
+                if(isset($_GET['id'])){
+                    $news = $this->_nm->get((int)$_GET['id']);
+                    include('views/news/show.php');
+                }
             }
 
         }

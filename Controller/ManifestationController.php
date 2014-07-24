@@ -228,7 +228,27 @@
             if ( isset($_POST['title'],$_POST['route'],$_POST['city'],$_POST['department'],$_POST['region'],$_POST['dateStart'],$_POST['dateEnd'],$_POST['timeStart'],$_POST['timeEnd'],$_POST['type'])){
 
                 $schedule = "De ".$_POST['timeStart']." à ".$_POST['timeEnd'];
-                $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'],'city' => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'region' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] , 'idOrganiser' => $_SESSION['userId'],'type' => $_POST['type'],'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => "");
+                function upload($index,$destination,$maxsize=FALSE,$extensions=FALSE)
+                {
+                    if (!isset($_FILES[$index]) OR $_FILES[$index]['error'] > 0) return FALSE;
+
+                    if ($maxsize !== FALSE AND $_FILES[$index]['size'] > $maxsize) return FALSE;
+
+                    $ext = substr(strrchr($_FILES[$index]['name'],'.'),1);
+                    if ($extensions !== FALSE AND !in_array($ext,$extensions)) return FALSE;
+
+                    return move_uploaded_file($_FILES[$index]['tmp_name'],$destination);
+                }
+
+                $nom = md5(uniqid(rand(), true));
+                $ext = substr(strrchr($_FILES['image']['name'],'.'),1);
+                $path = "assets/img/manifestations/".$nom.".".$ext;
+                $valid_extensions = array( 'jpg' , 'jpeg' ,'png' );
+                if(!(upload('image',$path,6291456,$valid_extensions))){
+                    $_SESSION['message'] = "Il y a eu un problème lors de l'upload du fichier";
+                    //   header('Location: index.php?section=Manifestation&action=add');
+                }
+                $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'],'city' => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'region' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] , 'idOrganiser' => $_SESSION['userId'],'type' => $_POST['type'],'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path);
                 $manifestation = new Manifestation($array);
                 $this->_mm->update($manifestation);
                 header('Location: index.php?section=Manifestation&action=show&id='.$manifestation->getId());

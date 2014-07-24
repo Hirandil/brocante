@@ -169,6 +169,7 @@
                         <!-- /.content -->
                     </div>
 
+
                 </div>
             </div>
         </div>
@@ -177,24 +178,32 @@
 
         <div id="francemap" class="map-inner" style="height: 750px;margin-top: 150px; padding-left: 150px"></div>
         <!-- /.map-inner -->
+
     </div>
     <!-- /.map -->
+
 </div>
 
 <!-- /.map-wrapper -->
 
 <!-- /.container -->
-  <div class="container">
-      <ul id="listDepartment">
-      <?php
-            foreach((array)$departments as $d)
-            {
-      ?>
-            <li style="display: inline-block;"><?php echo "<input type=\"hidden\" id=".$d->getId()." value=".$d->getRegion()."></input><a href=\"index.php?section=Manifestation&action=Department&zipCode=".$d->getZipCode()."\">(".$d->getZipCode().")"." ".$d->getName()."</a>,"?></li>
-      <?php
-            }
-      ?>
-          </ul>
+<div class="container" style="-webkit-columns: 6;
+			-moz-columns: 6;
+			columns: 6;
+			column-width: 40px;
+			column-gap: 10px;">
+    <ul id="listDepartment">
+        <?php
+        foreach((array)$departments as $d)
+        {
+            ?>
+            <li style="display: table;font-size: 13px;margin: 5px">
+                <?php echo "<input type=\"hidden\" id=".$d->getId()." value=".$d->getRegion()."></input>
+                    <a href=\"index.php?section=Manifestation&action=Department&zipCode=".$d->getZipCode()."\">(".$d->getZipCode().")"." ".$d->getName()."</a>"?></li>
+        <?php
+        }
+        ?>
+    </ul>
 </div>
 
 <script>

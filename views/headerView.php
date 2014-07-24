@@ -1,6 +1,3 @@
-
-
-
 <div class="top">
     <div class="container">
         <div class="top-inner inverted">
@@ -55,7 +52,7 @@
                 <div class="user-area pull-right">
                     <div class="menu-anonymous-container">
                         <ul id="menu-anonymous" class="nav nav-pills">
-                            <li class="menu-item"><a href="/index.php?section=Manifestation&action=add"> Ajouter une manifestation  </a></li>
+                            <li class="menu-item"><a href="/index.php?section=News&action=create"> Ajouter une actualité </a></li>
                             <li class="menu-item"><a href="/index.php?section=User&action=manifestations"> Mes manifestations  </a></li>
                             <li class="menu-item"><a href="/index.php?section=User&action=update"> Mon compte  </a></li>
                             <li class="menu-item"><a href="/index.php?section=User&action=logout"> Déconnexion </a></li>
@@ -81,10 +78,6 @@
                                 <a href="index.php"> Accueil</a>
                             </li>
 
-<!--                            <li class="menu-item ">-->
-<!--                                <a href="/index.php?section=Manifestation&action=add">Annoncer un évènement</a>-->
-<!--                            </li>-->
-
                             <li class="menu-item ">
                                 <a href="/index.php?section=Manifestation&action=search">Recherche Avancée</a>
                             </li>
@@ -93,17 +86,13 @@
                                 <a href="#">Legislation & Organisation</a>
                             </li>
 
-                            <li class="menu-item ">
-                                <a href="#">Actualités</a>
+                           <li class="menu-item ">
+                                <a href="index.php?section=News&action=all">Actualités</a>
                             </li>
 
                             <li class="menu-item ">
                                 <a href="#">Bien vendre & bien acheter</a>
                             </li>
-
-<!--                            <li class="menu-item">-->
-<!--                                <a href="contact.html">Aide</a>-->
-<!--                            </li>-->
                         </ul>
                     </div>
                 </div>

@@ -39,7 +39,7 @@
 ?>
     <tr>
         <td class="thumbnail">
-            <a href="/index.php/section=Manifestation&action=show&id=<?php echo $manif->getId();?>">
+            <a href="/index.php?section=Manifestation&action=show&id=<?php echo $manif->getId();?>">
                 <img width="80" height="59"
                      src=""
                      class="attachment-admin-thumb" alt="<?php echo $manif->getName(); ?>">
@@ -47,7 +47,7 @@
         </td>
 
         <td class="title">
-            <a href="../properties/property-detail.html"><?php echo $manif->getName(); ?></a>
+            <a href="/index.php?section=Manifestation&action=show&id=<?php echo $manif->getId();?>"><?php echo $manif->getName(); ?></a>
         </td>
 
         <td class="post-date">
@@ -55,7 +55,7 @@
         </td>
 
         <td class="status">
-            <strong class="publish"><?php echo date_format(DateTime::createFromFormat('Y-m-d',$manif->getStart()),('d-m-Y'))." au ".date_format(DateTime::createFromFormat('Y-m-d',$manif->getEnd()),('d-m-Y'));?></strong>
+            <strong class="publish"><?php echo $manif->getStart()/*date_format(DateTime::createFromFormat('Y-m-d',$manif->getStart()),('d-m-Y'))." au ".date_format(DateTime::createFromFormat('Y-m-d',$manif->getEnd()),('d-m-Y'));*/?></strong>
         </td>
 
         </tr>

@@ -65,7 +65,6 @@ $content = ob_get_clean();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Aviators, http://themes.byaviators.com">
 
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
 

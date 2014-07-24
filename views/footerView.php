@@ -13,7 +13,7 @@
 
         <div class="content">
             <?php
-                foreach($_SESSION["soon"] as $m)
+                foreach((array)$_SESSION["last"] as $m)
                 {
             ?>
             <div class="property clearfix">
@@ -59,7 +59,7 @@
 
         <div class="content">
             <?php
-            foreach($_SESSION["soon"] as $m)
+            foreach((array)$_SESSION["soon"] as $m)
             {
                 ?>
                 <div class="property clearfix">
@@ -118,11 +118,7 @@
             <!-- /.info -->
         </div>
         <!-- /.content -->
-        <div class="sm-col-3">
-        <div id="text-3" class="widget widget-text">
-            <div class="textwidget">&copy; 2014 Brocante, Tous droits réservés </div>
-        </div>
-        </div>
+
 
     </div>
 <div class="span4">
@@ -132,31 +128,25 @@
 
             <div class="content">
                 <?php
-                foreach($_SESSION["soon"] as $m)
+                foreach((array)$_SESSION["news"] as $n)
                 {
                     ?>
                     <div class="property clearfix">
-                        <div class="image">
-                            <a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId(); ?>">
-                                <img width="570" heix   ght="425" src=<?php echo $m->getImage(); ?>
-                                class="thumbnail-image " alt="19"/>
-                            </a>
-                        </div>
-                        <!-- /.image -->
-
                         <div class="wrapper">
                             <div class="title">
-                                <h3><a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId(); ?>">
-                                        <?php echo $m->getName(); ?>
+                                <h3><a href="index.php?section=News&action=show&id=<?php echo $n->getId(); ?>">
+                                        <?php echo $n->getTitle(); ?>
                                     </a></h3>
                             </div>
                             <!-- /.title -->
 
-                            <div class="location"><?php echo $m->getAddress()?></div>
+                            <div class="location"><?php echo substr($n->getContent(),0,50)?>...</div>
                             <!-- /.location -->
 
                             <div class="price">
-                                Contacter nous
+                                <a href="index.php?section=News&action=show&id=<?php echo $n->getId(); ?>">
+                                    Voir
+                                </a>
                             </div>
                             <!-- /.price -->
                         </div>
@@ -168,32 +158,11 @@
                 ?>
             </div>
             <!-- /.property -->
-
-            <div class="property-info clearfix">
-                <div class="area">
-                    <i class="icon icon-normal-cursor-scale-up"></i>
-                    680m<sup>2</sup>
-                </div>
-                <!-- /.area -->
-
-                <div class="bedrooms">
-                    <i class="icon icon-normal-bed"></i>
-                    3
-                </div>
-                <!-- /.bedrooms -->
-
-                <div class="bathrooms">
-                    <i class="icon icon-normal-shower"></i>
-                    2
-                </div>
-                <!-- /.bathrooms -->
-            </div>
-            <!-- /.info -->
         </div>
         <!-- /.content -->
         <div class="sm-col-3">
             <div id="text-3" class="widget widget-text">
-                <div class="textwidget">&copy; 2014 Brocante, Tous droits réservés </div>
+                <div class="textwidget">&copy; 2014 123Brocante, Tous droits réservés </div>
             </div>
         </div>
 

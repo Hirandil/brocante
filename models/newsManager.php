@@ -18,7 +18,7 @@
 
         public function create(News $n)
         {
-            $q = $this->_db->prepare('INSERT INTO news (title,content,createdAt) VALUES (:title,:content,sysdate)');
+            $q = $this->_db->prepare('INSERT INTO news (title,content,createdAt) VALUES (:title,:content,SYSDATE())');
             $q->bindValue(':title', $n->getTitle(), PDO::PARAM_STR);
             $q->bindValue(':content', $n->getContent(), PDO::PARAM_STR);
             try{
@@ -70,7 +70,18 @@
 
         public function getAll(){
             $news = NULL;
-            $q = $this->_db->prepare('SELECT * from news');
+            $q = $this->_db->prepare('SELECT * from news ORDER BY id DESC');
+            $q->execute();
+            while($data = $q->fetch(PDO::FETCH_ASSOC)){
+                $news[] = new News($data);
+            }
+            return $news;
+        }
+
+        public function getSomeNews($limit)
+        {
+            $news = NULL;
+            $q = $this->_db->prepare('SELECT * from news ORDER BY id DESC LIMIT '.$limit);
             $q->execute();
             while($data = $q->fetch(PDO::FETCH_ASSOC)){
                 $news[] = new News($data);
