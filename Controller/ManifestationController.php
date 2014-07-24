@@ -178,7 +178,7 @@
             include('views/home.php');
         }
 
-        public function Department(){
+        public function department(){
 
             $department = $this->_dm->get($_GET['zipCode']);
             $region = $this->_rm->get((int)$department->getRegion());
@@ -198,7 +198,7 @@
 
         }
 
-        public function Region(){
+        public function region(){
 
             $region = $this->_rm->get((int)$_GET['id']);
             $manifestations = $this->_mm->getByDepartment($region->getName());

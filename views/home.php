@@ -25,7 +25,7 @@
 
                         alert(message);*/
                         //window.location.href = "www.google.com";
-                        window.location.href = "index.php?section=Manifestation&action=Department&zipCode="+code;
+                        window.location.href = "/Manifestation/department/"+code;
                     }
                 });
             });
@@ -37,7 +37,7 @@
                     <div class="property-filter widget">
                         <div class="content">
                             <p style="color:white;border-bottom: 1px; border-style:solid">Rechercher une manifestation</p>
-                            <form method="POST" action="/index.php?section=Manifestation&action=search">
+                            <form method="POST" action="/Manifestation/search">
                                 <div class="location control-group">
                                     <label class="control-label">
                                         Région
@@ -130,7 +130,7 @@
                                     <!-- /.controls -->
                                 </div>
                                 <div class="form-actions">
-                                    <a href="/index.php?section=User&action=register" class="btn btn-primary btn-large" > S'inscrire !</a>
+                                    <a href="/User/register" class="btn btn-primary btn-large" > S'inscrire !</a>
                                 </div>
                                 <?php
                                 }
@@ -197,7 +197,7 @@
             ?>
             <li style="display: table;font-size: 13px;margin: 5px">
                 <?php echo "<input type=\"hidden\" id=".$d->getId()." value=".$d->getRegion()."></input>
-                    <a href=\"index.php?section=Manifestation&action=Department&zipCode=".$d->getZipCode()."\">(".$d->getZipCode().")"." ".$d->getName()."</a>"?></li>
+                    <a href=\"/Manifestation/department/".$d->getZipCode()."\">(".$d->getZipCode().")"." ".$d->getName()."</a>"?></li>
         <?php
         }
         ?>

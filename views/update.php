@@ -15,7 +15,7 @@
 
                             <div class="tab-pane " id="register">
                                 <form method="post"
-                                      action="/index.php?section=User&action=update">
+                                      action="/User/update">
 
                                     <div class="control-group">
                                         <label class="control-label">

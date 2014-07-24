@@ -18,7 +18,7 @@
             ?>
             <div class="property clearfix">
                 <div class="image">
-                    <a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId(); ?>">
+                    <a href="/Manifestation/show/<?php echo $m->getId(); ?>">
                         <img width="570" height="425" src=<?php echo $m->getImage(); ?>
                              class="thumbnail-image " alt="19"/>
                     </a>
@@ -27,7 +27,7 @@
 
                 <div class="wrapper">
                     <div class="title">
-                        <h3><a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId(); ?>">
+                        <h3><a href="/Manifestation/show/<?php echo $m->getId(); ?>">
                                 <?php echo $m->getName(); ?>
                             </a></h3>
                     </div>
@@ -64,7 +64,7 @@
                 ?>
                 <div class="property clearfix">
                     <div class="image">
-                        <a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId(); ?>">
+                        <a href="/Manifestation/show/<?php echo $m->getId(); ?>">
                             <img width="570" heix   ght="425" src=<?php echo $m->getImage(); ?>
                             class="thumbnail-image " alt="19"/>
                         </a>
@@ -73,7 +73,7 @@
 
                     <div class="wrapper">
                         <div class="title">
-                            <h3><a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId(); ?>">
+                            <h3><a href="/Manifestation/show/<?php echo $m->getId(); ?>">
                                     <?php echo $m->getName(); ?>
                                 </a></h3>
                         </div>
@@ -134,7 +134,7 @@
                     <div class="property clearfix">
                         <div class="wrapper">
                             <div class="title">
-                                <h3><a href="index.php?section=News&action=show&id=<?php echo $n->getId(); ?>">
+                                <h3><a href="/News/show/<?php echo $n->getId(); ?>">
                                         <?php echo $n->getTitle(); ?>
                                     </a></h3>
                             </div>
@@ -144,7 +144,7 @@
                             <!-- /.location -->
 
                             <div class="price">
-                                <a href="index.php?section=News&action=show&id=<?php echo $n->getId(); ?>">
+                                <a href="/News/show/<?php echo $n->getId(); ?>">
                                     Voir
                                 </a>
                             </div>
@@ -181,15 +181,15 @@
 <!-- /#footer-wrapper -->
 <script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3&#038;sensor=true&#038;ver=3.6'></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
-<script type='text/javascript' src='assets/js/aviators-map.js'></script>
-<script type='text/javascript' src='assets/js/gmap3.infobox.min.js'></script>
-<script type='text/javascript' src='assets/js/bootstrap.min.js'></script>
-<script type='text/javascript' src='assets/js/retina.js'></script>
-<script type='text/javascript' src='assets/js/gmap3.clusterer.js'></script>
-<script type='text/javascript' src='assets/js/jquery.ezmark.js'></script>
-<script type='text/javascript' src='assets/js/carousel.js'></script>
-<script type='text/javascript' src='assets/js/jquery.bxslider.js'></script>
-<script type='text/javascript' src='assets/js/properta.js'></script>
-<script type='text/javascript' src='assets/js/jquery.bxslider.min.js'></script>
+<script type='text/javascript' src='/assets/js/aviators-map.js'></script>
+<script type='text/javascript' src='/assets/js/gmap3.infobox.min.js'></script>
+<script type='text/javascript' src='/assets/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/assets/js/retina.js'></script>
+<script type='text/javascript' src='/assets/js/gmap3.clusterer.js'></script>
+<script type='text/javascript' src='/assets/js/jquery.ezmark.js'></script>
+<script type='text/javascript' src='/assets/js/carousel.js'></script>
+<script type='text/javascript' src='/assets/js/jquery.bxslider.js'></script>
+<script type='text/javascript' src='/assets/js/properta.js'></script>
+<script type='text/javascript' src='/assets/js/jquery.bxslider.min.js'></script>
 </body>
 </html>

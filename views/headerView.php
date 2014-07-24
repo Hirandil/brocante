@@ -6,14 +6,14 @@
 
                 <div class="branding pull-left">
                     <div class="logo">
-                        <a href="index.php" title="Home">
+                        <a href="/" title="Home">
                             <img src="assets/img/logo.png" alt="Home">
                         </a>
                     </div>
                     <!-- /.logo -->
 
                     <div class="site-name">
-                        <a href="index.php" title="Home" class="brand">
+                        <a href="/" title="Home" class="brand">
                             123Brocante
                         </a>
                     </div>
@@ -39,8 +39,8 @@
                 <div class="user-area pull-right">
                     <div class="menu-anonymous-container">
                         <ul id="menu-anonymous" class="nav nav-pills">
-                            <li class="menu-item"><a href="/index.php?section=User&action=login"> Se connecter </a></li>
-                            <li class="menu-item"><a href="/index.php?section=User&action=register"> S'inscrire </a></li>
+                            <li class="menu-item"><a href="/User/login"> Se connecter </a></li>
+                            <li class="menu-item"><a href="/User/register"> S'inscrire </a></li>
                         </ul>
                     </div>
                 </div>
@@ -52,10 +52,10 @@
                 <div class="user-area pull-right">
                     <div class="menu-anonymous-container">
                         <ul id="menu-anonymous" class="nav nav-pills">
-                            <li class="menu-item"><a href="/index.php?section=News&action=create"> Ajouter une actualité </a></li>
-                            <li class="menu-item"><a href="/index.php?section=User&action=manifestations"> Mes manifestations  </a></li>
-                            <li class="menu-item"><a href="/index.php?section=User&action=update"> Mon compte  </a></li>
-                            <li class="menu-item"><a href="/index.php?section=User&action=logout"> Déconnexion </a></li>
+                            <li class="menu-item"><a href="/News/create"> Ajouter une actualité </a></li>
+                            <li class="menu-item"><a href="/User/manifestations"> Mes manifestations  </a></li>
+                            <li class="menu-item"><a href="/User/update"> Mon compte  </a></li>
+                            <li class="menu-item"><a href="/User/logout"> Déconnexion </a></li>
                         </ul>
                     </div>
                 </div>
@@ -75,11 +75,11 @@
                     <div class="nav-collapse collapse">
                         <ul id="menu-main" class="nav">
                             <li class="menu-item active-menu-item ">
-                                <a href="index.php"> Accueil</a>
+                                <a href="/"> Accueil</a>
                             </li>
 
                             <li class="menu-item ">
-                                <a href="/index.php?section=Manifestation&action=search">Recherche Avancée</a>
+                                <a href="/Manifestation/search">Recherche Avancée</a>
                             </li>
 
                             <li class="menu-item ">
@@ -87,7 +87,7 @@
                             </li>
 
                            <li class="menu-item ">
-                                <a href="index.php?section=News&action=all">Actualités</a>
+                                <a href="/News/all">Actualités</a>
                             </li>
 
                             <li class="menu-item ">
@@ -99,7 +99,7 @@
 
                 <div class="pull-right">
                     <div class="list-property">
-                        <a href="/index.php?section=Manifestation&action=add">Ajouter une manifestation<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
+                        <a href="/Manifestation/add">Ajouter une manifestation<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
                         </a>
                     </div>
                     <!-- /.list-property -->
@@ -110,7 +110,7 @@
 
             <div class="breadcrumb pull-left">
                 <!-- Breadcrumb NavXT 4.4.0 -->
-                <a title="Brocante." href="index.php" class="home">Brocante</a> &gt;
+                <a title="Brocante." href="/" class="home">Brocante</a> &gt;
             </div>
 
             <!-- /.breadcrumb -->
