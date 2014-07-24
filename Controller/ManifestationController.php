@@ -55,15 +55,12 @@
                         $valid_extensions = array( 'jpg' , 'jpeg' ,'png' );
                         if(!(upload('image',$path,6291456,$valid_extensions))){
                             $_SESSION['message'] = "Il y a eu un problème lors de l'upload du fichier";
-                         //   header('Location: index.php?section=Manifestation&action=add');
                         }
-                        echo $path;
                         $array = array('idManifestation' => 0, 'name' => $_POST['title'],'city' => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'region' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] , 'idOrganiser' => $_SESSION['userId'],'type' => $_POST['type'],'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path);
                         $manifestation = new Manifestation($array);
                         $this->_mm->create($manifestation);
                         $_SESSION['message'] = 'Manifestation crée';
-
-                       //header('Location: index.php?section=Manifestation&action=add');
+                        header('Location: /User/manifestations');
 
                     }
                     else{
@@ -87,10 +84,10 @@
                $manif = $this->_mm->get((int)$_GET['id']);
                 if($manif->getIdOrganiser() == $_SESSION['userId']){
                     $this->_mm->destroy((int)$_GET['id']);
-                    header('Location: /index.php?section=User&action=manifestations');
+                    header('Location: /User/manifestations');
                 }
                 else{
-                    header('Location: index.php');
+                    header('Location: /');
                 }
             }
         }
@@ -180,11 +177,11 @@
 
         public function department(){
 
-            $department = $this->_dm->get($_GET['zipCode']);
+            $department = $this->_dm->get($_GET['id']);
             $region = $this->_rm->get((int)$department->getRegion());
             $manifestations = $this->_mm->getByDepartment($department->getName());
             $manifByDate = array();
-            foreach((array)$manifestations as $m)
+            /*foreach((array)$manifestations as $m)
             {
                 if(!array_key_exists($m->getStart(),$manifByDate)){
                     $manifByDate[$m->getStart()] = [];
@@ -193,7 +190,7 @@
                 else{
                     $manifByDate[$m->getStart()][] = $m;
                 }
-            }
+            }*/
             include('views/department/show.php');
 
         }
@@ -215,11 +212,11 @@
                     include 'views/manifestations/show.php';
                 }
                 else{
-                    header('Location: index.php');
+                    header('Location: /');
                 }
             }
             else
-                header('Location: index.php');
+                header('Location: /');
 
         }
 
@@ -246,12 +243,11 @@
                 $valid_extensions = array( 'jpg' , 'jpeg' ,'png' );
                 if(!(upload('image',$path,6291456,$valid_extensions))){
                     $_SESSION['message'] = "Il y a eu un problème lors de l'upload du fichier";
-                    //   header('Location: index.php?section=Manifestation&action=add');
                 }
                 $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'],'city' => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'region' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] , 'idOrganiser' => $_SESSION['userId'],'type' => $_POST['type'],'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path);
                 $manifestation = new Manifestation($array);
                 $this->_mm->update($manifestation);
-                header('Location: index.php?section=Manifestation&action=show&id='.$manifestation->getId());
+                header('Location: /Manifestation/show/id='.$manifestation->getId());
             }
             else{
                 $types = $this->_tm->getAll();

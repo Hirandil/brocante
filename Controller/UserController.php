@@ -25,12 +25,12 @@ class UserController extends Controller
                     $_SESSION['userLogin'] = $_POST['userLogin'];
                     $_SESSION['userId'] = $user->getId();
 
-                    header('Location: index.php');
+                    header('Location: /');
                 }
                 else
                 {
                     $_SESSION['message'] = 'Mauvais mot de passe';
-                    header('Location: index.php?section=User&action=login');
+                    header('Location: /User/login');
                 }
 
             }
@@ -48,18 +48,18 @@ class UserController extends Controller
 
     public function logout(){
         session_destroy();
-        header("Location: index.php");
+        header("Location: /");
     }
 
     public function register(){
         if ( isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
             if($this->_um->exists($_POST['userLogin'])){
                 $_SESSION['Message'] = 'Utilisateur existe déjà';
-                header('Location: index.php');
+                header('Location: /');
             }
             elseif ($_POST['password'] != $_POST['password2']) {
                 $_SESSION['Message'] = 'Les passwords ne correspondent pas';
-                header('Location: index.php');
+                header('Location: /');
             }
             else{
                 // TODO : Complété création tableau
@@ -68,7 +68,7 @@ class UserController extends Controller
                 $this->_um->create($user);
                 $_SESSION['Message'] = 'Compte crée';
                 // TODO : Redirigé vers la connexion
-                header('Location: index.php');
+                header('Location: /');
             }
 
         }
@@ -89,7 +89,7 @@ class UserController extends Controller
             include('views/pricing.php');
         }
         else{
-            header('Location: index.php?section=user&action=login');
+            header('Location: /User/login');
         }
     }
 
@@ -101,7 +101,7 @@ class UserController extends Controller
                     echo "sha1";
                     $_SESSION['Message'] = 'Mots de passe non identiques';
                     // TODO : Redirigé vers la connexion
-                    header('Location: index.php?section=user&action=update');
+                    header('Location: /User/update');
                 }
                 else{
                     $user->setAddress($_POST['address']);
@@ -119,7 +119,7 @@ class UserController extends Controller
             }
         }
         else
-            header('Location: index.php');
+            header('Location: /');
     }
 }
 ?>

@@ -48,9 +48,9 @@
 <!-- /.progressbar -->
 
 <form method="POST" <?php if(!$update)
-                            echo 'action="/index.php?section=Manifestation&action=add"';
+                            echo 'action="/Manifestation/add"';
                           else
-                            echo 'action="/index.php?section=Manifestation&action=update"';
+                            echo 'action="/Manifestation/update"';
                     ?>
                     class="submission-form form-vertical"
                     enctype="multipart/form-data">
@@ -107,9 +107,6 @@
             <input type="text" name="region" size="30" id="regionGoogle" required="required" <?php if($update){echo 'value="'.$manifestation->getRegion().'"';}?> >
         </div>
     </div>
-
-
-
 
 </div>
 

@@ -34,7 +34,7 @@
                             $news = new News($array);
                             $this->_nm->create($news);
                             $_SESSION['message'] = "Post crée";
-                            header('Location: index.php?section=News&action=all');
+                            header('Location: /News/all');
                         }
                         else{
                             echo "no rights";

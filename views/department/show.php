@@ -12,7 +12,7 @@
             <h1 class="page-header"><?php echo $department->getName() . ' (' . $department->getZipCode() . ') -- '
                     . sizeof($manifestations) .
                     ' résultat(s) ont été trouvé(s). Vous pouvez aussi rechercher pour la région
-                    <a href="index.php?section=Manifestation&action=region&id=' . $region->getId() . '">' . $region->getName() . '</a>' ?></h1>
+                    <a href="/Manifestation/region/' . $region->getId() . '">' . $region->getName() . '</a>' ?></h1>
 
             <div class="clearfix">
 

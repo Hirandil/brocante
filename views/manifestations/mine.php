@@ -61,10 +61,10 @@ if(sizeof($manifestations) > 0)
         </td>
 
         <td class="actions">
-            <a href="/index.php?section=Manifestation&action=update&id=<?php echo $manif->getId();?>" class="edit" title="Edit">Modifier</a>
-            <a href="/index.php?section=Manifestation&action=destroy&id=<?php echo $manif->getId();?>" class="remove" title="Remove">Supprimer</a>
+            <a href="/Manifestation/update/<?php echo $manif->getId();?>" class="edit" title="Edit">Modifier</a>
+            <a href="/Manifestation/destroy/<?php echo $manif->getId();?>" class="remove" title="Remove">Supprimer</a>
 
-            <a href="/index.php?section=Manifestation&action=show&id=<?php echo $manif->getId();?>" class="view"
+            <a href="/Manifestation/show/<?php echo $manif->getId();?>" class="view"
                title="View">Visualiser</a>
 
         </td>

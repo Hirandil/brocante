@@ -8,7 +8,7 @@
 <h1 class="titleH1"><?php echo $manifestation->getName() ?></h1>
 <div class="property clearfix">
     <div class="image">
-            <img width="570" height="425" src="<?php echo $manifestation->getImage()?>"
+            <img width="570" height="425" src="/<?php echo $manifestation->getImage()?>"
                  class="thumbnail-image " alt="19"/>
         </a>
     </div>
@@ -169,7 +169,7 @@
                         </div>
                         <!-- /.controls -->
                     </div>
-                    <p style="font-size:75%;">Je veux être alerté :</p>
+                    <p style="color:white; font-size:75%;">Je veux être alerté :</p>
                     <div class="control-group">
                         <div class="controls">
                             <input type="radio" name="" value="male"><p style="font-size:75%;margin-left: 10%;">la veille</p>
@@ -177,7 +177,10 @@
                             <input type="radio" name="" value="male"><p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
                         </div>
                     </div>
-                        <a href="/index.php?section=User&action=register" class="btn btn-primary btn-large" style="background-color: #f69679"> S'inscrire !</a>
+                    <!-- /.control-group -->
+                    <div class="form-actions">
+                        <a href="/User/register" class="btn btn-primary btn-large" style="background-color: #f69679"> S'inscrire !</a>
+                    </div>
 
 
                 <!-- /.form-actions -->

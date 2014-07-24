@@ -39,15 +39,15 @@
 ?>
     <tr>
         <td class="thumbnail">
-            <a href="/index.php?section=Manifestation&action=show&id=<?php echo $manif->getId();?>">
+            <a href="/Manifestation/show/<?php echo $manif->getId();?>">
                 <img width="80" height="59"
-                     src=""
+                     src="<?php echo $manif->getImage(); ?>"
                      class="attachment-admin-thumb" alt="<?php echo $manif->getName(); ?>">
             </a>
         </td>
 
         <td class="title">
-            <a href="/index.php?section=Manifestation&action=show&id=<?php echo $manif->getId();?>"><?php echo $manif->getName(); ?></a>
+            <a href="/Manifestation/show/<?php echo $manif->getId();?>"><?php echo $manif->getName(); ?></a>
         </td>
 
         <td class="post-date">

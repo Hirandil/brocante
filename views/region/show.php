@@ -7,6 +7,6 @@
  */
 foreach((array)$manifestations as $m)
 {
-    echo '<p><a href="index.php?section=Manifestation&action=show&id='.$m->getId().'">'.$m->getName().'</p>';
+    echo '<p><a href="/Manifestation/show/'.$m->getId().'">'.$m->getName().'</p>';
 }
 ?>
