@@ -64,11 +64,15 @@
 
                     }
                     else{
+                        $departments = $this->_dm->getAll();
+                        $regions = $this->_rm->getAll();
                         $types = $this->_tm->getAll();
                         include 'views/manifestations/add.php';
                     }
                 }
                 else{
+                    $departments = $this->_dm->getAll();
+                    $regions = $this->_rm->getAll();
                     $types = $this->_tm->getAll();
                     include 'views/manifestations/add.php';
                 }
@@ -250,6 +254,8 @@
                 header('Location: /Manifestation/show/id='.$manifestation->getId());
             }
             else{
+                $departments = $this->_dm->getAll();
+                $regions = $this->_rm->getAll();
                 $types = $this->_tm->getAll();
                 $manifestation = $this->_mm->get((int)$_GET['id']);
                 if($manifestation->getIdOrganiser() == $_SESSION['userId']){
