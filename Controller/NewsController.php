@@ -56,7 +56,6 @@
             public function all(){
                 $news = $this->_nm->getAll();
                 include('views/news/news.php');
-                print_r($news);
             }
 
             public function update(){
