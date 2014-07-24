@@ -82,8 +82,6 @@
 
                                     <div class="controls">
                                         <input type="text" id="cityGoogle" name="city" >
-
-
                                     </div>
                                     <!-- /.controls -->
                                 </div>

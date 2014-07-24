@@ -169,7 +169,7 @@
                         </div>
                         <!-- /.controls -->
                     </div>
-                    <p style="color:white; font-size:75%;">Je veux être alerté :</p>
+                    <p style="font-size:75%;">Je veux être alerté :</p>
                     <div class="control-group">
                         <div class="controls">
                             <input type="radio" name="" value="male"><p style="font-size:75%;margin-left: 10%;">la veille</p>
@@ -177,10 +177,7 @@
                             <input type="radio" name="" value="male"><p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
                         </div>
                     </div>
-                    <!-- /.control-group -->
-                    <div class="form-actions">
                         <a href="/index.php?section=User&action=register" class="btn btn-primary btn-large" style="background-color: #f69679"> S'inscrire !</a>
-                    </div>
 
 
                 <!-- /.form-actions -->

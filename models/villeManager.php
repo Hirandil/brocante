@@ -46,7 +46,7 @@ class villeManager
     public function getAutoComplete($info){
 
         $villes = NULL;
-        $q = $this->_db->prepare('SELECT * FROM villes WHERE name like \''.$info.'%\'');
+        $q = $this->_db->prepare('SELECT * FROM villes WHERE name like \''.$info.'%\' LIMIT 10');
         $q->bindValue(':name', $info, PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
