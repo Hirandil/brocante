@@ -181,16 +181,16 @@
             $region = $this->_rm->get((int)$department->getRegion());
             $manifestations = $this->_mm->getByDepartment($department->getName());
             $manifByDate = array();
-            /*foreach((array)$manifestations as $m)
+            foreach((array)$manifestations as $m)
             {
                 if(!array_key_exists($m->getStart(),$manifByDate)){
-                    $manifByDate[$m->getStart()] = [];
+                    $manifByDate[$m->getStart()] = array();
                     $manifByDate[$m->getStart()][] = $m;
                 }
                 else{
                     $manifByDate[$m->getStart()][] = $m;
                 }
-            }*/
+            }
             include('views/department/show.php');
 
         }
@@ -198,7 +198,18 @@
         public function region(){
 
             $region = $this->_rm->get((int)$_GET['id']);
-            $manifestations = $this->_mm->getByDepartment($region->getName());
+            $manifestations = $this->_mm->getByRegion($region->getName());
+            $manifByDate = array();
+            foreach((array)$manifestations as $m)
+            {
+                if(!array_key_exists($m->getStart(),$manifByDate)){
+                    $manifByDate[$m->getStart()] = array();
+                    $manifByDate[$m->getStart()][] = $m;
+                }
+                else{
+                    $manifByDate[$m->getStart()][] = $m;
+                }
+            }
             include('views/region/show.php');
         }
 
@@ -247,7 +258,7 @@
                 $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'],'city' => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'region' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] , 'idOrganiser' => $_SESSION['userId'],'type' => $_POST['type'],'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path);
                 $manifestation = new Manifestation($array);
                 $this->_mm->update($manifestation);
-                header('Location: /Manifestation/show/id='.$manifestation->getId());
+                header('Location: /Manifestation/show/'.$manifestation->getId());
             }
             else{
                 $types = $this->_tm->getAll();

@@ -13,6 +13,7 @@
                     . sizeof($manifestations) .
                     ' résultat(s) ont été trouvé(s). Vous pouvez aussi rechercher pour la région
                     <a href="/Manifestation/region/' . $region->getId() . '">' . $region->getName() . '</a>' ?></h1>
+            <br>
 
             <div class="clearfix">
 
@@ -28,7 +29,7 @@
                             <div class="span3">
                                 <div class="image">
                                     <div class="content">
-                                        <a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId() ?>">
+                                        <a href="/Manifestation/show/<?php echo $m->getId() ?>">
                                             <img width="50" height="100" src="<?php echo $m->getImage() ?>"
                                                  class="thumbnail-image" alt="19">
                                         </a>
@@ -42,7 +43,7 @@
                                 <div class="title-price row">
                                     <div class="title span4">
                                         <h2>
-                                            <a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId() ?>"><?php echo $m->getName() ?></a>
+                                            <a href="/Manifestation/show/<?php echo $m->getId() ?>"><?php echo $m->getName() ?></a>
                                         </h2>
                                     </div>
                                     <!-- /.title -->
@@ -66,13 +67,12 @@
 
                                 <div class="property-info clearfix">
                                     <div class="area">
-                                        <i class="icon icon-normal-cursor-scale-up"></i>
 
                                     </div>
                                     <!-- /.area -->
 
                                     <div class="more-info">
-                                        <a href="index.php?section=Manifestation&action=show&id=<?php echo $m->getId() ?>">
+                                        <a href="/Manifestation/show/<?php echo $m->getId() ?>">
                                             Voir
                                             la fiche <i
                                                 class="icon icon-normal-right-arrow-circle"></i></a>

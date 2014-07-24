@@ -10,7 +10,6 @@
     <div class="image">
             <img width="570" height="425" src="/<?php echo $manifestation->getImage()?>"
                  class="thumbnail-image " alt="19"/>
-        </a>
     </div>
     <!-- /.image -->
 
@@ -145,7 +144,10 @@
                 foreach($nearTowns as $nearTown)
                 {
                     ?>
-                    <li><a href="index.php?section=Manifestation&action=show&id=<?php echo $nearTown->getId(); ?>"> <?php echo $nearTown->getName() ?> à <?php echo $nearTown->getCity() ?></a></li>
+                    <li><a href="index.php?section=Manifestation&action=show&id=<?php echo $nearTown->getId(); ?>">
+                            <img width="40" height="35" src="/<?php echo $nearTown->getImage()?>"
+                                 class="thumbnail-image " alt="Image"/>
+                            <?php echo $nearTown->getName() ?> à <?php echo $nearTown->getCity() ?></a></li>
                 <?php
                 }
                 ?>

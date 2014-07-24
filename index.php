@@ -102,7 +102,7 @@ $content = ob_get_clean();
     <script type='text/javascript' src='/assets/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>
     <script type='text/javascript' src='/assets/libraries/rs-plugin/js/jquery.themepunch.plugins.min.js'></script>
     <script type="text/javascript" src="/assets/js/notify.min.js"></script>
-    <base href="http://aw6.fr/">
+    <!--<base href="http://aw6.fr/">-->
     <title> 123Brocante </title>
 </head>
 

@@ -20,7 +20,7 @@
                         <label class="control-label" for="title">Titre :</label>
 
                         <div class="controls">
-                            <input type="text" name="title" id="title">
+                            <input type="text" name="title" id="title" <?php if($update){echo 'value="'.$news->getTitle().'"';}?>>
                         </div>
                     </div>
 
@@ -28,10 +28,10 @@
                         <label class="control-label" for="content"> Contenu </label>
 
                         <div class="controls">
-                            <textarea name="content" id="content" style="height: 150px;"></textarea>
+                            <textarea name="content" id="content" style="height: 150px;" <?php if($update){echo 'value="'.$news->getContent().'"';}?>></textarea>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success" style="margin-left: 90%;margin-top: 50px;"> Poster
+                    <button type="submit" class="btn btn-success" style="margin-left: 85%;margin-top: 50px;"> <?php if($update){echo 'Mettre à jour';}else{ echo 'Poster';}?>
                     </button>
                 </form>
             </div>
