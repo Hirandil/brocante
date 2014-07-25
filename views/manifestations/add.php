@@ -91,22 +91,38 @@
     </div>
     <div class="control-group">
         <label class="control-label">
-            Département
-        </label>
-
-        <div class="controls">
-            <input type="text" name="department" size="30"  id="departmentGoogle" required="required" <?php if($update){echo 'value="'.$manifestation->getDepartment().'"';}?>>
-        </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label">
             Région
         </label>
 
         <div class="controls">
-            <input type="text" name="region" size="30" id="regionGoogle" required="required" <?php if($update){echo 'value="'.$manifestation->getRegion().'"';}?> >
+            <select id="selectRegion" name="region">
+                <option <?php if($update){echo 'value="'.$manifestation->getRegion().'"';}else{echo 'value="null"';}?>><?php if($update){echo $manifestation->getRegion();}else{echo 'Selectionner une région';}?></option>
+                <?php
+                foreach((array)$regions as $r)
+                {
+                    ?>
+                    <option value="<?php echo $r->getName()?>" id="<?php echo $r->getId()?>"><?php echo $r->getName()?></option>
+                <?php
+                }
+                ?>
+            </select>
         </div>
     </div>
+    <div class="control-group">
+        <label class="control-label">
+            Département
+        </label>
+
+        <div class="controls">
+            <select id="selectDepartment" name="department">
+                <option <?php if($update){echo 'value="'.$manifestation->getDepartment().'"';}else{echo 'value="null"';}?>><?php if($update){echo $manifestation->getDepartment();}else{echo 'Selectionner un departement';}?></option>
+                <?php if(!$update){ ?>
+                    <option value="null">Selectionner un departement</option>
+                <?php } ?>
+            </select>
+        </div>
+    </div>
+
 
 </div>
 
@@ -284,6 +300,26 @@
 </div>
 </form>
 
+<div class="container" style="-webkit-columns: 6;
+			-moz-columns: 6;
+			columns: 6;
+			column-width: 40px;
+			column-gap: 10px;
+			display: none">
+    <ul id="listDepartment">
+        <?php
+        foreach((array)$departments as $d)
+        {
+            ?>
+            <li style="display: table;font-size: 13px;margin: 5px">
+                <?php echo "<input type=\"hidden\" id=".$d->getId()." value=".$d->getRegion()."></input>
+                    <a href=\"/Manifestation/department/".$d->getZipCode()."\">(".$d->getZipCode().")"." ".$d->getName()."</a>"?></li>
+        <?php
+        }
+        ?>
+    </ul>
+</div>
+
 </div>
 <!-- /#main -->
 </div>
@@ -295,6 +331,9 @@
 
         <script>
             $( document ).ready(function() {
+
+                var availableTags = [];
+
                 var options = {
                    // types: ['(regions)'],
                     componentRestrictions: {country: 'fr'}
@@ -316,6 +355,67 @@
                     }, 200);
 
                 }
+
+                $( "#selectRegion" )
+                    .change(function () {
+                        var str = "";
+                        var output = [];
+                        $( "#selectRegion option:selected" ).each(function() {
+                            if($(this)[0].value == 'null' ){
+                                $('#selectDepartment').trigger("liszt:updated");
+                            }
+                            else{
+                                var RegionID = $(this).attr('id')
+
+                                $("#listDepartment li input").each(function(){
+                                    if( $(this)[0].value == RegionID){
+                                        var departmentName = $(this).next()[0].text.match(/.*\).(.*)/)[1]
+                                        output.push('<option value="'+ departmentName +'">'+ $(this).next()[0].text +'</option>');
+                                    }
+                                })
+                                $('#selectDepartment').html(output.join(''));
+//                       console.log($('#selectDepartment').chosen());
+
+                                $('#selectDepartment').trigger("liszt:updated");
+                            }
+                            //str += $( this ).text() + " ";
+                        });
+
+
+                        //console.log(str)
+                    })
+
+
+                $( "#cityGoogle" )
+                    .keypress(function () {
+                        console.log()
+                        if ($(this).val().length < 1){
+                            console.log('Ne rien faire');
+                        }
+                        else{
+                            $.ajax({
+                                url: "http://localhost/autocomplete.php",
+                                type: 'POST',
+                                data: {
+                                    'key': $(this).val()
+                                }
+                            })
+                                .done(function( data ) {
+                                    console.log(JSON.parse(data))
+                                    availableTags.slice(0)
+                                    availableTags = JSON.parse(data)
+                                    $( "#cityGoogle" ).autocomplete({
+                                        source: availableTags
+                                    });
+                                    console.log(data)
+
+                                });
+                        }
+                        //console.log(str)
+                    })
+                    .change();
+
+                console.log(availableTags)
 
             });
 
