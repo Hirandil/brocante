@@ -252,13 +252,13 @@
             <ul class="unstyled">
                 <li>
                     <label>
-                        <input type="radio" name="_property_meta[contract_type]" value="rent"/>
+                        <input type="radio" name="parking" value=true/>
                         &nbsp;&nbsp;Oui </label>
                 </li>
 
                 <li>
                     <label>
-                        <input type="radio" name="_property_meta[contract_type]" value="sale"/>
+                        <input type="radio" name="parking" value=false/>
                         &nbsp;&nbsp;Non </label>
                 </li>
             </ul>

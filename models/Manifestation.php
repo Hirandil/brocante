@@ -17,6 +17,9 @@
         private $_exhibitorNumber;
         private $_exhibitorPrice;
         private $_image;
+        private $_informations;
+        private $_parking;
+        private $_visits;
 
         public function __construct (array $data){
             $this->_id = $data['idManifestation'];
@@ -35,6 +38,56 @@
             $this->_exhibitorNumber = $data['exhibitorNumber'];
             $this->_exhibitorPrice = $data['exhibitorPrice'];
             $this->_image = $data['image'];
+            $this->_informations = $data['informations'];
+            $this->_parking = $data['parking'];
+        }
+
+        /**
+         * @param mixed $informations
+         */
+        public function setInformations($informations)
+        {
+            $this->_informations = $informations;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getInformations()
+        {
+            return $this->_informations;
+        }
+
+        /**
+         * @param mixed $parking
+         */
+        public function setParking($parking)
+        {
+            $this->_parking = $parking;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getParking()
+        {
+            return $this->_parking;
+        }
+
+        /**
+         * @param mixed $visits
+         */
+        public function setVisits($visits)
+        {
+            $this->_visits = $visits;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getVisits()
+        {
+            return $this->_visits;
         }
 
         public function getImage()

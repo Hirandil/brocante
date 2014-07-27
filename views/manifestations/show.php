@@ -5,128 +5,152 @@
 <div class="row">
 
 <div class="sidebar span8">
-<h1 class="titleH1"><?php echo $manifestation->getName() ?></h1>
-<div class="property clearfix">
-    <div class="image">
-            <img width="570" height="425" src="/<?php echo $manifestation->getImage()?>"
-                 class="thumbnail-image " alt="19"/>
-    </div>
-    <!-- /.image -->
+    <h1 class="titleH1"><?php echo $manifestation->getName() ?></h1>
 
-    <div class="wrapper">
-        <div class="title">
-            <h3>
+    <div class="property clearfix">
+        <div class="image">
+            <img width="570" height="425" src="/<?php echo $manifestation->getImage() ?>"
+                 class="thumbnail-image " alt="19"/>
+        </div>
+        <!-- /.image -->
+
+        <div class="wrapper">
+            <div class="title">
+                <h3>
                     <?php echo $manifestation->getAddress() ?>
                 </h3>
+            </div>
+            <!-- /.title -->
+
+            <div class="location"><?php echo $manifestation->getCity() ?></div>
+            <!-- /.location -->
+
+            <div class="price">
+                Contacter l'organisateur
+            </div>
+            <!-- /.price -->
         </div>
-        <!-- /.title -->
+        <!-- /.wrapper -->
+    </div>
+    <div class="property-info clearfix">
+        <h5 class="showH5">Localisation</h5>
 
-        <div class="location"><?php echo $manifestation->getCity() ?></div>
-        <!-- /.location -->
-
-        <div class="price">
-            Contacter l'organisateur
+        <div class="area">
+            <i class="icon icon-normal-cursor-scale-up"></i>
+            <?php echo $manifestation->getAddress() . "," . $manifestation->getCity() . "," . $manifestation->getRegion() . "," . $manifestation->getDepartment() ?>
         </div>
-        <!-- /.price -->
+        <!--    <div class="bedrooms">-->
+        <!--        <i class="icon icon-normal-bed"></i>-->
+        <!--        2-->
+        <!--    </div>-->
+        <br>
+        <h5 class="showH5">Horaires</h5>
+
+        <div class="area">
+            <i class="icon icon-normal-cursor-scale-up"></i>
+            <?php echo $manifestation->getSchedule() ?>
+        </div>
+        <br>
+        <h5 class="showH5">Site web de l'organisateur</h5>
+
+        <div class="area">
+            <i class="icon icon-normal-cursor-scale-up"></i>
+            <?php
+            if ($manifestation->getSite() == '')
+                echo 'Non renseigné';
+            else
+                echo $manifestation->getSite();
+            ?>
+        </div>
+        <br>
+        <h5 class="showH5">Commentaires</h5>
+
+        <div class="area">
+            <i class="icon icon-normal-cursor-scale-up"></i>
+            Non renseigné
+        </div>
+        <br>
+        <h5 class="showH5">Prix d'entrée</h5>
+
+        <div class="area">
+            <i class="icon icon-normal-cursor-scale-up"></i>
+            <?php
+            if ($manifestation->getPrice() == '')
+                echo 'Non renseigné';
+            else
+                echo $manifestation->getPrice()." €";
+            ?>
+        </div>
+        <br>
+        <h5 class="showH5">Nombre d'exposants</h5>
+
+        <div class="area">
+            <i class="icon icon-normal-cursor-scale-up"></i>
+            <?php
+            if ($manifestation->getExhibitorNumber() == '')
+                echo 'Non renseigné';
+            else
+                echo $manifestation->getExhibitorNumber();
+            ?>
+        </div>
+        <br>
+        <h5 class="showH5">Tarif pour exposant</h5>
+
+        <div class="area">
+            <i class="icon icon-normal-cursor-scale-up"></i>
+            <?php
+            if ($manifestation->getExhibitorPrice() == '')
+                echo 'Non renseigné';
+            else
+                echo $manifestation->getExhibitorPrice()." €";
+            ?>
+        </div>
+        <br>
+        <h5 class="showH5">Parking à proximité</h5>
+
+        <div class="area">
+            <i class="icon icon-normal-cursor-scale-up"></i>
+            <?php
+            if ($manifestation->getParking() == '')
+                echo 'Non renseigné';
+            else
+                if ($manifestation->getParking() == true)
+                    echo "Oui";
+                else
+                    echo "Non";
+            ?>
+        </div>
+        <br>
+        <h5 class="showH5">Informations supplémentaires</h5>
+
+        <div class="area">
+            <i class="icon icon-normal-cursor-scale-up"></i>
+            <?php
+            if ($manifestation->getInformations() == '')
+                echo 'Non renseigné';
+            else
+                echo $manifestation->getInformations();
+            ?>
+        </div>
+
     </div>
-    <!-- /.wrapper -->
+
+    <div id="agencies_widget-2" class="widget agencies">
+
+
+    </div>
 </div>
-<div class="property-info clearfix">
-    <h5  class="showH5">Localisation</h5>
-    <div class="area" >
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        <?php echo $manifestation->getAddress().",".$manifestation->getCity().",".$manifestation->getRegion().",".$manifestation->getDepartment() ?>
-    </div>
-<!--    <div class="bedrooms">-->
-<!--        <i class="icon icon-normal-bed"></i>-->
-<!--        2-->
-<!--    </div>-->
-    <br>
-    <h5 class="showH5">Horaires</h5>
-    <div class="area">
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        <?php echo $manifestation->getSchedule() ?>
-    </div>
-    <br>
-    <h5 class="showH5">Site web de l'organisateur</h5>
-    <div class="area">
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        <?php
-        if($manifestation->getSite()=='')
-            echo 'Non renseigné';
-        else
-            echo $manifestation->getSite();
-        ?>
-    </div>
-    <br>
-    <h5 class="showH5">Commentaires</h5>
-    <div class="area">
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        Non renseigné
-    </div>
-    <br>
-    <h5 class="showH5">Prix d'entrée</h5>
-    <div class="area">
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        <?php
-        if($manifestation->getPrice()=='')
-            echo 'Non renseigné';
-        else
-            echo $manifestation->getPrice();
-        ?>
-    </div>
-    <br>
-    <h5 class="showH5">Nombre d'exposants</h5>
-    <div class="area">
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        <?php
-        if($manifestation->getExhibitorNumber()=='')
-            echo 'Non renseigné';
-        else
-            echo $manifestation->getExhibitorNumber();
-        ?>
-    </div>
-    <br>
-    <h5 class="showH5">Tarif pour exposant</h5>
-    <div class="area">
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        <?php
-        if($manifestation->getExhibitorPrice()=='')
-            echo 'Non renseigné';
-        else
-            echo $manifestation->getExhibitorPrice();
-        ?>
-    </div>
-    <br>
-    <h5 class="showH5">Parking à proximité</h5>
-    <div class="area">
-        <i class="icon icon-normal-cursor-scale-up"></i>
-        Non renseigné
-    </div>
-
-</div>
-
-<div id="agencies_widget-2" class="widget agencies">
-
-
-</div></div>
 <!-- /#sidebar -->
 
 <div id="main" class="span4 single-property">
 
 
+    <div class="property-detail">
 
-<div class="property-detail">
-
-<div class="row">
-
+        <div class="row">
 
 
-</div>
-
-
-
-
+        </div>
 
 
         <h2>Carte des brocantes du département</h2>
@@ -136,72 +160,83 @@
         </div>
         <br>
 
-    <div class="alentourBlock">
-        <div class="content" style="margin-bottom: 20px">
-            <p style="border-bottom: 1px; border-style:solid">Brocantes aux alentours</p>
-            <ul>
-                <?php
-                foreach($nearTowns as $nearTown)
-                {
+        <div class="alentourBlock">
+            <div class="content" style="margin-bottom: 20px">
+                <p style="border-bottom: 1px; border-style:solid">Brocantes aux alentours</p>
+                <ul>
+                    <?php
+                    foreach ($nearTowns as $nearTown) {
+                        ?>
+                        <li><a href="index.php?section=Manifestation&action=show&id=<?php echo $nearTown->getId(); ?>">
+                                <img width="40" height="35" src="/<?php echo $nearTown->getImage() ?>"
+                                     class="thumbnail-image " alt="Image"/>
+                                <?php echo $nearTown->getName() ?> à <?php echo $nearTown->getCity() ?></a></li>
+                    <?php
+                    }
                     ?>
-                    <li><a href="index.php?section=Manifestation&action=show&id=<?php echo $nearTown->getId(); ?>">
-                            <img width="40" height="35" src="/<?php echo $nearTown->getImage()?>"
-                                 class="thumbnail-image " alt="Image"/>
-                            <?php echo $nearTown->getName() ?> à <?php echo $nearTown->getCity() ?></a></li>
-                <?php
-                }
-                ?>
-            </ul>
+                </ul>
+            </div>
+            <!-- /.content -->
         </div>
-        <!-- /.content -->
-    </div>
 
-<!--            <li>> Brocante ville 2</li>-->
-<!--            <li>> Brocante ville 3</li>-->
+        <!--            <li>> Brocante ville 2</li>-->
+        <!--            <li>> Brocante ville 3</li>-->
 
-    <div class="alentourBlock" >
-        <div class="content" style="margin-bottom: 20px">
-            <p style="border-bottom: 1px; border-style:solid">Abonnez-vous aux alertes</p>
-            <p style="font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes de la région <?php echo $manifestation->getDepartment() ?></p>
-            <form method="get" action="javascript:void(0);">
+        <div class="alentourBlock">
+            <div class="content" style="margin-bottom: 20px">
+                <p style="border-bottom: 1px; border-style:solid">Abonnez-vous aux alertes</p>
+
+                <p style="font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes de la
+                    région <?php echo $manifestation->getDepartment() ?></p>
+
+                <form method="get" action="javascript:void(0);">
 
                     <div class="type control-group">
                         <div class="controls">
-                            <input type="text" id="departmentGoogle" name="department" placeholder="Taper votre adresse e-mail">
+                            <input type="text" id="departmentGoogle" name="department"
+                                   placeholder="Taper votre adresse e-mail">
                         </div>
                         <!-- /.controls -->
                     </div>
                     <p style="color:white; font-size:75%;">Je veux être alerté :</p>
+
                     <div class="control-group">
                         <div class="controls">
-                            <input type="radio" name="" value="male"><p style="font-size:75%;margin-left: 10%;">la veille</p>
-                            <input type="radio" name="" value="female"><p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
-                            <input type="radio" name="" value="male"><p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
+                            <input type="radio" name="" value="male">
+
+                            <p style="font-size:75%;margin-left: 10%;">la veille</p>
+                            <input type="radio" name="" value="female">
+
+                            <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
+                            <input type="radio" name="" value="male">
+
+                            <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
                         </div>
                     </div>
                     <!-- /.control-group -->
                     <div class="form-actions">
-                        <a href="/User/register" class="btn btn-primary btn-large" style="background-color: #f69679"> S'inscrire !</a>
+                        <a href="/User/register" class="btn btn-primary btn-large" style="background-color: #f69679">
+                            S'inscrire !</a>
                     </div>
 
 
-                <!-- /.form-actions -->
-            </form>
+                    <!-- /.form-actions -->
+                </form>
+            </div>
+            <!-- /.content -->
         </div>
-        <!-- /.content -->
-    </div>
-<div class="alentourBlock">
-    <div class="content" style="margin-bottom: 20px">
-        <p style="border-bottom: 1px; border-style:solid">Brocantes du département</p>
-        <ul>
-            <li>Brocante aujourd'hui</li>
-            <li>Brocante demain</li>
-            <li>Brocante Week end</li>
-            <li>Brocante Juin 2014</li>
-        </ul>
-    </div>
-    <!-- /.content -->
-</div>
+        <div class="alentourBlock">
+            <div class="content" style="margin-bottom: 20px">
+                <p style="border-bottom: 1px; border-style:solid">Brocantes du département</p>
+                <ul>
+                    <li>Brocante aujourd'hui</li>
+                    <li>Brocante demain</li>
+                    <li>Brocante Week end</li>
+                    <li>Brocante Juin 2014</li>
+                </ul>
+            </div>
+            <!-- /.content -->
+        </div>
 
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
@@ -218,7 +253,7 @@
                     var plainMarkers = new Array();
 
                     var results = new Array();
-                    geocoder.geocode( { 'address': '<?php echo $manifestation->getAddress() ?>'}, function(results, status) {
+                    geocoder.geocode({ 'address': '<?php echo $manifestation->getAddress() ?>'}, function (results, status) {
                         /* Si l'adresse a pu être géolocalisée */
                         if (status == google.maps.GeocoderStatus.OK) {
                             console.log(results)
@@ -268,10 +303,6 @@
                     //console.log(results)
 
 
-
-
-
-
                 }
 
                 google.maps.event.addDomListener(window, 'load', LoadMapProperty);
@@ -302,8 +333,7 @@
         </script>
 
 
-
-</div>
+    </div>
 
 </div>
 <!-- /#main -->
