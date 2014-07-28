@@ -59,7 +59,7 @@
 
         <div class="content">
             <?php
-            foreach((array)$_SESSION["last"] as $m)
+            foreach((array)$_SESSION["visited"] as $m)
             {
                 ?>
                 <div class="property clearfix">

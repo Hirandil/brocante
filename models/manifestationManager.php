@@ -223,7 +223,7 @@ class manifestationManager
     public function getLast()
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY visits DESC LIMIT 3');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY idManifestation DESC LIMIT 3');
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {
@@ -232,6 +232,17 @@ class manifestationManager
         return $manifestations;
     }
 
+    public function getVisited()
+    {
+        $manifestations = NULL;
+        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY visits DESC LIMIT 3');
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
     public function getNearTowns($dept)
     {
         $manifestations = NULL;

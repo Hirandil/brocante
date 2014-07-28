@@ -93,6 +93,63 @@ class UserController extends Controller
         }
     }
 
+    public function redefine(){
+        if(isset($_POST['email'])){
+            if($this->_um->exists($_POST['email'])){
+                $this->_um->cleanToken($_POST['email']);
+                $token = md5(rand());
+                $this->_um->generate($token,$_POST['email']);
+
+                if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $_POST['email']))
+                    $passage_ligne = "\r\n";
+                else
+                    $passage_ligne = "\n";
+                //=====Déclaration des messages au format texte et au format HTML.
+                //$message_txt = "Salut à tous, voici un e-mail envoyé par un script PHP.";
+                $message_html = "<html><head></head><body><b>Bonjour,</b><br><p> Pour procéder au changement de votre mot de passe suivez le lien suivant :</p><br> <a href=\"http://www.aw6.fr/User/redefine/".$token."\">Redefinir le mot de passe </a></body></html>";
+
+                $boundary = "-----=".md5(rand());
+
+                $sujet = "123Brocante - Redefinition de mot de passe";
+
+                $header = "From: \"123Brocante\"<eredoine@gmail.com>".$passage_ligne;
+                $header.= "MIME-Version: 1.0".$passage_ligne;
+                $header.= "Content-Type: multipart/alternative;".$passage_ligne." boundary=\"$boundary\"".$passage_ligne;
+
+                $message = $passage_ligne."--".$boundary.$passage_ligne;
+
+                $message.= "Content-Type: text/html; charset=\"ISO-8859-1\"".$passage_ligne;
+                $message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
+                $message.= $passage_ligne.$message_html.$passage_ligne;
+
+                $message.= $passage_ligne."--".$boundary.$passage_ligne;
+
+                $message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+                $message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+
+                mail($_POST['email'],$sujet,$message,$header);
+
+                }
+            else{
+                $_SESSION['message'] = "Email introuvable";
+            }
+        }
+        else if(isset($_POST['newPassword'],$_POST['newPassword2'])){
+            if($_POST['newPassword'] == $_POST['newPassword2']){
+                $this->_um->redefine(sha1($_POST['newPassword']),$_POST['token']);
+                $this->_um->cleanToken($_POST['token']);
+            }
+            else{
+                $_SESSION['message'] = "Confirmer bien le mot de passe";
+            }
+        }
+        else if(isset($_GET['token']) && !isset($_POST['newPassword'])){
+            include('views/redefine.php');
+        }
+        else{
+            include('views/redefine.php');
+        }
+    }
     public function update(){
         if(isset($_SESSION['userLogin'])){
             $user = $this->_um->get((int)$_SESSION['userId']);

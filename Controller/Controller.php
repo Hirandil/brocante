@@ -21,7 +21,7 @@
                 $mm = new manifestationManager($this->_db);
                 $nm = new newsManager($this->_db);
                 $_SESSION['last'] = $mm->getLast();
-                $_SESSION["soon"] = $mm->getSoon(7,3);
+                $_SESSION["visited"] = $mm->getVisited();
                 $_SESSION["news"] = $nm->getSomeNews(3);
                 }
             catch(Exception $e)

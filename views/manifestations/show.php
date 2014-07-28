@@ -37,7 +37,7 @@
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
-            <?php echo $manifestation->getAddress() . "," . $manifestation->getCity() . "," . $manifestation->getRegion() . "," . $manifestation->getDepartment() ?>
+            <?php echo $manifestation->getAddress() . ",". $manifestation->getRegion() . "," . $manifestation->getDepartment() ?>
         </div>
         <!--    <div class="bedrooms">-->
         <!--        <i class="icon icon-normal-bed"></i>-->
@@ -61,13 +61,6 @@
             else
                 echo $manifestation->getSite();
             ?>
-        </div>
-        <br>
-        <h5 class="showH5">Commentaires</h5>
-
-        <div class="area">
-            <i class="icon icon-normal-cursor-scale-up"></i>
-            Non renseigné
         </div>
         <br>
         <h5 class="showH5">Prix d'entrée</h5>
@@ -114,7 +107,7 @@
             if ($manifestation->getParking() == '')
                 echo 'Non renseigné';
             else
-                if ($manifestation->getParking() == true)
+                if ($manifestation->getParking() == 0)
                     echo "Oui";
                 else
                     echo "Non";

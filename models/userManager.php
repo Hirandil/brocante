@@ -104,6 +104,29 @@
             $q->execute();
         }
 
+        public function generate($token,$email)
+        {
+            $q = $this->_db->prepare('INSERT INTO password(email,token) VALUES (:email,:token)');
+            $q->bindValue(':email', $email,PDO::PARAM_STR);
+            $q->bindValue(':token', $token,PDO::PARAM_STR);
+            $q->execute();
+        }
+
+        public function redefine($newPass,$token)
+        {
+            $q = $this->_db->prepare('UPDATE users set password = :pass WHERE email =
+                                        (SELECT email FROM password WHERE token = :token)');
+            $q->bindValue(':pass', $newPass,PDO::PARAM_STR);
+            $q->bindValue(':token', $token,PDO::PARAM_STR);
+            $q->execute();
+        }
+
+        public function cleanToken($info){
+            $q = $this->_db->prepare('DELETE FROM password WHERE token = :info OR email = :info');
+            $q->bindValue(':info', $info,PDO::PARAM_STR);
+            $q->execute();
+        }
+
         public function updateToPro($info)
         {
             $data = NULL ;

@@ -47,7 +47,6 @@
                                         </h2>
                                     </div>
                                     <!-- /.title -->
-
                                     <div class="price">
                                         Contacter l'organisateur
                                     </div>

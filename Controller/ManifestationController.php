@@ -254,6 +254,7 @@
 
             if ( isset($_POST['title'],$_POST['route'],$_POST['city'],$_POST['department'],$_POST['region'],$_POST['dateStart'],$_POST['dateEnd'],$_POST['timeStart'],$_POST['timeEnd'],$_POST['type'])){
 
+                $formerManifestation = $this->_mm->get((int)$_POST['idManif']);
                 $schedule = "De ".$_POST['timeStart']." à ".$_POST['timeEnd'];
                 function upload($index,$destination,$maxsize=FALSE,$extensions=FALSE)
                 {
@@ -266,15 +267,25 @@
 
                     return move_uploaded_file($_FILES[$index]['tmp_name'],$destination);
                 }
-
-                $nom = md5(uniqid(rand(), true));
-                $ext = substr(strrchr($_FILES['image']['name'],'.'),1);
-                $path = "assets/img/manifestations/".$nom.".".$ext;
-                $valid_extensions = array( 'jpg' , 'jpeg' ,'png' );
-                if(!(upload('image',$path,6291456,$valid_extensions))){
-                    $_SESSION['message'] = "Il y a eu un problème lors de l'upload du fichier";
+                if( $_POST['image'] != NULL){
+                    $nom = md5(uniqid(rand(), true));
+                    $ext = substr(strrchr($_FILES['image']['name'],'.'),1);
+                    $path = "assets/img/manifestations/".$nom.".".$ext;
+                    $valid_extensions = array( 'jpg' , 'jpeg' ,'png' );
+                    if(!(upload('image',$path,6291456,$valid_extensions))){
+                        $_SESSION['message'] = "Il y a eu un problème lors de l'upload du fichier";
+                    }
                 }
-                $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'],'city' => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'region' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] , 'idOrganiser' => $_SESSION['userId'],'type' => $_POST['type'],'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path);
+                else{
+                    $path = $formerManifestation->getImage();
+                }
+
+                if($_POST['parking'] != NULL)
+                    $parking = htmlspecialchars($_POST['parking']);
+                else
+                    $parking = $formerManifestation->getParking();
+
+                $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'],'city' => $_POST['city'],'department' => $_POST['department'], 'address' => $_POST['route'],'region' => $_POST['region'],'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'] , 'idOrganiser' => $_SESSION['userId'],'type' => $_POST['type'],'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path, 'informations' => $_POST['content'],'parking'=> $parking);
                 $manifestation = new Manifestation($array);
                 $this->_mm->update($manifestation);
                 header('Location: /Manifestation/show/'.$manifestation->getId());

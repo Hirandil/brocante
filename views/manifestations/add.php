@@ -171,6 +171,7 @@
         </div>
         <!-- /.controls -->
     </div>
+
     <div class="control-group">
         <label class="control-label">
             Type de manifestation
@@ -279,7 +280,7 @@
         </label>
 
         <div class="controls">
-            <textarea id="description" rows="4" name="content" style="min-height:150px;"></textarea>
+            <textarea id="description" rows="4" name="content" style="min-height:150px;"> <?php if($update){echo $manifestation->getInformations();}?></textarea>
         </div>
     </div>
 
@@ -298,6 +299,7 @@
         }
     ?>
 </div>
+<?php if($update){echo '<input type="hidden" name="idManif" value="'.$manifestation->getId().'"></input>';}?>
 </form>
 
 <div class="container" style="-webkit-columns: 6;

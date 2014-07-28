@@ -1,6 +1,7 @@
 Options +FollowSymlinks
 RewriteEngine on
 RewriteRule ^([A-Za-z]+)/([a-z]+)/([0-9]+)$  index.php?section=$1&action=$2&id=$3
+RewriteRule ^([A-Za-z]+)/([a-z]+)/([0-9a-z]+)$  index.php?section=$1&action=$2&token=$3
 RewriteRule ^([A-Za-z]+)/([a-z]+)$  index.php?section=$1&action=$2
 #RewriteRule ^assets/img/manifestations/([a-z0-9]+)\.(png|jpg)$ kaka
 
