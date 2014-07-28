@@ -58,7 +58,17 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="region" size="30" value="" id="region" >
+            <select id="selectRegion" name="region">
+                <option value="null">Selectionner une région</option>
+                <?php
+                foreach((array)$regions as $r)
+                {
+                    ?>
+                    <option value="<?php echo $r->getName()?>" id="<?php echo $r->getId()?>"><?php echo $r->getName()?></option>
+                <?php
+                }
+                ?>
+            </select>
         </div>
     </div>
 
@@ -68,7 +78,17 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="department" size="30" value="" id="department" >
+            <select id="selectDepartment" name="department">
+                <option value="null">Séléctionner une département</option>
+                <?php
+                foreach((array)$departments as $d)
+                {
+                    ?>
+                    <option value="<?php echo $d->getName()?>" id="<?php echo $d->getId()?>"><?php echo $d->getName()?></option>
+                <?php
+                }
+                ?>
+            </select>
         </div>
     </div>
 

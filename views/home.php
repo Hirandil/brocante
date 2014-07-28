@@ -226,9 +226,9 @@
                 console.log(autocomplete.gm_accessors_.place.Sc.place);
                 var address_components = autocomplete.gm_accessors_.place.Sc.place.address_components;
 
-                document.getElementById('cityGoogle').value = address_components[2].long_name;
-                document.getElementById('departmentGoogle').value = address_components[3].long_name;
-                document.getElementById('regionGoogle').value = address_components[4].long_name;
+                //document.getElementById('cityGoogle').value = address_components[2].long_name;
+                //document.getElementById('departmentGoogle').value = address_components[3].long_name;
+                //document.getElementById('regionGoogle').value = address_components[4].long_name;
                 ;
             }, 200);
 

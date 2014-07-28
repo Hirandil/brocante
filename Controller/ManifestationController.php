@@ -178,6 +178,8 @@
            }
            else
            {
+               $regions = $this->_rm->getAll();
+               $departments = $this->_dm->getAll();
                $types = $this->_tm->getAll();
                include('views/manifestations/search.php');
            }
