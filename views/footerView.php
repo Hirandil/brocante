@@ -180,12 +180,12 @@
 
 <!-- /#footer-wrapper -->
 <script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3&#038;sensor=true&#038;ver=3.6'></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
-<script type='text/javascript' src='/assets/js/aviators-map.js'></script>
+<!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>-->
+<!--<script type='text/javascript' src='/assets/js/aviators-map.js'></script>-->
 <script type='text/javascript' src='/assets/js/gmap3.infobox.min.js'></script>
 <script type='text/javascript' src='/assets/js/bootstrap.min.js'></script>
 <script type='text/javascript' src='/assets/js/retina.js'></script>
-<script type='text/javascript' src='/assets/js/gmap3.clusterer.js'></script>
+<!--<script type='text/javascript' src='/assets/js/gmap3.clusterer.js'></script>-->
 <script type='text/javascript' src='/assets/js/jquery.ezmark.js'></script>
 <script type='text/javascript' src='/assets/js/carousel.js'></script>
 <script type='text/javascript' src='/assets/js/jquery.bxslider.js'></script>

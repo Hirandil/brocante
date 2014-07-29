@@ -192,7 +192,8 @@
         }
 
         public function department(){
-
+            $types = $this->_tm->getAll();
+            $departments = $this->_dm->getAll();
             $department = $this->_dm->get($_GET['id']);
             $region = $this->_rm->get((int)$department->getRegion());
             $manifestations = $this->_mm->getByDepartment($department->getName());

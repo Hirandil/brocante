@@ -264,22 +264,22 @@
                             $.each(locations, function (index, location) {
                                 var marker = new google.maps.Marker({
                                     position: new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng()),
-                                    map: map,
-                                    icon: '../assets/img/marker-transparent.png'
+                                    map: map
+                                    //icon: '../assets/img/marker-transparent.png'
                                 });
 
-                                var myOptions = {
-                                    draggable: true,
-                                    content: '<div class="marker ' + types[index] + '"><div class="marker-inner"></div></div>',
-                                    disableAutoPan: true,
-                                    pixelOffset: new google.maps.Size(-21, -58),
-                                    position: new google.maps.LatLng(location[0], location[1]),
-                                    closeBoxURL: "",
-                                    isHidden: false,
-                                    // pane: "mapPane",
-                                    enableEventPropagation: true
-                                };
-                                marker.marker = new InfoBox(myOptions);
+//                                var myOptions = {
+//                                    draggable: true,
+//                                    content: '<div class="marker ' + types[index] + '"><div class="marker-inner"></div></div>',
+//                                    disableAutoPan: true,
+//                                    pixelOffset: new google.maps.Size(-21, -58),
+//                                    position: new google.maps.LatLng(location[0], location[1]),
+//                                    closeBoxURL: "",
+//                                    isHidden: false,
+//                                    // pane: "mapPane",
+//                                    enableEventPropagation: true
+//                                };
+//                                marker.marker = new InfoBox(myOptions);
                                 marker.marker.isHidden = false;
                                 marker.marker.open(map, marker);
                                 markers.push(marker);
