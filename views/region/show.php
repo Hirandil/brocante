@@ -134,7 +134,7 @@
     </div>
     <div class="property-info clearfix">
         <?php
-        foreach ((array)$manifByDate as $d)
+        foreach ((array)$manifTomorrow as $d)
         {
             foreach ((array)$d as $manifestation)
             {
@@ -170,7 +170,7 @@
     </div>
     <div class="property-info clearfix">
         <?php
-        foreach ((array)$manifByDate as $d)
+        foreach ((array)$manifTomorrow1 as $d)
         {
             foreach ((array)$d as $manifestation)
             {
@@ -208,7 +208,7 @@
     </div>
     <div class="property-info clearfix">
         <?php
-        foreach ((array)$manifByDate as $d)
+        foreach ((array)$manifTomorrow2 as $d)
         {
             foreach ((array)$d as $manifestation)
             {
@@ -295,6 +295,9 @@
             </div>
             <!-- /.content -->
         </div>
+        <?php
+        if (sizeof($nearRegion) !=0 ){
+            ?>
 
         <div class="alentourBlock">
             <div class="content" style="margin-bottom: 20px">
@@ -307,11 +310,16 @@
                                 <img width="40" height="35" src="/<?php echo $nearRegion->getImage() ?>"
                                      class="thumbnail-image " alt="Image"/>
                                 <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></li>
+
                     <?php
+
                     }
                     ?>
                 </ul>
             </div>
+            <?php
+            }
+            ?>
             <!-- /.content -->
         </div>
 

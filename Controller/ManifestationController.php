@@ -199,9 +199,9 @@
             $nearRegion = $this->_mm->getNearRegion($region->getName());
             $manifestations = $this->_mm->getByDepartment($department->getName());
             $manifestationsPro = $this->_mm->getProByDepartment($department->getName());
-            $tomorrow =  $this->_mm->getTomorrow(0);
-            $tomorrow1 =  $this->_mm->getTomorrow(1);
-            $tomorrow2 =  $this->_mm->getTomorrow(2);
+            $tomorrow =  $this->_mm->getTomorrowDept(0,$department->getName());
+            $tomorrow1 =  $this->_mm->getTomorrowDept(1,$department->getName());
+            $tomorrow2 =  $this->_mm->getTomorrowDept(2,$department->getName());
             $manifProByDate = array();
             $manifByDate = array();
             $manifTomorrow = array();
@@ -265,8 +265,15 @@
             $types = $this->_tm->getAll();
             $region = $this->_rm->get((int)$_GET['id']);
             $regions = $this->_rm->getAll();
+            $nearRegion = $this->_mm->getNearRegion($region->getName());
             $manifestations = $this->_mm->getByRegion($region->getName());
+            $tomorrow =  $this->_mm->getTomorrowRegion(0,$region->getName());
+            $tomorrow1 =  $this->_mm->getTomorrowRegion(1,$region->getName());
+            $tomorrow2 =  $this->_mm->getTomorrowRegion(2,$region->getName());
             $manifByDate = array();
+            $manifTomorrow = array();
+            $manifTomorrow1 = array();
+            $manifTomorrow2 = array();
             foreach((array)$manifestations as $m)
             {
                 if(!array_key_exists($m->getStart(),$manifByDate)){
@@ -275,6 +282,36 @@
                 }
                 else{
                     $manifByDate[$m->getStart()][] = $m;
+                }
+            }
+            foreach((array)$tomorrow as $m)
+            {
+                if(!array_key_exists($m->getStart(),$manifTomorrow)){
+                    $manifTomorrow[$m->getStart()] = array();
+                    $manifTomorrow[$m->getStart()][] = $m;
+                }
+                else{
+                    $manifTomorrow[$m->getStart()][] = $m;
+                }
+            }
+            foreach((array)$tomorrow1 as $m)
+            {
+                if(!array_key_exists($m->getStart(),$manifTomorrow1)){
+                    $manifTomorrow1[$m->getStart()] = array();
+                    $manifTomorrow1[$m->getStart()][] = $m;
+                }
+                else{
+                    $manifTomorrow1[$m->getStart()][] = $m;
+                }
+            }
+            foreach((array)$tomorrow2 as $m)
+            {
+                if(!array_key_exists($m->getStart(),$manifTomorrow2)){
+                    $manifTomorrow2[$m->getStart()] = array();
+                    $manifTomorrow2[$m->getStart()][] = $m;
+                }
+                else{
+                    $manifTomorrow2[$m->getStart()][] = $m;
                 }
             }
             include('views/region/show.php');
