@@ -32,7 +32,7 @@
                                 <option value="">Ce week end</option>
                              </select>
                             <select id="selectDepartment" name="department">
-                                <option value="null">Séléctionner une département</option>
+                                <option value="null">Séléctionner un département</option>
                                 <?php
                                 foreach((array)$departments as $d)
                                 {
@@ -62,9 +62,16 @@
             ' résultat(s) ont été trouvé(s). Vous pouvez aussi rechercher pour la région
             <a href="/Manifestation/region/' . $region->getId() . '">' . $region->getName() . '</a>' ?></h1>
     <br>
-    <h2>Les brocantes à la une</h2>
     <?php
-    foreach ((array)$manifByDate as $d)
+        if (sizeof((array)$manifProByDate) != 0) {
+            ?>
+            <h2>Les brocantes à la une</h2>
+    <?php
+        }
+    ?>
+
+    <?php
+    foreach ((array)$manifProByDate as $d)
     {
     foreach ((array)$d as $manifestation)
     {
@@ -112,7 +119,12 @@
         <div class="wrapper">
             <div class="title">
                 <h3>
-                    JEUDI 29 MAI 2014
+                    <?php
+                    date_default_timezone_set('Europe/Paris');
+                    setlocale(LC_TIME, 'fr_FR.utf8','fra');
+//                    $currentDate = date("F j, Y");
+                    echo strftime("%A %d %B %Y")
+                    ?>
                 </h3>
             </div>
             <!-- /.title -->
@@ -122,7 +134,7 @@
     </div>
     <div class="property-info clearfix">
         <?php
-        foreach ((array)$manifByDate as $d)
+        foreach ((array)$manifTomorrow as $d)
         {
         foreach ((array)$d as $manifestation)
         {
@@ -136,6 +148,80 @@
         <br>
         <?php
         }
+        }
+        ?>
+
+    </div>
+    <div class="property clearfix" style="background: #f69679;">
+
+        <div class="wrapper">
+            <div class="title">
+                <h3>
+                    <?php
+                    $currentDate = time() +(24 * 60 * 60) ;
+                    echo strftime("%A %d %B %Y",$currentDate);
+                    ?>
+                </h3>
+            </div>
+            <!-- /.title -->
+            <!-- /.price -->
+        </div>
+        <!-- /.wrapper -->
+    </div>
+    <div class="property-info clearfix">
+        <?php
+        foreach ((array)$manifTomorrow1 as $d)
+        {
+            foreach ((array)$d as $manifestation)
+            {
+                ?>
+                <h5 class="showH5"><?php echo $manifestation->getName() ?></h5>
+
+                <div class="area">
+                    <i class="icon icon-normal-cursor-scale-up"></i>
+                    <?php echo $manifestation->getAddress() ?>
+                </div>
+                <br>
+            <?php
+            }
+        }
+        ?>
+
+    </div>
+    <div class="property clearfix" style="background: #f69679;">
+
+        <div class="wrapper">
+            <div class="title">
+                <h3>
+                    <h3>
+                        <?php
+                        $currentDate = time() +(48 * 60 * 60) ;
+                        echo strftime("%A %d %B %Y",$currentDate);
+                        ?>
+                    </h3>
+                </h3>
+            </div>
+            <!-- /.title -->
+            <!-- /.price -->
+        </div>
+        <!-- /.wrapper -->
+    </div>
+    <div class="property-info clearfix">
+        <?php
+        foreach ((array)$manifTomorrow2 as $d)
+        {
+            foreach ((array)$d as $manifestation)
+            {
+                ?>
+                <h5 class="showH5"><?php echo $manifestation->getName() ?></h5>
+
+                <div class="area">
+                    <i class="icon icon-normal-cursor-scale-up"></i>
+                    <?php echo $manifestation->getAddress() ?>
+                </div>
+                <br>
+            <?php
+            }
         }
         ?>
 
@@ -165,6 +251,69 @@
              style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden; -webkit-transform: translateZ(0);">
         </div>
         <br>
+
+        <div class="alentourBlock">
+            <div class="content" style="margin-bottom: 20px">
+                <p style="border-bottom: 1px; border-style:solid">Abonnez-vous aux alertes</p>
+
+                <p style="font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes de la
+                    région <?php echo $manifestation->getDepartment() ?></p>
+
+                <form method="get" action="javascript:void(0);">
+
+                    <div class="type control-group">
+                        <div class="controls">
+                            <input type="text" id="departmentGoogle" name="department"
+                                   placeholder="Taper votre adresse e-mail">
+                        </div>
+                        <!-- /.controls -->
+                    </div>
+                    <p style="color:white; font-size:75%;">Je veux être alerté :</p>
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="radio" name="" value="male">
+
+                            <p style="font-size:75%;margin-left: 10%;">la veille</p>
+                            <input type="radio" name="" value="female">
+
+                            <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
+                            <input type="radio" name="" value="male">
+
+                            <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
+                        </div>
+                    </div>
+                    <!-- /.control-group -->
+                    <div style=" text-align: center; ">
+                        <a href="/User/register" class="btn btn-primary btn-large" style="background-color: #f69679">
+                            S'inscrire !</a>
+                    </div>
+
+
+                    <!-- /.form-actions -->
+                </form>
+            </div>
+            <!-- /.content -->
+        </div>
+
+        <div class="alentourBlock">
+            <div class="content" style="margin-bottom: 20px">
+                <p style="border-bottom: 1px; border-style:solid">Brocantes de la région</p>
+                <ul>
+                    <?php
+                    foreach ($nearRegion as $nearRegion) {
+                        ?>
+                        <li><a href="index.php?section=Manifestation&action=show&id=<?php echo $nearRegion->getId(); ?>">
+                                <img width="40" height="35" src="/<?php echo $nearRegion->getImage() ?>"
+                                     class="thumbnail-image " alt="Image"/>
+                                <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </div>
+            <!-- /.content -->
+        </div>
 
         <script type="text/javascript">
             jQuery(document).ready(function ($) {

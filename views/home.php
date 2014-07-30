@@ -209,17 +209,17 @@
 
         var availableTags = [];
 
-        var options = {
-            componentRestrictions: {country: 'fr'},
-            types: ['cities']
-        };
-        var input = /** @type {HTMLInputElement} */
-            (document.getElementById('regionGoogle'));
-        var autocomplete = new google.maps.places.Autocomplete(input,options);
-
-        var input2 = /** @type {HTMLInputElement} */
-            (document.getElementById('cityGoogle'));
-        var autocomplete2 = new google.maps.places.Autocomplete(input2,options);
+//        var options = {
+//            componentRestrictions: {country: 'fr'},
+//            types: ['cities']
+//        };
+//        var input = /** @type {HTMLInputElement} */
+//            (document.getElementById('regionGoogle'));
+//        //var autocomplete = new google.maps.places.Autocomplete(input,options);
+//
+//        var input2 = /** @type {HTMLInputElement} */
+//            (document.getElementById('cityGoogle'));
+//        var autocomplete2 = new google.maps.places.Autocomplete(input2,options);
 
         completeOthers = function(){
             setTimeout(function() {

@@ -220,6 +220,19 @@ class manifestationManager
         return $manifestations;
     }
 
+    public function getTomorrow($nbNextDay)
+    {
+        $manifestations = NULL;
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE start = CURDATE() + INTERVAL :nb DAY');
+        $q->bindValue(':nb', $nbNextDay, PDO::PARAM_INT);
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
+
     public function getLast()
     {
         $manifestations = NULL;
@@ -248,6 +261,19 @@ class manifestationManager
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept ORDER BY idManifestation LIMIT 0,3');
         $q->bindValue(':dept', $dept, PDO::PARAM_STR);
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
+
+    public function getNearRegion($region)
+    {
+        $manifestations = NULL;
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE region = :region ORDER BY idManifestation LIMIT 0,3');
+        $q->bindValue(':region', $region, PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {

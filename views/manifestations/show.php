@@ -207,7 +207,7 @@
                         </div>
                     </div>
                     <!-- /.control-group -->
-                    <div class="form-actions">
+                    <div style=" text-align: center; ">
                         <a href="/User/register" class="btn btn-primary btn-large" style="background-color: #f69679">
                             S'inscrire !</a>
                     </div>
