@@ -330,21 +330,12 @@ foreach ((array)$manifByDate as $d)
     foreach ((array)$d as $manifestation)
     {
  ?>
-                ['<?php echo $manifestation->getName() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid() ?>'],
+                ['<?php echo $manifestation->getName() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid() ?>','<?php echo $manifestation->getRegion() ?>','<?php echo $manifestation->getDepartment() ?>','<?php echo $manifestation->getCity() ?>'],
                 <?php
     }
 }
 ?>
                 ]
-
-//                var locations = [
-//
-//                    ['Bondi Beach', '33 Rue de saint dié'],
-//                    ['Coogee Beach', '932 Bay Street, Toronto, ON M5S 1B1'],
-//                    ['Cronulla Beach', '61 Town Centre Court, Toronto, ON M1P'],
-//                    ['Manly Beach', '832 Bay Street, Toronto, ON M5S 1B1'],
-//                    ['Maroubra Beach', '606 New Toronto Street, Toronto, ON M8V 2E8']
-//                ];
 
                 var map = new google.maps.Map(document.getElementById('property-map'), {
                     zoom: 11,
@@ -357,28 +348,12 @@ foreach ((array)$manifByDate as $d)
 
                 var marker, i;
 
-                for (i = 0; i < locations.length; i++) {
-                    j = i;
-                    geocoder.geocode( { 'address': locations[i][1]}, function(results, status) {
+                function getAdress(address,title,region,department,city,i,callback){
+                    geocoder.geocode( { 'address': address  }, function(results, status) {
                         //alert(status);
                         if (status == google.maps.GeocoderStatus.OK) {
-
                             //alert(results[0].geometry.location);
-                            map.setCenter(results[0].geometry.location);
-                            marker = new google.maps.Marker({
-                                position: results[0].geometry.location,
-                                map: map,
-                                title: locations[j][0]
-                            });
-
-                            google.maps.event.addListener(marker, 'click', function(marker,i) {
-                                console.log(locations[j][2])
-                                var infowindow = new google.maps.InfoWindow();
-                                infowindow.setContent('<h1>'+this.title+'</h1><a href="">Voir la fiche</a>');
-                                //infowindow.open(map, marker);
-                               // console.log('salut')
-                                infowindow.open(map, this);
-                            });
+                            callback(title,region,department,city,i,results);
                             //google.maps.event.addListener(marker, 'mouseout', function() { infowindow.close();});
 
                         }
@@ -387,8 +362,29 @@ foreach ((array)$manifByDate as $d)
                             alert("some problem in geocode" + status);
                         }
                     });
+
                 }
 
+                for (i = 0; i < locations.length; i++) {
+                    getAdress(locations[i][1],locations[i][0],locations[i][3],locations[i][4],locations[i][5],i,function(title,region,department,city,i,results){
+                        var link = "/Manifestation/"+region+"/"+department+"/"+city+"/"+title;
+                        var link = link.replace(/ /g, "_");
+                        map.setCenter(results[0].geometry.location);
+                        marker = new google.maps.Marker({
+                            position: results[0].geometry.location,
+                            map: map
+                        })
+
+
+                        google.maps.event.addListener(marker, 'click', function(marker,i) {
+                            var infowindow = new google.maps.InfoWindow();
+                            infowindow.setContent('<h1>'+title+'</h1><a href='+link+'   >Voir la fiche</a>');
+                            //infowindow.open(map, marker);
+                            // console.log('salut')
+                            infowindow.open(map, this);
+                        });
+                    })
+                }
             });
 
         </script>
