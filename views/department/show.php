@@ -297,7 +297,9 @@
             </div>
             <!-- /.content -->
         </div>
-
+        <?php
+        if (sizeof($nearRegion) !=0 ){
+        ?>
         <div class="alentourBlock">
             <div class="content" style="margin-bottom: 20px">
                 <p style="border-bottom: 1px; border-style:solid">Brocantes de la région</p>
@@ -316,7 +318,9 @@
             </div>
             <!-- /.content -->
         </div>
-
+        <?php
+        }
+        ?>
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
                 var locations = [
