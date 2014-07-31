@@ -15,7 +15,7 @@ class VilleController extends Controller
 
     public function autocomplete(){
         $villes = $this->_vm->getAutoComplete($_POST['key']);
-        $villesJSON = [];
+        $villesJSON = null;
         $i = 0;
         foreach((array)$villes as $v){
             //echo $v->getName().'\n';

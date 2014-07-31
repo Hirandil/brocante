@@ -60,7 +60,7 @@
     <h1 class="page-header"><?php echo $department->getName() . ' (' . $department->getZipCode() . ') -- '
             . sizeof($manifestations) .
             ' résultat(s) ont été trouvé(s). Vous pouvez aussi rechercher pour la région
-            <a href="/Manifestation/region/' . $region->getId() . '">' . $region->getName() . '</a>' ?></h1>
+            <a href="/Manifestation/region/'.str_replace(' ','-',$region->getName()).'/' . $region->getId() . '">' . $region->getName() . '</a>' ?></h1>
     <br>
     <?php
         if (sizeof((array)$manifProByDate) != 0) {
@@ -78,7 +78,8 @@
     ?>
     <div class="property clearfix">
         <div class="image">
-            <a href="/Manifestation/show/<?php echo $manifestation->getId() ?>">
+            <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment()).'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>">
+
             <img width="570" height="425" src="/<?php echo $manifestation->getImage() ?>"
                  class="thumbnail-image " alt="19"/>
                 </a>
@@ -88,7 +89,8 @@
         <div class="wrapper">
             <div class="title">
                 <h2>
-                    <a href="/Manifestation/show/<?php echo $manifestation->getId() ?>"><?php echo $manifestation->getName() ?></a>
+                    <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment()).'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>">
+                        <?php echo $manifestation->getName() ?></a>
                 </h2>
                 <h3>
                     <?php echo $manifestation->getAddress() ?>
@@ -257,7 +259,7 @@
                 <p style="border-bottom: 1px; border-style:solid">Abonnez-vous aux alertes</p>
 
                 <p style="font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes de la
-                    région <?php echo $manifestation->getDepartment() ?></p>
+                    région <?php echo $region->getName() ?></p>
 
                 <form method="get" action="javascript:void(0);">
 
@@ -285,7 +287,7 @@
                     </div>
                     <!-- /.control-group -->
                     <div style=" text-align: center; ">
-                        <a href="/User/register" class="btn btn-primary btn-large" style="background-color: #f69679">
+                        <a href="/User/inscription" class="btn btn-primary btn-large" style="background-color: #f69679">
                             S'inscrire !</a>
                     </div>
 
@@ -301,9 +303,9 @@
                 <p style="border-bottom: 1px; border-style:solid">Brocantes de la région</p>
                 <ul>
                     <?php
-                    foreach ($nearRegion as $nearRegion) {
+                    foreach ((array)$nearRegion as $nearRegion) {
                         ?>
-                        <li><a href="index.php?section=Manifestation&action=show&id=<?php echo $nearRegion->getId(); ?>">
+                        <li><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment()).'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>">
                                 <img width="40" height="35" src="/<?php echo $nearRegion->getImage() ?>"
                                      class="thumbnail-image " alt="Image"/>
                                 <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></li>

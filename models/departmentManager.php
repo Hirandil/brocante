@@ -7,6 +7,7 @@
  */
 
 include_once('models/Department.php');
+include_once('models/Region.php');
 
 class departmentManager
 {
@@ -57,6 +58,26 @@ class departmentManager
         return $departments;
     }
 
+    public function exists($id){
+        $q = $this->_db->prepare('SELECT COUNT(*) FROM department WHERE zipCode = :id');
+        $q->bindValue(':id', $id, PDO::PARAM_INT);
+        $q->execute();
+        if(!$q->fetchColumn(0))
+        return false;
+        else
+        return true;
+    }
+
+    public function getRegion($name){
+        $region = NULL;
+        $q = $this->_db->prepare('SELECT * FROM region WHERE id = (SELECT region FROM department WHERE name = :name or slug = :name)');
+        $q->bindValue(':name', $name, PDO::PARAM_STR);
+        $q->execute();
+        $data = $q->fetch(PDO::FETCH_ASSOC);
+        $region = new Region($data);
+        return $region;
+
+    }
 }
 
 ?>

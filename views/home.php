@@ -17,15 +17,22 @@
                     showTooltip: true,
                     onRegionClick: function(element, code, region)
                     {
-                        /*var message = 'Département : "'
-                            + region
-                            + '" || Code : "'
-                            + code
-                            + '"';
+                        $.ajax({
+                            url: "http://123Brocante.com/region.php",
+                            type: 'GET',
+                            data: {
+                                'region': region
+                            }
+                        })
+                            .done(function( data ) {
+                                console.log(data);
+                                var myData = (JSON.parse(data))
+                                var reg =/[ ]/g;
+                                region = region.replace(reg,"_");
+                                myData[0] = myData[0].replace(reg,"_");
+                                window.location.href = "/Manifestation/"+myData[0]+"/"+region+"/"+code;
 
-                        alert(message);*/
-                        //window.location.href = "www.google.com";
-                        window.location.href = "/Manifestation/department/"+code;
+                            });
                     }
                 });
             });
@@ -37,7 +44,7 @@
                     <div class="property-filter widget">
                         <div class="content">
                             <p style="color:white;border-bottom: 1px; border-style:solid">Rechercher une manifestation</p>
-                            <form method="POST" action="/Manifestation/search">
+                            <form method="POST" action="/Manifestation/Rechercher-des-manifestations">
                                 <div class="location control-group">
                                     <label class="control-label">
                                         Région
@@ -130,7 +137,7 @@
                                     <!-- /.controls -->
                                 </div>
                                 <div class="form-actions">
-                                    <a href="/User/register" class="btn btn-primary btn-large" > S'inscrire !</a>
+                                    <a href="/User/inscription" class="btn btn-primary btn-large" > S'inscrire !</a>
                                 </div>
                                 <?php
                                 }
@@ -197,7 +204,7 @@
             ?>
             <li style="display: table;font-size: 13px;margin: 5px">
                 <?php echo "<input type=\"hidden\" id=".$d->getId()." value=".$d->getRegion()."></input>
-                    <a href=\"/Manifestation/department/".$d->getZipCode()."\">(".$d->getZipCode().")"." ".$d->getName()."</a>"?></li>
+                    <a href=\"/Manifestation/".str_replace(" ","-",$regions[$d->getRegion()]->getName())."/".str_replace(" ","-",$d->getName())."/".str_replace(" ","-",$d->getZipCode())."\" >(".$d->getZipCode().")"." ".$d->getName()."</a>"?></li>
         <?php
         }
         ?>
@@ -267,24 +274,23 @@
             .keypress(function () {
                 console.log()
                 if ($(this).val().length < 1){
-                    console.log('Ne rien faire');
+
                 }
                 else{
                     $.ajax({
-                        url: "http://localhost/autocomplete.php",
+                        url: "http://123Brocante.com/autocomplete.php",
                         type: 'POST',
                         data: {
                             'key': $(this).val()
                         }
                     })
                         .done(function( data ) {
-                            console.log(JSON.parse(data))
                             availableTags.slice(0)
                             availableTags = JSON.parse(data)
                             $( "#cityGoogle" ).autocomplete({
                                 source: availableTags
                             });
-                            console.log(data)
+
 
                     });
                 }
@@ -292,7 +298,7 @@
             })
             .change();
 
-        console.log(availableTags)
+
 
 
 

@@ -29,7 +29,7 @@
     <!-- /.progressbar-inner -->
 </div>
 <!-- /.progressbar -->
-<form method="post" action="/Manifestation/search" class="submission-form form-vertical">
+<form method="post" action="/Manifestation/Rechercher-des-manifestations" class="submission-form form-vertical">
 <div class="row">
   <div class="span6 box-search">
     <div class="control-group">

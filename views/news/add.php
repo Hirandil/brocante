@@ -9,9 +9,9 @@
         <div class="row">
             <div class="span10 box-search">
                 <form method="POST" <?php if (!$update)
-                    echo 'action="/News/create"';
+                    echo 'action="/Informations/create"';
                 else
-                    echo 'action="/News/update"';
+                    echo 'action="/Informations/update"';
                 ?>
                       class="submission-form form-vertical"
                       enctype="multipart/form-data">

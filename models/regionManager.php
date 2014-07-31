@@ -66,6 +66,16 @@ class regionManager
         return $regions;
     }
 
+    public function exists($id){
+        $q = $this->_db->prepare('SELECT COUNT(*) FROM region WHERE id = :id');
+        $q->bindValue(':id', $id, PDO::PARAM_INT);
+        $q->execute();
+        if(!$q->fetchColumn(0))
+            return false;
+        else
+            return true;
+    }
+
 }
 
 

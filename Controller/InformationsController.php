@@ -12,7 +12,7 @@ require_once 'models/newsManager.php';
 require_once 'Controller/Controller.php';
 
 
-class NewsController extends Controller
+class InformationsController extends Controller
 {
     private $_um;
     private $_nm;
@@ -26,6 +26,8 @@ class NewsController extends Controller
 
     public function create()
     {
+        $_SESSION['title'] = "Nouvelle actualité";
+        $_SESSION['ariane'] = "Nouvelle actualité";
         if (isset($_POST['title'], $_POST['content'])) {
             if ($_POST['title'] != "" && $_POST['content'] != "") {
                 $curr_user = $this->_um->get((int)$_SESSION['userId']);
@@ -34,7 +36,7 @@ class NewsController extends Controller
                     $news = new News($array);
                     $this->_nm->create($news);
                     $_SESSION['message'] = "Post crée";
-                    header('Location: /News/all');
+                    header('Location: /Informations/actualites');
                 } else {
                     echo "no rights";
                     $_SESSION['message'] = "Vous n'avez pas les droits";
@@ -49,14 +51,18 @@ class NewsController extends Controller
         }
     }
 
-    public function all()
+    public function actualites()
     {
+        $_SESSION['ariane'] = "Toutes les actualités";
+        $_SESSION['title'] = "Toutes les news";
         $news = $this->_nm->getAll();
         include('views/news/news.php');
     }
 
     public function update()
     {
+        $_SESSION['ariane'] = "Modifier une actualité";
+        $_SESSION['Modifier mon actualité'];
         $update = true;
         if (isset($_POST['title'], $_POST['content'])) {
             if ($_POST['title'] != "" && $_POST['content'] != "") {
@@ -78,9 +84,14 @@ class NewsController extends Controller
 
     public function show()
     {
-        if (isset($_GET['id'])) {
-            $news = $this->_nm->get((int)$_GET['id']);
+        if (isset($_GET['id']) && $this->_nm->exists($_GET['id'])) {
+            $news = $this->_nm->get($_GET['id']);
+            $_SESSION['ariane'] = "Actualités >".$news->getTitle();
+            $_SESSION['title'] = $news->getTitle();
             include('views/news/show.php');
+        }
+        else{
+            header('Location: /');
         }
     }
 

@@ -16,7 +16,7 @@
                             <div class="body span6">
                                 <div class="title-price row">
                                     <div class="title span12">
-                                        <h3><a href="News/show/<?php echo $n->getId() ?>"><?php echo $n->getTitle() ?></a>
+                                        <h3><a href="/Informations/show/<?php echo str_replace(' ','-',$n->getTitle()); ?>"><?php echo $n->getTitle() ?></a>
                                         </h3>
 
                                         <p> Posté le <?php echo $n->getCreatedAt() ?></p>
@@ -31,7 +31,7 @@
 
                                 <div class="property-info clearfix">
                                     <div class="more-info">
-                                        <a href="News/show/<?php echo $n->getId() ?>"> Voir
+                                        <a href="/Informations/show/<?php echo str_replace(' ','_',$n->getTitle()); ?>"> Voir
                                             <i
                                                 class="icon icon-normal-right-arrow-circle"></i></a>
                                     </div>

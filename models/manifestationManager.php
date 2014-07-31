@@ -49,15 +49,30 @@ class manifestationManager
         }
     }
 
-    public function exists($id)
+    public function exists($info)
     {
-        $q = $this->_db->prepare('SELECT COUNT(*) FROM Manifestations WHERE idManifestation = :id');
-        $q->bindValue(':id', $id, PDO::PARAM_INT);
-        $q->execute();
-        if(!$q->fetchColumn(0))
-            return false;
-        else
-            return true;
+        if (is_string($info)) {
+
+            $q = $this->_db->prepare('SELECT COUNT(*) FROM Manifestations WHERE name = :name');
+            $q->bindValue(':name', $info, PDO::PARAM_STR);
+            $q->execute();
+            if(!$q->fetchColumn(0))
+                return false;
+            else
+                return true;
+        }
+        else {
+            $id = (int) $info;
+
+            $q = $this->_db->prepare('SELECT COUNT(*) FROM Manifestations WHERE idManifestation = :id');
+            $q->bindValue(':id', $id, PDO::PARAM_INT);
+            $q->execute();
+            if(!$q->fetchColumn(0))
+                return false;
+            else
+                return true;
+        }
+
     }
 
     public function get($info)
@@ -295,11 +310,19 @@ class manifestationManager
         return $manifestations;
     }
 
-    public function upVisits($id)
+    public function upVisits($info)
     {
-        $q = $this->_db->prepare('UPDATE Manifestations SET visits = visits + 1 WHERE idManifestation = :id');
-        $q->bindValue(':id', $id, PDO::PARAM_INT);
-        $q->execute();
+        if (is_string($info)) {
+            $q = $this->_db->prepare('UPDATE Manifestations SET visits = visits + 1 WHERE name = :name');
+            $q->bindValue(':name', $info, PDO::PARAM_STR);
+            $q->execute();
+        }
+        else {
+            $id = (int) $info;
+            $q = $this->_db->prepare('UPDATE Manifestations SET visits = visits + 1 WHERE idManifestation = :id');
+            $q->bindValue(':id', $id, PDO::PARAM_INT);
+            $q->execute();
+        }
 
     }
 

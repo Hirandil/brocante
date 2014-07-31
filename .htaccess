@@ -1,7 +1,14 @@
 Options +FollowSymlinks
 RewriteEngine on
 RewriteRule ^([A-Za-z]+)/([a-z]+)/([0-9]+)$  index.php?section=$1&action=$2&id=$3
-RewriteRule ^([A-Za-z]+)/([a-z]+)/([0-9a-z]+)$  index.php?section=$1&action=$2&token=$3
+RewriteRule ^([A-Za-z]+)/([a-z]+)/([0-9a-z-]+)$  index.php?section=$1&action=$2&id=$3
+RewriteRule ^Manifestation/region/([A-Za-z-ô'éè]+)/([0-9]+)$ index.php?section=Manifestation&action=region&id=$2
 RewriteRule ^([A-Za-z]+)/([a-z]+)$  index.php?section=$1&action=$2
-#RewriteRule ^assets/img/manifestations/([a-z0-9]+)\.(png|jpg)$ kaka
+RewriteRule ^([A-Za-z]+)/Annoncer-une-manifestation$  index.php?section=$1&action=add
+RewriteRule ^([A-Za-z]+)/Rechercher-des-manifestations$  index.php?section=$1&action=rechercher
+RewriteRule ^([A-Za-z]+)/([A-Za-z-ô'éè]+)/([A-Za-z-ôéè']+)/([0-9]+)$ index.php?section=$1&action=department&id=$4
+RewriteRule ^([A-Za-z]+)/([A-Za-zÀ-ÿ-]+)/([A-Za-zÀ-ÿ-]+)/([A-Za-zÀ-ÿ-]+)/([A-Za-z0-9-ôéè']+)$ index.php?section=$1&action=show&name=$5
+RewriteCond %{HTTP_HOST} ^www.123brocante.com$
+RewriteRule ^(.*) http://123brocante.com/$1 [QSA,L,R=301]
+RewriteRule ^sitemap\.xml$  /sitemap.php [L]
 

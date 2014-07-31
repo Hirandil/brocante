@@ -7,14 +7,7 @@
                 <div class="branding pull-left">
                     <div class="logo">
                         <a href="/" title="Home">
-                            <img src="assets/img/logo.png" alt="Home">
-                        </a>
-                    </div>
-                    <!-- /.logo -->
-
-                    <div class="site-name">
-                        <a href="/" title="Home" class="brand">
-                            123Brocante
+                            <img width="250px" height="250px" src="assets/img/123Brocante.png" alt="Accueil">
                         </a>
                     </div>
                     <!-- /.site-name -->
@@ -40,7 +33,7 @@
                     <div class="menu-anonymous-container">
                         <ul id="menu-anonymous" class="nav nav-pills">
                             <li class="menu-item"><a href="/User/login"> Se connecter </a></li>
-                            <li class="menu-item"><a href="/User/register"> S'inscrire </a></li>
+                            <li class="menu-item"><a href="/User/inscription"> S'inscrire </a></li>
                         </ul>
                     </div>
                 </div>
@@ -52,7 +45,7 @@
                 <div class="user-area pull-right">
                     <div class="menu-anonymous-container">
                         <ul id="menu-anonymous" class="nav nav-pills">
-                            <li class="menu-item"><a href="/News/create"> Ajouter une actualité </a></li>
+                            <li class="menu-item"><a href="/Informations/create"> Ajouter une actualité </a></li>
                             <li class="menu-item"><a href="/User/manifestations"> Mes manifestations  </a></li>
                             <li class="menu-item"><a href="/User/update"> Mon compte  </a></li>
                             <li class="menu-item"><a href="/User/logout"> Déconnexion </a></li>
@@ -79,7 +72,7 @@
                             </li>
 
                             <li class="menu-item ">
-                                <a href="/Manifestation/search">Recherche Avancée</a>
+                                <a href="/Manifestation/Rechercher-des-manifestations">Recherche Avancée</a>
                             </li>
 
                             <li class="menu-item ">
@@ -87,19 +80,19 @@
                             </li>
 
                            <li class="menu-item ">
-                                <a href="/News/all">Actualités</a>
+                                <a href="/Informations/actualites">Actualités</a>
                             </li>
 
-                            <li class="menu-item ">
+                           <!-- <li class="menu-item ">
                                 <a href="#">Bien vendre & bien acheter</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </div>
 
                 <div class="pull-right">
                     <div class="list-property">
-                        <a href="/Manifestation/add">Ajouter une manifestation<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
+                        <a href="/Manifestation/Annoncer-une-manifestation">Ajouter une manifestation<div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
                         </a>
                     </div>
                     <!-- /.list-property -->
@@ -110,7 +103,7 @@
 
             <div class="breadcrumb pull-left">
                 <!-- Breadcrumb NavXT 4.4.0 -->
-                <a title="Brocante." href="/" class="home">Brocante</a> &gt;
+                <a title="123Brocante." href="/" class="home">123Brocante</a> &gt; <?php echo $_SESSION['ariane'] ?>
             </div>
 
             <!-- /.breadcrumb -->

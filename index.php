@@ -66,7 +66,7 @@ $content = ob_get_clean();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/assets/img/123Brocante.png" type="image/png">
 
     <!--[if lt IE 9]>
     <script src="/assets/js/html5.js" type="text/javascript"></script>
@@ -102,8 +102,9 @@ $content = ob_get_clean();
     <script type='text/javascript' src='/assets/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>
     <script type='text/javascript' src='/assets/libraries/rs-plugin/js/jquery.themepunch.plugins.min.js'></script>
     <script type="text/javascript" src="/assets/js/notify.min.js"></script>
-    <!--<base href="http://aw6.fr/">-->
-    <title> 123Brocante </title>
+    <!--<base href="http://123brocante.com/">-->
+    <title> <?php echo $_SESSION['title'] ?> </title>
+    <meta name="description" content="<?php echo $_SESSION['description']?>">
 </head>
 
 <body class="home page page-template">

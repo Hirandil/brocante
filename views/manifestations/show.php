@@ -160,7 +160,8 @@
                     <?php
                     foreach ($nearTowns as $nearTown) {
                         ?>
-                        <li><a href="index.php?section=Manifestation&action=show&id=<?php echo $nearTown->getId(); ?>">
+                        <li><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$nearTown->getRegion()).'/'.str_replace(" ","_",$nearTown->getDepartment())
+                            .'/'.str_replace(" ","_",$nearTown->getCity()).'/'.str_replace(' ','_',$nearTown->getName());?>">
                                 <img width="40" height="35" src="/<?php echo $nearTown->getImage() ?>"
                                      class="thumbnail-image " alt="Image"/>
                                 <?php echo $nearTown->getName() ?> à <?php echo $nearTown->getCity() ?></a></li>
@@ -208,7 +209,7 @@
                     </div>
                     <!-- /.control-group -->
                     <div style=" text-align: center; ">
-                        <a href="/User/register" class="btn btn-primary btn-large" style="background-color: #f69679">
+                        <a href="/User/inscription" class="btn btn-primary btn-large" style="background-color: #f69679">
                             S'inscrire !</a>
                     </div>
 

@@ -18,7 +18,8 @@
             ?>
             <div class="property clearfix">
                 <div class="image">
-                    <a href="/Manifestation/show/<?php echo $m->getId(); ?>">
+                    <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment())
+                        .'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName());?>">
                         <img width="570" height="425" src=<?php echo $m->getImage(); ?>
                              class="thumbnail-image " alt="19"/>
                     </a>
@@ -27,7 +28,8 @@
 
                 <div class="wrapper">
                     <div class="title">
-                        <h3><a href="/Manifestation/show/<?php echo $m->getId(); ?>">
+                        <h3><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment())
+                                .'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName());?>">
                                 <?php echo $m->getName(); ?>
                             </a></h3>
                     </div>
@@ -64,7 +66,7 @@
                 ?>
                 <div class="property clearfix">
                     <div class="image">
-                        <a href="/Manifestation/show/<?php echo $m->getId(); ?>">
+                        <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment()).'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName()); ?>">
                             <img width="570" heix   ght="425" src=<?php echo $m->getImage(); ?>
                             class="thumbnail-image " alt="19"/>
                         </a>
@@ -73,7 +75,8 @@
 
                     <div class="wrapper">
                         <div class="title">
-                            <h3><a href="/Manifestation/show/<?php echo $m->getId(); ?>">
+                            <h3><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment())
+                                    .'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName());?>">
                                     <?php echo $m->getName(); ?>
                                 </a></h3>
                         </div>
@@ -96,25 +99,7 @@
         </div>
             <!-- /.property -->
 
-            <div class="property-info clearfix">
-                <div class="area">
-                    <i class="icon icon-normal-cursor-scale-up"></i>
-                    680m<sup>2</sup>
-                </div>
-                <!-- /.area -->
 
-                <div class="bedrooms">
-                    <i class="icon icon-normal-bed"></i>
-                    3
-                </div>
-                <!-- /.bedrooms -->
-
-                <div class="bathrooms">
-                    <i class="icon icon-normal-shower"></i>
-                    2
-                </div>
-                <!-- /.bathrooms -->
-            </div>
             <!-- /.info -->
         </div>
         <!-- /.content -->
@@ -134,7 +119,7 @@
                     <div class="property clearfix">
                         <div class="wrapper">
                             <div class="title">
-                                <h3><a href="/News/show/<?php echo $n->getId(); ?>">
+                                <h3><a href="/Informations/show/<?php echo str_replace(' ','_',$n->getTitle()); ?>">
                                         <?php echo $n->getTitle(); ?>
                                     </a></h3>
                             </div>
@@ -144,7 +129,7 @@
                             <!-- /.location -->
 
                             <div class="price">
-                                <a href="/News/show/<?php echo $n->getId(); ?>">
+                                <a href="/Informations/show/<?php echo str_replace(' ','_',$n->getTitle()); ?>">
                                     Voir
                                 </a>
                             </div>

@@ -23,6 +23,9 @@
                 $_SESSION['last'] = $mm->getLast();
                 $_SESSION["visited"] = $mm->getVisited();
                 $_SESSION["news"] = $nm->getSomeNews(3);
+                $_SESSION['title'] = "123Brocante.com";
+                $_SESSION['ariane'] = "";
+                $_SESSION['type'] =  "Brocantes, Vide-Grenier, Marché aux puces,etc ";
                 }
             catch(Exception $e)
             {

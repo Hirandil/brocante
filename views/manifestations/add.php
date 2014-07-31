@@ -68,7 +68,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="title" size="30" id="title" autocomplete="off" required="required" <?php if($update){echo 'value="'.$manifestation->getName().'"';}?>>
+            <input type="text" name="title" size="30" id="title" autocomplete="off" required="required" onkeypress="checkKey()" <?php if($update){echo 'value="'.$manifestation->getName().'"';}?>>
         </div>
     </div>
     <div class="control-group">
@@ -387,6 +387,12 @@
                         //console.log(str)
                     })
 
+                    function checkKey(e){
+                        var e=window.event || e;
+                        var touche=e.charCode || e.keyCode;
+                        return (touche>=48 && touche<=57 || touche==8 || touche==32)? true : false;
+                    }
+                    }
 
                 $( "#cityGoogle" )
                     .keypress(function () {

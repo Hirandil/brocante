@@ -17,6 +17,8 @@ class UserController extends Controller
     }
 
     public function login(){
+        $_SESSION['ariane'] = "Connexion / Inscription";
+        $_SESSION['title'] = "Connexion / Inscription";
         if (isset($_POST['userLogin']) && isset($_POST['password'])){
             if ( $this->_um->exists($_POST['userLogin'])){
                 $user = $this->_um->get($_POST['userLogin']);
@@ -51,14 +53,16 @@ class UserController extends Controller
         header("Location: /");
     }
 
-    public function register(){
+    public function inscription(){
+        $_SESSION['ariane'] = "Inscription";
+        $_SESSION['title'] = "Inscription";
         if ( isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
             if($this->_um->exists($_POST['userLogin'])){
                 $_SESSION['Message'] = 'Utilisateur existe déjà';
                 header('Location: /');
             }
-            elseif ($_POST['password'] != $_POST['password2']) {
-                $_SESSION['Message'] = 'Les passwords ne correspondent pas';
+            else if ($_POST['password'] != $_POST['password2']) {
+                $_SESSION['Message'] = 'Les mot de passe ne correspondent pas';
                 header('Location: /');
             }
             else{
@@ -79,11 +83,15 @@ class UserController extends Controller
 
     public function manifestations()
     {
+        $_SESSION['ariane'] = "Mes manifestations";
+        $_SESSION['title'] = "Mes manifestations";
         $manifestations = $this->_mm->getMyManifestations($_SESSION['userId']);
         include('views/manifestations/mine.php');
     }
 
     public function updatePro(){
+        $_SESSION['ariane'] = "Passer pro !";
+        $_SESSION['title'] = "Passer pro !";
         if (isset($_SESSION['userLogin'])){
             $user = $this->_um->get((int)$_SESSION['userId']);
             include('views/pricing.php');
@@ -94,6 +102,8 @@ class UserController extends Controller
     }
 
     public function redefine(){
+        $_SESSION['ariane'] = "Mot de passe oublié";
+        $_SESSION['title'] = "Redéfinir mon mot de passe";
         if(isset($_POST['email'])){
             if($this->_um->exists($_POST['email'])){
                 $this->_um->cleanToken($_POST['email']);
@@ -143,7 +153,7 @@ class UserController extends Controller
                 $_SESSION['message'] = "Confirmer bien le mot de passe";
             }
         }
-        else if(isset($_GET['token']) && !isset($_POST['newPassword'])){
+        else if(isset($_GET['id']) && !isset($_POST['newPassword'])){
             include('views/redefine.php');
         }
         else{
@@ -151,6 +161,8 @@ class UserController extends Controller
         }
     }
     public function update(){
+        $_SESSION['ariane'] = "Mon profil";
+        $_SESSION['title'] = "Mon profil";
         if(isset($_SESSION['userLogin'])){
             $user = $this->_um->get((int)$_SESSION['userId']);
             if (isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['newPassword']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){

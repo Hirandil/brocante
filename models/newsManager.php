@@ -88,4 +88,26 @@
             }
             return $news;
         }
+
+        public function exists($info){
+            if(is_string($info)){
+            $q = $this->_db->prepare('SELECT COUNT(*) FROM news WHERE title = :title');
+            $q->bindValue(':title', $info, PDO::PARAM_INT);
+            $q->execute();
+            if(!$q->fetchColumn(0))
+                return false;
+            else
+                return true;
+            }
+            else{
+                $id = (int)$info;
+                $q = $this->_db->prepare('SELECT COUNT(*) FROM news WHERE id = :id');
+                $q->bindValue(':id', $id, PDO::PARAM_INT);
+                $q->execute();
+                if(!$q->fetchColumn(0))
+                    return false;
+                else
+                    return true;
+            }
+        }
     }
