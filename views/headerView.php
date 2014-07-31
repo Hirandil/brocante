@@ -10,6 +10,13 @@
                             <img width="250px" height="250px" src="assets/img/123Brocante.png" alt="Accueil">
                         </a>
                     </div>
+                    <!-- /.logo -->
+
+                    <div class="site-name">
+                        <a href="/" title="Home" class="brand">
+                            123Brocante
+                        </a>
+                    </div>
                     <!-- /.site-name -->
                 </div>
 

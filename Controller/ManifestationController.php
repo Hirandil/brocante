@@ -109,10 +109,9 @@
             }
         }
 
-        public function search() {
-            
-            $_SESSION['ariane'] = "Manifestation > Rechercher";
+        public function rechercher() {
             $_SESSION['title'] = "Rechercher une manifestation";
+            $_SESSION['ariane'] = "Manifestation > Rechercher";
            if(isset($_POST['region'],$_POST['department']))
            {
                 $filtre = array();
