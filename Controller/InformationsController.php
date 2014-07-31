@@ -84,11 +84,14 @@ class InformationsController extends Controller
 
     public function show()
     {
-        if (isset($_GET['id']) && $this->_nm->exists($_GET['id'])) {
-            $news = $this->_nm->get($_GET['id']);
-            $_SESSION['ariane'] = "Actualités >".$news->getTitle();
-            $_SESSION['title'] = $news->getTitle();
-            include('views/news/show.php');
+        if (isset($_GET['id'])) {
+            $name = htmlspecialchars(str_replace("_"," ",$_GET['id']));
+            if($this->_nm->exists($name)){
+                $news = $this->_nm->get($name);
+                $_SESSION['ariane'] = "Actualités >".$news->getTitle();
+                $_SESSION['title'] = $news->getTitle();
+                include('views/news/show.php');
+            }
         }
         else{
             header('Location: /');

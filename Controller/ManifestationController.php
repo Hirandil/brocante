@@ -345,7 +345,7 @@
         public function show(){
 
             if (isset($_GET['name'])) {
-                $name = htmlspecialchars($_GET['name']);
+                $name = htmlspecialchars(str_replace("_"," ",$_GET['name']));
                 if ($this->_mm->exists($name)) {
                     $manifestation = $this->_mm->get($name);
                     $nearTowns = $this->_mm->getNearTowns($manifestation->getDepartment());
@@ -355,11 +355,11 @@
                     $_SESSION['title'] = $manifestation->getDepartment()." - ".$manifestation->getName();
                     include 'views/manifestations/show.php';
                 } else {
-                    header('Location: /');
+                   // header('Location: /User/manifestations');
                 }
             }
             else{
-                header('Location: /');
+                //header('Location: /');
             }
 
         }
