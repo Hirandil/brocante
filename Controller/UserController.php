@@ -83,7 +83,7 @@ class UserController extends Controller
         include('views/manifestations/mine.php');
     }
 
-    public function updatePro(){
+    public function updatepro(){
         if (isset($_SESSION['userLogin'])){
             $user = $this->_um->get((int)$_SESSION['userId']);
             include('views/pricing.php');
