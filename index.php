@@ -132,4 +132,20 @@ $content = ob_get_clean();
         $_SESSION['message']= "";
     }
 ?>
+<?php
+if(isset($_SESSION['error'])){
+?>
+<script>
+    $.notify(
+        '<?php echo $_SESSION['error']?>',
+        {
+            className: "error",
+            position:"bottom right"
+        }
+    );
+</script>
+<?php
+$_SESSION['error']= "";
+}
+?>
 
