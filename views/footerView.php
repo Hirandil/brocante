@@ -39,7 +39,10 @@
                     <!-- /.location -->
 
                     <div class="price">
-                        Contacter nous
+                        <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment())
+                            .'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName());?>">
+                            Voir l'annonce
+                        </a>
                     </div>
                     <!-- /.price -->
                 </div>
@@ -86,7 +89,10 @@
                         <!-- /.location -->
 
                         <div class="price">
-                            Contacter nous
+                            <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment())
+                                .'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName());?>">
+                                Voir l'annonce
+                            </a>
                         </div>
                         <!-- /.price -->
                     </div>

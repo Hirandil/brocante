@@ -26,7 +26,7 @@
             <!-- /.location -->
 
             <div class="price">
-                Contacter l'organisateur
+                <a href="mailto:<?php echo $organiser->getEmail() ?>">Contacter l'organisateur</a>
             </div>
             <!-- /.price -->
         </div>
@@ -173,8 +173,6 @@
             <!-- /.content -->
         </div>
 
-        <!--            <li>> Brocante ville 2</li>-->
-        <!--            <li>> Brocante ville 3</li>-->
 
         <div class="alentourBlock">
             <div class="content" style="margin-bottom: 20px">

@@ -13,7 +13,7 @@
 <div class="agent">
     <div class="row">
         <div class="image span2">
-            <img width="270" height="270" src="../assets/img/agents/1.jpg" class="thumbnail-image" alt="agent2">
+            <img width="270" height="270" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678099-profile-filled-512.png" class="thumbnail-image" alt="agent2">
         </div><!-- /.image -->
 
         <div class="span10">

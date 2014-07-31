@@ -349,6 +349,7 @@
                 if ($this->_mm->exists($name)) {
                     $manifestation = $this->_mm->get($name);
                     $nearTowns = $this->_mm->getNearTowns($manifestation->getDepartment());
+                    $organiser = $this->_um->get((int)$manifestation->getIdOrganiser());
                     if (isset($_SESSION['userId']) && $manifestation->getIdOrganiser() != $_SESSION['userId'])
                         $this->_mm->upVisits($_GET['name']);
                     $_SESSION['ariane'] = "Manifestations > ".$manifestation->getDepartment()." > ".$manifestation->getName();
