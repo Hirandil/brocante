@@ -30,18 +30,22 @@ class UserController extends Controller
                 if (sha1($_POST['password']) == $user->getPassword()){
                     $_SESSION['userLogin'] = $_POST['userLogin'];
                     $_SESSION['userId'] = $user->getId();
-
+                    $_SESSION['message'] = 'Connection réussie!';
                     header('Location: /');
+                    exit;
                 }
                 else
                 {
-                    $_SESSION['message'] = 'Mauvais mot de passe';
+                    $_SESSION['error'] = 'Mauvais mot de passe';
                     header('Location: /User/login');
+                    exit;
                 }
 
             }
             else{
-                $_SESSION['message'] = 'Compte inexistant';
+                $_SESSION['error'] = 'Compte inexistant';
+                header('Location: /User/login');
+                exit;
 
             }
 
@@ -63,12 +67,14 @@ class UserController extends Controller
         $_SESSION['description'] = "Inscriver vous et rejoigner une grande communauté sur 123Brocante !";
         if ( isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
             if($this->_um->exists($_POST['userLogin'])){
-                $_SESSION['Message'] = 'Utilisateur existe déjà';
+                $_SESSION['error'] = 'Utilisateur existe déjà';
                 header('Location: /');
+                exit;
             }
             else if ($_POST['password'] != $_POST['password2']) {
-                $_SESSION['Message'] = 'Les mot de passe ne correspondent pas';
+                $_SESSION['error'] = 'Les mot de passe ne correspondent pas';
                 header('Location: /');
+                exit;
             }
             else{
                 // TODO : Complété création tableau
@@ -78,6 +84,7 @@ class UserController extends Controller
                 $_SESSION['Message'] = 'Compte crée';
                 // TODO : Redirigé vers la connexion
                 header('Location: /');
+                exit;
             }
 
         }
@@ -150,7 +157,7 @@ class UserController extends Controller
 
                 }
             else{
-                $_SESSION['message'] = "Email introuvable";
+                $_SESSION['error'] = "Email introuvable";
             }
         }
         else if(isset($_POST['newPassword'],$_POST['newPassword2'])){
@@ -159,7 +166,7 @@ class UserController extends Controller
                 $this->_um->cleanToken($_POST['token']);
             }
             else{
-                $_SESSION['message'] = "Confirmer bien le mot de passe";
+                $_SESSION['error'] = "Confirmer bien le mot de passe";
             }
         }
         else if(isset($_GET['id']) && !isset($_POST['newPassword']) && $this->_um->existToken($_GET['id'])){
@@ -178,7 +185,7 @@ class UserController extends Controller
             if (isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['newPassword']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
                 if(sha1($_POST['password']) != $user->getPassword()){
                     echo "sha1";
-                    $_SESSION['Message'] = 'Mots de passe non identiques';
+                    $_SESSION['message'] = 'Mots de passe non identiques';
                     // TODO : Redirigé vers la connexion
                     header('Location: /User/update');
                 }
@@ -221,12 +228,14 @@ class UserController extends Controller
                 $_SESSION['message'] = "Inscris à la newsletter!";
                 $page = $_SERVER['PHP_SELF'];
                 header("Location: $page");
+                    exit;
                 }
                 catch(Exception $e)
                 {
                     $_SESSION['error'] = "Deja inscrit";
                     $page = $_SERVER['PHP_SELF'];
                     header("Location: $page");
+                    exit;
                 }
             }
         }

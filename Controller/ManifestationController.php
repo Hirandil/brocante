@@ -58,7 +58,7 @@
                                 $schedule = "De ".$_POST['timeStart']." à ".$_POST['timeEnd'];
                                 $valid_extensions = array( 'jpg' , 'jpeg' ,'png' );
                                 if(!(upload('image',$path,6291456,$valid_extensions))){
-                                    $_SESSION['message'] = "Il y a eu un problème lors de l'upload du fichier";
+                                    $_SESSION['error'] = "Problème lors de l'upload du fichier";
                                 }
                         }
                         else{
@@ -74,6 +74,7 @@
                         $this->_mm->create($manifestation);
                         $_SESSION['message'] = 'Manifestation crée';
                         header('Location: /User/manifestations');
+                        exit;
 
                     }
                     else{
@@ -91,6 +92,7 @@
                 }
             }
             else{
+                $_SESSION['error'] = 'Vous devez être connecté';
                 include 'views/login.html';
             }
         }
@@ -102,10 +104,14 @@
                $manif = $this->_mm->get((int)$_GET['id']);
                 if($manif->getIdOrganiser() == $_SESSION['userId']){
                     $this->_mm->destroy((int)$_GET['id']);
+                    $_SESSION['message'] = 'Manifestation supprimé';
                     header('Location: /User/manifestations');
+                    exit;
                 }
                 else{
+                    $_SESSION['error'] = "Problème d'utilisateur";
                     header('Location: /');
+                    exit;
                 }
             }
         }
@@ -187,6 +193,7 @@
                $regions = $this->_rm->getAll();
                $departments = $this->_dm->getAll();
                $types = $this->_tm->getAll();
+
                include('views/manifestations/search.php');
            }
         }
@@ -395,7 +402,7 @@
                     $path = "assets/img/manifestations/".$nom.".".$ext;
                     $valid_extensions = array( 'jpg' , 'jpeg' ,'png' );
                     if(!(upload('image',$path,6291456,$valid_extensions))){
-                        $_SESSION['message'] = "Il y a eu un problème lors de l'upload du fichier";
+                        $_SESSION['error'] = "Problème lors de l'upload du fichier";
                     }
                 }
                 else{
@@ -410,7 +417,9 @@
             $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'], 'city' => $_POST['city'], 'department' => $_POST['department'], 'address' => $_POST['route'], 'region' => $_POST['region'], 'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'], 'idOrganiser' => $_SESSION['userId'], 'type' => $_POST['type'], 'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path, 'informations' => $_POST['content'], 'parking' => $parking);
             $manifestation = new Manifestation($array);
             $this->_mm->update($manifestation);
+            $_SESSION['message'] = 'Manifestation mise à jour';
             header('Location: /Manifestation/' . str_replace(" ", "_", $manifestation->getRegion()) . '/' . str_replace(" ", "_", $manifestation->getDepartment()) . '/' . str_replace(" ", "_", $manifestation->getCity()) . '/' . str_replace(' ', '_', $manifestation->getName()));
+            exit;
         } else {
             $departments = $this->_dm->getAll();
             $regions = $this->_rm->getAll();

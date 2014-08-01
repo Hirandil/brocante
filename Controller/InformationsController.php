@@ -72,6 +72,7 @@ class InformationsController extends Controller
                 $this->_nm->update($news);
                 $_SESSION['message'] = "Actualité modifiée";
                 header('Refresh: 2; url= /Informations/actualites');
+                exit;
             }
             else
             {
@@ -92,7 +93,9 @@ class InformationsController extends Controller
             $user = $this->_um->get((int)$_SESSION['userId']);
             if($user->getAdmin()){
                 $this->_nm->destroy((int)$_GET['id']);
+                $_SESSION['message'] = "Actualité supprimé";
                 header('Location: /Informations/actualites');
+                exit;
             }
             else{
                 header('Location: /');

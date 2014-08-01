@@ -337,7 +337,7 @@
                         foreach ((array)$d as $manifestation)
                         {
                      ?>
-                    ['<?php echo $manifestation->getName() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid() ?>'],
+                    ['<?php echo $manifestation->getName() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid()?>','<?php echo $manifestation->getRegion() ?>','<?php echo $manifestation->getDepartment() ?>','<?php echo $manifestation->getCity() ?>'],
                     <?php
         }
     }
