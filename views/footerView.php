@@ -131,7 +131,7 @@
                             </div>
                             <!-- /.title -->
 
-                            <div class="location"><?php echo substr($n->getContent(),0,50)?>...</div>
+                            <div class="location"><?php echo html_entity_decode(substr($n->getContent(),0,50))?>...</div>
                             <!-- /.location -->
 
                             <div class="price">

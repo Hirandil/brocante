@@ -12,11 +12,7 @@
                     </div>
                     <!-- /.logo -->
 
-                    <div class="site-name">
-                        <a href="/" title="Home" class="brand">
-                            123Brocante
-                        </a>
-                    </div>
+
                     <!-- /.site-name -->
                 </div>
 

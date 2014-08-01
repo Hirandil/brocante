@@ -150,4 +150,30 @@
             $q->bindValue(':id', $id, PDO::PARAM_INT);
             $q->execute();
         }
+
+        public function existToken($token){
+            $q = $this->_db->prepare('SELECT COUNT(*) FROM password WHERE token = :token');
+            $q->bindValue(':token', $token, PDO::PARAM_STR);
+            $q->execute();
+            if(!$q->fetchColumn(0))
+                return false;
+            else
+                return true;
+        }
+
+        public function subscribe($zone,$email,$period)
+        {
+            $q = $this->_db->prepare('INSERT INTO newsletter (email,zone,delai) VALUES(:email,:zone,:period) ');
+            $q->bindValue(':email', $email, PDO::PARAM_STR);
+            $q->bindValue(':zone', $zone, PDO::PARAM_STR);
+            $q->bindValue(':period', $period, PDO::PARAM_INT);
+            try
+            {
+                $q->execute();
+            }
+            catch(Exception $e)
+            {
+                Throw $e;
+            }
+        }
     }

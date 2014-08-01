@@ -4,16 +4,19 @@ require_once 'models/userManager.php';
 require_once 'Controller/Controller.php';
 require_once 'models/Manifestation.php';
 require_once 'models/manifestationManager.php';
+require_once 'models/Department.php';
+require_once 'models/departmentManager.php';
 
 class UserController extends Controller
 {
     private $_um;
     private $_mm;
-
+    private $_dm;
     public function __construct(){
         parent::__construct();
         $this->_um = new UserManager($this->_db);
         $this->_mm = new manifestationManager($this->_db);
+        $this->_dm = new departmentManager($this->_db);
     }
 
     public function login(){
@@ -115,26 +118,28 @@ class UserController extends Controller
                 else
                     $passage_ligne = "\n";
                 //=====Déclaration des messages au format texte et au format HTML.
-                //$message_txt = "Salut à tous, voici un e-mail envoyé par un script PHP.";
-                $message_html = "<html><head></head><body><b>Bonjour,</b><br><p> Pour procéder au changement de votre mot de passe suivez le lien suivant :</p><br> <a href=\"http://www.aw6.fr/User/redefine/".$token."\">Redefinir le mot de passe </a></body></html>";
+                $message_txt = "Bonjour,
+
+                Pour procéder au changement de votre mot de passe suivez le lien suivant :
+                http://123Brocante.com/User/redefine/".$token;
+
+
+                //$message_html = "<html><head></head><body><b>Bonjour,</b><br><p> Pour procéder au changement de votre mot de passe suivez le lien suivant :</p><br> <a href=\"http://123Brocante.com/User/redefine/".$token."\">Redefinir le mot de passe </a></body></html>";
 
                 $boundary = "-----=".md5(rand());
 
                 $sujet = "123Brocante - Redefinition de mot de passe";
 
-                $header = "From: \"123Brocante\"<eredoine@gmail.com>".$passage_ligne;
+                $header = "From: \"123Brocante\"<no-reply@123Brocante.com>".$passage_ligne;
                 $header.= "MIME-Version: 1.0".$passage_ligne;
                 $header.= "Content-Type: multipart/alternative;".$passage_ligne." boundary=\"$boundary\"".$passage_ligne;
 
                 $message = $passage_ligne."--".$boundary.$passage_ligne;
 
-                $message.= "Content-Type: text/html; charset=\"ISO-8859-1\"".$passage_ligne;
+                $message.= "Content-Type: text/plain; charset=\"ISO-8859-1\"".$passage_ligne;
                 $message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
-                $message.= $passage_ligne.$message_html.$passage_ligne;
+                $message.= $passage_ligne.$message_txt.$passage_ligne;
 
-                $message.= $passage_ligne."--".$boundary.$passage_ligne;
-
-                $message.= $passage_ligne."--".$boundary."--".$passage_ligne;
                 $message.= $passage_ligne."--".$boundary."--".$passage_ligne;
 
                 mail($_POST['email'],$sujet,$message,$header);
@@ -153,7 +158,7 @@ class UserController extends Controller
                 $_SESSION['message'] = "Confirmer bien le mot de passe";
             }
         }
-        else if(isset($_GET['id']) && !isset($_POST['newPassword'])){
+        else if(isset($_GET['id']) && !isset($_POST['newPassword']) && $this->_um->existToken($_GET['id'])){
             include('views/redefine.php');
         }
         else{
@@ -189,6 +194,40 @@ class UserController extends Controller
         }
         else
             header('Location: /');
+    }
+
+    public function newsletter(){
+        if(isset($_SESSION['userId'])){
+            if(isset($_POST['email'],$_POST['zone']) &&(isset($_POST['veille']) || isset($_POST['week']) || isset($_POST['month']))){
+                $zone = htmlentities($_POST['zone']);
+                $email = htmlentities($_POST['email']);
+                if(preg_match("#[0-9]+#",$_POST['zone'])){
+                    $dept = $this->_dm->get($_POST['zone']);
+                    $zone = $dept->getName();
+                }
+                try{
+                if(isset($_POST['veille']))
+                    $this->_um->subscribe($zone,$email,$_POST['veille']);
+                else if(isset($_POST['week']))
+                    $this->_um->subscribe($zone,$email,$_POST['week']);
+                else if(isset($_POST['month']))
+                    $this->_um->subscribe($zone,$email,$_POST['month']);
+
+                $_SESSION['message'] = "Inscris à la newsletter!";
+                $page = $_SERVER['PHP_SELF'];
+                header("Refresh: 1; url=$page");
+                }
+                catch(Exception $e)
+                {
+                    $_SESSION['error'] = "Deja inscrit";
+                    $page = $_SERVER['PHP_SELF'];
+                  // header("Refresh: 1; url=$page");
+                }
+            }
+        }
+        else{
+            header('Location: /User/inscription');
+        }
     }
 }
 ?>

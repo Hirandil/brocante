@@ -13,7 +13,7 @@
 <div class="agent">
     <div class="row">
         <div class="image span2">
-            <img width="270" height="270" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678099-profile-filled-512.png" class="thumbnail-image" alt="agent2">
+            <img width="270" height="270" src="../assets/img/profil-default.png" class="thumbnail-image" alt="profil">
         </div><!-- /.image -->
 
         <div class="span10">
@@ -27,7 +27,6 @@
                         <div class="control-group">
                             <label class="control-label">
                                 Nom
-                                <span class="form-required" title="This field is required.">*</span>
                             </label>
 
                             <div class="controls">
@@ -39,7 +38,6 @@
                         <div class="control-group">
                             <label class="control-label">
                                 Prénom
-                                <span class="form-required" title="This field is required.">*</span>
                             </label>
 
                             <div class="controls">
@@ -51,7 +49,6 @@
                         <div class="control-group">
                             <label class="control-label">
                                 E-mail
-                                <span class="form-required" title="This field is required.">*</span>
                             </label>
 
                             <div class="controls">
@@ -63,7 +60,6 @@
                         <div class="control-group">
                             <label class="control-label">
                                 Adresse
-                                <span class="form-required" title="This field is required.">*</span>
                             </label>
 
                             <div class="controls">
@@ -75,7 +71,6 @@
                         <div class="control-group">
                             <label class="control-label">
                                 Téléphone
-                                <span class="form-required" title="This field is required.">*</span>
                             </label>
 
                             <div class="controls">
@@ -98,7 +93,6 @@
                         <div class="control-group">
                             <label class="control-label">
                                 Nouveau mot de passe
-                                <span class="form-required">*</span>
                             </label>
 
                             <div class="controls">

@@ -35,15 +35,13 @@ class InformationsController extends Controller
                     $array = array('id' => 0, 'title' => htmlspecialchars($_POST['title']), 'content' => htmlspecialchars($_POST['content']));
                     $news = new News($array);
                     $this->_nm->create($news);
-                    $_SESSION['message'] = "Post crée";
-                    header('Location: /Informations/actualites');
+                    $_SESSION['message'] = "Actualité crée";
+                    header('Refresh: 2; url= /Informations/actualites');
                 } else {
-                    echo "no rights";
-                    $_SESSION['message'] = "Vous n'avez pas les droits";
+                    $_SESSION['error'] = "Vous n'avez pas les droits";
                 }
             } else {
-                echo "no fields";
-                $_SESSION['message'] = "Remplissez les champs";
+                $_SESSION['error'] = "Remplisser tous les champs";
             }
         } else {
             $update = false;
@@ -55,6 +53,7 @@ class InformationsController extends Controller
     {
         $_SESSION['ariane'] = "Toutes les actualités";
         $_SESSION['title'] = "Toutes les news";
+        $user = $this->_um->get((int)$_SESSION['userId']);
         $news = $this->_nm->getAll();
         include('views/news/news.php');
     }
@@ -62,23 +61,43 @@ class InformationsController extends Controller
     public function update()
     {
         $_SESSION['ariane'] = "Modifier une actualité";
-        $_SESSION['Modifier mon actualité'];
+        $_SESSION['title'] = "Modifier mon actualité";
         $update = true;
         if (isset($_POST['title'], $_POST['content'])) {
             if ($_POST['title'] != "" && $_POST['content'] != "") {
-                $array = array('title' => $_POST['title'],'content' => $_POST['content']);
+                $array = array('id' => $_POST['id'],'title' => $_POST['title'],'content' => $_POST['content']);
                 $news = new News($array);
                 $this->_nm->update($news);
-                header('Location: /News/all');
+                $_SESSION['message'] = "Actualité modifiée";
+                header('Refresh: 2; url= /Informations/actualites');
             }
             else
             {
-                $_SESSION['message'] = "Remplissez les champs";
+                $_SESSION['message'] = "Remplissez tous les champs";
             }
         }
         else {
             $news = $this->_nm->get((int)$_GET['id']);
             include('views/news/add.php');
+        }
+    }
+
+    public function destroy()
+    {
+        $_SESSION['ariane'] = "Supprimer une actualité";
+        $_SESSION['title'] = "Supprimer une actualité";
+        if(isset($_GET['id'])){
+            $user = $this->_um->get((int)$_SESSION['userId']);
+            if($user->getAdmin()){
+                $this->_nm->destroy((int)$_GET['id']);
+                header('Location: /Informations/actualites');
+            }
+            else{
+                header('Location: /');
+            }
+        }
+        else{
+            header('Location: /');
         }
     }
 
@@ -88,7 +107,7 @@ class InformationsController extends Controller
             $name = htmlspecialchars(str_replace("_"," ",$_GET['id']));
             if($this->_nm->exists($name)){
                 $news = $this->_nm->get($name);
-                $_SESSION['ariane'] = "Actualités >".$news->getTitle();
+                $_SESSION['ariane'] = "Actualités > ".$news->getTitle();
                 $_SESSION['title'] = $news->getTitle();
                 include('views/news/show.php');
             }

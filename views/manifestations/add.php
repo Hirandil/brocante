@@ -68,7 +68,7 @@
         </label>
 
         <div class="controls">
-            <input type="text" name="title" size="30" id="title" autocomplete="off" required="required" onkeypress="checkKey()" <?php if($update){echo 'value="'.$manifestation->getName().'"';}?>>
+            <input type="text" name="title" size="30" id="title" autocomplete="off" required="required" onkeyup="verif(this)" <?php if($update){echo 'value="'.$manifestation->getName().'"';}?>>
         </div>
     </div>
     <div class="control-group">
@@ -387,12 +387,18 @@
                         //console.log(str)
                     })
 
-                    function checkKey(e){
-                        var e=window.event || e;
-                        var touche=e.charCode || e.keyCode;
-                        return (touche>=48 && touche<=57 || touche==8 || touche==32)? true : false;
+                verif = function(chars) {
+                    // Caractères autorisés
+                    var regex = new RegExp("[a-z0-9-éè',\ !?/()+=]", "i");
+                    var valid;
+                    for (x = 0; x < chars.value.length; x++) {
+                        valid = regex.test(chars.value.charAt(x));
+                        if (valid == false) {
+                            chars.value = chars.value.substr(0, x) + chars.value.substr(x + 1, chars.value.length - x + 1); x--;
+                        }
                     }
-                    }
+                }
+
 
                 $( "#cityGoogle" )
                     .keypress(function () {

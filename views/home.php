@@ -110,64 +110,31 @@
                         <div class="content">
                             <p style="color:white;border-bottom: 1px; border-style:solid">Abonnez-vous aux alertes</p>
                             <p style="color:white; font-size:75%;">Recevez directement dans votre boite mail la liste des ventes qui ont lieu près de chez vous</p>
-                            <form method="get" action="javascript:void(0);">
+                            <form method="POST" action="/User/newsletter">
+                                <div class="type control-group">
+                                    <label class="control-label">
+                                        Email
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text"  name="email">
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+                                <!-- /.control-group -->
+                                <input type="hidden" name="week" value="7">
+                                <div class="type control-group">
+                                    <label class="control-label">
+                                        Code postal
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text"  name="zone">
+                                    </div>
+                                    <!-- /.controls -->
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary btn-large" > S'inscrire !</button>
+                                </div>
 
-                                <!-- /.control-group -->
-                                <?php
-                                if(!isset($_SESSION['userLogin']))
-                                {
-                                ?>
-                                <div class="type control-group">
-                                    <label class="control-label">
-                                        Email
-                                    </label>
-                                    <div class="controls">
-                                        <input type="text" id="departmentGoogle" name="department" disabled>
-                                    </div>
-                                    <!-- /.controls -->
-                                </div>
-                                <!-- /.control-group -->
-                                <div class="type control-group">
-                                    <label class="control-label">
-                                        Code postal
-                                    </label>
-                                    <div class="controls">
-                                        <input type="text" id="cityGoogle" name="city" disabled>
-                                    </div>
-                                    <!-- /.controls -->
-                                </div>
-                                <div class="form-actions">
-                                    <a href="/User/inscription" class="btn btn-primary btn-large" > S'inscrire !</a>
-                                </div>
-                                <?php
-                                }
-                                else{
-                                    ?>
-                                <div class="type control-group">
-                                    <label class="control-label">
-                                        Email
-                                    </label>
-                                    <div class="controls">
-                                        <input type="text" id="departmentGoogle" name="department" >
-                                    </div>
-                                    <!-- /.controls -->
-                                </div>
-                                <!-- /.control-group -->
-                                <div class="type control-group">
-                                    <label class="control-label">
-                                        Code postal
-                                    </label>
-                                    <div class="controls">
-                                        <input type="text" id="cityGoogle" name="city" >
-                                    </div>
-                                    <!-- /.controls -->
-                                </div>
-                                <div class="form-actions">
-                                <button class="btn btn-primary btn-large"> S'inscrire !</button>
-                                    </div>
-                                <?php
-                                }
-                                ?>
                                 <!-- /.form-actions -->
                             </form>
                         </div>

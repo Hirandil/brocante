@@ -58,9 +58,9 @@
     <div class="row">
 <div class="sidebar span8">
     <h1 class="page-header"><?php echo $department->getName() . ' (' . $department->getZipCode() . ') -- '
-            . sizeof($manifestations) .
+            . (sizeof($manifProByDate) + sizeof($manifTomorrow) + sizeof($manifTomorrow1) + sizeof($manifTomorrow2)) .
             ' résultat(s) ont été trouvé(s). Vous pouvez aussi rechercher pour la région
-            <a href="/Manifestation/region/'.str_replace(' ','-',$region->getName()).'/' . $region->getId() . '">' . $region->getName() . '</a>' ?></h1>
+            <i><a href="/Manifestation/region/'.str_replace(' ','-',$region->getName()).'/' . $region->getId() . '">' . $region->getName() . '</a></i>' ?></h1>
     <br>
     <?php
         if (sizeof((array)$manifProByDate) != 0) {
@@ -258,37 +258,38 @@
             <div class="content" style="margin-bottom: 20px">
                 <p style="border-bottom: 1px; border-style:solid">Abonnez-vous aux alertes</p>
 
-                <p style="font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes de la
-                    région <?php echo $region->getName() ?></p>
+                <p style="font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes du
+                    département <?php echo $department->getName() ?></p>
 
-                <form method="get" action="javascript:void(0);">
+                <form method="POST" action="/User/newsletter">
 
                     <div class="type control-group">
                         <div class="controls">
-                            <input type="text" id="departmentGoogle" name="department"
+                            <input type="text"  name="email"
                                    placeholder="Taper votre adresse e-mail">
                         </div>
                         <!-- /.controls -->
                     </div>
+                    <input type="hidden" name="zone" value="<?php echo $department->getName(); ?>">
                     <p style="color:white; font-size:75%;">Je veux être alerté :</p>
-
                     <div class="control-group">
                         <div class="controls">
-                            <input type="radio" name="" value="male">
+                            <input type="radio" name="veille" value="1">
 
                             <p style="font-size:75%;margin-left: 10%;">la veille</p>
-                            <input type="radio" name="" value="female">
 
+                            <input type="radio" name="week" value="7">
                             <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
-                            <input type="radio" name="" value="male">
 
+                            <input type="radio" name="month" value="30">
                             <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
+
                         </div>
                     </div>
                     <!-- /.control-group -->
                     <div style=" text-align: center; ">
-                        <a href="/User/inscription" class="btn btn-primary btn-large" style="background-color: #f69679">
-                            S'inscrire !</a>
+                        <button type="submit" class="btn btn-primary btn-large" style="background-color: #f69679">
+                            S'inscrire !</button>
                     </div>
 
 
@@ -307,7 +308,7 @@
                     <?php
                     foreach ((array)$nearRegion as $nearRegion) {
                         ?>
-                        <li><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment()).'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>">
+                        <li><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$nearRegion->getRegion()).'/'.str_replace(" ","_",$nearRegion->getDepartment()).'/'.str_replace(" ","_",$nearRegion->getCity()).'/'.str_replace(' ','_',$nearRegion->getName());?>">
                                 <img width="40" height="35" src="/<?php echo $nearRegion->getImage() ?>"
                                      class="thumbnail-image " alt="Image"/>
                                 <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></li>

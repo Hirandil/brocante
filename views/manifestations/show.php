@@ -217,7 +217,7 @@
             </div>
             <!-- /.content -->
         </div>
-        <div class="alentourBlock">
+        <!--<div class="alentourBlock">
             <div class="content" style="margin-bottom: 20px">
                 <p style="border-bottom: 1px; border-style:solid">Brocantes du département</p>
                 <ul>
@@ -227,8 +227,7 @@
                     <li>Brocante Juin 2014</li>
                 </ul>
             </div>
-            <!-- /.content -->
-        </div>
+        </div>-->
 
         <script type="text/javascript">
             jQuery(document).ready(function ($) {

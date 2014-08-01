@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="span6 offset3">
 
-                            <?php if(!isset($_GET['token'])){
+                            <?php if(!isset($_GET['id'])){
                             ?>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="login">
@@ -59,7 +59,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="login">
                                     <form method="post" action="/User/redefine">
-                                    <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
+                                    <input type="hidden" name="token" value="<?php echo $_GET['id']; ?>">
                                         <div class="control-group">
                                             <label class="control-label">
                                                 Nouveau mot de passe

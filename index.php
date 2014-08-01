@@ -92,6 +92,10 @@ $content = ob_get_clean();
     <link rel='stylesheet' id='aviators-css' href='/assets/css/jquery.bxslider.css' type='text/css' media='all'/>
     <link rel='stylesheet' id='properta-css' href='/assets/css/properta.css' type='text/css' media='all'/>
 
+    <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+    <script>
+        tinymce.init({selector:'textarea'});
+    </script>
     <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
     <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
     <script src="/assets/js/jquery.vmap.js" type="text/javascript"></script>
@@ -104,7 +108,7 @@ $content = ob_get_clean();
     <script type="text/javascript" src="/assets/js/notify.min.js"></script>
     <!--<base href="http://123brocante.com/">-->
     <title> <?php echo $_SESSION['title'] ?> </title>
-    <meta name="description" content="<?php echo $_SESSION['description']?>">
+    <meta name="description" content="<?php echo $_SESSION['description']?>" />
 </head>
 
 <body class="home page page-template">
@@ -117,7 +121,7 @@ $content = ob_get_clean();
     include('views/footerView.php');
 
     if(isset($_SESSION['message'])){
-    echo $_SESSION['message'];
+        echo $_SESSION['message'];
     ?>
     <script>
         $.notify(
@@ -129,11 +133,12 @@ $content = ob_get_clean();
         );
     </script>
     <?php
-        $_SESSION['message']= "";
+        unset($_SESSION['message']);
     }
 ?>
 <?php
 if(isset($_SESSION['error'])){
+    echo $_SESSION['error'];
 ?>
 <script>
     $.notify(
@@ -145,7 +150,7 @@ if(isset($_SESSION['error'])){
     );
 </script>
 <?php
-$_SESSION['error']= "";
+unset($_SESSION['error']);
 }
 ?>
 

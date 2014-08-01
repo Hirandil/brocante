@@ -352,7 +352,7 @@
                     $organiser = $this->_um->get((int)$manifestation->getIdOrganiser());
                     if (isset($_SESSION['userId']) && $manifestation->getIdOrganiser() != $_SESSION['userId'])
                         $this->_mm->upVisits($_GET['name']);
-                    $_SESSION['ariane'] = "Manifestations > ".$manifestation->getDepartment()." > ".$manifestation->getName();
+                    $_SESSION['ariane'] = $manifestation->getRegion()." > ".$manifestation->getDepartment()." > ".$manifestation->getName();
                     $_SESSION['title'] = $manifestation->getDepartment()." - ".$manifestation->getName();
                     include 'views/manifestations/show.php';
                 } else {
@@ -367,7 +367,7 @@
 
     public function update()
     {
-        $_SESSION['ariane'] = "Modifier mona annonce";
+        $_SESSION['ariane'] = "Modifier mon annonce";
         $_SESSION['title'] = "Modifier mon annonce";
         if (isset($_POST['title'], $_POST['route'], $_POST['city'], $_POST['department'], $_POST['region'], $_POST['dateStart'], $_POST['dateEnd'], $_POST['timeStart'], $_POST['timeEnd'], $_POST['type'])) {
 

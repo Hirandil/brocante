@@ -259,36 +259,38 @@
                 <p style="border-bottom: 1px; border-style:solid">Abonnez-vous aux alertes</p>
 
                 <p style="font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes de la
-                    région ></p>
+                    région <?php echo $region->getName();?> :</p>
 
-                <form method="get" action="javascript:void(0);">
+                <form method="POST" action="/User/newsletter">
 
                     <div class="type control-group">
                         <div class="controls">
-                            <input type="text" id="departmentGoogle" name="department"
+                            <input type="text"  name="email"
                                    placeholder="Taper votre adresse e-mail">
                         </div>
                         <!-- /.controls -->
                     </div>
+                    <input type="hidden" name="zone" value="<?php echo $region->getName(); ?>">
                     <p style="color:white; font-size:75%;">Je veux être alerté :</p>
 
                     <div class="control-group">
                         <div class="controls">
-                            <input type="radio" name="" value="male">
+                            <input type="radio" name="veille" value="1">
 
                             <p style="font-size:75%;margin-left: 10%;">la veille</p>
-                            <input type="radio" name="" value="female">
 
+                            <input type="radio" name="week" value="7">
                             <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
-                            <input type="radio" name="" value="male">
 
+                            <input type="radio" name="month" value="30">
                             <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
+
                         </div>
                     </div>
                     <!-- /.control-group -->
                     <div style=" text-align: center; ">
-                        <a href="/User/inscription" class="btn btn-primary btn-large" style="background-color: #f69679">
-                            S'inscrire !</a>
+                        <button type="submit" class="btn btn-primary btn-large" style="background-color: #f69679">
+                            S'inscrire !</button>
                     </div>
 
 
