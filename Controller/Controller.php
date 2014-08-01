@@ -26,6 +26,8 @@
                 $_SESSION['title'] = "123Brocante.com";
                 $_SESSION['ariane'] = "";
                 $_SESSION['type'] =  "Brocantes, Vide-Grenier, Marché aux puces,etc ";
+                $_SESSION['description'] = "123Brocante est un agenda regroupant Brocantes,Vide-Greniers,Marché aux puces,etc
+                                    dans toute la France. Découvrer les manifestations près de chez vous!";
                 }
             catch(Exception $e)
             {

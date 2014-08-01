@@ -22,6 +22,7 @@ class UserController extends Controller
     public function login(){
         $_SESSION['ariane'] = "Connexion / Inscription";
         $_SESSION['title'] = "Connexion / Inscription";
+        $_SESSION['description'] = "Connecter vous et partager votre passion de la brocante avec des centaines d'internautes!";
         if (isset($_POST['userLogin']) && isset($_POST['password'])){
             if ( $this->_um->exists($_POST['userLogin'])){
                 $user = $this->_um->get($_POST['userLogin']);
@@ -59,6 +60,7 @@ class UserController extends Controller
     public function inscription(){
         $_SESSION['ariane'] = "Inscription";
         $_SESSION['title'] = "Inscription";
+        $_SESSION['description'] = "Inscriver vous et rejoigner une grande communauté sur 123Brocante !";
         if ( isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
             if($this->_um->exists($_POST['userLogin'])){
                 $_SESSION['Message'] = 'Utilisateur existe déjà';
@@ -95,6 +97,7 @@ class UserController extends Controller
     public function updatePro(){
         $_SESSION['ariane'] = "Passer pro !";
         $_SESSION['title'] = "Passer pro !";
+        $_SESSION['description'] = "Passer votre compte pro et profiter d'avantages supplémentaires !";
         if (isset($_SESSION['userLogin'])){
             $user = $this->_um->get((int)$_SESSION['userId']);
             include('views/pricing.php');
@@ -107,6 +110,7 @@ class UserController extends Controller
     public function redefine(){
         $_SESSION['ariane'] = "Mot de passe oublié";
         $_SESSION['title'] = "Redéfinir mon mot de passe";
+        $_SESSION['description'] = "Vous pourrez ici redefinir votre de passe";
         if(isset($_POST['email'])){
             if($this->_um->exists($_POST['email'])){
                 $this->_um->cleanToken($_POST['email']);
@@ -168,6 +172,7 @@ class UserController extends Controller
     public function update(){
         $_SESSION['ariane'] = "Mon profil";
         $_SESSION['title'] = "Mon profil";
+        $_SESSION['description'] = "Vous pouver accéder à vos informations personnelles et les modifier";
         if(isset($_SESSION['userLogin'])){
             $user = $this->_um->get((int)$_SESSION['userId']);
             if (isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['newPassword']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
@@ -215,13 +220,13 @@ class UserController extends Controller
 
                 $_SESSION['message'] = "Inscris à la newsletter!";
                 $page = $_SERVER['PHP_SELF'];
-                header("Refresh: 1; url=$page");
+                header("Location: $page");
                 }
                 catch(Exception $e)
                 {
                     $_SESSION['error'] = "Deja inscrit";
                     $page = $_SERVER['PHP_SELF'];
-                  // header("Refresh: 1; url=$page");
+                    header("Location: $page");
                 }
             }
         }

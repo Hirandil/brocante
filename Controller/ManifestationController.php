@@ -31,8 +31,9 @@
 
 
         public function add(){
-            $_SESSION['title'] = "Ajouter une manifestation";
+            $_SESSION['title'] = "Annoncer une manifestation";
             $_SESSION['ariane'] = "Nouvelle manifestation";
+            $_SESSION['description'] = "Annoncer votre ".$_SESSION['type']." sur 123Brocante et alerter des centaines d'internautes dans toute la France !";
             if ( isset($_SESSION['userLogin']) ){
 
                 if ( isset($_POST['title'],$_POST['route'],$_POST['city'],$_POST['department'],$_POST['region'],$_POST['dateStart'],$_POST['dateEnd'],$_POST['timeStart'],$_POST['timeEnd'],$_POST['type'])){
@@ -112,6 +113,7 @@
         public function rechercher() {
             $_SESSION['title'] = "Rechercher une manifestation";
             $_SESSION['ariane'] = "Manifestation > Rechercher";
+            $_SESSION['description'] = "Rechercher des ".$_SESSION['type']." et plus encore dans votre region et dans toute la France avec 123Brocante";
            if(isset($_POST['region'],$_POST['department']))
            {
                 $filtre = array();
@@ -268,6 +270,7 @@
                     $manifProByDate[$m->getStart()][] = $m;
                 }
             }
+            $_SESSION['description'] = "Toutes les manifestations dans le département ".$department->getName().",venez les découvrir :";
             $_SESSION['ariane'] = "Manifestations > Département > ".$department->getName();
             $_SESSION['title'] = "Brocante - ".$region->getName() . ", " . $department->getName();
             include('views/department/show.php');
@@ -333,6 +336,7 @@
                     $manifTomorrow2[$m->getStart()][] = $m;
                 }
             }
+            $_SESSION['description'] = "Toutes les manifestations dans la region ".$region->getName().",venez les découvrir !";
             $_SESSION['ariane'] = "Manifestations > Region > ".$region->getName();
             $_SESSION['title'] = "Brocante - ".$region->getName() . ", Tout département";
             include('views/region/show.php');
@@ -354,13 +358,14 @@
                         $this->_mm->upVisits($_GET['name']);
                     $_SESSION['ariane'] = $manifestation->getRegion()." > ".$manifestation->getDepartment()." > ".$manifestation->getName();
                     $_SESSION['title'] = $manifestation->getDepartment()." - ".$manifestation->getName();
+                    $_SESSION['description'] = "Découvrer ".$manifestation->getName()." dans la region ".$manifestation->getRegion()." (".$manifestation->getDepartment().") le ".$manifestation->getStart()." !";
                     include 'views/manifestations/show.php';
                 } else {
-                   // header('Location: /User/manifestations');
+                    header('Location: /User/manifestations');
                 }
             }
             else{
-                //header('Location: /');
+                header('Location: /');
             }
 
         }

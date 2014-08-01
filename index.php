@@ -121,7 +121,6 @@ $content = ob_get_clean();
     include('views/footerView.php');
 
     if(isset($_SESSION['message'])){
-        echo $_SESSION['message'];
     ?>
     <script>
         $.notify(
@@ -138,7 +137,6 @@ $content = ob_get_clean();
 ?>
 <?php
 if(isset($_SESSION['error'])){
-    echo $_SESSION['error'];
 ?>
 <script>
     $.notify(

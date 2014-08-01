@@ -36,7 +36,8 @@ class InformationsController extends Controller
                     $news = new News($array);
                     $this->_nm->create($news);
                     $_SESSION['message'] = "Actualité crée";
-                    header('Refresh: 2; url= /Informations/actualites');
+                    header('Location: /Informations/actualites');
+                    exit;
                 } else {
                     $_SESSION['error'] = "Vous n'avez pas les droits";
                 }
@@ -53,6 +54,7 @@ class InformationsController extends Controller
     {
         $_SESSION['ariane'] = "Toutes les actualités";
         $_SESSION['title'] = "Toutes les news";
+        $_SESSION['description'] = "Retrouvez toutes les actualités de vos ".$_SESSION['type']." sur votre site 123Brocante.com!";
         $user = $this->_um->get((int)$_SESSION['userId']);
         $news = $this->_nm->getAll();
         include('views/news/news.php');
@@ -107,6 +109,7 @@ class InformationsController extends Controller
             $name = htmlspecialchars(str_replace("_"," ",$_GET['id']));
             if($this->_nm->exists($name)){
                 $news = $this->_nm->get($name);
+                $_SESSION['description'] = $news->getTitle().", retrouver toutes vos actualités sur 123Brocante.com!";
                 $_SESSION['ariane'] = "Actualités > ".$news->getTitle();
                 $_SESSION['title'] = $news->getTitle();
                 include('views/news/show.php');
