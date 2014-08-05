@@ -10,11 +10,11 @@
 
             <div class=" filter-horizontal" style=" text-align: center;">
                 <div class="content">
-                    <form method="get" action="javascript:void(0);" class="form-inline map-filtering">
+                    <form method="POST" action="/Manifestation/Rechercher-des-manifestations" class="form-inline map-filtering">
                         <!-- /.property-types -->
                         <div class="general">
-                            <select name="filter_location" id="inputLocation-" class="location">
-                                <option value="">Tout les types de manifestations</option>
+                            <select name="types" id="inputLocation-" class="location">
+                                <option value="null">Tout les types de manifestations</option>
                                 <?php
 
                                 foreach($types as $t)
@@ -25,11 +25,11 @@
                                 }
                                 ?>
                             </select>
-                            <select name="filter_bedrooms" id="inputBeds-" class="beds ">
-                                <option value="">Dates</option>
-                                <option value="">Aujourd'hui</option>
-                                <option value="">Demain</option>
-                                <option value="">Ce week end</option>
+                            <select name="date" id="inputBeds-" class="beds ">
+                                <option value="null">Dates</option>
+                                <option value="0">Aujourd'hui</option>
+                                <option value="1">Demain</option>
+                                <option value="7">La semaine prochaine</option>
                              </select>
                             <select id="selectDepartment" name="department">
                                 <option value="null">Séléctionner un département</option>
@@ -37,12 +37,12 @@
                                 foreach((array)$departments as $d)
                                 {
                                     ?>
-                                    <option value="<?php echo $d->getName()?>" id="<?php echo $d->getId()?>"><?php echo $d->getName()?></option>
+                                    <option value="<?php echo $d->getName()?>" id="<?php echo $d->getId()?>" <?php if($d->getName() == $department->getName()){echo 'selected="selected"';}?>><?php echo $d->getName()?></option>
                                 <?php
                                 }
                                 ?>
                             </select>
-                            <button class="btn btn-primary btn-large">Filtrer!</button>
+                            <button type="submit" class="btn btn-primary btn-large">Filtrer!</button>
                         </div>
                         <!-- /.general -->
                     </form>
@@ -141,7 +141,7 @@
         foreach ((array)$d as $manifestation)
         {
         ?>
-        <h5 class="showH5"><?php echo $manifestation->getName() ?></h5>
+        <h5 class="showH5"><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment()).'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>"><?php echo $manifestation->getName() ?></a></h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>

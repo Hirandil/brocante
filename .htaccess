@@ -1,7 +1,7 @@
 Options +FollowSymlinks
 RewriteEngine on
 RewriteRule ^([A-Za-z]+)/([a-z]+)/([0-9]+)$  index.php?section=$1&action=$2&id=$3
-RewriteRule ^([A-Za-z]+)/([a-z]+)/([0-9_a-zA-Z-é',!?]+)$  index.php?section=$1&action=$2&id=$3
+RewriteRule ^([A-Za-z]+)/([a-z]+)/([0-9_a-zA-Z-éèôà',!?]+)$  index.php?section=$1&action=$2&id=$3
 RewriteRule ^Manifestation/region/([A-Za-z-ô'éè_]+)/([0-9]+)$ index.php?section=Manifestation&action=region&id=$2
 RewriteRule ^([A-Za-z]+)/([a-z]+)$  index.php?section=$1&action=$2
 RewriteRule ^([A-Za-z]+)/Annoncer-une-manifestation$  index.php?section=$1&action=add

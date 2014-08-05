@@ -68,7 +68,7 @@
         }
     }
     else {
-        echo 'Aucun résultat n\'a été trouvé';
+        echo '<p style="text-align: center;">Aucun résultat n\'a été trouvé</p>';
     }
 ?>
     </tbody>

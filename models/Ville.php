@@ -13,7 +13,7 @@ class ville{
     private $_department;
     private $_zipCode;
 
-    public function __construct(array $data){
+    public function __construct($data){
         $this->_id = $data['id'];
         $this->_name = $data['name'];
         $this->_zipCode = $data['zipCode'];

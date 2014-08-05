@@ -65,7 +65,7 @@ class UserController extends Controller
         $_SESSION['ariane'] = "Inscription";
         $_SESSION['title'] = "Inscription";
         $_SESSION['description'] = "Inscriver vous et rejoigner une grande communauté sur 123Brocante !";
-        if ( isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
+        if ( isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['phone'])){
             if($this->_um->exists($_POST['userLogin'])){
                 $_SESSION['error'] = 'Utilisateur existe déjà';
                 header('Location: /');
@@ -78,7 +78,7 @@ class UserController extends Controller
             }
             else{
                 // TODO : Complété création tableau
-                $array = array('id' => 0, 'email' => $_POST['userLogin'],'firstName'  => $_POST['firstName'],'lastName' => $_POST['lastName'], 'password' => sha1($_POST['password']),'address' => $_POST['address'],'phone' => $_POST['phone']);
+                $array = array('id' => 0, 'email' => $_POST['userLogin'],'firstName'  => $_POST['firstName'],'lastName' => $_POST['lastName'], 'password' => sha1($_POST['password']),'phone' => $_POST['phone']);
                 $user = new User($array);
                 $this->_um->create($user);
                 $_SESSION['Message'] = 'Compte crée';
@@ -182,21 +182,21 @@ class UserController extends Controller
         $_SESSION['description'] = "Vous pouver accéder à vos informations personnelles et les modifier";
         if(isset($_SESSION['userLogin'])){
             $user = $this->_um->get((int)$_SESSION['userId']);
-            if (isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['newPassword']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['address']) && isset($_POST['phone'])){
+            if (isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['newPassword']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['phone'])){
                 if(sha1($_POST['password']) != $user->getPassword()){
-                    echo "sha1";
                     $_SESSION['message'] = 'Mots de passe non identiques';
-                    // TODO : Redirigé vers la connexion
                     header('Location: /User/update');
+                    exit;
                 }
                 else{
-                    $user->setAddress($_POST['address']);
                     $user->setEmail($_POST['userLogin']);
                     $user->setFirstName($_POST['firstName']);
                     $user->setLastName($_POST['lastName']);
                     $user->setPassword(sha1($_POST['newPassword']));
                     $user->setPhone($_POST['phone']);
                     $this->_um->update($user);
+                    header('Location: /User/update');
+                    exit;
                 }
             }
             else

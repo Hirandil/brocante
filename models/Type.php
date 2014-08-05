@@ -11,7 +11,7 @@
         private $_id;
         private $_libelle;
 
-        public function __construct (array $data){
+        public function __construct ($data){
             $this->_id = $data['id'];
             $this->_libelle = $data['libelle'];
         }

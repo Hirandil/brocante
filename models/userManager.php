@@ -20,12 +20,11 @@
 
         public function create(User $u)
         {
-            $q = $this->_db->prepare('INSERT INTO users (email,firstName,lastName,address,phone,password) VALUES(:em,:fn,:ln,:add,:ph,:pass) ');
+            $q = $this->_db->prepare('INSERT INTO users (email,firstName,lastName,phone,password) VALUES(:em,:fn,:ln,:ph,:pass) ');
             $q->bindValue(':fn', $u->getFirstName(), PDO::PARAM_STR);
             $q->bindValue(':ln', $u->getLastName(), PDO::PARAM_STR);
             $q->bindValue(':em', $u->getEmail(), PDO::PARAM_STR);
             $q->bindValue(':ph', $u->getPhone(), PDO::PARAM_STR);
-            $q->bindValue(':add', $u->getAddress(), PDO::PARAM_STR);
             $q->bindValue(':pass', $u->getPassword(), PDO::PARAM_STR);
             try
             {
@@ -92,12 +91,11 @@
 
         public function update($user)
         {
-            $q = $this->_db->prepare('UPDATE users SET email= :mail,firstName = :fn,lastName = :ln,address = :addr,phone = :ph,password = :pass,admin = :admin WHERE id = :id');
+            $q = $this->_db->prepare('UPDATE users SET email= :mail,firstName = :fn,lastName = :ln,phone = :ph,password = :pass,admin = :admin WHERE id = :id');
             $q->bindValue(':mail', $user->getEmail(), PDO::PARAM_STR);
             $q->bindValue(':id', $user->getId(), PDO::PARAM_INT);
             $q->bindValue(':fn', $user->getFirstName(), PDO::PARAM_STR);
             $q->bindValue(':ln', $user->getLastName(), PDO::PARAM_STR);
-            $q->bindValue(':addr', $user->getAddress(), PDO::PARAM_STR);
             $q->bindValue(':ph', $user->getPhone(), PDO::PARAM_STR);
             $q->bindValue(':pass', $user->getPassword(), PDO::PARAM_STR);
             $q->bindValue(':admin', $user->getAdmin(), PDO::PARAM_BOOL);
@@ -175,5 +173,15 @@
             {
                 Throw $e;
             }
+        }
+
+        public function getAllUsers()
+        {
+            $q = $this->_db->prepare('SELECT * from users ORDER BY id ASC');
+            $q->execute();
+            while($data = $q->fetch(PDO::FETCH_ASSOC)){
+                $users[] = new User($data);
+            }
+            return $users;
         }
     }

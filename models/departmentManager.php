@@ -78,6 +78,16 @@ class departmentManager
         return $region;
 
     }
+
+    public function getDept($ville)
+    {
+        $q = $this->_db->prepare('SELECT * FROM department WHERE zipCode = :ville');
+        $q->bindValue(':ville', $ville, PDO::PARAM_INT);
+        $q->execute();
+        $data = $q->fetch(PDO::FETCH_ASSOC);
+        $m = new Department($data);
+        return $m;
+    }
 }
 
 ?>

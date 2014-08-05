@@ -43,7 +43,7 @@ class regionManager
     public function getAll()
     {
         $regions = NULL;
-        $q = $this->_db->prepare('SELECT * FROM region');
+        $q = $this->_db->prepare('SELECT * FROM region ORDER BY name ASC');
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {

@@ -55,7 +55,10 @@ class InformationsController extends Controller
         $_SESSION['ariane'] = "Toutes les actualités";
         $_SESSION['title'] = "Toutes les news";
         $_SESSION['description'] = "Retrouvez toutes les actualités de vos ".$_SESSION['type']." sur votre site 123Brocante.com!";
-        $user = $this->_um->get((int)$_SESSION['userId']);
+        if(isset($_SESSION['userId']))
+        {
+            $user = $this->_um->get((int)$_SESSION['userId']);
+        }
         $news = $this->_nm->getAll();
         include('views/news/news.php');
     }
@@ -71,7 +74,7 @@ class InformationsController extends Controller
                 $news = new News($array);
                 $this->_nm->update($news);
                 $_SESSION['message'] = "Actualité modifiée";
-                header('Refresh: 2; url= /Informations/actualites');
+                header('Location: /Informations/actualites');
                 exit;
             }
             else

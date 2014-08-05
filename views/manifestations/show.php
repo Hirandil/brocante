@@ -19,6 +19,7 @@
                 <h3>
                     <?php echo $manifestation->getAddress() ?>
                 </h3>
+                <div class="pull-right"> <h3> <?php echo $type->getLibelle(); ?></h3></div>
             </div>
             <!-- /.title -->
 
@@ -44,6 +45,13 @@
         <!--        2-->
         <!--    </div>-->
         <br>
+        <h5 class="showH5">Dates</h5>
+
+        <div class="area">
+            <i class="icon icon-normal-cursor-scale-up"></i>
+            Du <?php echo $manifestation->getStart()." au ".$manifestation->getEnd() ?>
+        </div>
+        <br>
         <h5 class="showH5">Horaires</h5>
 
         <div class="area">
@@ -51,6 +59,7 @@
             <?php echo $manifestation->getSchedule() ?>
         </div>
         <br>
+
         <h5 class="showH5">Site web de l'organisateur</h5>
 
         <div class="area">
@@ -95,7 +104,7 @@
             if ($manifestation->getExhibitorPrice() == '')
                 echo 'Non renseigné';
             else
-                echo $manifestation->getExhibitorPrice()." €";
+                echo $manifestation->getExhibitorPrice();
             ?>
         </div>
         <br>
@@ -107,7 +116,7 @@
             if ($manifestation->getParking() == '')
                 echo 'Non renseigné';
             else
-                if ($manifestation->getParking() == 0)
+                if ($manifestation->getParking() == 'true/')
                     echo "Oui";
                 else
                     echo "Non";
@@ -117,7 +126,6 @@
         <h5 class="showH5">Informations supplémentaires</h5>
 
         <div class="area">
-            <i class="icon icon-normal-cursor-scale-up"></i>
             <?php
             if ($manifestation->getInformations() == '')
                 echo 'Non renseigné';
@@ -158,7 +166,7 @@
                 <p style="border-bottom: 1px; border-style:solid">Brocantes aux alentours</p>
                 <ul>
                     <?php
-                    foreach ($nearTowns as $nearTown) {
+                    foreach ((array)$nearTowns as $nearTown) {
                         ?>
                         <li><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$nearTown->getRegion()).'/'.str_replace(" ","_",$nearTown->getDepartment())
                             .'/'.str_replace(" ","_",$nearTown->getCity()).'/'.str_replace(' ','_',$nearTown->getName());?>">

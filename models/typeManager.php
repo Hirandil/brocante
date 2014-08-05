@@ -62,7 +62,7 @@ class typeManager{
     }
 
     public function getAll(){
-        $q = $this->_db->prepare('SELECT * from Types');
+        $q = $this->_db->prepare('SELECT * from Types ORDER BY libelle ASC');
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC)){
             $types[] = new Type($data);

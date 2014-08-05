@@ -18,22 +18,37 @@ class villeManager
         $this->_db = $db;
     }
 
-    public function get($zipCode)
+    public function get($info)
     {
-        $data = NULL ;
-        $q = $this->_db->prepare('SELECT * FROM ville WHERE zipCode = :zipCode');
-        $q->bindValue(':zipCode', (int)$zipCode, PDO::PARAM_INT);
-        $q->execute();
-        $data = $q->fetch(PDO::FETCH_ASSOC);
+        if(is_string($info)){
+            $data = NULL ;
+            $q = $this->_db->prepare('SELECT * FROM villes WHERE name = :name');
+            $q->bindValue(':name',$info, PDO::PARAM_STR);
+            $q->execute();
+            $data = $q->fetch(PDO::FETCH_ASSOC);
+            try{
+            $m = new Ville($data);
+            }
+            catch(Exception $e)
+            {
+                $_SESSION['error'] = "Ville inexistante";
+            }
+        }
+        else{
+            $data = NULL ;
+            $q = $this->_db->prepare('SELECT * FROM villes WHERE zipCode = :zipCode');
+            $q->bindValue(':zipCode',$info, PDO::PARAM_INT);
+            $q->execute();
+            $data = $q->fetch(PDO::FETCH_ASSOC);
         $m = new Ville($data);
-
+        }
         return $m;
     }
 
     public function getAll()
     {
         $villes = NULL;
-        $q = $this->_db->prepare('SELECT * FROM ville');
+        $q = $this->_db->prepare('SELECT * FROM $villes');
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {

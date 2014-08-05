@@ -21,7 +21,7 @@
         private $_parking;
         private $_visits;
 
-        public function __construct (array $data){
+        public function __construct ($data){
             $this->_id = $data['idManifestation'];
             $this->_name = $data['name'];
             $this->_city = $data['city'];

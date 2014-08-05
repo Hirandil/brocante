@@ -57,16 +57,6 @@
                             <!-- /.controls -->
                         </div>
 
-                        <div class="control-group">
-                            <label class="control-label">
-                                Adresse
-                            </label>
-
-                            <div class="controls">
-                                <input type="text" required="required" name="address" value= "<?php echo $user->getAddress() ?>">
-                            </div>
-                            <!-- /.controls -->
-                        </div>
 
                         <div class="control-group">
                             <label class="control-label">
@@ -96,7 +86,7 @@
                             </label>
 
                             <div class="controls">
-                                <input type="password" name="newPassword" required="required" >
+                                <input type="password" name="newPassword">
                             </div>
                             <!-- /.controls -->
                         </div>

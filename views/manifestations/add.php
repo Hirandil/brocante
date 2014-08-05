@@ -95,7 +95,7 @@
         </label>
 
         <div class="controls">
-            <select id="selectRegion" name="region">
+            <select id="selectRegion" name="region" required="required">
                 <option <?php if($update){echo 'value="'.$manifestation->getRegion().'"';}else{echo 'value="null"';}?>><?php if($update){echo $manifestation->getRegion();}else{echo 'Selectionner une région';}?></option>
                 <?php
                 foreach((array)$regions as $r)
@@ -231,12 +231,12 @@
 
         <div class="controls">
             <div class="input-append">
-                <input type="number" name="exhibitorPrice" <?php if($update){echo 'value="'.$manifestation->getExhibitorPrice().'"';}?>>
+                <input type="text" name="exhibitorPrice" <?php if($update){echo 'value="'.$manifestation->getExhibitorPrice().'"';}?>>
             </div>
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label" for="address">
+        <label class="control-label" for="image">
             Image
         </label>
 
@@ -280,7 +280,7 @@
         </label>
 
         <div class="controls">
-            <textarea id="description" rows="4" name="content" style="min-height:150px;"> <?php if($update){echo $manifestation->getInformations();}?></textarea>
+            <textarea id="description" class="mceNoEditor" rows="4" name="content" style="min-height:150px;"> <?php if($update){echo $manifestation->getInformations();}?></textarea>
         </div>
     </div>
 
@@ -345,9 +345,7 @@
                 var autocomplete = new google.maps.places.Autocomplete(input,options);
 
                 completeOthers = function(){
-                    console.log('CompleteOthers')
                     setTimeout(function() {
-                        console.log(autocomplete);
                         var address_components = autocomplete.gm_accessors_.place.Nc.place.address_components;
 
                         //document.getElementById('cityGoogle').value = address_components[2].long_name;
@@ -376,7 +374,6 @@
                                     }
                                 })
                                 $('#selectDepartment').html(output.join(''));
-//                       console.log($('#selectDepartment').chosen());
 
                                 $('#selectDepartment').trigger("liszt:updated");
                             }
@@ -384,12 +381,11 @@
                         });
 
 
-                        //console.log(str)
                     })
 
                 verif = function(chars) {
                     // Caractères autorisés
-                    var regex = new RegExp("[a-z0-9-éè',\ !?/()+=]", "i");
+                    var regex = new RegExp("[^_]", "i");
                     var valid;
                     for (x = 0; x < chars.value.length; x++) {
                         valid = regex.test(chars.value.charAt(x));
@@ -402,34 +398,28 @@
 
                 $( "#cityGoogle" )
                     .keypress(function () {
-                        console.log()
                         if ($(this).val().length < 1){
-                            console.log('Ne rien faire');
                         }
                         else{
                             $.ajax({
-                                url: "http://localhost/autocomplete.php",
+                                url: "http://123Brocante.com/autocomplete.php",
                                 type: 'POST',
                                 data: {
                                     'key': $(this).val()
                                 }
                             })
                                 .done(function( data ) {
-                                    console.log(JSON.parse(data))
                                     availableTags.slice(0)
                                     availableTags = JSON.parse(data)
                                     $( "#cityGoogle" ).autocomplete({
                                         source: availableTags
                                     });
-                                    console.log(data)
 
                                 });
                         }
-                        //console.log(str)
                     })
                     .change();
 
-                console.log(availableTags)
 
             });
 

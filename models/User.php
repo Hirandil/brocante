@@ -9,14 +9,13 @@
         private $_email;
         private $_firstName;
         private $_lastName;
-        private $_address;
         private $_phone;
         private $_password;
         private $_admin;
 
         // Functions
 
-        public function __construct(array $data) {
+        public function __construct($data) {
 
             $this->_id = $data['id'];
             $this->_email = $data['email'];
@@ -42,22 +41,6 @@
         public function getAdmin()
         {
             return $this->_admin;
-        }
-
-        /**
-         * @param mixed $address
-         */
-        public function setAddress($address)
-        {
-            $this->_address = $address;
-        }
-
-        /**
-         * @return mixed
-         */
-        public function getAddress()
-        {
-            return $this->_address;
         }
 
         /**

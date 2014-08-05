@@ -94,14 +94,16 @@ $content = ob_get_clean();
 
     <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
     <script>
-        tinymce.init({selector:'textarea'});
+        tinymce.init({
+            selector: "textarea",
+            selector : "textarea:not(.mceNoEditor)"
+            });
     </script>
     <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
     <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
     <script src="/assets/js/jquery.vmap.js" type="text/javascript"></script>
     <script src="/assets/js/jquery.vmap.france.js" type="text/javascript"></script>
     <script src="/assets/js/jquery.vmap.colorsFrance.js" type="text/javascript"></script>
-    <script type='text/javascript' src='/assets/js/aviators-settings.js'></script>
     <script type='text/javascript' src='/assets/libraries/chosen/chosen.jquery.min.js'></script>
     <script type='text/javascript' src='/assets/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>
     <script type='text/javascript' src='/assets/libraries/rs-plugin/js/jquery.themepunch.plugins.min.js'></script>
