@@ -1,6 +1,9 @@
 
 <div id="content" class="clearfix">
-
+<div class="container">
+VideGreniers.info est un agenda des vide-greniers en France. Le site VideGreniers.info propose aux internautes les informations utiles sur
+le vide-grenier à coté de chez eux. Les videgreniers sont classés par régions (Ile de France, Provence Alpes Côte d'azur PACA) et par départements (Bouches du Rhône, Haute Garonne, Gironde...)
+</div>
 <div class="map-wrapper" >
     <div class="map">
         <script type="text/javascript">
@@ -148,7 +151,7 @@
 
 
 
-        <div id="francemap" class="map-inner" style="height: 750px;margin-top: 150px; padding-left: 150px"></div>
+        <div id="francemap" class="map-inner" style="height: 750px;margin-top: 175px; padding-left: 150px"></div>
         <!-- /.map-inner -->
 
     </div>
