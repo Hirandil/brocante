@@ -43,7 +43,10 @@ class ManifestationController extends Controller
 
             if (isset($_POST['title'], $_POST['route'], $_POST['city'], $_POST['department'], $_POST['region'], $_POST['dateStart'], $_POST['dateEnd'], $_POST['timeStart'], $_POST['timeEnd'], $_POST['type'])) {
                 if (($_POST['title'] != "") && ($_POST['route'] != "") && ($_POST['city'] != "") && ($_POST['department'] != "") && ($_POST['region'] != "") && ($_POST['dateStart'] != "") && ($_POST['dateEnd'] != "") && ($_POST['timeStart'] != "") && ($_POST['timeEnd'] != "") && ($_POST['type'] != "")) {
-
+//                      echo $_POST['dateEnd'];
+                      $dateStart = date('Y-m-d H:i:s',strtotime($_POST['dateStart']));
+                      $dateEnd = date('Y-m-d H:i:s',strtotime($_POST['dateEnd']));
+                   // echo $PlayerBdate;
                     //Fonction pour upload l'image ainsi que le path
                     function upload($index, $destination, $maxsize = FALSE, $extensions = FALSE)
                     {
@@ -89,7 +92,7 @@ class ManifestationController extends Controller
                     $schedule = "De " . $_POST['timeStart'] . " à " . $_POST['timeEnd'];
                     $array = array('idManifestation' => 0, 'name' => $_POST['title'], 'city' => $_POST['city'],
                         'department' => $department, 'address' => $_POST['route'], 'region' => $region,
-                        'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'], 'idOrganiser' => $_SESSION['userId'],
+                        'start' => $dateStart, 'end' => $dateEnd, 'idOrganiser' => $_SESSION['userId'],
                         'type' => $_POST['type'], 'site' => $_POST['site'], 'price' => $_POST['price'],
                         'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'],
                         'schedule' => $schedule, 'image' => $path, 'parking' => $_POST['parking'], 'informations' => $_POST['content']);

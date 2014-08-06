@@ -134,7 +134,7 @@
         </label>
 
         <div class="controls">
-            <input type="date" name="dateStart" id="inputDate" required="required" <?php if($update){echo 'value="'.$manifestation->getStart().'"';}?>>
+            <input type="text" name="dateStart" id="dateStart" required="required" <?php if($update){echo 'value="'.$manifestation->getStart().'"';}?>>
         </div>
         <!-- /.controls -->
     </div>
@@ -145,7 +145,7 @@
         </label>
 
         <div class="controls">
-            <input type="date" name="dateEnd" id="inputDate" required="required" <?php if($update){echo 'value="'.$manifestation->getEnd().'"';}?>>
+            <input type="text" name="dateEnd" id="dateEnd" required="required" <?php if($update){echo 'value="'.$manifestation->getEnd().'"';}?>>
         </div>
         <!-- /.controls -->
     </div>
@@ -333,6 +333,11 @@
 
         <script>
             $( document ).ready(function() {
+
+                $(function() {
+                    $( "#dateEnd" ).datepicker();
+                    $( "#dateStart" ).datepicker();
+                });
 
                 var availableTags = [];
 
