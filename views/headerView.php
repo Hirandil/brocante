@@ -48,7 +48,14 @@
                 <div class="user-area pull-right">
                     <div class="menu-anonymous-container">
                         <ul id="menu-anonymous" class="nav nav-pills">
+                            <?php
+                            if($_SESSION['admin'] == 1)
+                            {
+                            ?>
                             <li class="menu-item"><a href="/Informations/create"> Ajouter une actualité </a></li>
+                            <?php
+                            }
+                            ?>
                             <li class="menu-item"><a href="/User/manifestations"> Mes manifestations  </a></li>
                             <li class="menu-item"><a href="/User/update"> Mon compte  </a></li>
                             <li class="menu-item"><a href="/User/logout"> Déconnexion </a></li>

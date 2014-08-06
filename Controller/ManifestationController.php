@@ -251,8 +251,8 @@ class ManifestationController extends Controller
 
     public function index()
     {
-        $_SESSION['description'] = "123Brocante est un agenda regroupant Brocantes,Vide-Greniers,Marché aux puces,etc
-                                    dans toute la France. Découvrer les manifestations près de chez vous!";
+        $_SESSION['description'] = "123brocante.com est un agenda des vide-greniers en France. Le site 123brocante.com propose aux internautes les informations utiles sur
+le vide-grenier à coté de chez eux. Les videgreniers sont classés par régions (Ile de France, Provence Alpes Côte d'azur PACA) et par départements (Bouches du Rhône, Haute Garonne, Gironde...).";
         $regions = null;
         $regions_tmp = $this->_rm->getAll();
         foreach ($regions_tmp as $r) {

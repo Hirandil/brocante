@@ -92,7 +92,7 @@
             if ($manifestation->getExhibitorNumber() == '')
                 echo 'Non renseigné';
             else
-                echo $manifestation->getExhibitorNumber();
+                echo $manifestation->getExhibitorNumber(). " personnes";
             ?>
         </div>
         <br>
@@ -104,7 +104,7 @@
             if ($manifestation->getExhibitorPrice() == '')
                 echo 'Non renseigné';
             else
-                echo $manifestation->getExhibitorPrice();
+                echo $manifestation->getExhibitorPrice(). " €";
             ?>
         </div>
         <br>
