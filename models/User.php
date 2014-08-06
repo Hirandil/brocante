@@ -9,9 +9,13 @@
         private $_email;
         private $_firstName;
         private $_lastName;
+        private $_address;
         private $_phone;
         private $_password;
         private $_admin;
+        private $_pro;
+        private $_confirmed;
+
 
         // Functions
 
@@ -25,6 +29,24 @@
             $this->_phone = $data['phone'];
             $this->_password = $data['password'];
             $this->_admin = $data['admin'];
+            $this->_pro = $data['professional'];
+            $this->_confirmed = $data['confirmed'];
+        }
+
+        /**
+         * @param mixed $confirmed
+         */
+        public function setConfirmed($confirmed)
+        {
+            $this->_confirmed = $confirmed;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getConfirmed()
+        {
+            return $this->_confirmed;
         }
 
         /**
@@ -35,12 +57,32 @@
             $this->_admin = $admin;
         }
 
+        public function isPro(){
+            return $this->_pro;
+        }
+
         /**
          * @return mixed
          */
         public function getAdmin()
         {
             return $this->_admin;
+        }
+
+        /**
+         * @param mixed $address
+         */
+        public function setAddress($address)
+        {
+            $this->_address = $address;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getAddress()
+        {
+            return $this->_address;
         }
 
         /**

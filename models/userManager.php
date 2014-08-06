@@ -102,25 +102,26 @@
             $q->execute();
         }
 
-        public function generate($token,$email)
+        public function generate($token,$email,$type)
         {
-            $q = $this->_db->prepare('INSERT INTO password(email,token) VALUES (:email,:token)');
+            $q = $this->_db->prepare('INSERT INTO confirmation (email,token,type) VALUES (:email,:token,:type)');
             $q->bindValue(':email', $email,PDO::PARAM_STR);
             $q->bindValue(':token', $token,PDO::PARAM_STR);
+            $q->bindValue(':type', $type,PDO::PARAM_INT);
             $q->execute();
         }
 
         public function redefine($newPass,$token)
         {
             $q = $this->_db->prepare('UPDATE users set password = :pass WHERE email =
-                                        (SELECT email FROM password WHERE token = :token)');
+                                        (SELECT email FROM confirmation WHERE token = :token)');
             $q->bindValue(':pass', $newPass,PDO::PARAM_STR);
             $q->bindValue(':token', $token,PDO::PARAM_STR);
             $q->execute();
         }
 
         public function cleanToken($info){
-            $q = $this->_db->prepare('DELETE FROM password WHERE token = :info OR email = :info');
+            $q = $this->_db->prepare('DELETE FROM confirmation WHERE token = :info OR email = :info');
             $q->bindValue(':info', $info,PDO::PARAM_STR);
             $q->execute();
         }
@@ -149,8 +150,16 @@
             $q->execute();
         }
 
+        public function updateToConfirmed($token)
+        {
+            $q = $this->_db->prepare('UPDATE users SET confirmed = 1 WHERE email =
+                                        (SELECT email FROM confirmation WHERE token = :token)');
+            $q->bindValue(':token', $token, PDO::PARAM_STR);
+            $q->execute();
+        }
+
         public function existToken($token){
-            $q = $this->_db->prepare('SELECT COUNT(*) FROM password WHERE token = :token');
+            $q = $this->_db->prepare('SELECT COUNT(*) FROM confirmation WHERE token = :token');
             $q->bindValue(':token', $token, PDO::PARAM_STR);
             $q->execute();
             if(!$q->fetchColumn(0))

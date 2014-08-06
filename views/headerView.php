@@ -85,7 +85,13 @@
                            <li class="menu-item ">
                                 <a href="/Informations/actualites">Actualités</a>
                             </li>
-
+                            <?php if($_SESSION['admin'] == 1){
+                            echo('<li class="menu-item">
+                                <a href="/User/myusers">Gestion des membres</a>
+                            </li>');
+                            echo('<li class="menu-item"><a href="/Manifestation/all">Gestion des manifestations</a></li>');
+                            }
+                            ?>
                            <!-- <li class="menu-item ">
                                 <a href="#">Bien vendre & bien acheter</a>
                             </li>-->

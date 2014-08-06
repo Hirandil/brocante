@@ -17,6 +17,7 @@
             $this->_id = $data['id'];
             $this->_title = $data['title'];
             $this->_content = $data['content'];
+            $this->_createdAt = $data['createdAt'];
         }
 
         /**

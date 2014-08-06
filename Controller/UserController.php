@@ -26,17 +26,25 @@ class UserController extends Controller
         if (isset($_POST['userLogin']) && isset($_POST['password'])){
             if ( $this->_um->exists($_POST['userLogin'])){
                 $user = $this->_um->get($_POST['userLogin']);
-                $_SESSION['password'] = $_POST['password'];
-                if (sha1($_POST['password']) == $user->getPassword()){
-                    $_SESSION['userLogin'] = $_POST['userLogin'];
-                    $_SESSION['userId'] = $user->getId();
-                    $_SESSION['message'] = 'Connection réussie!';
-                    header('Location: /');
-                    exit;
+                if($user->getConfirmed() == 1){
+                    $_SESSION['password'] = $_POST['password'];
+                    if (sha1($_POST['password']) == $user->getPassword()){
+                        $_SESSION['userLogin'] = $_POST['userLogin'];
+                        $_SESSION['userId'] = $user->getId();
+                        $_SESSION['message'] = 'Connection réussie!';
+                        $_SESSION['admin'] = $user->getAdmin();
+                        header('Location: /');
+                        exit;
+                    }
+                    else
+                    {
+                        $_SESSION['error'] = 'Mauvais mot de passe';
+                        header('Location: /User/login');
+                        exit;
+                    }
                 }
-                else
-                {
-                    $_SESSION['error'] = 'Mauvais mot de passe';
+                else{
+                    $_SESSION['error'] = 'Confirmer le compte !';
                     header('Location: /User/login');
                     exit;
                 }
@@ -77,16 +85,60 @@ class UserController extends Controller
                 exit;
             }
             else{
-                // TODO : Complété création tableau
                 $array = array('id' => 0, 'email' => $_POST['userLogin'],'firstName'  => $_POST['firstName'],'lastName' => $_POST['lastName'], 'password' => sha1($_POST['password']),'phone' => $_POST['phone']);
                 $user = new User($array);
                 $this->_um->create($user);
-                $_SESSION['Message'] = 'Compte crée';
-                // TODO : Redirigé vers la connexion
+                $token = md5(rand());
+                $this->_um->generate($token,$_POST['userLogin'],2);
+                echo $token;
+                if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $_POST['userLogin']))
+                    $passage_ligne = "\r\n";
+                else
+                    $passage_ligne = "\n";
+
+                //=====Déclaration des messages au format texte et au format HTML.
+                $message_txt = "Bonjour,
+
+                Pour procéder à la confirmation de votre compte, suivez le lien suivant :
+                http://123Brocante.com/User/inscription/".$token;
+
+                $boundary = "-----=".md5(rand());
+
+                $sujet = "123Brocante - Confirmer votre compte";
+
+                $header = "From: \"123Brocante\"<no-reply@123Brocante.com>".$passage_ligne;
+                $header.= "MIME-Version: 1.0".$passage_ligne;
+                $header.= "Content-Type: multipart/alternative;".$passage_ligne." boundary=\"$boundary\"".$passage_ligne;
+
+                $message = $passage_ligne."--".$boundary.$passage_ligne;
+
+                $message.= "Content-Type: text/plain; charset=\"ISO-8859-1\"".$passage_ligne;
+                $message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
+                $message.= $passage_ligne.$message_txt.$passage_ligne;
+
+                $message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+
+                mail($_POST['userLogin'],$sujet,$message,$header);
+
+                $_SESSION['Message'] = 'Confirmation envoyée !';
                 header('Location: /');
                 exit;
             }
 
+        }
+        else if(isset($_GET['id'])){
+            if($this->_um->existToken($_GET['id'])){
+                $this->_um->updateToConfirmed($_GET['id']);
+                $this->_um->cleanToken($_GET['id']);
+                $_SESSION['message'] = "Compte validé !";
+                //header('Location: /User/login');
+                //exit;
+            }
+            else{
+                $_SESSION['error'] = "Le token n'est plus valable";
+                header('Location: /User/login');
+                exit;
+            }
         }
         else{
             include 'views/login.html';
@@ -99,6 +151,16 @@ class UserController extends Controller
         $_SESSION['title'] = "Mes manifestations";
         $manifestations = $this->_mm->getMyManifestations($_SESSION['userId']);
         include('views/manifestations/mine.php');
+    }
+
+    public function myusers(){
+        if(isset($_SESSION['userId'])){
+            $users = $this->_um->getAllUsers();
+            include('views/admin/users.php');
+        }
+        else{
+            header('Location: /User/login');
+        }
     }
 
     public function updatePro(){
@@ -122,7 +184,7 @@ class UserController extends Controller
             if($this->_um->exists($_POST['email'])){
                 $this->_um->cleanToken($_POST['email']);
                 $token = md5(rand());
-                $this->_um->generate($token,$_POST['email']);
+                $this->_um->generate($token,$_POST['email'],1);
 
                 if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $_POST['email']))
                     $passage_ligne = "\r\n";
@@ -155,7 +217,7 @@ class UserController extends Controller
 
                 mail($_POST['email'],$sujet,$message,$header);
 
-                }
+            }
             else{
                 $_SESSION['error'] = "Email introuvable";
             }
@@ -164,6 +226,9 @@ class UserController extends Controller
             if($_POST['newPassword'] == $_POST['newPassword2']){
                 $this->_um->redefine(sha1($_POST['newPassword']),$_POST['token']);
                 $this->_um->cleanToken($_POST['token']);
+                $_SESSION['message'] = "Mot de passe redefini";
+                header('Location: /User/login');
+                exit;
             }
             else{
                 $_SESSION['error'] = "Confirmer bien le mot de passe";
@@ -185,6 +250,7 @@ class UserController extends Controller
             if (isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['newPassword']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['phone'])){
                 if(sha1($_POST['password']) != $user->getPassword()){
                     $_SESSION['message'] = 'Mots de passe non identiques';
+                    // TODO : Redirigé vers la connexion
                     header('Location: /User/update');
                     exit;
                 }
@@ -208,6 +274,52 @@ class UserController extends Controller
             header('Location: /');
     }
 
+
+    public function updateuser(){
+        if(isset($_SESSION['userLogin'])){
+            $admin = $this->_um->get((int)$_SESSION['userId']);
+            if($admin->getAdmin() == 1){
+                $user = $this->_um->get((int) $_GET['id']);
+                // If we manage to get the User according to the GET parameter
+                if (isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['newPassword']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['phone'])){
+                    $user->setEmail($_POST['userLogin']);
+                    $user->setFirstName($_POST['firstName']);
+                    $user->setLastName($_POST['lastName']);
+                    $user->setPassword(sha1($_POST['newPassword']));
+                    $user->setPhone($_POST['phone']);
+                    $this->_um->update($user);
+                    header('Location: /User/updateuser/'.$user->getId());
+                    exit;
+                }
+                else{
+                    include('views/updateuser.php');
+                }
+            }
+            else{
+                // Redirect on main page if the user is not an Admin
+                header('Location: /');
+            }
+        }
+    }
+
+    public function delete(){
+        if(isset($_SESSION['userLogin'])){
+            if(isset($_GET['id'])){
+                $user = $this->_um->get((int) $_GET['id']);
+                $admin = $this->_um->get((int)$_SESSION['userId']);
+                if($admin->getAdmin() == 1){
+                    if($user->getId() > 0){
+                        $this->_um->deleteUser($user->getId());
+                        header('Location: /User/myusers');
+                    }
+                }
+            }
+        }
+        else{
+            header('Location: /');
+        }
+    }
+
     public function newsletter(){
         if(isset($_SESSION['userId'])){
             if(isset($_POST['email'],$_POST['zone']) &&(isset($_POST['veille']) || isset($_POST['week']) || isset($_POST['month']))){
@@ -218,16 +330,16 @@ class UserController extends Controller
                     $zone = $dept->getName();
                 }
                 try{
-                if(isset($_POST['veille']))
-                    $this->_um->subscribe($zone,$email,$_POST['veille']);
-                else if(isset($_POST['week']))
-                    $this->_um->subscribe($zone,$email,$_POST['week']);
-                else if(isset($_POST['month']))
-                    $this->_um->subscribe($zone,$email,$_POST['month']);
+                    if(isset($_POST['veille']))
+                        $this->_um->subscribe($zone,$email,$_POST['veille']);
+                    else if(isset($_POST['week']))
+                        $this->_um->subscribe($zone,$email,$_POST['week']);
+                    else if(isset($_POST['month']))
+                        $this->_um->subscribe($zone,$email,$_POST['month']);
 
-                $_SESSION['message'] = "Inscris à la newsletter!";
-                $page = $_SERVER['PHP_SELF'];
-                header("Location: $page");
+                    $_SESSION['message'] = "Inscris à la newsletter!";
+                    $page = $_SERVER['PHP_SELF'];
+                    header("Location: $page");
                     exit;
                 }
                 catch(Exception $e)

@@ -61,7 +61,6 @@ class ManifestationController extends Controller
                         $nom = md5(uniqid(rand(), true));
                         $ext = substr(strrchr($_FILES['image']['name'], '.'), 1);
                         $path = "assets/img/manifestations/" . $nom . "." . $ext;
-                        $schedule = "De " . $_POST['timeStart'] . " à " . $_POST['timeEnd'];
                         $valid_extensions = array('jpg', 'jpeg', 'png');
                         if (!(upload('image', $path, 6291456, $valid_extensions))) {
                             $_SESSION['error'] = "Problème lors de l'upload du fichier";
@@ -99,7 +98,7 @@ class ManifestationController extends Controller
                     if(!isset($_SESSION['error']))
                         $_SESSION['message'] = 'Manifestation crée';
 
-                    //header('Location: /User/manifestations');
+                    header('Location: /User/manifestations');
                     exit;
 
                 } else {
