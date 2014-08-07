@@ -1,6 +1,7 @@
 
 <div id="content" class="clearfix">
 <div class="container">
+<h1>Accueil</h1>
 123brocante.com est un agenda des vide-greniers en France. Le site 123brocante.com propose aux internautes les informations utiles sur
 le vide-grenier à coté de chez eux. Les videgreniers sont classés par régions (Ile de France, Provence Alpes Côte d'azur PACA) et par départements (Bouches du Rhône, Haute Garonne, Gironde...).
 </div>
