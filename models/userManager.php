@@ -102,6 +102,12 @@
             $q->execute();
         }
 
+        public function deleteUser($id){
+            $q = $this->_db->prepare('DELETE FROM users WHERE id = :id');
+            $q->bindValue(':id', $id, PDO::PARAM_INT);
+            $q->execute();
+        }
+
         public function generate($token,$email,$type)
         {
             $q = $this->_db->prepare('INSERT INTO confirmation (email,token,type) VALUES (:email,:token,:type)');

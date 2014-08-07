@@ -249,8 +249,7 @@ class UserController extends Controller
             $user = $this->_um->get((int)$_SESSION['userId']);
             if (isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['newPassword']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['phone'])){
                 if(sha1($_POST['password']) != $user->getPassword()){
-                    $_SESSION['message'] = 'Mots de passe non identiques';
-                    // TODO : Redirigé vers la connexion
+                    $_SESSION['error'] = 'Mauvais mot de passe';
                     header('Location: /User/update');
                     exit;
                 }
@@ -275,7 +274,7 @@ class UserController extends Controller
     }
 
 
-    public function updateuser(){
+    public function view(){
         if(isset($_SESSION['userLogin'])){
             $admin = $this->_um->get((int)$_SESSION['userId']);
             if($admin->getAdmin() == 1){
@@ -288,7 +287,7 @@ class UserController extends Controller
                     $user->setPassword(sha1($_POST['newPassword']));
                     $user->setPhone($_POST['phone']);
                     $this->_um->update($user);
-                    header('Location: /User/updateuser/'.$user->getId());
+                    header('Location: /User/view/'.$user->getId());
                     exit;
                 }
                 else{
@@ -301,6 +300,8 @@ class UserController extends Controller
             }
         }
     }
+
+
 
     public function delete(){
         if(isset($_SESSION['userLogin'])){

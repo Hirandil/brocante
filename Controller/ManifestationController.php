@@ -478,7 +478,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             $regions = $this->_rm->getAll();
             $types = $this->_tm->getAll();
             $manifestation = $this->_mm->get((int)$_GET['id']);
-            if ($manifestation->getIdOrganiser() == $_SESSION['userId']) {
+            if ($manifestation->getIdOrganiser() == $_SESSION['userId'] || $_SESSION['admin'] == 1) {
                 $start = substr($manifestation->getSchedule(), 3, 5);
                 $end = substr($manifestation->getSchedule(), 11, 6);
                 include_once('views/manifestations/add.php');
@@ -491,6 +491,10 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
     public function all(){
         if($_SESSION['userId'] && $_SESSION['admin'] == 1){
             $manifestations = $this->_mm->getAll();
+            foreach($manifestations as $m){
+                $user = $this->_um->get((int) $m->getIdOrganiser());
+                $m->organiser = $user;
+            }
             include 'views/admin/manifestations.php';
 
         }
