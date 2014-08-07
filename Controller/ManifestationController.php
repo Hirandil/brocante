@@ -89,6 +89,12 @@ class ManifestationController extends Controller
                         $department = $this->_dm->getDept($city->getDepartment())->getName();
                     }
 
+                    if( $dateStart > $dateEnd){
+                        $_SESSION['error'] = 'Dates Invalides';
+                        header('Location: /Manifestation/Annoncer-une-manifestation');
+                        exit;
+                    }
+
                     $schedule = "De " . $_POST['timeStart'] . " à " . $_POST['timeEnd'];
                     $array = array('idManifestation' => 0, 'name' => $_POST['title'], 'city' => $_POST['city'],
                         'department' => $department, 'address' => $_POST['route'], 'region' => $region,
@@ -422,7 +428,8 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
         $_SESSION['ariane'] = "Modifier mon annonce";
         $_SESSION['title'] = "Modifier mon annonce";
         if (isset($_POST['title'], $_POST['route'], $_POST['city'], $_POST['department'], $_POST['region'], $_POST['dateStart'], $_POST['dateEnd'], $_POST['timeStart'], $_POST['timeEnd'], $_POST['type'])) {
-
+            $dateStart = date('Y-m-d H:i:s',strtotime($_POST['dateStart']));
+            $dateEnd = date('Y-m-d H:i:s',strtotime($_POST['dateEnd']));
             $formerManifestation = $this->_mm->get((int)$_POST['idManif']);
             $schedule = "De " . $_POST['timeStart'] . " à " . $_POST['timeEnd'];
             function upload($index, $destination, $maxsize = FALSE, $extensions = FALSE)
@@ -454,7 +461,13 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             else
                 $parking = $formerManifestation->getParking();
 
-            $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'], 'city' => $_POST['city'], 'department' => $_POST['department'], 'address' => $_POST['route'], 'region' => $_POST['region'], 'start' => $_POST['dateStart'], 'end' => $_POST['dateEnd'], 'idOrganiser' => $_SESSION['userId'], 'type' => $_POST['type'], 'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path, 'informations' => $_POST['content'], 'parking' => $parking);
+            if( $dateStart > $dateEnd){
+                $_SESSION['error'] = 'Dates Invalides';
+                header('Location: /index.php');
+                exit;
+            }
+
+            $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'], 'city' => $_POST['city'], 'department' => $_POST['department'], 'address' => $_POST['route'], 'region' => $_POST['region'], 'start' => $dateStart, 'end' => $dateEnd, 'idOrganiser' => $_SESSION['userId'], 'type' => $_POST['type'], 'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path, 'informations' => $_POST['content'], 'parking' => $parking);
             $manifestation = new Manifestation($array);
             $this->_mm->update($manifestation);
             $_SESSION['message'] = 'Manifestation mise à jour';
