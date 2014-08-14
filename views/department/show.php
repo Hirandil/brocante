@@ -229,6 +229,25 @@
 
     </div>
 
+    <div class="property clearfix" style="background: #f69679;">
+
+        <div class="wrapper">
+            <div class="title">
+                <h3>
+                    <h3>
+                        Calendrier des brocantes sur la ville
+                    </h3>
+                </h3>
+            </div>
+            <!-- /.title -->
+            <!-- /.price -->
+        </div>
+        <!-- /.wrapper -->
+    </div>
+    <div class="property-info clearfix">
+        <div id='calendar'></div>
+    </div>
+
     <div id="agencies_widget-2" class="widget agencies">
 
 
@@ -324,6 +343,34 @@
         ?>
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
+
+                $('#calendar').fullCalendar({
+                    // put your options and callbacks here
+//                    eventColor: '#378006',
+                    monthNames:['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+                    monthNamesShort:['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'],
+                    dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+                    dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                    events: [
+                        <?php
+                    foreach ((array)$manifByDate as $d)
+                    {
+                        foreach ((array)$d as $manifestation)
+                        {
+                     ?>
+                        {<?php echo "title : '".$manifestation->getName() ?>', <?php echo "start : '". $manifestation->getStart() ?>' <?php echo ", end : '". $manifestation->getEnd() ?>', url : '<?php echo '/Manifestation/' . str_replace(" ", "_", $manifestation->getRegion()) . '/' . str_replace(" ", "_", $manifestation->getDepartment()) . '/' . str_replace(" ", "_", $manifestation->getCity()) . '/' . str_replace(' ', '_', $manifestation->getName()); ?>'},
+                        <?php
+            }
+        }
+        ?>
+                    ],
+
+                    eventClick: function(calEvent, jsEvent, view) {
+                        window.location.href = calEvent.url;
+                    }
+
+                })
+
                 var locations = [
 <?php
 foreach ((array)$manifByDate as $d)

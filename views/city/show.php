@@ -233,7 +233,7 @@
             <div class="title">
                 <h3>
                     <h3>
-                        Calendrier des brocantes sur la vile
+                        Calendrier des brocantes sur la ville
                     </h3>
                 </h3>
             </div>
