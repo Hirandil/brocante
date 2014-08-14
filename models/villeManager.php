@@ -73,6 +73,16 @@ class villeManager
 
     }
 
+    public function exists($name){
+        $q = $this->_db->prepare('SELECT COUNT(*) FROM villes WHERE name = :n');
+        $q->bindValue(':n', $name, PDO::PARAM_STR);
+        $q->execute();
+        if(!$q->fetchColumn(0))
+            return false;
+        else
+            return true;
+    }
+
 }
 
 ?>

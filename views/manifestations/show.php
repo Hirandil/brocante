@@ -8,22 +8,25 @@
     <h1 class="titleH1"><?php echo $manifestation->getName() ?></h1>
 
     <div class="property clearfix">
-        <div class="image">
-            <img width="570" height="425" src="/<?php echo $manifestation->getImage() ?>"
-                 class="thumbnail-image " alt="19"/>
+        <div class="image" style='width: 280px;'>
+            <img width="280" src="/<?php echo $manifestation->getImage() ?>"
+                  alt="<?php echo $manifestation->getName(); ?>"/>
         </div>
         <!-- /.image -->
 
         <div class="wrapper">
             <div class="title">
-                <h3>
-                    <?php echo $manifestation->getAddress() ?>
-                </h3>
-                <div class="pull-right"> <h3> <?php echo $type->getLibelle(); ?></h3></div>
+                <h2>
+                    <?php echo $type->getLibelle(); ?></h2>
+                <h3 style='margin-bottom: 5px;'> <?php echo $manifestation->getAddress() ?></h3>
+    
+                <div class="pull-right"></div>
             </div>
             <!-- /.title -->
 
-            <div class="location"><?php echo $manifestation->getCity() ?></div>
+            <div class="location">Département: <?php echo $manifestation->getDepartment() ?></div>
+            <div class="location">Region: <?php echo $manifestation->getRegion() ?></div>
+
             <!-- /.location -->
 
             <div class="price">
@@ -72,6 +75,19 @@
             ?>
         </div>
         <br>
+
+        <h5 class="showH5">Contact de l'organisateur</h5>
+
+        <div class="area">
+            <i class="icon icon-normal-cursor-scale-up"></i>
+            <?php
+            if ($manifestation->getContact() == '')
+                echo 'Non renseigné';
+            else
+                echo $manifestation->getContact();
+            ?>
+        </div>
+        <br>
         <h5 class="showH5">Prix d'entrée</h5>
 
         <div class="area">
@@ -104,7 +120,7 @@
             if ($manifestation->getExhibitorPrice() == '')
                 echo 'Non renseigné';
             else
-                echo $manifestation->getExhibitorPrice(). " €";
+                echo $manifestation->getExhibitorPrice();
             ?>
         </div>
         <br>
@@ -168,11 +184,8 @@
                     <?php
                     foreach ((array)$nearTowns as $nearTown) {
                         ?>
-                        <li><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$nearTown->getRegion()).'/'.str_replace(" ","_",$nearTown->getDepartment())
-                            .'/'.str_replace(" ","_",$nearTown->getCity()).'/'.str_replace(' ','_',$nearTown->getName());?>">
-                                <img width="40" height="35" src="/<?php echo $nearTown->getImage() ?>"
-                                     class="thumbnail-image " alt="Image"/>
-                                <?php echo $nearTown->getName() ?> à <?php echo $nearTown->getCity() ?></a></li>
+                       <li><a href="<?php echo 'Manifestation/ville/'.$nearTown->getDepartment  ().'/'.$nearTown->getName(); ?>">
+                             Manifestation à <?php echo $nearTown->getName() ?> </a></li>
                     <?php
                     }
                     ?>
@@ -255,7 +268,6 @@
                     geocoder.geocode({ 'address': '<?php echo $manifestation->getAddress() ?>'}, function (results, status) {
                         /* Si l'adresse a pu être géolocalisée */
                         if (status == google.maps.GeocoderStatus.OK) {
-                            console.log(results)
                             results = results;
 
                             var mapOptions = {
@@ -299,7 +311,6 @@
 
                         }
                     });
-                    //console.log(results)
 
 
                 }

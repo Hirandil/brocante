@@ -20,7 +20,7 @@ class manifestationManager
 
     public function create(Manifestation $m)
     {
-        $q = $this->_db->prepare('INSERT INTO Manifestations (name,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,idOrganiser,image,informations,parking) VALUES(:name,:city,:dept,:region,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser,:image,:infos,:parking) ');
+        $q = $this->_db->prepare('INSERT INTO Manifestations (name,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,idOrganiser,image,informations,parking,contact) VALUES(:name,:city,:dept,:region,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser,:image,:infos,:parking,:contact) ');
         $q->bindValue(':name', $m->getName(), PDO::PARAM_STR);
         $q->bindValue(':city', $m->getCity(), PDO::PARAM_STR);
         $q->bindValue(':dept', $m->getDepartment(), PDO::PARAM_STR);
@@ -38,6 +38,7 @@ class manifestationManager
         $q->bindValue(':image', $m->getImage(), PDO::PARAM_STR);
         $q->bindValue(':infos', $m->getInformations(), PDO::PARAM_STR);
         $q->bindValue(':parking', $m->getParking(), PDO::PARAM_INT);
+        $q->bindValue(':contact', $m->getContact(), PDO::PARAM_STR);
         try
         {
             $q->execute();
@@ -171,7 +172,7 @@ class manifestationManager
 
     public function update(Manifestation $m)
     {
-        $q = $this->_db->prepare('UPDATE Manifestations SET name= :name ,city= :city,department = :dept,region = :region,address = :add,start = :start,end = :end ,type = :type,schedule = :schedule,site = :site,price = :price,exhibitorNumber = :exNumb,exhibitorPrice = :exPrice,idOrganiser = :organiser,image = :image, informations = :infos,parking = :parking WHERE idManifestation = :id');
+        $q = $this->_db->prepare('UPDATE Manifestations SET name= :name ,city= :city,department = :dept,region = :region,address = :add,start = :start,end = :end ,type = :type,schedule = :schedule,site = :site,price = :price,exhibitorNumber = :exNumb,exhibitorPrice = :exPrice,idOrganiser = :organiser,image = :image, informations = :infos,parking = :parking,contact = :contact WHERE idManifestation = :id');
         $q->bindValue(':id', $m->getId(), PDO::PARAM_INT);
         $q->bindValue(':name', $m->getName(), PDO::PARAM_STR);
         $q->bindValue(':city', $m->getCity(), PDO::PARAM_STR);
@@ -190,6 +191,7 @@ class manifestationManager
         $q->bindValue(':image', $m->getImage(), PDO::PARAM_STR);
         $q->bindValue(':infos', $m->getInformations(), PDO::PARAM_STR);
         $q->bindValue(':parking', $m->getParking(), PDO::PARAM_INT);
+        $q->bindValue(':contact', $m->getContact(), PDO::PARAM_STR);
         $q->execute();
     }
 
@@ -289,21 +291,21 @@ class manifestationManager
     public function getNearTowns($dept)
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept ORDER BY idManifestation LIMIT 0,3');
-        $q->bindValue(':dept', $dept, PDO::PARAM_STR);
+        $q = $this->_db->prepare('SELECT v.id,v.department,v.name,v.zipCode FROM villes v WHERE v.department = :dept AND(SELECT COUNT(*) FROM Manifestations WHERE city = v.name) > 0 LIMIT 0,3');
+        $q->bindValue(':dept', $dept, PDO::PARAM_INT);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $manifestations[] = new Manifestation($data);
+            $villes[] = new Ville($data);
         }
-        return $manifestations;
+        return $villes;
     }
 
     public function getNearRegion($region)
     {
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE region = :region ORDER BY idManifestation LIMIT 0,3');
-        $q->bindValue(':region', $region, PDO::PARAM_STR);
+        $q->bindValue(':region', $region, PDO::PARAM_INT);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {

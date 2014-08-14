@@ -76,18 +76,19 @@ class UserController extends Controller
         if ( isset($_POST['userLogin']) && isset($_POST['password']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['phone'])){
             if($this->_um->exists($_POST['userLogin'])){
                 $_SESSION['error'] = 'Utilisateur existe déjà';
-                header('Location: /');
+                header('Location: /User/login');
                 exit;
             }
             else if ($_POST['password'] != $_POST['password2']) {
                 $_SESSION['error'] = 'Les mot de passe ne correspondent pas';
-                header('Location: /');
+                header('Location: /User/login');
                 exit;
             }
             else{
                 $array = array('id' => 0, 'email' => $_POST['userLogin'],'firstName'  => $_POST['firstName'],'lastName' => $_POST['lastName'], 'password' => sha1($_POST['password']),'phone' => $_POST['phone']);
                 $user = new User($array);
                 $this->_um->create($user);
+                $this->_um->cleanToken($_POST['userLogin']);
                 $token = md5(rand());
                 $this->_um->generate($token,$_POST['userLogin'],2);
                 echo $token;
@@ -99,7 +100,7 @@ class UserController extends Controller
                 //=====Déclaration des messages au format texte et au format HTML.
                 $message_txt = "Bonjour,
 
-                Pour procéder à la confirmation de votre compte, suivez le lien suivant :
+                Pour proceder a la confirmation de votre compte, suivez le lien suivant :
                 http://123Brocante.com/User/inscription/".$token;
 
                 $boundary = "-----=".md5(rand());
@@ -114,14 +115,16 @@ class UserController extends Controller
 
                 $message.= "Content-Type: text/plain; charset=\"ISO-8859-1\"".$passage_ligne;
                 $message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
+                $message.= $passage_ligne."--".$boundary.$passage_ligne;
+
                 $message.= $passage_ligne.$message_txt.$passage_ligne;
 
                 $message.= $passage_ligne."--".$boundary."--".$passage_ligne;
 
                 mail($_POST['userLogin'],$sujet,$message,$header);
 
-                $_SESSION['Message'] = 'Confirmation envoyée !';
-                header('Location: /');
+                $_SESSION['message'] = 'Confirmation envoyée !';
+                header('Location: /User/login');
                 exit;
             }
 
@@ -131,8 +134,8 @@ class UserController extends Controller
                 $this->_um->updateToConfirmed($_GET['id']);
                 $this->_um->cleanToken($_GET['id']);
                 $_SESSION['message'] = "Compte validé !";
-                //header('Location: /User/login');
-                //exit;
+                header('Location: /User/login');
+                exit;
             }
             else{
                 $_SESSION['error'] = "Le token n'est plus valable";
@@ -211,6 +214,8 @@ class UserController extends Controller
 
                 $message.= "Content-Type: text/plain; charset=\"ISO-8859-1\"".$passage_ligne;
                 $message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
+                $message = $passage_ligne."--".$boundary.$passage_ligne;
+
                 $message.= $passage_ligne.$message_txt.$passage_ligne;
 
                 $message.= $passage_ligne."--".$boundary."--".$passage_ligne;
@@ -220,6 +225,8 @@ class UserController extends Controller
             }
             else{
                 $_SESSION['error'] = "Email introuvable";
+                header('Location: User/login');
+                exit;
             }
         }
         else if(isset($_POST['newPassword'],$_POST['newPassword2'])){
@@ -232,6 +239,8 @@ class UserController extends Controller
             }
             else{
                 $_SESSION['error'] = "Confirmer bien le mot de passe";
+                header('Location: /User/login');
+                exit;
             }
         }
         else if(isset($_GET['id']) && !isset($_POST['newPassword']) && $this->_um->existToken($_GET['id'])){
@@ -260,6 +269,7 @@ class UserController extends Controller
                     $user->setPassword(sha1($_POST['newPassword']));
                     $user->setPhone($_POST['phone']);
                     $this->_um->update($user);
+                    $_SESSION['message'] = "Mis à jour !";
                     header('Location: /User/update');
                     exit;
                 }
@@ -270,7 +280,7 @@ class UserController extends Controller
             }
         }
         else
-            header('Location: /');
+            header('Location: /User/login');
     }
 
 
@@ -287,6 +297,7 @@ class UserController extends Controller
                     $user->setPassword(sha1($_POST['newPassword']));
                     $user->setPhone($_POST['phone']);
                     $this->_um->update($user);
+                    $_SESSION['message'] = "Mis à jour !";
                     header('Location: /User/view/'.$user->getId());
                     exit;
                 }
@@ -311,6 +322,7 @@ class UserController extends Controller
                 if($admin->getAdmin() == 1){
                     if($user->getId() > 0){
                         $this->_um->deleteUser($user->getId());
+                        $_SESSION['message'] = "Utilisateur supprimé !";
                         header('Location: /User/myusers');
                     }
                 }

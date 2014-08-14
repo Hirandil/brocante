@@ -85,9 +85,9 @@
                                 <a href="/Manifestation/Rechercher-des-manifestations">Recherche Avancée</a>
                             </li>
 
-                            <li class="menu-item ">
+                            <!--<li class="menu-item ">
                                 <a href="#">Legislation & Organisation</a>
-                            </li>
+                            </li>-->
 
                            <li class="menu-item ">
                                 <a href="/Informations/actualites">Actualités</a>

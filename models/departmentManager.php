@@ -23,7 +23,7 @@ class departmentManager
     {
         $data = NULL ;
         $q = $this->_db->prepare('SELECT * FROM department WHERE zipCode = :code');
-        $q->bindValue(':code', (int)$zipCode, PDO::PARAM_INT);
+        $q->bindValue(':code', $zipCode, PDO::PARAM_INT);
         $q->execute();
         $data = $q->fetch(PDO::FETCH_ASSOC);
         $m = new Department($data);
@@ -31,6 +31,17 @@ class departmentManager
         return $m;
     }
 
+    public function getByName($name)
+    {
+        $data = NULL ;
+        $q = $this->_db->prepare('SELECT * FROM department WHERE name = :n');
+        $q->bindValue(':n', $name, PDO::PARAM_STR);
+        $q->execute();
+        $data = $q->fetch(PDO::FETCH_ASSOC);
+        $m = new Department($data);
+
+        return $m;
+    }
     public function getAll()
     {
         $departments = NULL;

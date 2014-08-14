@@ -19,8 +19,8 @@
                             <div class="body span6">
                                 <div class="title-price row">
                                     <div class="title span12">
-                                        <h3><?php echo $n->getTitle() ?>
-                                        </h3>
+                                        <a href="/Informations/show/<?php echo str_replace(' ','_',$n->getTitle()); ?>"> <h3><?php echo $n->getTitle() ?>
+                                        </h3></a>
                                         <?php if (isset($_SESSION['userId']) && $user->getAdmin()){ ?>
                                         <div class="actions">
                                             <a href="/Informations/update/<?php echo $n->getId();?>" class="edit" title="Edit">Modifier</a>

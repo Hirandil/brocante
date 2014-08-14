@@ -20,6 +20,7 @@
         private $_informations;
         private $_parking;
         private $_visits;
+        private $_contact;
 
         public function __construct ($data){
             $this->_id = $data['idManifestation'];
@@ -40,7 +41,25 @@
             $this->_image = $data['image'];
             $this->_informations = $data['informations'];
             $this->_parking = $data['parking'];
+            $this->_contact = $data['contact'];
         }
+
+        /**
+         * @param mixed $contact
+         */
+        public function setContact($contact)
+        {
+            $this->_contact = $contact;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getContact()
+        {
+            return $this->_contact;
+        }
+
 
         /**
          * @param mixed $informations
