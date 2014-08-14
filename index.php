@@ -90,8 +90,12 @@ $content = ob_get_clean();
 
     <link href="/assets/css/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
     <link rel='stylesheet' id='aviators-css' href='/assets/css/jquery.bxslider.css' type='text/css' media='all'/>
-    <link rel='stylesheet' id='properta-css' href='/assets/css/properta.css' type='text/css' media='all'/>
 
+
+
+    <link rel='stylesheet' id='properta-css' href='/assets/css/properta.css' type='text/css' media='all'/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.0.2/fullcalendar.css">
+<!--    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.0.2/fullcalendar.print.css">-->
     <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
     <script>
         tinymce.init({
@@ -108,6 +112,8 @@ $content = ob_get_clean();
     <script type='text/javascript' src='/assets/libraries/rs-plugin/js/jquery.themepunch.revolution.min.js'></script>
     <script type='text/javascript' src='/assets/libraries/rs-plugin/js/jquery.themepunch.plugins.min.js'></script>
     <script type="text/javascript" src="/assets/js/notify.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.0.2/fullcalendar.min.js"></script>
     <!--<base href="http://123brocante.com/">-->
     <title> <?php echo $_SESSION['title'] ?> </title>
     <meta name="description" content="<?php echo $_SESSION['description']?>" />

@@ -116,6 +116,34 @@ class manifestationManager
         }
     }
 
+    public function getProByCity($city)
+    {
+        $manifestations = NULL;
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE city = :city AND idOrganiser in
+                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation');
+        $q->bindValue(':city',$city,PDO::PARAM_STR);
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
+
+    public function getByCity($city)
+    {
+        $manifestations = NULL;
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE city = :city ORDER BY idManifestation');
+        $q->bindValue(':city',$city,PDO::PARAM_STR);
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
+
+
     public function getProByDepartment($dept)
     {
         $manifestations = NULL;

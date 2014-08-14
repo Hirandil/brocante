@@ -426,13 +426,16 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
     {
         if (isset($_GET['id']) && $this->_vm->exists($_GET['id'])) {
             $types = $this->_tm->getAll();
-            $region = $this->_rm->get((int)$_GET['id']);
-            $regions = $this->_rm->getAll();
+            $departments = $this->_dm->getAll();
+            $department = $this->_dm->get($_GET['id']);
+            $region = $this->_rm->get((int)$department->getRegion());
             $nearRegion = $this->_mm->getNearRegion($region->getName());
-            $manifestations = $this->_mm->getByRegion($region->getName());
-            $tomorrow = $this->_mm->getTomorrowRegion(0, $region->getName());
-            $tomorrow1 = $this->_mm->getTomorrowRegion(1, $region->getName());
-            $tomorrow2 = $this->_mm->getTomorrowRegion(2, $region->getName());
+            $manifestations = $this->_mm->getByCity($_GET['id']);
+            $manifestationsPro = $this->_mm->getProByCity($_GET['id']);
+            $tomorrow = $this->_mm->getTomorrowDept(0, $department->getName());
+            $tomorrow1 = $this->_mm->getTomorrowDept(1, $department->getName());
+            $tomorrow2 = $this->_mm->getTomorrowDept(2, $department->getName());
+            $manifProByDate = array();
             $manifByDate = array();
             $manifTomorrow = array();
             $manifTomorrow1 = array();
@@ -467,6 +470,14 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                     $manifTomorrow2[$m->getStart()][] = $m;
                 } else {
                     $manifTomorrow2[$m->getStart()][] = $m;
+                }
+            }
+            foreach ((array)$manifestationsPro as $m) {
+                if (!array_key_exists($m->getStart(), $manifProByDate)) {
+                    $manifProByDate[$m->getStart()] = array();
+                    $manifProByDate[$m->getStart()][] = $m;
+                } else {
+                    $manifProByDate[$m->getStart()][] = $m;
                 }
             }
             $_SESSION['description'] = "Toutes les manifestations dans la region " . $region->getName() . ",venez les découvrir !";

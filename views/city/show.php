@@ -116,7 +116,7 @@
         }
     }
     ?>
-    <h2>Calendrier des brocantes sur le departement : <?php //echo $department->getName() ?></h2>
+    <h2>Calendrier des brocantes sur la ville : <?php //echo $department->getName() ?></h2>
 
     <div class="property clearfix" style="background: #f69679;">
 
@@ -227,6 +227,25 @@
 
     </div>
 
+    <div class="property clearfix" style="background: #f69679;">
+
+        <div class="wrapper">
+            <div class="title">
+                <h3>
+                    <h3>
+                        Calendrier des brocantes sur la vile
+                    </h3>
+                </h3>
+            </div>
+            <!-- /.title -->
+            <!-- /.price -->
+        </div>
+        <!-- /.wrapper -->
+    </div>
+    <div class="property-info clearfix">
+        <div id='calendar'></div>
+    </div>
+
     <div id="agencies_widget-2" class="widget agencies">
 
 
@@ -245,7 +264,7 @@
         </div>
 
 
-        <h2>Carte des brocantes du département</h2>
+        <h2>Carte des brocantes de la ville</h2>
 
         <div id="property-map"
              style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden; -webkit-transform: translateZ(0);">
@@ -274,15 +293,15 @@
 
                     <div class="control-group">
                         <div class="controls">
-                            <input type="radio" name="veille" value="1">
+                            <input type="radio" name="frequence" value="1">
 
                             <p style="font-size:75%;margin-left: 10%;">la veille</p>
 
-                            <input type="radio" name="week" value="7">
+                            <input type="radio" name="frequence" value="7">
 
                             <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
 
-                            <input type="radio" name="month" value="30">
+                            <input type="radio" name="frequence" value="30">
 
                             <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
 
@@ -328,6 +347,35 @@
         ?>
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
+
+
+                $('#calendar').fullCalendar({
+                    // put your options and callbacks here
+//                    eventColor: '#378006',
+                    monthNames:['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+                    monthNamesShort:['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'],
+                    dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+                    dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                    events: [
+                        <?php
+                    foreach ((array)$manifByDate as $d)
+                    {
+                        foreach ((array)$d as $manifestation)
+                        {
+                     ?>
+                        {<?php echo "title : '".$manifestation->getName() ?>', <?php echo "start : '". $manifestation->getStart() ?>' <?php echo ", end : '". $manifestation->getEnd() ?>', url : '<?php echo '/Manifestation/' . str_replace(" ", "_", $manifestation->getRegion()) . '/' . str_replace(" ", "_", $manifestation->getDepartment()) . '/' . str_replace(" ", "_", $manifestation->getCity()) . '/' . str_replace(' ', '_', $manifestation->getName()); ?>'},
+                        <?php
+            }
+        }
+        ?>
+                    ],
+
+                    eventClick: function(calEvent, jsEvent, view) {
+                        window.location.href = calEvent.url;
+                    }
+
+                })
+
                 var locations = [
                     <?php
                     foreach ((array)$manifByDate as $d)
