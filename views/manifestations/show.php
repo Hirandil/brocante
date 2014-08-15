@@ -180,16 +180,14 @@
         <div class="alentourBlock">
             <div class="content" style="margin-bottom: 20px">
                 <p style="border-bottom: 1px; border-style:solid">Brocantes aux alentours</p>
-                <ul>
                     <?php
                     foreach ((array)$nearTowns as $nearTown) {
                         ?>
-                       <li><a href="<?php echo 'Manifestation/ville/'.$nearTown->getDepartment  ().'/'.$nearTown->getName(); ?>">
-                             Manifestation à <?php echo $nearTown->getName() ?> </a></li>
+                       <p><a href="<?php echo 'Manifestation/ville/'.$nearTown->getDepartment  ().'/'.$nearTown->getName(); ?>">
+                             Manifestation à <?php echo $nearTown->getName() ?> </a></p>
                     <?php
                     }
                     ?>
-                </ul>
             </div>
             <!-- /.content -->
         </div>
