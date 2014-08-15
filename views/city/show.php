@@ -183,15 +183,15 @@
 
                     <div class="control-group">
                         <div class="controls">
-                            <input type="radio" name="frequence" value="1">
+                            <input type="checkbox" name="frequence" value="1">
 
                             <p style="font-size:75%;margin-left: 10%;">la veille</p>
 
-                            <input type="radio" name="frequence" value="7">
+                            <input type="checkbox" name="frequence" value="7">
 
                             <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
 
-                            <input type="radio" name="frequence" value="30">
+                            <input type="checkbox" name="frequence" value="30">
 
                             <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
 

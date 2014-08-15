@@ -215,13 +215,13 @@
 
                     <div class="control-group">
                         <div class="controls">
-                            <input type="checkbox" name="veille" value="male">
+                            <input type="checkbox" name="veille" value="1">
 
                             <p style="font-size:75%;margin-left: 10%;">la veille</p>
-                            <input type="checkbox" name="week" value="female">
+                            <input type="checkbox" name="week" value="7">
 
                             <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
-                            <input type="checkbox" name="month" value="male">
+                            <input type="checkbox" name="month" value="30">
 
                             <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
                         </div>

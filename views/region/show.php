@@ -180,14 +180,14 @@
 
                     <div class="control-group">
                         <div class="controls">
-                            <input type="radio" name="veille" value="1">
+                            <input type="checkbox" name="veille" value="1">
 
                             <p style="font-size:75%;margin-left: 10%;">la veille</p>
 
-                            <input type="radio" name="week" value="7">
+                            <input type="checkbox" name="week" value="7">
                             <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
 
-                            <input type="radio" name="month" value="30">
+                            <input type="checkbox" name="month" value="30">
                             <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
 
                         </div>
