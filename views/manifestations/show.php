@@ -52,7 +52,7 @@
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
-            Du <?php echo $manifestation->getStart()." au ".$manifestation->getEnd() ?>
+            Du <?php echo $dateStart." au ".$dateEnd ?>
         </div>
         <br>
         <h5 class="showH5">Horaires</h5>

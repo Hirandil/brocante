@@ -499,6 +499,10 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             $name = htmlspecialchars(str_replace("_", " ", $_GET['name']));
             if ($this->_mm->exists($name)) {
                 $manifestation = $this->_mm->get($name);
+                date_default_timezone_set('Europe/Paris');
+                setlocale (LC_TIME, 'fr_FR.utf8','fra');
+                $dateStart = date('d/m/Y', strtotime($manifestation->getStart()));
+                $dateEnd = date('d/m/Y', strtotime($manifestation->getEnd()));
                 $department = $this->_dm->getByName($manifestation->getDepartment());
                 //$nearTowns = null;
                 $nearTowns = $this->_mm->getNearTowns($department->getZipCode());
