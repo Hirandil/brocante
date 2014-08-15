@@ -114,7 +114,7 @@ $content = ob_get_clean();
     <script type="text/javascript" src="/assets/js/notify.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.0.2/fullcalendar.min.js"></script>
-    <!--<base href="http://123brocante.com/">-->
+    <base href="http://www.123brocante.com/">
     <title> <?php echo $_SESSION['title'] ?> </title>
     <meta name="description" content="<?php echo $_SESSION['description']?>" />
 </head>

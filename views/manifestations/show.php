@@ -108,7 +108,7 @@
             if ($manifestation->getExhibitorNumber() == '')
                 echo 'Non renseigné';
             else
-                echo $manifestation->getExhibitorNumber(). " personnes";
+                echo $manifestation->getExhibitorNumber(). " exposants";
             ?>
         </div>
         <br>
@@ -202,11 +202,11 @@
                 <p style="font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes de la
                     région <?php echo $manifestation->getDepartment() ?></p>
 
-                <form method="get" action="javascript:void(0);">
+                <form method="POST" action="/User/newsletter">
 
                     <div class="type control-group">
                         <div class="controls">
-                            <input type="text" id="departmentGoogle" name="department"
+                            <input type="text" id="email" name="email"
                                    placeholder="Taper votre adresse e-mail">
                         </div>
                         <!-- /.controls -->
@@ -215,21 +215,21 @@
 
                     <div class="control-group">
                         <div class="controls">
-                            <input type="radio" name="frequence" value="1">
+                            <input type="checkbox" name="veille" value="male">
 
                             <p style="font-size:75%;margin-left: 10%;">la veille</p>
-                            <input type="radio" name="frequence" value="7">
+                            <input type="checkbox" name="week" value="female">
 
                             <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
-                            <input type="radio" name="frequence" value="30">
+                            <input type="checkbox" name="month" value="male">
 
                             <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
                         </div>
                     </div>
                     <!-- /.control-group -->
                     <div style=" text-align: center; ">
-                        <a href="/User/inscription" class="btn btn-primary btn-large" style="background-color: #f69679">
-                            S'inscrire !</a>
+                        <button type="submit" class="btn btn-primary btn-large" style="background-color: #f69679">
+                            S'inscrire !</button>
                     </div>
 
 

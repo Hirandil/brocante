@@ -22,7 +22,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                     onRegionClick: function(element, code, region)
                     {
                         $.ajax({
-                            url: "http://123Brocante.com/region.php",
+                            url: "http://www.123Brocante.com/region.php",
                             type: 'GET',
                             data: {
                                 'region': region
@@ -249,7 +249,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                 }
                 else{
                     $.ajax({
-                        url: "http://123Brocante.com/autocomplete.php",
+                        url: "http://www.123Brocante.com/autocomplete.php",
                         type: 'POST',
                         data: {
                             'key': $(this).val()

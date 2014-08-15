@@ -32,6 +32,16 @@
                             <textarea name="content" id="content" style="height: 150px;" ><?php if($update){echo $news->getContent();}?></textarea>
                         </div>
                     </div>
+                    <div class="control-group">
+                        <label class="control-label" for="image">
+                            Image
+                        </label>
+
+                        <div class="controls">
+                            <input type="file" name="image" id="image">
+                        </div>
+                    </div>
+
                     <button type="submit" class="btn btn-success" style="margin-left: 85%;margin-top: 50px;"> <?php if($update){echo 'Mettre à jour';}else{ echo 'Poster';}?>
                     </button>
                 </form>

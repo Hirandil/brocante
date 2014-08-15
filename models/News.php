@@ -12,13 +12,32 @@
         private $_title;
         private $_content;
         private $_createdAt;
+        private $_image;
 
         public function __construct($data){
             $this->_id = $data['id'];
             $this->_title = $data['title'];
             $this->_content = $data['content'];
             $this->_createdAt = $data['createdAt'];
+            $this->_image = $data['image'];
         }
+
+        /**
+         * @param mixed $image
+         */
+        public function setImage($image)
+        {
+            $this->_image = $image;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getImage()
+        {
+            return $this->_image;
+        }
+
 
         /**
          * @param mixed $id

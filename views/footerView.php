@@ -123,6 +123,10 @@
                 {
                     ?>
                     <div class="property clearfix">
+                        <div class="image" style='width: 50px;'>
+                            <img width="50" src="/<?php echo $n->getImage() ?>"
+                                 alt="<?php echo $n->getTitle(); ?>"/>
+                        </div>
                         <div class="wrapper">
                             <div class="title">
                                 <h3><a href="/Informations/show/<?php echo str_replace(' ','_',$n->getTitle()); ?>">
@@ -134,7 +138,7 @@
                             <div class="location"><?php echo html_entity_decode(substr($n->getContent(),0,50))?>...</div>
                             <!-- /.location -->
 
-                            <div class="price">
+                            <div class="price pull-right">
                                 <a href="/Informations/show/<?php echo str_replace(' ','_',$n->getTitle()); ?>">
                                     Voir
                                 </a>

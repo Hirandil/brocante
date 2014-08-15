@@ -9,7 +9,7 @@ RewriteRule ^([A-Za-z]+)/Annoncer-une-manifestation$  index.php?section=$1&actio
 RewriteRule ^([A-Za-z]+)/Rechercher-des-manifestations$  index.php?section=$1&action=rechercher
 RewriteRule ^([A-Za-z]+)/([A-Za-z-ô'éè_]+)/([A-Za-z-ôéè'_]+)/([A-Z0-9]+)$ index.php?section=$1&action=department&id=$4
 RewriteRule ^([A-Za-z]+)/([A-Za-z_À-ÿ-]+)/([A-Za-z_'À-ÿ-]+)/([A-Za-z_'À-ÿ-]+)/([A-Za-z0-9-ôéèà,'_]+)$ index.php?section=$1&action=show&name=$5
-RewriteCond %{HTTP_HOST} ^www.123brocante.com$
-RewriteRule ^(.*) http://123brocante.com/$1 [QSA,L,R=301]
+RewriteCond %{HTTP_HOST} ^123brocante.com$
+RewriteRule ^(.*) http://www.123brocante.com/$1 [QSA,L,R=301]
 RewriteRule ^sitemap\.xml$  /sitemap.php [L]
 

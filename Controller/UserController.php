@@ -335,7 +335,7 @@ class UserController extends Controller
 
     public function newsletter(){
         if(isset($_SESSION['userId'])){
-            if(isset($_POST['email'],$_POST['zone']) &&(isset($_POST['veille']) || isset($_POST['week']) || isset($_POST['month']))){
+            if(isset($_POST['email']) &&(isset($_POST['veille']) || isset($_POST['week']) || isset($_POST['zone']) || isset($_POST['month']))){
                 $zone = htmlentities($_POST['zone']);
                 $email = htmlentities($_POST['email']);
                 if(preg_match("#[0-9]+#",$_POST['zone'])){

@@ -352,9 +352,9 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                     $manifProByDate[$m->getStart()][] = $m;
                 }
             }
-            $_SESSION['description'] = "Toutes les manifestations dans le département " . $department->getName() . ",venez les découvrir :";
+            $_SESSION['description'] = $department->getName().": consultez toutes les brocantes, vide-greniers et salons des collectionneurs pour le département ".$department->getName()." sur 123Brocante.com";
             $_SESSION['ariane'] = "Manifestations > Département > " . $department->getName();
-            $_SESSION['title'] = "Brocante - " . $region->getName() . ", " . $department->getName();
+            $_SESSION['title'] = "Brocantes".$department->getName()." (".$department->getZipCode()."):  vide-greniers et salons de collectionneurs";
             include('views/department/show.php');
         } else {
             $_SESSION['error'] = "Ce département n'existe pas";
@@ -411,9 +411,9 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                     $manifTomorrow2[$m->getStart()][] = $m;
                 }
             }
-            $_SESSION['description'] = "Toutes les manifestations dans la region " . $region->getName() . ",venez les découvrir !";
+            $_SESSION['description'] = $region->getName().": consultez toutes les brocantes, vide-greniers et salons des collectionneurs pour la région".$region->getName()."sur 123Brocante.com";
             $_SESSION['ariane'] = "Manifestations > Region > " . $region->getName();
-            $_SESSION['title'] = "Brocante - " . $region->getName() . ", Tout département";
+            $_SESSION['title'] = "Brocantes ".$region->getName()." : vide-greniers et salons de collectionneurs";
             include('views/region/show.php');
         } else {
             $_SESSION['error'] = "Cette région n'existe pas";
@@ -504,15 +504,14 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                 $dateStart = date('d/m/Y', strtotime($manifestation->getStart()));
                 $dateEnd = date('d/m/Y', strtotime($manifestation->getEnd()));
                 $department = $this->_dm->getByName($manifestation->getDepartment());
-                //$nearTowns = null;
                 $nearTowns = $this->_mm->getNearTowns($department->getZipCode());
                 $organiser = $this->_um->get((int)$manifestation->getIdOrganiser());
                 $type = $this->_tm->get($manifestation->getType());
                 if (isset($_SESSION['userId']) && $manifestation->getIdOrganiser() != $_SESSION['userId'])
                     $this->_mm->upVisits($_GET['name']);
                 $_SESSION['ariane'] = $manifestation->getRegion() . " > " . $manifestation->getDepartment() . " > " . $manifestation->getName();
-                $_SESSION['title'] = $manifestation->getDepartment() . " - " . $manifestation->getName();
-                $_SESSION['description'] = "Découvrer " . $manifestation->getName() . " dans la region " . $manifestation->getRegion() . " (" . $manifestation->getDepartment() . ") le " . $manifestation->getStart() . " !";
+                $_SESSION['title'] = $manifestation->getName()." - ".$manifestation->getCity()." - ".$department->getZipCode()." - ".$department->getName();
+                $_SESSION['description'] = $manifestation->getName().": consultez toutes les infos pratiques. Lieu, nombre d'exposants, prix de l'entrée";
                 include 'views/manifestations/show.php';
 
             } else {
@@ -547,13 +546,14 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                 return move_uploaded_file($_FILES[$index]['tmp_name'], $destination);
             }
 
-            if ($_POST['image'] != NULL) {
+            if ($_FILES['image'] != NULL) {
                 $nom = md5(uniqid(rand(), true));
                 $ext = substr(strrchr($_FILES['image']['name'], '.'), 1);
                 $path = "assets/img/manifestations/" . $nom . "." . $ext;
                 $valid_extensions = array('jpg', 'jpeg', 'png');
                 if (!(upload('image', $path, 6291456, $valid_extensions))) {
                     $_SESSION['error'] = "Problème lors de l'upload du fichier";
+                    $path = $formerManifestation->getImage();
                 }
             } else {
                 $path = $formerManifestation->getImage();

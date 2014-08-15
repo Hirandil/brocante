@@ -32,11 +32,38 @@ class InformationsController extends Controller
             if ($_POST['title'] != "" && $_POST['content'] != "") {
                 $curr_user = $this->_um->get((int)$_SESSION['userId']);
                 if ($curr_user->getAdmin() == true) {
-                    $array = array('id' => 0, 'title' => htmlspecialchars($_POST['title']), 'content' => htmlspecialchars($_POST['content']));
+                    print_r($_FILES);
+                    //Fonction pour upload l'image ainsi que le path
+                    function upload($index, $destination, $maxsize = FALSE, $extensions = FALSE)
+                    {
+                        if (!isset($_FILES[$index]) OR $_FILES[$index]['error'] > 0) return FALSE;
+
+                        if ($maxsize !== FALSE AND $_FILES[$index]['size'] > $maxsize) return FALSE;
+
+                        $ext = substr(strrchr($_FILES[$index]['name'], '.'), 1);
+                        if ($extensions !== FALSE AND !in_array($ext, $extensions)) return FALSE;
+
+                        return move_uploaded_file($_FILES[$index]['tmp_name'], $destination);
+                    }
+
+                    //Test de la présence de l'image et upload l'image
+                    if ($_FILES['image'] != null) {
+                        $nom = md5(uniqid(rand(), true));
+                        $ext = substr(strrchr($_FILES['image']['name'], '.'), 1);
+                        $path = "assets/img/news/" . $nom . "." . $ext;
+                        $valid_extensions = array('jpg', 'jpeg', 'png');
+                        if (!(upload('image', $path, 6291456, $valid_extensions))) {
+                            $_SESSION['error'] = "Problème lors de l'upload du fichier";
+                            $path = "assets/img/news/default-news.png";
+                        }
+                    } else {
+                        $path = "assets/img/news/default-news.png";
+                    }
+                    $array = array('id' => 0, 'title' => htmlspecialchars($_POST['title']), 'content' => htmlspecialchars($_POST['content']),'image' => $path);
                     $news = new News($array);
                     $this->_nm->create($news);
                     $_SESSION['message'] = "Actualité crée";
-                    header('Location: /Informations/actualites');
+                    //header('Location: /Informations/actualites');
                     exit;
                 } else {
                     $_SESSION['error'] = "Vous n'avez pas les droits";
@@ -53,8 +80,8 @@ class InformationsController extends Controller
     public function actualites()
     {
         $_SESSION['ariane'] = "Toutes les actualités";
-        $_SESSION['title'] = "Toutes les news";
-        $_SESSION['description'] = "Retrouvez toutes les actualités de vos ".$_SESSION['type']." sur votre site 123Brocante.com!";
+        $_SESSION['title'] = "Actualités Brocante, Vide-Greniers: infos sur le marché, ventes, insolite - 123Brocante";
+        $_SESSION['description'] = "Consultez toutes les actualités du monde des brocantes et des vide-greniers sur 123Brocante.com";
         if(isset($_SESSION['userId']))
         {
             $user = $this->_um->get((int)$_SESSION['userId']);
@@ -70,7 +97,33 @@ class InformationsController extends Controller
         $update = true;
         if (isset($_POST['title'], $_POST['content'])) {
             if ($_POST['title'] != "" && $_POST['content'] != "") {
-                $array = array('id' => $_POST['id'],'title' => $_POST['title'],'content' => $_POST['content']);
+                $formerNews = $this->_nm->get((int)$_POST['id']);
+                //Upload d'image
+                function upload($index, $destination, $maxsize = FALSE, $extensions = FALSE)
+                {
+                    if (!isset($_FILES[$index]) OR $_FILES[$index]['error'] > 0) return FALSE;
+
+                    if ($maxsize !== FALSE AND $_FILES[$index]['size'] > $maxsize) return FALSE;
+
+                    $ext = substr(strrchr($_FILES[$index]['name'], '.'), 1);
+                    if ($extensions !== FALSE AND !in_array($ext, $extensions)) return FALSE;
+
+                    return move_uploaded_file($_FILES[$index]['tmp_name'], $destination);
+                }
+
+                if ($_FILES['image'] != NULL) {
+                    $nom = md5(uniqid(rand(), true));
+                    $ext = substr(strrchr($_FILES['image']['name'], '.'), 1);
+                    $path = "assets/img/news/" . $nom . "." . $ext;
+                    $valid_extensions = array('jpg', 'jpeg', 'png');
+                    if (!(upload('image', $path, 6291456, $valid_extensions))) {
+                        $_SESSION['error'] = "Problème lors de l'upload du fichier";
+                        $path = $formerNews->getImage();
+                    }
+                } else {
+                    $path = $formerNews->getImage();
+                }
+                $array = array('id' => $_POST['id'],'title' => $_POST['title'],'content' => $_POST['content'],'image' => $path);
                 $news = new News($array);
                 $this->_nm->update($news);
                 $_SESSION['message'] = "Actualité modifiée";
@@ -115,7 +168,7 @@ class InformationsController extends Controller
             $name = htmlspecialchars(str_replace("_"," ",$_GET['id']));
             if($this->_nm->exists($name)){
                 $news = $this->_nm->get($name);
-                $_SESSION['description'] = $news->getTitle().", retrouver toutes vos actualités sur 123Brocante.com!";
+                $_SESSION['description'] = html_entity_decode(substr($news->getContent(),0,140));
                 $_SESSION['ariane'] = "Actualités > ".$news->getTitle();
                 $_SESSION['title'] = $news->getTitle();
                 include('views/news/show.php');

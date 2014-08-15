@@ -23,11 +23,10 @@
                 $_SESSION['last'] = $mm->getLast();
                 $_SESSION["visited"] = $mm->getVisited();
                 $_SESSION["news"] = $nm->getSomeNews(3);
-                $_SESSION['title'] = "123Brocante.com";
+                $_SESSION['title'] = "Brocantes, vide-greniers et salons des collectionneurs en France - 123Brocante";
                 $_SESSION['ariane'] = "";
                 $_SESSION['type'] =  "Brocantes, Vide-Grenier, Marché aux puces,etc ";
-                $_SESSION['description'] = "123Brocante est un agenda regroupant Brocantes,Vide-Greniers,Marché aux puces,etc
-                                    dans toute la France. Découvrer les manifestations près de chez vous!";
+                $_SESSION['description'] = "Consultez toutes les manifestations en France: brocantes, vide-greniers mais aussi les salons de collectionneurs sur 123Brocante.com";
                 }
             catch(Exception $e)
             {

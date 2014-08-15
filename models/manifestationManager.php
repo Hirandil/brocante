@@ -120,7 +120,7 @@ class manifestationManager
     {
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE city = :city AND idOrganiser in
-                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation');
+                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation DESC LIMIT 2');
         $q->bindValue(':city',$city,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -148,7 +148,7 @@ class manifestationManager
     {
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept AND idOrganiser in
-                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation');
+                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation DESC LIMIT 2');
         $q->bindValue(':dept',$dept,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -175,7 +175,7 @@ class manifestationManager
 
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE region = :region AND idOrganiser in
-                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation');
+                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation DESC LIMIT 2');
         $q->bindValue(':region',$region,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
