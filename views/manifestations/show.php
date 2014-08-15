@@ -211,17 +211,17 @@
                         </div>
                         <!-- /.controls -->
                     </div>
-                    <p style="color:white; font-size:75%;">Je veux être alerté :</p>
+                    <p style="font-size:75%;">Je veux être alerté :</p>
 
                     <div class="control-group">
                         <div class="controls">
-                            <input type="radio" name="" value="male">
+                            <input type="radio" name="frequence" value="1">
 
                             <p style="font-size:75%;margin-left: 10%;">la veille</p>
-                            <input type="radio" name="" value="female">
+                            <input type="radio" name="frequence" value="7">
 
                             <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
-                            <input type="radio" name="" value="male">
+                            <input type="radio" name="frequence" value="30">
 
                             <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
                         </div>

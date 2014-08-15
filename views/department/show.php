@@ -290,17 +290,17 @@
                         <!-- /.controls -->
                     </div>
                     <input type="hidden" name="zone" value="<?php echo $department->getName(); ?>">
-                    <p style="color:white; font-size:75%;">Je veux être alerté :</p>
+                    <p style="font-size:75%;">Je veux être alerté :</p>
                     <div class="control-group">
                         <div class="controls">
-                            <input type="radio" name="veille" value="1">
+                            <input type="radio" name="frequence" value="1">
 
                             <p style="font-size:75%;margin-left: 10%;">la veille</p>
 
-                            <input type="radio" name="week" value="7">
+                            <input type="radio" name="frequence" value="7">
                             <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
 
-                            <input type="radio" name="month" value="30">
+                            <input type="radio" name="frequence" value="30">
                             <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
 
                         </div>

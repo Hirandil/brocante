@@ -289,7 +289,7 @@
                     </div>
                     <input type="hidden" name="zone" value="<?php echo $department->getName(); ?>">
 
-                    <p style="color:white; font-size:75%;">Je veux être alerté :</p>
+                    <p style="font-size:75%;">Je veux être alerté :</p>
 
                     <div class="control-group">
                         <div class="controls">
