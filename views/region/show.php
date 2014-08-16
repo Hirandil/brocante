@@ -211,21 +211,20 @@
         <div class="alentourBlock">
             <div class="content" style="margin-bottom: 20px">
                 <p style="border-bottom: 1px; border-style:solid">Brocantes de la région</p>
-                <ul>
+
                     <?php
                     foreach ((array)$nearRegion as $nearRegion) {
                         ?>
-                        <li><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$nearRegion->getRegion()).'/'.str_replace(" ","_",$nearRegion->getDepartment())
+                        <p><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$nearRegion->getRegion()).'/'.str_replace(" ","_",$nearRegion->getDepartment())
                             .'/'.str_replace(" ","_",$nearRegion->getCity()).'/'.str_replace(' ','_',$nearRegion->getName());?>">
                                 <img width="40" height="35" src="/<?php echo $nearRegion->getImage() ?>"
                                      class="thumbnail-image " alt="Image"/>
-                                <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></li>
+                                <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></p>
 
                     <?php
 
                     }
                     ?>
-                </ul>
             </div>
             <?php
             }
