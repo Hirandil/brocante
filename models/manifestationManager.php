@@ -279,6 +279,20 @@ class manifestationManager
         return $manifestations;
     }
 
+    public function getTomorrowCity($nbNextDay,$city)
+    {
+        $manifestations = NULL;
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE start = CURDATE() + INTERVAL :nb DAY AND city = :city');
+        $q->bindValue(':nb', $nbNextDay, PDO::PARAM_INT);
+        $q->bindValue(':city', $city, PDO::PARAM_STR);
+        $q->execute();
+        while($data = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $manifestations[] = new Manifestation($data);
+        }
+        return $manifestations;
+    }
+
     public function getTomorrowRegion($nbNextDay,$region)
     {
         $manifestations = NULL;

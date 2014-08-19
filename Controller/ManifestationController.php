@@ -304,14 +304,28 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             $nearRegion = $this->_mm->getNearRegion($region->getName());
             $manifestations = $this->_mm->getByDepartment($department->getName());
             $manifestationsPro = $this->_mm->getProByDepartment($department->getName());
-            $tomorrow = $this->_mm->getTomorrowDept(0, $department->getName());
-            $tomorrow1 = $this->_mm->getTomorrowDept(1, $department->getName());
-            $tomorrow2 = $this->_mm->getTomorrowDept(2, $department->getName());
+
+            for ($i = 0; $i <= 30; $i++) {
+                ${'tomorrow'.$i} = $this->_mm->getTomorrowDept($i, $department->getName());
+                ${'manifTomorrow'.$i} = array();
+                foreach ((array)${'tomorrow'.$i} as $m) {
+                    if (!array_key_exists($m->getStart(), ${'manifTomorrow'.$i})) {
+                        ${'manifTomorrow'.$i}[$m->getStart()] = array();
+                        ${'manifTomorrow'.$i}[$m->getStart()][] = $m;
+                    } else {
+                        ${'manifTomorrow'.$i}[$m->getStart()][] = $m;
+                    }
+                }
+            }
+
+//            $tomorrow = $this->_mm->getTomorrowDept(0, $department->getName());
+//            $tomorrow1 = $this->_mm->getTomorrowDept(1, $department->getName());
+//            $tomorrow2 = $this->_mm->getTomorrowDept(2, $department->getName());
             $manifProByDate = array();
             $manifByDate = array();
-            $manifTomorrow = array();
-            $manifTomorrow1 = array();
-            $manifTomorrow2 = array();
+//            $manifTomorrow = array();
+//            $manifTomorrow1 = array();
+//            $manifTomorrow2 = array();
             foreach ((array)$manifestations as $m) {
                 if (!array_key_exists($m->getStart(), $manifByDate)) {
                     $manifByDate[$m->getStart()] = array();
@@ -320,30 +334,30 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                     $manifByDate[$m->getStart()][] = $m;
                 }
             }
-            foreach ((array)$tomorrow as $m) {
-                if (!array_key_exists($m->getStart(), $manifTomorrow)) {
-                    $manifTomorrow[$m->getStart()] = array();
-                    $manifTomorrow[$m->getStart()][] = $m;
-                } else {
-                    $manifTomorrow[$m->getStart()][] = $m;
-                }
-            }
-            foreach ((array)$tomorrow1 as $m) {
-                if (!array_key_exists($m->getStart(), $manifTomorrow1)) {
-                    $manifTomorrow1[$m->getStart()] = array();
-                    $manifTomorrow1[$m->getStart()][] = $m;
-                } else {
-                    $manifTomorrow1[$m->getStart()][] = $m;
-                }
-            }
-            foreach ((array)$tomorrow2 as $m) {
-                if (!array_key_exists($m->getStart(), $manifTomorrow2)) {
-                    $manifTomorrow2[$m->getStart()] = array();
-                    $manifTomorrow2[$m->getStart()][] = $m;
-                } else {
-                    $manifTomorrow2[$m->getStart()][] = $m;
-                }
-            }
+//            foreach ((array)$tomorrow0 as $m) {
+//                if (!array_key_exists($m->getStart(), $manifTomorrow0)) {
+//                    $manifTomorrow0[$m->getStart()] = array();
+//                    $manifTomorrow0[$m->getStart()][] = $m;
+//                } else {
+//                    $manifTomorrow0[$m->getStart()][] = $m;
+//                }
+//            }
+//            foreach ((array)$tomorrow1 as $m) {
+//                if (!array_key_exists($m->getStart(), $manifTomorrow1)) {
+//                    $manifTomorrow1[$m->getStart()] = array();
+//                    $manifTomorrow1[$m->getStart()][] = $m;
+//                } else {
+//                    $manifTomorrow1[$m->getStart()][] = $m;
+//                }
+//            }
+//            foreach ((array)$tomorrow2 as $m) {
+//                if (!array_key_exists($m->getStart(), $manifTomorrow2)) {
+//                    $manifTomorrow2[$m->getStart()] = array();
+//                    $manifTomorrow2[$m->getStart()][] = $m;
+//                } else {
+//                    $manifTomorrow2[$m->getStart()][] = $m;
+//                }
+//            }
             foreach ((array)$manifestationsPro as $m) {
                 if (!array_key_exists($m->getStart(), $manifProByDate)) {
                     $manifProByDate[$m->getStart()] = array();
@@ -372,13 +386,27 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             $regions = $this->_rm->getAll();
             $nearRegion = $this->_mm->getNearRegion($region->getName());
             $manifestations = $this->_mm->getByRegion($region->getName());
-            $tomorrow = $this->_mm->getTomorrowRegion(0, $region->getName());
-            $tomorrow1 = $this->_mm->getTomorrowRegion(1, $region->getName());
-            $tomorrow2 = $this->_mm->getTomorrowRegion(2, $region->getName());
+
+            for ($i = 0; $i <= 30; $i++) {
+                ${'tomorrow'.$i} = $this->_mm->getTomorrowRegion($i, $region->getName());
+                ${'manifTomorrow'.$i} = array();
+                foreach ((array)${'tomorrow'.$i} as $m) {
+                    if (!array_key_exists($m->getStart(), ${'manifTomorrow'.$i})) {
+                        ${'manifTomorrow'.$i}[$m->getStart()] = array();
+                        ${'manifTomorrow'.$i}[$m->getStart()][] = $m;
+                    } else {
+                        ${'manifTomorrow'.$i}[$m->getStart()][] = $m;
+                    }
+                }
+            }
+
+//            $tomorrow = $this->_mm->getTomorrowRegion(0, $region->getName());
+//            $tomorrow1 = $this->_mm->getTomorrowRegion(1, $region->getName());
+//            $tomorrow2 = $this->_mm->getTomorrowRegion(2, $region->getName());
             $manifByDate = array();
-            $manifTomorrow = array();
-            $manifTomorrow1 = array();
-            $manifTomorrow2 = array();
+//            $manifTomorrow = array();
+//            $manifTomorrow1 = array();
+//            $manifTomorrow2 = array();
             foreach ((array)$manifestations as $m) {
                 if (!array_key_exists($m->getStart(), $manifByDate)) {
                     $manifByDate[$m->getStart()] = array();
@@ -387,30 +415,30 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                     $manifByDate[$m->getStart()][] = $m;
                 }
             }
-            foreach ((array)$tomorrow as $m) {
-                if (!array_key_exists($m->getStart(), $manifTomorrow)) {
-                    $manifTomorrow[$m->getStart()] = array();
-                    $manifTomorrow[$m->getStart()][] = $m;
-                } else {
-                    $manifTomorrow[$m->getStart()][] = $m;
-                }
-            }
-            foreach ((array)$tomorrow1 as $m) {
-                if (!array_key_exists($m->getStart(), $manifTomorrow1)) {
-                    $manifTomorrow1[$m->getStart()] = array();
-                    $manifTomorrow1[$m->getStart()][] = $m;
-                } else {
-                    $manifTomorrow1[$m->getStart()][] = $m;
-                }
-            }
-            foreach ((array)$tomorrow2 as $m) {
-                if (!array_key_exists($m->getStart(), $manifTomorrow2)) {
-                    $manifTomorrow2[$m->getStart()] = array();
-                    $manifTomorrow2[$m->getStart()][] = $m;
-                } else {
-                    $manifTomorrow2[$m->getStart()][] = $m;
-                }
-            }
+//            foreach ((array)$tomorrow as $m) {
+//                if (!array_key_exists($m->getStart(), $manifTomorrow)) {
+//                    $manifTomorrow[$m->getStart()] = array();
+//                    $manifTomorrow[$m->getStart()][] = $m;
+//                } else {
+//                    $manifTomorrow[$m->getStart()][] = $m;
+//                }
+//            }
+//            foreach ((array)$tomorrow1 as $m) {
+//                if (!array_key_exists($m->getStart(), $manifTomorrow1)) {
+//                    $manifTomorrow1[$m->getStart()] = array();
+//                    $manifTomorrow1[$m->getStart()][] = $m;
+//                } else {
+//                    $manifTomorrow1[$m->getStart()][] = $m;
+//                }
+//            }
+//            foreach ((array)$tomorrow2 as $m) {
+//                if (!array_key_exists($m->getStart(), $manifTomorrow2)) {
+//                    $manifTomorrow2[$m->getStart()] = array();
+//                    $manifTomorrow2[$m->getStart()][] = $m;
+//                } else {
+//                    $manifTomorrow2[$m->getStart()][] = $m;
+//                }
+//            }
             $_SESSION['description'] = $region->getName().": consultez toutes les brocantes, vide-greniers et salons des collectionneurs pour la région".$region->getName()."sur 123Brocante.com";
             $_SESSION['ariane'] = "Manifestations > Region > " . $region->getName();
             $_SESSION['title'] = "Brocantes ".$region->getName()." : vide-greniers et salons de collectionneurs";
@@ -425,6 +453,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
     public function ville()
     {
         if (isset($_GET['id']) && $this->_vm->exists($_GET['id'])) {
+            $ville = $this->_vm->get($_GET['id']);
             $types = $this->_tm->getAll();
             $departments = $this->_dm->getAll();
             $department = $this->_dm->get($_GET['id']);
@@ -432,44 +461,29 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             $nearRegion = $this->_mm->getNearRegion($region->getName());
             $manifestations = $this->_mm->getByCity($_GET['id']);
             $manifestationsPro = $this->_mm->getProByCity($_GET['id']);
-            $tomorrow = $this->_mm->getTomorrowDept(0, $department->getName());
-            $tomorrow1 = $this->_mm->getTomorrowDept(1, $department->getName());
-            $tomorrow2 = $this->_mm->getTomorrowDept(2, $department->getName());
+
+            for ($i = 0; $i <= 30; $i++) {
+                ${'tomorrow'.$i} = $this->_mm->getTomorrowCity($i, $_GET['id']);
+                ${'manifTomorrow'.$i} = array();
+                foreach ((array)${'tomorrow'.$i} as $m) {
+                    if (!array_key_exists($m->getStart(), ${'manifTomorrow'.$i})) {
+                        ${'manifTomorrow'.$i}[$m->getStart()] = array();
+                        ${'manifTomorrow'.$i}[$m->getStart()][] = $m;
+                    } else {
+                        ${'manifTomorrow'.$i}[$m->getStart()][] = $m;
+                    }
+                }
+            }
+
             $manifProByDate = array();
             $manifByDate = array();
-            $manifTomorrow = array();
-            $manifTomorrow1 = array();
-            $manifTomorrow2 = array();
+
             foreach ((array)$manifestations as $m) {
                 if (!array_key_exists($m->getStart(), $manifByDate)) {
                     $manifByDate[$m->getStart()] = array();
                     $manifByDate[$m->getStart()][] = $m;
                 } else {
                     $manifByDate[$m->getStart()][] = $m;
-                }
-            }
-            foreach ((array)$tomorrow as $m) {
-                if (!array_key_exists($m->getStart(), $manifTomorrow)) {
-                    $manifTomorrow[$m->getStart()] = array();
-                    $manifTomorrow[$m->getStart()][] = $m;
-                } else {
-                    $manifTomorrow[$m->getStart()][] = $m;
-                }
-            }
-            foreach ((array)$tomorrow1 as $m) {
-                if (!array_key_exists($m->getStart(), $manifTomorrow1)) {
-                    $manifTomorrow1[$m->getStart()] = array();
-                    $manifTomorrow1[$m->getStart()][] = $m;
-                } else {
-                    $manifTomorrow1[$m->getStart()][] = $m;
-                }
-            }
-            foreach ((array)$tomorrow2 as $m) {
-                if (!array_key_exists($m->getStart(), $manifTomorrow2)) {
-                    $manifTomorrow2[$m->getStart()] = array();
-                    $manifTomorrow2[$m->getStart()][] = $m;
-                } else {
-                    $manifTomorrow2[$m->getStart()][] = $m;
                 }
             }
             foreach ((array)$manifestationsPro as $m) {
@@ -480,9 +494,9 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                     $manifProByDate[$m->getStart()][] = $m;
                 }
             }
-            $_SESSION['description'] = "Toutes les manifestations dans la region " . $region->getName() . ",venez les découvrir !";
+            $_SESSION['description'] = $_GET['id'].": consultez toutes les brocantes, vide-greniers et salons des collectionneurs pour ".$_GET['id']." sur 123Brocante.com";
             $_SESSION['ariane'] = "Manifestations > Region > " . $region->getName();
-            $_SESSION['title'] = "Brocante - " . $region->getName() . ", Tout département";
+            $_SESSION['title'] = "Brocantes ".$_GET['id']." (".$ville->getZipCode()."): vide-greniers et salons de collectionneurs";
             include('views/city/show.php');
         } else {
             $_SESSION['error'] = "Cette ville n'existe pas";

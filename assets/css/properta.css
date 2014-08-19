@@ -16,8 +16,12 @@
     font-size: 14px;
 }
 .showH5{
-    border-bottom: 1px solid #f69679;
+    /*border-bottom: 1px solid #f69679;*/
     font-size: 18px;
+}
+.addBr{
+    border-bottom: 1px solid #f69679;
+    /*font-size: 8px;*/
 }
 .alentourBlock{
     border: 1px solid #f69679;

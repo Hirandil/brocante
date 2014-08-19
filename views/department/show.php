@@ -58,7 +58,7 @@
     <div class="row">
 <div class="sidebar span8">
     <h1 class="page-header"><?php echo $department->getName() . ' (' . $department->getZipCode() . ') -- '
-            . (sizeof($manifProByDate) + sizeof($manifTomorrow) + sizeof($manifTomorrow1) + sizeof($manifTomorrow2)) .
+            . (sizeof($manifProByDate) + sizeof($manifTomorrow0) + sizeof($manifTomorrow1) + sizeof($manifTomorrow2)) .
             ' résultat(s) ont été trouvé(s). Vous pouvez aussi rechercher pour la région
             <i><a href="/Manifestation/region/'.str_replace(' ','-',$region->getName()).'/' . $region->getId() . '">' . $region->getName() . '</a></i>' ?></h1>
     <br>
@@ -115,13 +115,23 @@
 }
     ?>
 
+    <h2>Calendrier des brocantes sur le departement : <?php echo $department->getName() ?></h2>
+
+    <?php
+    for ($i = 0; $i <= 30; $i++) {
+    ?>
     <div class="property clearfix" style="background: #f69679;">
 
         <div class="wrapper">
             <div class="title">
                 <h3>
                     <h3>
-                        Calendrier des brocantes sur la ville
+                        <?php
+                        date_default_timezone_set('Europe/Paris');
+                        setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                        $currentDate = time() +(48 * 60 * (30*$i)) ;
+                        echo strftime("%A %d %B %Y",$currentDate);
+                        ?>
                     </h3>
                 </h3>
             </div>
@@ -131,8 +141,31 @@
         <!-- /.wrapper -->
     </div>
     <div class="property-info clearfix">
-        <div id='calendar'></div>
+        <?php
+        foreach ((array)${'manifTomorrow'.$i} as $d)
+        {
+            foreach ((array)$d as $manifestation)
+            {
+                ?>
+                <h5 class="showH5"><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment())
+                        .'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>"><?php echo $manifestation->getName() ?></a></h5>
+
+                <div class="area">
+                    <i class="icon icon-normal-cursor-scale-up"></i>
+                    <?php echo $manifestation->getAddress() ?>
+                </div>
+
+                <br>
+                <h5 class="addBr"></h5>
+            <?php
+            }
+        }
+        ?>
+
     </div>
+    <?php
+    }
+    ?>
 
     <div id="agencies_widget-2" class="widget agencies">
 
@@ -150,6 +183,8 @@
 
 
         </div>
+
+
 
 
         <h2>Carte des brocantes du département</h2>
@@ -230,33 +265,6 @@
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
 
-                $('#calendar').fullCalendar({
-                    // put your options and callbacks here
-//                    eventColor: '#378006',
-                    monthNames:['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
-                    monthNamesShort:['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'],
-                    dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
-                    dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
-                    events: [
-                        <?php
-                    foreach ((array)$manifByDate as $d)
-                    {
-                        foreach ((array)$d as $manifestation)
-                        {
-                     ?>
-                        {<?php echo "title : '".$manifestation->getName() ?>', <?php echo "start : '". $manifestation->getStart() ?>' <?php echo ", end : '". $manifestation->getEnd() ?>', url : '<?php echo '/Manifestation/' . str_replace(" ", "_", $manifestation->getRegion()) . '/' . str_replace(" ", "_", $manifestation->getDepartment()) . '/' . str_replace(" ", "_", $manifestation->getCity()) . '/' . str_replace(' ', '_', $manifestation->getName()); ?>'},
-                        <?php
-            }
-        }
-        ?>
-                    ],
-
-                    eventClick: function(calEvent, jsEvent, view) {
-                        window.location.href = calEvent.url;
-                    }
-
-                })
-
                 var locations = [
 <?php
 foreach ((array)$manifByDate as $d)
@@ -293,7 +301,7 @@ foreach ((array)$manifByDate as $d)
                         }
                         else
                         {
-                            alert("some problem in geocode" + status);
+                            //alert("some problem in geocode" + status);
                         }
                     });
 
