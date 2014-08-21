@@ -121,7 +121,7 @@ class manifestationManager
     {
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE city = :city AND idOrganiser in
-                                    (SELECT id from users WHERE professional = 1) AND start > CURDATE() ORDER BY idManifestation DESC LIMIT 2');
+                                    (SELECT id from users WHERE professional = 1) AND end > (CURDATE() - INTERVAL 1 DAY) ORDER BY idManifestation DESC');
         $q->bindValue(':city',$city,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -134,7 +134,7 @@ class manifestationManager
     public function getByCity($city)
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE city = :city AND start > CURDATE() ORDER BY idManifestation');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE city = :city ORDER BY idManifestation');
         $q->bindValue(':city',$city,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -149,7 +149,7 @@ class manifestationManager
     {
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept AND idOrganiser in
-                                    (SELECT id from users WHERE professional = 1) AND start > CURDATE() ORDER BY idManifestation DESC LIMIT 2');
+                                    (SELECT id from users WHERE professional = 1) AND end > (CURDATE() - INTERVAL 1 DAY) ORDER BY idManifestation DESC LIMIT 2');
         $q->bindValue(':dept',$dept,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -176,7 +176,7 @@ class manifestationManager
 
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE region = :region AND idOrganiser in
-                                    (SELECT id from users WHERE professional = 1) AND start > CURDATE() ORDER BY idManifestation DESC LIMIT 2');
+                                    (SELECT id from users WHERE professional = 1) AND end > (CURDATE() - INTERVAL 1 DAY) ORDER BY idManifestation DESC LIMIT 2');
         $q->bindValue(':region',$region,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -270,7 +270,7 @@ class manifestationManager
     public function getTomorrowDept($nbNextDay,$dept)
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE start = CURDATE() + INTERVAL :nb DAY AND department = :dept');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE start <= CURDATE() + INTERVAL :nb DAY AND end >= CURDATE() + INTERVAL :nb DAY AND department = :dept');
         $q->bindValue(':nb', $nbNextDay, PDO::PARAM_INT);
         $q->bindValue(':dept', $dept, PDO::PARAM_STR);
         $q->execute();
@@ -284,7 +284,7 @@ class manifestationManager
     public function getTomorrowCity($nbNextDay,$city)
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE start = CURDATE() + INTERVAL :nb DAY AND city = :city');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE start <= CURDATE() + INTERVAL :nb DAY AND end >= CURDATE() + INTERVAL :nb DAY AND city = :city');
         $q->bindValue(':nb', $nbNextDay, PDO::PARAM_INT);
         $q->bindValue(':city', $city, PDO::PARAM_STR);
         $q->execute();
@@ -298,7 +298,7 @@ class manifestationManager
     public function getTomorrowRegion($nbNextDay,$region)
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE start = CURDATE() + INTERVAL :nb DAY AND region = :region');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE start <= CURDATE() + INTERVAL :nb DAY AND end >= CURDATE() + INTERVAL :nb DAY AND region = :region');
         $q->bindValue(':nb', $nbNextDay, PDO::PARAM_INT);
         $q->bindValue(':region', $region, PDO::PARAM_STR);
         $q->execute();
