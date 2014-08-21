@@ -335,7 +335,7 @@ class UserController extends Controller
 
     public function newsletter(){
         if(isset($_SESSION['userId'])){
-            if(isset($_POST['email']) &&(isset($_POST['veille']) || isset($_POST['week']) || isset($_POST['zone']) || isset($_POST['month']))){
+            if(isset($_POST['email']) &&(isset($_POST['veille']) || isset($_POST['week']) || isset($_POST['zone']) || isset($_POST['month'])) && $_POST['email'] != ""){
                 $zone = htmlentities($_POST['zone']);
                 $email = htmlentities($_POST['email']);
                 if(preg_match("#[0-9]+#",$_POST['zone'])){
@@ -345,9 +345,9 @@ class UserController extends Controller
                 try{
                     if(isset($_POST['veille']))
                         $this->_um->subscribe($zone,$email,$_POST['veille']);
-                    else if(isset($_POST['week']))
+                    if(isset($_POST['week']))
                         $this->_um->subscribe($zone,$email,$_POST['week']);
-                    else if(isset($_POST['month']))
+                    if(isset($_POST['month']))
                         $this->_um->subscribe($zone,$email,$_POST['month']);
 
                     $_SESSION['message'] = "Inscris à la newsletter!";
@@ -362,6 +362,11 @@ class UserController extends Controller
                     header("Location: $page");
                     exit;
                 }
+            }
+            else{
+                $_SESSION['error'] = "Email non renseigné";
+                header('Location: /');
+                exit;
             }
         }
         else{

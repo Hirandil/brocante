@@ -18,8 +18,9 @@
 
         public function create(News $n)
         {
-            $q = $this->_db->prepare('INSERT INTO news (title,content,createdAt,image) VALUES (:title,:content,SYSDATE(),:image)');
+            $q = $this->_db->prepare('INSERT INTO news (title,titleUrl,content,createdAt,image) VALUES (:title,:titleUrl,:content,SYSDATE(),:image)');
             $q->bindValue(':title', $n->getTitle(), PDO::PARAM_STR);
+            $q->bindValue(':titleUrl', $n->getTitleUrl(), PDO::PARAM_STR);
             $q->bindValue(':content', $n->getContent(), PDO::PARAM_STR);
             $q->bindValue(':image', $n->getImage(), PDO::PARAM_STR);
             try{
@@ -37,7 +38,7 @@
             $n = NULL;
             if (is_string($info)) {
 
-                $q = $this->_db->prepare('SELECT * FROM news WHERE title = :title');
+                $q = $this->_db->prepare('SELECT * FROM news WHERE title = :title OR titleUrl = :title');
                 $q->bindValue(':title', $info, PDO::PARAM_STR);
                 $q->execute();
                 $data = $q->fetch(PDO::FETCH_ASSOC);
@@ -62,8 +63,9 @@
         }
 
         public function update(News $n){
-            $q = $this->_db->prepare('UPDATE news SET title = :title,content = :content,image = :image WHERE id = :id');
+            $q = $this->_db->prepare('UPDATE news SET title = :title,titleUrl = :titleUrl,content = :content,image = :image WHERE id = :id');
             $q->bindValue(':title', $n->getTitle(), PDO::PARAM_STR);
+            $q->bindValue(':titleUrl', $n->getTitleUrl(), PDO::PARAM_STR);
             $q->bindValue(':content', $n->getContent(), PDO::PARAM_STR);
             $q->bindValue(':id', $n->getId(), PDO::PARAM_INT);
             $q->bindValue(':image', $n->getImage(), PDO::PARAM_STR);
@@ -93,7 +95,7 @@
 
         public function exists($info){
             if(is_string($info)){
-            $q = $this->_db->prepare('SELECT COUNT(*) FROM news WHERE title = :title');
+            $q = $this->_db->prepare('SELECT COUNT(*) FROM news WHERE title = :title OR titleUrl = :title');
             $q->bindValue(':title', $info, PDO::PARAM_INT);
             $q->execute();
             if(!$q->fetchColumn(0))

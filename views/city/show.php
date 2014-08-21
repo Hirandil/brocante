@@ -56,6 +56,7 @@
         <!-- /.span12 -->
     </div>
     <!-- /.row -->
+   <?php echo $ville->getName()." (".$ville->getDepartment()."): découvrez sur cette section toutes les brocantes, les vide-greniers ainsi que les manifestation de collectionneurs pour ".$ville->getName().". Consultez les brocantes et vide-greniers pour les 30 prochains jours en cliquant sur le nom de la manifestation. Vous pourrez ainsi obtenir toutes les informations pratiques concernant la manifestation (horaires, adresse, contact de l'organisateur de la brocante / vide-grenier)"; ?>
 </div>
 <div class="container">
 <div class="row">
@@ -79,7 +80,7 @@
             ?>
             <div class="property clearfix">
                 <div class="image">
-                    <a href="<?php echo '/Manifestation/' . str_replace(" ", "_", $manifestation->getRegion()) . '/' . str_replace(" ", "_", $manifestation->getDepartment()) . '/' . str_replace(" ", "_", $manifestation->getCity()) . '/' . str_replace(' ', '_', $manifestation->getName()); ?>">
+                    <a href="<?php echo '/Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCity()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()); ?>">
 
                         <img width="570" height="425" src="/<?php echo $manifestation->getImage() ?>"
                              class="thumbnail-image " alt="19"/>
@@ -90,7 +91,7 @@
                 <div class="wrapper">
                     <div class="title">
                         <h2>
-                            <a href="<?php echo '/Manifestation/' . str_replace(" ", "_", $manifestation->getRegion()) . '/' . str_replace(" ", "_", $manifestation->getDepartment()) . '/' . str_replace(" ", "_", $manifestation->getCity()) . '/' . str_replace(' ', '_', $manifestation->getName()); ?>">
+                            <a href="<?php echo '/Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCity()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()); ?>">
                                 <?php echo $manifestation->getName() ?></a>
                         </h2>
 
@@ -199,7 +200,7 @@
                 <p style="border-bottom: 1px; border-style:solid">Abonnez-vous aux alertes</p>
 
                 <p style="font-size:75%;">Je veux recevoir une alerte par e-mail pour toutes les brocantes du
-                    département <?php //echo $department->getName() ?></p>
+                    département <?php echo $department->getName() ?></p>
 
                 <form method="POST" action="/User/newsletter">
 
@@ -216,15 +217,15 @@
 
                     <div class="control-group">
                         <div class="controls">
-                            <input type="checkbox" name="frequence" value="1">
+                            <input type="checkbox" name="veille" value="1">
 
                             <p style="font-size:75%;margin-left: 10%;">la veille</p>
 
-                            <input type="checkbox" name="frequence" value="7">
+                            <input type="checkbox" name="week" value="7">
 
                             <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
 
-                            <input type="checkbox" name="frequence" value="30">
+                            <input type="checkbox" name="month" value="30">
 
                             <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
 
@@ -253,7 +254,7 @@
                         foreach ((array)$nearRegion as $nearRegion) {
                             ?>
                             <p>
-                                <a href="<?php echo '/Manifestation/' . str_replace(" ", "_", $nearRegion->getRegion()) . '/' . str_replace(" ", "_", $nearRegion->getDepartment()) . '/' . str_replace(" ", "_", $nearRegion->getCity()) . '/' . str_replace(' ', '_', $nearRegion->getName()); ?>">
+                                <a href="<?php echo '/Manifestation/' . str_replace(" ", "-", $nearRegion->getRegion()) . '/' . str_replace(" ", "-", $nearRegion->getDepartment()) . '/' . str_replace(" ", "-", $nearRegion->getCity()) . '/' . str_replace(' ', '-', $nearRegion->getNameUrl()); ?>">
                                     <img width="40" height="35" src="/<?php echo $nearRegion->getImage() ?>"
                                          class="thumbnail-image " alt="Image"/>
                                     <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></p>

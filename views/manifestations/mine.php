@@ -64,8 +64,8 @@ if(sizeof($manifestations) > 0)
             <a href="/Manifestation/update/<?php echo $manif->getId();?>" class="edit" title="Edit">Modifier</a>
             <a href="/Manifestation/destroy/<?php echo $manif->getId();?>" class="remove" title="Remove">Supprimer</a>
 
-            <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$manif->getRegion()).'/'.str_replace(" ","_",$manif->getDepartment())
-                    .'/'.str_replace(" ","_",$manif->getCity()).'/'.str_replace(' ','_',$manif->getName());?>"
+            <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manif->getRegion()).'/'.str_replace(" ","-",$manif->getDepartment())
+                    .'/'.str_replace(" ","-",$manif->getCity()).'/'.str_replace(' ','-',$manif->getNameUrl());?>"
             class="view"
                title="View">Visualiser</a>
 

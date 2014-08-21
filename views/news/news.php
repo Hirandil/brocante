@@ -24,7 +24,7 @@
                                 </div>
                                  <div style="margin-left: 25px;float: left" class="wrapper">
                                          <div class="title">
-                                             <a href="/Informations/show/<?php echo str_replace(' ','_',$n->getTitle()); ?>"> <h2><?php echo $n->getTitle() ?>
+                                             <a href="/Informations/show/<?php echo str_replace(' ','-',$n->getTitleUrl()); ?>"> <h2><?php echo $n->getTitle() ?>
                                                  </h2></a>
                                              <div class="pull-right"></div>
                                          </div>
@@ -46,7 +46,7 @@
 
                                 <div class="property-info clearfix">
                                     <div class="more-info">
-                                        <a href="/Informations/show/<?php echo str_replace(' ','_',$n->getTitle()); ?>"> Voir
+                                        <a href="/Informations/show/<?php echo str_replace(' ','-',$n->getTitleUrl()); ?>"> Voir
                                             <i
                                                 class="icon icon-normal-right-arrow-circle"></i></a>
                                     </div>

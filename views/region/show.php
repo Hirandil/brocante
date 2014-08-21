@@ -77,8 +77,8 @@
             ?>
             <div class="property clearfix">
                 <div class="image">
-                    <a href="<?php echo 'Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment())
-                        .'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>">
+                    <a href="<?php echo 'Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment())
+                        .'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
                         <img width="570" height="425" src="/<?php echo $manifestation->getImage() ?>"
                              class="thumbnail-image " alt="19"/>
                     </a>
@@ -88,8 +88,8 @@
                 <div class="wrapper">
                     <div class="title">
                         <h2>
-                            <a href="<?php echo 'Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment())
-                                .'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>">
+                            <a href="<?php echo 'Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment())
+                                .'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
                                 <?php echo $manifestation->getName() ?></a>
                         </h2>
                         <h3>
@@ -248,8 +248,8 @@
                     <?php
                     foreach ((array)$nearRegion as $nearRegion) {
                         ?>
-                        <p><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$nearRegion->getRegion()).'/'.str_replace(" ","_",$nearRegion->getDepartment())
-                            .'/'.str_replace(" ","_",$nearRegion->getCity()).'/'.str_replace(' ','_',$nearRegion->getName());?>">
+                        <p><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$nearRegion->getRegion()).'/'.str_replace(" ","-",$nearRegion->getDepartment())
+                            .'/'.str_replace(" ","-",$nearRegion->getCity()).'/'.str_replace(' ','-',$nearRegion->getNameUrl());?>">
                                 <img width="40" height="35" src="/<?php echo $nearRegion->getImage() ?>"
                                      class="thumbnail-image " alt="Image"/>
                                 <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></p>
@@ -267,6 +267,34 @@
 
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
+
+                $('#calendar').fullCalendar({
+                    // put your options and callbacks here
+//                    eventColor: '#378006',
+                    monthNames:['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+                    monthNamesShort:['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'],
+                    dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+                    dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                    events: [
+                        <?php
+                    foreach ((array)$manifByDate as $d)
+                    {
+                        foreach ((array)$d as $manifestation)
+                        {
+                     ?>
+                        {<?php echo "title : '".$manifestation->getName() ?>', <?php echo "start : '". $manifestation->getStart() ?>' <?php echo ", end : '". $manifestation->getEnd() ?>', url : '<?php echo '/Manifestation/' . str_replace(" ", "_", $manifestation->getRegion()) . '/' . str_replace(" ", "_", $manifestation->getDepartment()) . '/' . str_replace(" ", "_", $manifestation->getCity()) . '/' . str_replace(' ', '_', $manifestation->getName()); ?>'},
+                        <?php
+            }
+        }
+        ?>
+                    ],
+
+                    eventClick: function(calEvent, jsEvent, view) {
+                        window.location.href = calEvent.url;
+                    }
+
+                })
+
                 var locations = [
                     <?php
                     foreach ((array)$manifByDate as $d)
@@ -274,7 +302,7 @@
                         foreach ((array)$d as $manifestation)
                         {
                      ?>
-                    ['<?php echo $manifestation->getName() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid()?>','<?php echo $manifestation->getRegion() ?>','<?php echo $manifestation->getDepartment() ?>','<?php echo $manifestation->getCity() ?>'],
+                    ['<?php echo $manifestation->getNameUrl() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid()?>','<?php echo $manifestation->getRegion() ?>','<?php echo $manifestation->getDepartment() ?>','<?php echo $manifestation->getCity() ?>'],
                     <?php
         }
     }
@@ -312,7 +340,7 @@
                 for (i = 0; i < locations.length; i++) {
                     getAdress(locations[i][1],locations[i][0],locations[i][3],locations[i][4],locations[i][5],i,function(title,region,department,city,i,results){
                         var link = "/Manifestation/"+region+"/"+department+"/"+city+"/"+title;
-                        var link = link.replace(/ /g, "_");
+                        var link = link.replace(/ /g, "-");
                         map.setCenter(results[0].geometry.location);
                         marker = new google.maps.Marker({
                             position: results[0].geometry.location,

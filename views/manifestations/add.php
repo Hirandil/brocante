@@ -404,7 +404,7 @@
 
                 verif = function(chars) {
                     // Caractères autorisés
-                    var regex = new RegExp("[^_]", "i");
+                    var regex = new RegExp("[^-]", "i");
                     var valid;
                     for (x = 0; x < chars.value.length; x++) {
                         valid = regex.test(chars.value.charAt(x));

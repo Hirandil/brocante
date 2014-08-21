@@ -209,6 +209,7 @@
                         </div>
                         <!-- /.controls -->
                     </div>
+                    <input type="hidden" name="zone" value="<?php echo $manifestation->getDepartment(); ?>">
                     <p style="font-size:75%;">Je veux être alerté :</p>
 
                     <div class="control-group">
@@ -236,17 +237,6 @@
             </div>
             <!-- /.content -->
         </div>
-        <!--<div class="alentourBlock">
-            <div class="content" style="margin-bottom: 20px">
-                <p style="border-bottom: 1px; border-style:solid">Brocantes du département</p>
-                <ul>
-                    <li>Brocante aujourd'hui</li>
-                    <li>Brocante demain</li>
-                    <li>Brocante Week end</li>
-                    <li>Brocante Juin 2014</li>
-                </ul>
-            </div>
-        </div>-->
 
         <script type="text/javascript">
             jQuery(document).ready(function ($) {

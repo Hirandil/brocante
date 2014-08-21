@@ -3,6 +3,7 @@
     {
         private $_id;
         private $_name;
+        private $_nameUrl;
         private $_city;
         private $_department;
         private $_region;
@@ -25,6 +26,7 @@
         public function __construct ($data){
             $this->_id = $data['idManifestation'];
             $this->_name = $data['name'];
+            $this->_nameUrl = $data['nameUrl'];
             $this->_city = $data['city'];
             $this->_department = $data['department'];
             $this->_region = $data['region'];
@@ -42,6 +44,22 @@
             $this->_informations = $data['informations'];
             $this->_parking = $data['parking'];
             $this->_contact = $data['contact'];
+        }
+
+        /**
+         * @param mixed $nameUrl
+         */
+        public function setNameUrl($nameUrl)
+        {
+            $this->_nameUrl = $nameUrl;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getNameUrl()
+        {
+            return $this->_nameUrl;
         }
 
         /**

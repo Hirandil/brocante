@@ -1,10 +1,5 @@
 
 <div id="content" class="clearfix">
-<div class="container">
-<h1 style="font-size: 24px">Accueil</h1>
-123brocante.com est un agenda des vide-greniers en France. Le site 123brocante.com propose aux internautes les informations utiles sur
-le vide-grenier à coté de chez eux. Les videgreniers sont classés par régions (Ile de France, Provence Alpes Côte d'azur PACA) et par départements (Bouches du Rhône, Haute Garonne, Gironde...).
-</div>
 <div class="map-wrapper" >
     <div class="map">
         <script type="text/javascript">
@@ -29,11 +24,10 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                             }
                         })
                             .done(function( data ) {
-                                console.log(data);
                                 var myData = (JSON.parse(data))
                                 var reg =/[ ]/g;
-                                region = region.replace(reg,"_");
-                                myData[0] = myData[0].replace(reg,"_");
+                                region = region.replace(reg,"-");
+                                myData[0] = myData[0].replace(reg,"-");
                                 window.location.href = "/Manifestation/"+myData[0]+"/"+region+"/"+code;
 
                             });
@@ -181,6 +175,11 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
         ?>
     </ul>
 </div>
+<br>
+<div class="container">
+    123brocante.com est un agenda des vide-greniers en France. Le site 123brocante.com propose aux internautes les informations utiles sur
+    le vide-grenier à coté de chez eux. Les videgreniers sont classés par régions (Ile de France, Provence Alpes Côte d'azur PACA) et par départements (Bouches du Rhône, Haute Garonne, Gironde...).
+</div>
 
 <script>
     $( document ).ready(function() {
@@ -201,7 +200,6 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
 
         completeOthers = function(){
             setTimeout(function() {
-                console.log(autocomplete.gm_accessors_.place.Sc.place);
                 var address_components = autocomplete.gm_accessors_.place.Sc.place.address_components;
 
                 //document.getElementById('cityGoogle').value = address_components[2].long_name;
@@ -229,7 +227,6 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                             }
                         })
                         $('#selectDepartment').html(output.join(''));
-//                       console.log($('#selectDepartment').chosen());
 
                         $('#selectDepartment').trigger("liszt:updated");
                     }
@@ -237,13 +234,11 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                 });
 
 
-                //console.log(str)
             })
             .change();
 
         $( "#cityGoogle" )
             .keypress(function () {
-                console.log()
                 if ($(this).val().length < 1){
 
                 }
@@ -265,7 +260,6 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
 
                     });
                 }
-                //console.log(str)
             })
             .change();
 

@@ -103,6 +103,7 @@ $content = ob_get_clean();
             selector : "textarea:not(.mceNoEditor)"
             });
     </script>
+    <script src="code-analytics-123brocante.txt"></script>
     <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
     <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
     <script src="/assets/js/jquery.vmap.js" type="text/javascript"></script>

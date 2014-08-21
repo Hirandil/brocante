@@ -32,7 +32,26 @@ class InformationsController extends Controller
             if ($_POST['title'] != "" && $_POST['content'] != "") {
                 $curr_user = $this->_um->get((int)$_SESSION['userId']);
                 if ($curr_user->getAdmin() == true) {
-                    print_r($_FILES);
+                    function removeSpecialCarac($chaine,$charset='utf-8')
+                    {
+                        $chaine = htmlentities($chaine, ENT_NOQUOTES, $charset);
+                        $caracteres = array(
+                            'À' => 'a', 'Á' => 'a', 'Â' => 'a', 'Ä' => 'a', 'à' => 'a', 'á' => 'a', 'â' => 'a', 'ä' => 'a', '@' => 'a',
+                            'È' => 'e', 'É' => 'e', 'Ê' => 'e', 'Ë' => 'e', 'è' => 'e', 'é' => 'e', 'ê' => 'e', 'ë' => 'e', '€' => 'e',
+                            'Ì' => 'i', 'Í' => 'i', 'Î' => 'i', 'Ï' => 'i', 'ì' => 'i', 'í' => 'i', 'î' => 'i', 'ï' => 'i',
+                            'Ò' => 'o', 'Ó' => 'o', 'Ô' => 'o', 'Ö' => 'o', 'ò' => 'o', 'ó' => 'o', 'ô' => 'o', 'ö' => 'o',
+                            'Ù' => 'u', 'Ú' => 'u', 'Û' => 'u', 'Ü' => 'u', 'ù' => 'u', 'ú' => 'u', 'û' => 'u', 'ü' => 'u', 'µ' => 'u',
+                            'Œ' => 'oe', 'œ' => 'oe',
+                            '$' => 's');
+
+                        $chaine = strtr($chaine, $caracteres);
+                        $chaine = preg_replace('#&([A-za-z])(?:acute|cedil|caron|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $chaine);
+                        $chaine = preg_replace('#[^A-Za-z0-9]+#', '-', $chaine);
+                        $chaine = trim($chaine, '-');
+                        $chaine = strtolower($chaine);
+
+                        return $chaine;
+                    }
                     //Fonction pour upload l'image ainsi que le path
                     function upload($index, $destination, $maxsize = FALSE, $extensions = FALSE)
                     {
@@ -59,11 +78,12 @@ class InformationsController extends Controller
                     } else {
                         $path = "assets/img/news/default-news.png";
                     }
-                    $array = array('id' => 0, 'title' => htmlspecialchars($_POST['title']), 'content' => htmlspecialchars($_POST['content']),'image' => $path);
+                    $titleUrl = removeSpecialCarac($_POST['title']);
+                    $array = array('id' => 0, 'title' => htmlspecialchars($_POST['title']),'titleUrl' => $titleUrl, 'content' => htmlspecialchars($_POST['content']),'image' => $path);
                     $news = new News($array);
                     $this->_nm->create($news);
                     $_SESSION['message'] = "Actualité crée";
-                    //header('Location: /Informations/actualites');
+                    header('Location: /Informations/actualites');
                     exit;
                 } else {
                     $_SESSION['error'] = "Vous n'avez pas les droits";
@@ -98,6 +118,26 @@ class InformationsController extends Controller
         if (isset($_POST['title'], $_POST['content'])) {
             if ($_POST['title'] != "" && $_POST['content'] != "") {
                 $formerNews = $this->_nm->get((int)$_POST['id']);
+                function removeSpecialCarac($chaine,$charset='utf-8')
+                {
+                    $chaine = htmlentities($chaine, ENT_NOQUOTES, $charset);
+                    $caracteres = array(
+                        'À' => 'a', 'Á' => 'a', 'Â' => 'a', 'Ä' => 'a', 'à' => 'a', 'á' => 'a', 'â' => 'a', 'ä' => 'a', '@' => 'a',
+                        'È' => 'e', 'É' => 'e', 'Ê' => 'e', 'Ë' => 'e', 'è' => 'e', 'é' => 'e', 'ê' => 'e', 'ë' => 'e', '€' => 'e',
+                        'Ì' => 'i', 'Í' => 'i', 'Î' => 'i', 'Ï' => 'i', 'ì' => 'i', 'í' => 'i', 'î' => 'i', 'ï' => 'i',
+                        'Ò' => 'o', 'Ó' => 'o', 'Ô' => 'o', 'Ö' => 'o', 'ò' => 'o', 'ó' => 'o', 'ô' => 'o', 'ö' => 'o',
+                        'Ù' => 'u', 'Ú' => 'u', 'Û' => 'u', 'Ü' => 'u', 'ù' => 'u', 'ú' => 'u', 'û' => 'u', 'ü' => 'u', 'µ' => 'u',
+                        'Œ' => 'oe', 'œ' => 'oe',
+                        '$' => 's');
+
+                    $chaine = strtr($chaine, $caracteres);
+                    $chaine = preg_replace('#&([A-za-z])(?:acute|cedil|caron|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $chaine);
+                    $chaine = preg_replace('#[^A-Za-z0-9]+#', '-', $chaine);
+                    $chaine = trim($chaine, '-');
+                    $chaine = strtolower($chaine);
+
+                    return $chaine;
+                }
                 //Upload d'image
                 function upload($index, $destination, $maxsize = FALSE, $extensions = FALSE)
                 {
@@ -123,7 +163,8 @@ class InformationsController extends Controller
                 } else {
                     $path = $formerNews->getImage();
                 }
-                $array = array('id' => $_POST['id'],'title' => $_POST['title'],'content' => $_POST['content'],'image' => $path);
+                $titleUrl = removeSpecialCarac($_POST['title']);
+                $array = array('id' => $_POST['id'],'title' => $_POST['title'],'titleUrl' => $titleUrl,'content' => $_POST['content'],'image' => $path);
                 $news = new News($array);
                 $this->_nm->update($news);
                 $_SESSION['message'] = "Actualité modifiée";
@@ -165,7 +206,7 @@ class InformationsController extends Controller
     public function show()
     {
         if (isset($_GET['id'])) {
-            $name = htmlspecialchars(str_replace("_"," ",$_GET['id']));
+            $name = $_GET['id'];
             if($this->_nm->exists($name)){
                 $news = $this->_nm->get($name);
                 $_SESSION['description'] = html_entity_decode(substr($news->getContent(),0,140));

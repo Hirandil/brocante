@@ -78,7 +78,7 @@
     ?>
     <div class="property clearfix">
         <div class="image">
-            <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment()).'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>">
+            <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment()).'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
 
             <img width="570" height="425" src="/<?php echo $manifestation->getImage() ?>"
                  class="thumbnail-image " alt="19"/>
@@ -89,7 +89,7 @@
         <div class="wrapper">
             <div class="title">
                 <h2>
-                    <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment()).'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>">
+                    <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment()).'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
                         <?php echo $manifestation->getName() ?></a>
                 </h2>
                 <h3>
@@ -214,14 +214,14 @@
                     <p style="font-size:75%;">Je veux être alerté :</p>
                     <div class="control-group">
                         <div class="controls">
-                            <input type="checkbox" name="frequence" value="1">
+                            <input type="checkbox" name="veille" value="1">
 
                             <p style="font-size:75%;margin-left: 10%;">la veille</p>
 
-                            <input type="checkbox" name="frequence" value="7">
+                            <input type="checkbox" name="week" value="7">
                             <p style="font-size:75%;margin-left: 10%;">1 semaine à l'avance</p>
 
-                            <input type="checkbox" name="frequence" value="30">
+                            <input type="checkbox" name="month" value="30">
                             <p style="font-size:75%;margin-left: 10%;">1 mois à l'avance</p>
 
                         </div>
@@ -248,7 +248,7 @@
                     <?php
                     foreach ((array)$nearRegion as $nearRegion) {
                         ?>
-                        <p><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$nearRegion->getRegion()).'/'.str_replace(" ","_",$nearRegion->getDepartment()).'/'.str_replace(" ","_",$nearRegion->getCity()).'/'.str_replace(' ','_',$nearRegion->getName());?>">
+                        <p><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$nearRegion->getRegion()).'/'.str_replace(" ","-",$nearRegion->getDepartment()).'/'.str_replace(" ","-",$nearRegion->getCity()).'/'.str_replace(' ','-',$nearRegion->getNameUrl());?>">
                                 <img width="40" height="35" src="/<?php echo $nearRegion->getImage() ?>"
                                      class="thumbnail-image " alt="Image"/>
                                 <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></p>
@@ -272,7 +272,7 @@ foreach ((array)$manifByDate as $d)
     foreach ((array)$d as $manifestation)
     {
  ?>
-                ['<?php echo $manifestation->getName() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid() ?>','<?php echo $manifestation->getRegion() ?>','<?php echo $manifestation->getDepartment() ?>','<?php echo $manifestation->getCity() ?>'],
+                ['<?php echo $manifestation->getNameUrl() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid() ?>','<?php echo $manifestation->getRegion() ?>','<?php echo $manifestation->getDepartment() ?>','<?php echo $manifestation->getCity() ?>'],
                 <?php
     }
 }
@@ -310,7 +310,7 @@ foreach ((array)$manifByDate as $d)
                 for (i = 0; i < locations.length; i++) {
                     getAdress(locations[i][1],locations[i][0],locations[i][3],locations[i][4],locations[i][5],i,function(title,region,department,city,i,results){
                         var link = "/Manifestation/"+region+"/"+department+"/"+city+"/"+title;
-                        var link = link.replace(/ /g, "_");
+                        var link = link.replace(/ /g, "-");
                         map.setCenter(results[0].geometry.location);
                         marker = new google.maps.Marker({
                             position: results[0].geometry.location,

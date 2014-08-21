@@ -18,8 +18,8 @@
             ?>
             <div class="property clearfix">
                 <div class="image">
-                    <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment())
-                        .'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName());?>">
+                    <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$m->getRegion()).'/'.str_replace(" ","-",$m->getDepartment())
+                        .'/'.str_replace(" ","-",$m->getCity()).'/'.str_replace(' ','-',$m->getNameUrl());?>">
                         <img width="570" height="425" src=<?php echo $m->getImage(); ?>
                              class="thumbnail-image " alt="19"/>
                     </a>
@@ -28,8 +28,8 @@
 
                 <div class="wrapper">
                     <div class="title">
-                        <h3><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment())
-                                .'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName());?>">
+                        <h3><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$m->getRegion()).'/'.str_replace(" ","-",$m->getDepartment())
+                                .'/'.str_replace(" ","-",$m->getCity()).'/'.str_replace(' ','-',$m->getNameUrl());?>">
                                 <?php echo $m->getName(); ?>
                             </a></h3>
                     </div>
@@ -39,8 +39,8 @@
                     <!-- /.location -->
 
                     <div class="price">
-                        <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment())
-                            .'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName());?>">
+                        <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$m->getRegion()).'/'.str_replace(" ","-",$m->getDepartment())
+                            .'/'.str_replace(" ","-",$m->getCity()).'/'.str_replace(' ','-',$m->getNameUrl());?>">
                             Voir l'annonce
                         </a>
                     </div>
@@ -69,7 +69,7 @@
                 ?>
                 <div class="property clearfix">
                     <div class="image">
-                        <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment()).'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName()); ?>">
+                        <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$m->getRegion()).'/'.str_replace(" ","-",$m->getDepartment()).'/'.str_replace(" ","-",$m->getCity()).'/'.str_replace(' ','-',$m->getNameUrl()); ?>">
                             <img width="570" heix   ght="425" src=<?php echo $m->getImage(); ?>
                             class="thumbnail-image " alt="19"/>
                         </a>
@@ -78,8 +78,8 @@
 
                     <div class="wrapper">
                         <div class="title">
-                            <h3><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment())
-                                    .'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName());?>">
+                            <h3><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$m->getRegion()).'/'.str_replace(" ","-",$m->getDepartment())
+                                    .'/'.str_replace(" ","-",$m->getCity()).'/'.str_replace(' ','-',$m->getNameUrl());?>">
                                     <?php echo $m->getName(); ?>
                                 </a></h3>
                         </div>
@@ -89,8 +89,8 @@
                         <!-- /.location -->
 
                         <div class="price">
-                            <a href="<?php echo '/Manifestation/'.str_replace(" ","_",$m->getRegion()).'/'.str_replace(" ","_",$m->getDepartment())
-                                .'/'.str_replace(" ","_",$m->getCity()).'/'.str_replace(' ','_',$m->getName());?>">
+                            <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$m->getRegion()).'/'.str_replace(" ","-",$m->getDepartment())
+                                .'/'.str_replace(" ","-",$m->getCity()).'/'.str_replace(' ','-',$m->getNameUrl());?>">
                                 Voir l'annonce
                             </a>
                         </div>
@@ -129,7 +129,7 @@
                         </div>
                         <div class="wrapper">
                             <div class="title">
-                                <h3><a href="/Informations/show/<?php echo str_replace(' ','_',$n->getTitle()); ?>">
+                                <h3><a href="/Informations/show/<?php echo str_replace(' ','-',$n->getTitleUrl()); ?>">
                                         <?php echo $n->getTitle(); ?>
                                     </a></h3>
                             </div>
@@ -139,7 +139,7 @@
                             <!-- /.location -->
 
                             <div class="price pull-right">
-                                <a href="/Informations/show/<?php echo str_replace(' ','_',$n->getTitle()); ?>">
+                                <a href="/Informations/show/<?php echo str_replace(' ','-',$n->getTitleUrl()); ?>">
                                     Voir
                                 </a>
                             </div>

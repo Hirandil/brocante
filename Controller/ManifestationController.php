@@ -46,6 +46,26 @@ class ManifestationController extends Controller
 
                     $dateStart = date('Y-m-d H:i:s', strtotime($_POST['dateStart']));
                     $dateEnd = date('Y-m-d H:i:s', strtotime($_POST['dateEnd']));
+                    function removeSpecialCarac($chaine,$charset='utf-8')
+                    {
+                        $chaine = htmlentities($chaine, ENT_NOQUOTES, $charset);
+                        $caracteres = array(
+                            'À' => 'a', 'Á' => 'a', 'Â' => 'a', 'Ä' => 'a', 'à' => 'a', 'á' => 'a', 'â' => 'a', 'ä' => 'a', '@' => 'a',
+                            'È' => 'e', 'É' => 'e', 'Ê' => 'e', 'Ë' => 'e', 'è' => 'e', 'é' => 'e', 'ê' => 'e', 'ë' => 'e', '€' => 'e',
+                            'Ì' => 'i', 'Í' => 'i', 'Î' => 'i', 'Ï' => 'i', 'ì' => 'i', 'í' => 'i', 'î' => 'i', 'ï' => 'i',
+                            'Ò' => 'o', 'Ó' => 'o', 'Ô' => 'o', 'Ö' => 'o', 'ò' => 'o', 'ó' => 'o', 'ô' => 'o', 'ö' => 'o',
+                            'Ù' => 'u', 'Ú' => 'u', 'Û' => 'u', 'Ü' => 'u', 'ù' => 'u', 'ú' => 'u', 'û' => 'u', 'ü' => 'u', 'µ' => 'u',
+                            'Œ' => 'oe', 'œ' => 'oe',
+                            '$' => 's');
+
+                        $chaine = strtr($chaine, $caracteres);
+                        $chaine = preg_replace('#&([A-za-z])(?:acute|cedil|caron|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $chaine);
+                        $chaine = preg_replace('#[^A-Za-z0-9]+#', '-', $chaine);
+                        $chaine = trim($chaine, '-');
+                        $chaine = strtolower($chaine);
+
+                        return $chaine;
+                    }
                     //Fonction pour upload l'image ainsi que le path
                     function upload($index, $destination, $maxsize = FALSE, $extensions = FALSE)
                     {
@@ -99,8 +119,9 @@ class ManifestationController extends Controller
                         header('Location: /Manifestation/Annoncer-une-manifestation');
                         exit;
                     }
+                    $nameUrl = removeSpecialCarac(htmlentities($_POST['title']));
                     $schedule = "De " . $_POST['timeStart'] . " à " . $_POST['timeEnd'];
-                    $array = array('idManifestation' => 0, 'name' => $_POST['title'], 'city' => $_POST['city'],
+                    $array = array('idManifestation' => 0, 'name' => $_POST['title'],'nameUrl' => $nameUrl, 'city' => $_POST['city'],
                         'department' => $department, 'address' => $_POST['route'], 'region' => $region,
                         'start' => $dateStart, 'end' => $dateEnd, 'idOrganiser' => $_SESSION['userId'],
                         'type' => $_POST['type'], 'site' => $_POST['site'], 'price' => $_POST['price'],
@@ -159,14 +180,13 @@ class ManifestationController extends Controller
         if (isset($_POST['region'], $_POST['department'])) {
             $filtre = array();
             $manifestations = NULL;
-            print_r($_POST);
             if ($_POST['region'] != "null" && $_POST['department'] == "null"
                 && isset($_POST['type']) && ($_POST['type'] == "null" || $_POST['type'] == "------")
                 && isset($_POST['start']) && $_POST['start'] == null
                 && isset($_POST['end']) && $_POST['end'] == null
             ) {
                 $region = $this->_rm->get($_POST['region']);
-                header('Location: /Manifestation/region/' . str_replace(" ", "_", $region->getName()) . '/' . $region->getId());
+                header('Location: /Manifestation/region/' . str_replace(" ", "-", $region->getName()) . '/' . $region->getId());
             } else if ($_POST['department'] != "null" && $_POST['region'] == "null"
                 && isset($_POST['type']) && ($_POST['type'] == "null" || $_POST['type'] == "------")
                 && isset($_POST['start']) && $_POST['start'] == null
@@ -174,12 +194,12 @@ class ManifestationController extends Controller
             ) {
                 $department = $this->_dm->getByName(htmlentities($_POST['department']));
                 $region = $this->_rm->get((int)$department->getRegion());
-                header('Location: /Manifestation/' . str_replace(" ", "_", $region->getName()) . '/' . str_replace(" ", "_", $department->getName()) . '/' . $department->getZipCode());
-            } else if ($_POST['region'] != null && isset($_POST['city']) && $_POST['city'] == null)
+                header('Location: /Manifestation/' . str_replace(" ", "-", $region->getName()) . '/' . str_replace(" ", "-", $department->getName()) . '/' . $department->getZipCode());
+            } else if ($_POST['region'] != "null" && isset($_POST['city']) && $_POST['city'] == null)
             {
                 $department = $this->_dm->getByName(htmlentities($_POST['department']));
                 $region = $this->_rm->get((int)$department->getRegion());
-                header('Location: /Manifestation/' . str_replace(" ", "_", $region->getName()) . '/' . str_replace(" ", "_", $department->getName()) . '/' . $department->getZipCode());
+                header('Location: /Manifestation/' . str_replace(" ", "-", $region->getName()) . '/' . str_replace(" ", "-", $department->getName()) . '/' . $department->getZipCode());
             } else if ($_POST['city'] != null && $_POST['region'] == "null")
             {
                 if($this->_vm->exists(htmlentities($_POST['city']))){
@@ -223,7 +243,6 @@ class ManifestationController extends Controller
                     $filtre['where'][] = 'department=:department';
                     $filtre['PDOargument']['department'] = htmlspecialchars($_POST['department']);
                 }
-
                 if (!empty($filtre)) {
                     $manifestations = $this->_mm->search($filtre);
                     include('views/manifestations/results.php');
@@ -239,10 +258,10 @@ class ManifestationController extends Controller
             if (isset($_POST['department']) && $_POST['department'] != "null" && $_POST['types'] == "null" && $_POST['date'] == "null") {
                 $department = $this->_dm->getByName(htmlentities($_POST['department']));
                 $region = $this->_rm->get((int)$department->getRegion());
-                header('Location: /Manifestation/' . str_replace(" ", "_", $region->getName()) . '/' . str_replace(" ", "_", $department->getName()) . '/' . $department->getZipCode());
+                header('Location: /Manifestation/' . str_replace(" ", "-", $region->getName()) . '/' . str_replace(" ", "-", $department->getName()) . '/' . $department->getZipCode());
             } else if (isset($_POST['region']) && $_POST['region'] != "null" && $_POST['types'] == "null" && $_POST['date'] == "null") {
                 $region = $this->_rm->get($_POST['region']);
-                header('Location: /Manifestation/region/' . str_replace(" ", "_", $region->getName()) . '/' . $region->getId());
+                header('Location: /Manifestation/region/' . str_replace(" ", "-", $region->getName()) . '/' . $region->getId());
             } else {
                 if ($_POST['types'] != "null") {
                     $filtre['where'][] = 'type=:type';
@@ -368,7 +387,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             }
             $_SESSION['description'] = $department->getName().": consultez toutes les brocantes, vide-greniers et salons des collectionneurs pour le département ".$department->getName()." sur 123Brocante.com";
             $_SESSION['ariane'] = "Manifestations > Département > " . $department->getName();
-            $_SESSION['title'] = "Brocantes".$department->getName()." (".$department->getZipCode()."):  vide-greniers et salons de collectionneurs";
+            $_SESSION['title'] = "Brocantes ".$department->getName()." (".$department->getZipCode()."):  vide-greniers et salons de collectionneurs";
             include('views/department/show.php');
         } else {
             $_SESSION['error'] = "Ce département n'existe pas";
@@ -456,7 +475,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             $ville = $this->_vm->get($_GET['id']);
             $types = $this->_tm->getAll();
             $departments = $this->_dm->getAll();
-            $department = $this->_dm->get($_GET['id']);
+            $department = $this->_dm->get($_GET['dept']);
             $region = $this->_rm->get((int)$department->getRegion());
             $nearRegion = $this->_mm->getNearRegion($region->getName());
             $manifestations = $this->_mm->getByCity($_GET['id']);
@@ -496,7 +515,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             }
             $_SESSION['description'] = $_GET['id'].": consultez toutes les brocantes, vide-greniers et salons des collectionneurs pour ".$_GET['id']." sur 123Brocante.com";
             $_SESSION['ariane'] = "Manifestations > Region > " . $region->getName();
-            $_SESSION['title'] = "Brocantes ".$_GET['id']." (".$ville->getZipCode()."): vide-greniers et salons de collectionneurs";
+            $_SESSION['title'] = "Brocantes ".$_GET['id']." (".$ville->getDepartment()."): vide-greniers et salons de collectionneurs";
             include('views/city/show.php');
         } else {
             $_SESSION['error'] = "Cette ville n'existe pas";
@@ -510,7 +529,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
     {
 
         if (isset($_GET['name'])) {
-            $name = htmlspecialchars(str_replace("_", " ", $_GET['name']));
+            $name = $_GET['name'];
             if ($this->_mm->exists($name)) {
                 $manifestation = $this->_mm->get($name);
                 date_default_timezone_set('Europe/Paris');
@@ -548,6 +567,26 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             $dateEnd = date('Y-m-d H:i:s', strtotime($_POST['dateEnd']));
             $formerManifestation = $this->_mm->get((int)$_POST['idManif']);
             $schedule = "De " . $_POST['timeStart'] . " à " . $_POST['timeEnd'];
+            function removeSpecialCarac($chaine,$charset='utf-8')
+            {
+                $chaine = htmlentities($chaine, ENT_NOQUOTES, $charset);
+                $caracteres = array(
+                    'À' => 'a', 'Á' => 'a', 'Â' => 'a', 'Ä' => 'a', 'à' => 'a', 'á' => 'a', 'â' => 'a', 'ä' => 'a', '@' => 'a',
+                    'È' => 'e', 'É' => 'e', 'Ê' => 'e', 'Ë' => 'e', 'è' => 'e', 'é' => 'e', 'ê' => 'e', 'ë' => 'e', '€' => 'e',
+                    'Ì' => 'i', 'Í' => 'i', 'Î' => 'i', 'Ï' => 'i', 'ì' => 'i', 'í' => 'i', 'î' => 'i', 'ï' => 'i',
+                    'Ò' => 'o', 'Ó' => 'o', 'Ô' => 'o', 'Ö' => 'o', 'ò' => 'o', 'ó' => 'o', 'ô' => 'o', 'ö' => 'o',
+                    'Ù' => 'u', 'Ú' => 'u', 'Û' => 'u', 'Ü' => 'u', 'ù' => 'u', 'ú' => 'u', 'û' => 'u', 'ü' => 'u', 'µ' => 'u',
+                    'Œ' => 'oe', 'œ' => 'oe',
+                    '$' => 's');
+
+                $chaine = strtr($chaine, $caracteres);
+                $chaine = preg_replace('#&([A-za-z])(?:acute|cedil|caron|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $chaine);
+                $chaine = preg_replace('#[^A-Za-z0-9]+#', '-', $chaine);
+                $chaine = trim($chaine, '-');
+                $chaine = strtolower($chaine);
+
+                return $chaine;
+            }
             function upload($index, $destination, $maxsize = FALSE, $extensions = FALSE)
             {
                 if (!isset($_FILES[$index]) OR $_FILES[$index]['error'] > 0) return FALSE;
@@ -583,14 +622,14 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                 header('Location: /Manifestation/update/' . $formerManifestation->getId());
                 exit;
             }
-
-            $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'], 'city' => $_POST['city'], 'department' => $_POST['department'], 'address' => $_POST['route'], 'region' => $_POST['region'], 'contact' => $_POST['contact'], 'start' => $dateStart, 'end' => $dateEnd, 'idOrganiser' => $_SESSION['userId'], 'type' => $_POST['type'], 'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path, 'informations' => $_POST['content'], 'parking' => $parking);
+            $nameUrl = removeSpecialCarac($_POST['title']);
+            $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'],'nameUrl' => $nameUrl, 'city' => $_POST['city'], 'department' => $_POST['department'], 'address' => $_POST['route'], 'region' => $_POST['region'], 'contact' => $_POST['contact'], 'start' => $dateStart, 'end' => $dateEnd, 'idOrganiser' => $_SESSION['userId'], 'type' => $_POST['type'], 'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path, 'informations' => $_POST['content'], 'parking' => $parking);
             $manifestation = new Manifestation($array);
             $this->_mm->update($manifestation);
             if (!isset($_SESSION['error']))
                 $_SESSION['message'] = 'Manifestation mise à jour';
 
-            header('Location: /Manifestation/' . str_replace(" ", "_", $manifestation->getRegion()) . '/' . str_replace(" ", "_", $manifestation->getDepartment()) . '/' . str_replace(" ", "_", $manifestation->getCity()) . '/' . str_replace(' ', '_', $manifestation->getName()));
+            header('Location: /Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCity()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()));
             exit;
         } else {
             $departments = $this->_dm->getAll();
@@ -621,6 +660,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             header('Location: /');
         }
     }
+
 
 }
 

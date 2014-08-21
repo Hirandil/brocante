@@ -10,6 +10,7 @@
 
         private $_id;
         private $_title;
+        private $_titleUrl;
         private $_content;
         private $_createdAt;
         private $_image;
@@ -17,9 +18,26 @@
         public function __construct($data){
             $this->_id = $data['id'];
             $this->_title = $data['title'];
+            $this->_titleUrl = $data['titleUrl'];
             $this->_content = $data['content'];
             $this->_createdAt = $data['createdAt'];
             $this->_image = $data['image'];
+        }
+
+        /**
+         * @param mixed $titleUrl
+         */
+        public function setTitleUrl($titleUrl)
+        {
+            $this->_titleUrl = $titleUrl;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getTitleUrl()
+        {
+            return $this->_titleUrl;
         }
 
         /**

@@ -20,8 +20,9 @@ class manifestationManager
 
     public function create(Manifestation $m)
     {
-        $q = $this->_db->prepare('INSERT INTO Manifestations (name,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,idOrganiser,image,informations,parking,contact) VALUES(:name,:city,:dept,:region,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser,:image,:infos,:parking,:contact) ');
+        $q = $this->_db->prepare('INSERT INTO Manifestations (name,nameUrl,city,department,region,address,start,end,type ,schedule,site,price,exhibitorNumber,exhibitorPrice,idOrganiser,image,informations,parking,contact) VALUES(:name,:nameUrl,:city,:dept,:region,:add,:start,:end,:type,:schedule,:site,:price,:exNumb,:exPrice,:organiser,:image,:infos,:parking,:contact) ');
         $q->bindValue(':name', $m->getName(), PDO::PARAM_STR);
+        $q->bindValue(':nameUrl', $m->getNameUrl(), PDO::PARAM_STR);
         $q->bindValue(':city', $m->getCity(), PDO::PARAM_STR);
         $q->bindValue(':dept', $m->getDepartment(), PDO::PARAM_STR);
         $q->bindValue(':region', $m->getRegion(), PDO::PARAM_STR);
@@ -54,7 +55,7 @@ class manifestationManager
     {
         if (is_string($info)) {
 
-            $q = $this->_db->prepare('SELECT COUNT(*) FROM Manifestations WHERE name = :name');
+            $q = $this->_db->prepare('SELECT COUNT(*) FROM Manifestations WHERE name = :name OR nameUrl = :name');
             $q->bindValue(':name', $info, PDO::PARAM_STR);
             $q->execute();
             if(!$q->fetchColumn(0))
@@ -81,7 +82,7 @@ class manifestationManager
         $data = NULL ;
         if (is_string($info)) {
 
-            $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE name = :nameM');
+            $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE name = :nameM OR nameUrl = :nameM AND start > CURDATE()');
             $q->bindValue(':nameM', $info, PDO::PARAM_STR);
             $q->execute();
             $data = $q->fetch(PDO::FETCH_ASSOC);
@@ -103,7 +104,7 @@ class manifestationManager
     {
         $data = NULL ;
         if (is_string($info)) {
-            $q = $this->_db->prepare('DELETE FROM Manifestations WHERE name = :nameM');
+            $q = $this->_db->prepare('DELETE FROM Manifestations WHERE name = :nameM OR nameUrl = :nameM');
             $q->bindValue(':nameM', $info, PDO::PARAM_STR);
             $q->execute();
 
@@ -120,7 +121,7 @@ class manifestationManager
     {
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE city = :city AND idOrganiser in
-                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation DESC LIMIT 2');
+                                    (SELECT id from users WHERE professional = 1) AND start > CURDATE() ORDER BY idManifestation DESC LIMIT 2');
         $q->bindValue(':city',$city,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -133,7 +134,7 @@ class manifestationManager
     public function getByCity($city)
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE city = :city ORDER BY idManifestation');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE city = :city AND start > CURDATE() ORDER BY idManifestation');
         $q->bindValue(':city',$city,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -148,7 +149,7 @@ class manifestationManager
     {
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept AND idOrganiser in
-                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation DESC LIMIT 2');
+                                    (SELECT id from users WHERE professional = 1) AND start > CURDATE() ORDER BY idManifestation DESC LIMIT 2');
         $q->bindValue(':dept',$dept,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -161,7 +162,7 @@ class manifestationManager
     public function getByDepartment($dept)
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept ORDER BY idManifestation');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE department = :dept AND start > CURDATE() ORDER BY idManifestation');
         $q->bindValue(':dept',$dept,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -175,7 +176,7 @@ class manifestationManager
 
         $manifestations = NULL;
         $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE region = :region AND idOrganiser in
-                                    (SELECT id from users WHERE professional = 1) ORDER BY idManifestation DESC LIMIT 2');
+                                    (SELECT id from users WHERE professional = 1) AND start > CURDATE() ORDER BY idManifestation DESC LIMIT 2');
         $q->bindValue(':region',$region,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -188,7 +189,7 @@ class manifestationManager
     public function getByRegion($region)
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE region = :region ORDER BY idManifestation');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE region = :region AND start > CURDATE() ORDER BY idManifestation');
         $q->bindValue(':region',$region,PDO::PARAM_STR);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -200,9 +201,10 @@ class manifestationManager
 
     public function update(Manifestation $m)
     {
-        $q = $this->_db->prepare('UPDATE Manifestations SET name= :name ,city= :city,department = :dept,region = :region,address = :add,start = :start,end = :end ,type = :type,schedule = :schedule,site = :site,price = :price,exhibitorNumber = :exNumb,exhibitorPrice = :exPrice,idOrganiser = :organiser,image = :image, informations = :infos,parking = :parking,contact = :contact WHERE idManifestation = :id');
+        $q = $this->_db->prepare('UPDATE Manifestations SET name= :name ,nameUrl= :nameUrl,city= :city,department = :dept,region = :region,address = :add,start = :start,end = :end ,type = :type,schedule = :schedule,site = :site,price = :price,exhibitorNumber = :exNumb,exhibitorPrice = :exPrice,idOrganiser = :organiser,image = :image, informations = :infos,parking = :parking,contact = :contact WHERE idManifestation = :id');
         $q->bindValue(':id', $m->getId(), PDO::PARAM_INT);
         $q->bindValue(':name', $m->getName(), PDO::PARAM_STR);
+        $q->bindValue(':nameUrl', $m->getNameUrl(), PDO::PARAM_STR);
         $q->bindValue(':city', $m->getCity(), PDO::PARAM_STR);
         $q->bindValue(':dept', $m->getDepartment(), PDO::PARAM_STR);
         $q->bindValue(':region', $m->getRegion(), PDO::PARAM_STR);
@@ -245,7 +247,7 @@ class manifestationManager
     public function getAll()
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY idManifestation DESC');
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {
@@ -310,7 +312,7 @@ class manifestationManager
     public function getLast()
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY idManifestation DESC LIMIT 3');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY idManifestation AND start > CURDATE() DESC LIMIT 3');
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {
@@ -322,7 +324,7 @@ class manifestationManager
     public function getVisited()
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations ORDER BY visits DESC LIMIT 3');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE start > CURDATE() ORDER BY visits DESC LIMIT 3');
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
         {
@@ -346,7 +348,7 @@ class manifestationManager
     public function getNearRegion($region)
     {
         $manifestations = NULL;
-        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE region = :region ORDER BY idManifestation LIMIT 0,3');
+        $q = $this->_db->prepare('SELECT * FROM Manifestations WHERE region = :region AND start > CURDATE() ORDER BY idManifestation LIMIT 0,3');
         $q->bindValue(':region', $region, PDO::PARAM_INT);
         $q->execute();
         while($data = $q->fetch(PDO::FETCH_ASSOC))
@@ -372,7 +374,7 @@ class manifestationManager
     public function upVisits($info)
     {
         if (is_string($info)) {
-            $q = $this->_db->prepare('UPDATE Manifestations SET visits = visits + 1 WHERE name = :name');
+            $q = $this->_db->prepare('UPDATE Manifestations SET visits = visits + 1 WHERE name = :name OR nameUrl = :name');
             $q->bindValue(':name', $info, PDO::PARAM_STR);
             $q->execute();
         }
