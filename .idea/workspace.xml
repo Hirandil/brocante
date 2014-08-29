@@ -2,18 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="871cdad1-21c6-4249-acbf-a09d7093d49c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller/InformationsController.php" afterPath="$PROJECT_DIR$/Controller/InformationsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller/ManifestationController.php" afterPath="$PROJECT_DIR$/Controller/ManifestationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manifestations/add.php" afterPath="$PROJECT_DIR$/views/manifestations/add.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/footerView.php" afterPath="$PROJECT_DIR$/views/footerView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/headerView.php" afterPath="$PROJECT_DIR$/views/headerView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home.php" afterPath="$PROJECT_DIR$/views/home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/news/news.php" afterPath="$PROJECT_DIR$/views/news/news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/city/show.php" afterPath="$PROJECT_DIR$/views/city/show.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/department/show.php" afterPath="$PROJECT_DIR$/views/department/show.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manifestations/show.php" afterPath="$PROJECT_DIR$/views/manifestations/show.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/news/show.php" afterPath="$PROJECT_DIR$/views/news/show.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/region/show.php" afterPath="$PROJECT_DIR$/views/region/show.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="brocante.iws" />
@@ -37,11 +25,130 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Ville.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ManifestationController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controller/ManifestationController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="460" column="15" selection-start="23998" selection-end="23998" vertical-scroll-proportion="0.0" vertical-offset="8280" max-vertical-offset="12168">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="villeManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/villeManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1674">
+              <folding>
+                <marker date="1408017154619" expanded="true" signature="380:419" placeholder="SELECT * FRO..villes..." />
+                <marker date="1408017154619" expanded="true" signature="830:875" placeholder="SELECT * FRO..villes..." />
+                <marker date="1408017154619" expanded="true" signature="1176:1197" placeholder="SELECT * FRO..$villes..." />
+                <marker date="1408017154619" expanded="true" signature="1829:1872" placeholder="SELECT COUNT..villes..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ville.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/Ville.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="35" selection-start="1249" selection-end="1249" vertical-scroll-proportion="0.5858586" vertical-offset="702" max-vertical-offset="1320">
+            <state line="8" column="11" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="1674">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/manifestations/show.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="183" column="35" selection-start="6280" selection-end="6280" vertical-scroll-proportion="0.0" vertical-offset="3294" max-vertical-offset="6300">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/city/show.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="313" column="30" selection-start="13210" selection-end="13210" vertical-scroll-proportion="2.0" vertical-offset="5634" max-vertical-offset="6498">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/department/show.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="0" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.0" vertical-offset="1113" max-vertical-offset="6516">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footerView.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/footerView.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="91" column="113" selection-start="3813" selection-end="4037" vertical-scroll-proportion="0.0" vertical-offset="1313" max-vertical-offset="3528">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/region/show.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="316" column="25" selection-start="13134" selection-end="13134" vertical-scroll-proportion="0.0" vertical-offset="5688" max-vertical-offset="7092">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manifestationManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/manifestationManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="181" column="50" selection-start="6776" selection-end="6776" vertical-scroll-proportion="-19.25926" vertical-offset="2648" max-vertical-offset="7056">
+              <folding>
+                <marker date="1408641764353" expanded="true" signature="349:684" placeholder="INSERT INTO ..." />
+                <marker date="1408641764353" expanded="true" signature="2273:2346" placeholder="SELECT COUNT..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="2643:2706" placeholder="SELECT COUNT..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="3053:3143" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="3421:3477" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="3825:3891" placeholder="DELETE FROM ..." />
+                <marker date="1408641764353" expanded="true" signature="4077:4131" placeholder="DELETE FROM ..." />
+                <marker date="1408641764353" expanded="true" signature="4346:4498" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="4450:4493" placeholder="SELECT id fr..users..." />
+                <marker date="1408641764353" expanded="true" signature="4920:4992" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="5359:5517" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="5469:5512" placeholder="SELECT id fr..users..." />
+                <marker date="1408641764353" expanded="true" signature="5953:6053" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="6413:6569" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="6521:6564" placeholder="SELECT id fr..users..." />
+                <marker date="1408641764353" expanded="true" signature="7007:7105" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="7442:7831" placeholder="UPDATE Manif..." />
+                <marker date="1408641764353" expanded="true" signature="9881:9939" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="10660:10736" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="11229:11270" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="11229:11305" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="11796:11872" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="12343:12431" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="12731:12812" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="13118:13275" placeholder="SELECT v.id,..villes..." />
+                <marker date="1408641764353" expanded="true" signature="13205:13260" placeholder="SELECT COUNT..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="13616:13724" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="14102:14154" placeholder="SELECT * FRO..Manifestations..." />
+                <marker date="1408641764353" expanded="true" signature="14516:14599" placeholder="UPDATE Manif..." />
+                <marker date="1408641764353" expanded="true" signature="14783:14856" placeholder="UPDATE Manif..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/home.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="171" column="103" selection-start="7522" selection-end="7522" vertical-scroll-proportion="0.3325062" vertical-offset="2872" max-vertical-offset="4896">
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,65 +166,54 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/views/createManif.php" />
-        <option value="$PROJECT_DIR$/views/manifestations/search.html" />
-        <option value="$PROJECT_DIR$/views/message.php" />
-        <option value="$PROJECT_DIR$/erreur404.php" />
-        <option value="$PROJECT_DIR$/views/manifestations/search.php" />
-        <option value="$PROJECT_DIR$/Controller/NewsController.php" />
         <option value="$PROJECT_DIR$/global.php" />
-        <option value="$PROJECT_DIR$/region.php" />
-        <option value="$PROJECT_DIR$/assets/js/jquery.vmap.france.js" />
-        <option value="$PROJECT_DIR$/views/redefine.php" />
-        <option value="$PROJECT_DIR$/Controller/DepartmentController.php" />
-        <option value="$PROJECT_DIR$/models/Ville.php" />
+        <option value="$PROJECT_DIR$/models/userManager.php" />
+        <option value="$PROJECT_DIR$/views/createManif.php" />
+        <option value="$PROJECT_DIR$/models/Type.php" />
+        <option value="$PROJECT_DIR$/views/manifestations/search.html" />
+        <option value="$PROJECT_DIR$/models/typeManager.php" />
+        <option value="$PROJECT_DIR$/Controller/Controller.php" />
+        <option value="$PROJECT_DIR$/views/manifestations/results.php" />
+        <option value="$PROJECT_DIR$/models/Manifestation.php" />
+        <option value="$PROJECT_DIR$/views/message.php" />
+        <option value="$PROJECT_DIR$/views/manifestations/mine.php" />
         <option value="$PROJECT_DIR$/models/Department.php" />
         <option value="$PROJECT_DIR$/models/Region.php" />
-        <option value="$PROJECT_DIR$/models/Type.php" />
         <option value="$PROJECT_DIR$/models/regionManager.php" />
-        <option value="$PROJECT_DIR$/models/typeManager.php" />
-        <option value="$PROJECT_DIR$/assets/css/properta.css" />
-        <option value="$PROJECT_DIR$/views/update.php" />
-        <option value="$PROJECT_DIR$/views/login.html" />
-        <option value="$PROJECT_DIR$/models/userManager.php" />
-        <option value="$PROJECT_DIR$/models/User.php" />
-        <option value="$PROJECT_DIR$/models/UserController.php" />
         <option value="$PROJECT_DIR$/models/departmentManager.php" />
+        <option value="$PROJECT_DIR$/models/Ville.php" />
+        <option value="$PROJECT_DIR$/autocomplete.php" />
+        <option value="$PROJECT_DIR$/Controller/VilleController.php" />
         <option value="$PROJECT_DIR$/models/villeManager.php" />
-        <option value="$PROJECT_DIR$/views/news/show.php" />
-        <option value="$PROJECT_DIR$/Controller/Controller.php" />
-        <option value="$PROJECT_DIR$/models/Manifestation.php" />
-        <option value="$PROJECT_DIR$/views/manifestations/add.php" />
-        <option value="$PROJECT_DIR$/views/manifestations/mine.php" />
-        <option value="$PROJECT_DIR$/views/manifestations/results.php" />
-        <option value="$PROJECT_DIR$/views/news/news.php" />
-        <option value="$PROJECT_DIR$/views/news/add.php" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/models/News.php" />
-        <option value="$PROJECT_DIR$/models/newsManager.php" />
-        <option value="$PROJECT_DIR$/views/manifestations/show.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/views/home.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/models/manifestationManager.php" />
-        <option value="$PROJECT_DIR$/views/region/show.php" />
-        <option value="$PROJECT_DIR$/views/department/show.php" />
-        <option value="$PROJECT_DIR$/views/city/show.php" />
-        <option value="$PROJECT_DIR$/Controller/InformationsController.php" />
-        <option value="$PROJECT_DIR$/views/headerView.php" />
+        <option value="$PROJECT_DIR$/views/login.html" />
+        <option value="$PROJECT_DIR$/views/manifestations/search.php" />
+        <option value="$PROJECT_DIR$/views/update.php" />
         <option value="$PROJECT_DIR$/views/footerView.php" />
+        <option value="$PROJECT_DIR$/Controller/UserController.php" />
+        <option value="$PROJECT_DIR$/views/pricing.php" />
+        <option value="$USER_HOME$/Dump20140729.sql" />
+        <option value="$PROJECT_DIR$/views/headerView.php" />
+        <option value="$PROJECT_DIR$/Controller/InformationsController.php" />
+        <option value="$PROJECT_DIR$/views/manifestations/add.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/views/manifestations/show.php" />
+        <option value="$PROJECT_DIR$/assets/css/properta.css" />
+        <option value="$PROJECT_DIR$/views/region/show.php" />
+        <option value="$PROJECT_DIR$/views/city/show.php" />
+        <option value="$PROJECT_DIR$/views/department/show.php" />
         <option value="$PROJECT_DIR$/Controller/ManifestationController.php" />
-        <option value="$PROJECT_DIR$/views/admin/manifestations.php" />
+        <option value="$PROJECT_DIR$/models/manifestationManager.php" />
+        <option value="$PROJECT_DIR$/views/home.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-4" />
-    <option name="width" value="1303" />
-    <option name="height" value="773" />
+    <option name="x" value="-1" />
+    <option name="y" value="27" />
+    <option name="width" value="1368" />
+    <option name="height" value="742" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -174,7 +270,139 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="region" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifestations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="department" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="city" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brocante" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -185,13 +413,626 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="SearchEverywhereHistory" value="titleH1&#10;echo&#10;aw6&#10;zipCode" />
+    <property name="SearchEverywhereHistory" value="" />
     <property name="dynamic.classpath" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="recentsLimit" value="5" />
-    <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
   </component>
-  <component name="RunManager">
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/autocomplete.php" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/autocomplete.php" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/autocomplete.php" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/index.php" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/index.php" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/index.php" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/Controller/VilleController.php" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/Controller" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/Controller/VilleControler.php" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/brocante/Controller/VilleControler.php" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/VilleControler.php" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/index.php" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="section" />
+                <option name="value" value="Ville" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="action" />
+                <option name="value" value="autocomplete" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RestoreUpdateTree">
+    <UpdateInfo date="Moments ago" ActionInfo="_Update">
+      <UpdatedFiles>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated from server" />
+          <option name="myStatusName" value="Changed on server" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CHANGED_ON_SERVER" />
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Updated" />
+            <option name="myStatusName" value="Changed" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="UPDATED" />
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/Controller/InformationsController.php</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/Controller/ManifestationController.php</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/views/city/show.php</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/views/department/show.php</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/views/footerView.php</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/views/headerView.php</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/views/home.php</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/views/manifestations/add.php</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/views/manifestations/show.php</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/views/news/news.php</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/views/news/show.php</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/views/region/show.php</PATH>
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Created" />
+            <option name="myStatusName" value="Created" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="CREATED" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Deleted" />
+            <option name="myStatusName" value="Deleted" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="true" />
+            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Restored" />
+            <option name="myStatusName" value="Will be restored" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="RESTORED" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Modified" />
+          <option name="myStatusName" value="Modified" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MODIFIED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Skipped" />
+          <option name="myStatusName" value="Skipped" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SKIPPED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with conflicts" />
+          <option name="myStatusName" value="Will be merged with conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_CONFLICTS" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with tree conflicts" />
+          <option name="myStatusName" value="Merged with tree conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with property conflicts" />
+          <option name="myStatusName" value="Will be merged with property conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged" />
+          <option name="myStatusName" value="Will be merged" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Not in repository" />
+          <option name="myStatusName" value="Not in repository" />
+          <option name="mySupportsDeletion" value="true" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UNKNOWN" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally added" />
+          <option name="myStatusName" value="Locally added" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_ADDED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally removed" />
+          <option name="myStatusName" value="Locally removed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_REMOVED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Switched" />
+          <option name="myStatusName" value="Switched" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SWITCHED" />
+        </FILE-GROUP>
+      </UpdatedFiles>
+    </UpdateInfo>
+  </component>
+  <component name="RunManager" selected="PHP Script.footerView.php">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
       <method />
@@ -203,6 +1044,12 @@
       <method />
     </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="false" name="footerView.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/footerView.php">
@@ -306,140 +1153,177 @@
       <created>1405669038433</created>
       <updated>1405669038433</updated>
     </task>
-    <task id="LOCAL-00018" summary="[UPDATE] plein de modif + upload + dept/region. Base à changer">
-      <created>1405923250200</created>
-      <updated>1405923250200</updated>
+    <task id="LOCAL-00018" summary="[UPDATE] List Search">
+      <created>1406025653447</created>
+      <updated>1406025653447</updated>
     </task>
-    <task id="LOCAL-00019" summary="[UPDATE] Tableau key value pour dept/region avec date">
-      <created>1405953921004</created>
-      <updated>1405953921004</updated>
+    <task id="LOCAL-00019" summary="[UPDATE] List Search">
+      <created>1406106049269</created>
+      <updated>1406106049269</updated>
     </task>
-    <task id="LOCAL-00020" summary="[UPDATE] li sur home + models news">
-      <created>1406018765259</created>
-      <updated>1406018765259</updated>
+    <task id="LOCAL-00020" summary="[UPDATE] CSS">
+      <created>1406193980280</created>
+      <updated>1406193980280</updated>
     </task>
-    <task id="LOCAL-00021" summary="[UPDATE] Model news">
-      <created>1406033440174</created>
-      <updated>1406033440174</updated>
+    <task id="LOCAL-00021" summary="[UPDATE] Url rewriting">
+      <created>1406198031260</created>
+      <updated>1406198031260</updated>
     </task>
-    <task id="LOCAL-00022" summary="[UPDATE] Tableau key value pour dept/region avec date">
-      <created>1406188734502</created>
-      <updated>1406188734502</updated>
+    <task id="LOCAL-00022" summary="[UPDATE] AutoComplete">
+      <created>1406233923317</created>
+      <updated>1406233923317</updated>
     </task>
-    <task id="LOCAL-00023" summary="[UPDATE] kaka">
-      <created>1406191986733</created>
-      <updated>1406191986733</updated>
+    <task id="LOCAL-00023" summary="[UPDATE] Bug et selection dans search">
+      <created>1406564848495</created>
+      <updated>1406564848495</updated>
     </task>
-    <task id="LOCAL-00024" summary="[UPDATE] htaccess">
-      <created>1406192226949</created>
-      <updated>1406192226949</updated>
+    <task id="LOCAL-00024" summary="[UPDATE] Bug et selection dans search">
+      <created>1406669611856</created>
+      <updated>1406669611856</updated>
     </task>
-    <task id="LOCAL-00025" summary="[UPDATE] htaccess">
-      <created>1406193876840</created>
-      <updated>1406193876840</updated>
+    <task id="LOCAL-00025" summary="[UPDATE] Region / Departement Show. Autocomplete bug">
+      <created>1406749291948</created>
+      <updated>1406749291948</updated>
     </task>
-    <task id="LOCAL-00026" summary="[UPDATE] Lots of modifications">
-      <created>1406209856700</created>
-      <updated>1406209856700</updated>
+    <task id="LOCAL-00026" summary="[UPDATE] Region / Departement Show. Autocomplete bug">
+      <created>1406754813729</created>
+      <updated>1406754813729</updated>
     </task>
-    <task id="LOCAL-00027" summary="[UPDATE] Lots of modifications">
-      <created>1406216673676</created>
-      <updated>1406216673676</updated>
+    <task id="LOCAL-00027" summary="[UPDATE] Region / Departement Show. Autocomplete bug">
+      <created>1406806430618</created>
+      <updated>1406806430618</updated>
     </task>
-    <task id="LOCAL-00028" summary="[UPDATE] Modif on manif comment visits parking + town on the server">
-      <created>1406498209751</created>
-      <updated>1406498209751</updated>
+    <task id="LOCAL-00028" summary="[UPDATE] Region / Departement Show.">
+      <created>1406825363004</created>
+      <updated>1406825363004</updated>
     </task>
-    <task id="LOCAL-00029" summary="[UPDATE] Redef mot de passe + autre truc">
-      <created>1406572709453</created>
-      <updated>1406572709453</updated>
+    <task id="LOCAL-00029" summary="[UPDATE] Region / Departement Show.">
+      <created>1406836290809</created>
+      <updated>1406836290809</updated>
     </task>
-    <task id="LOCAL-00030" summary="[UPDATE] Redef mot de passe + autre truc + BIG BIG merge">
-      <created>1406812887900</created>
-      <updated>1406812887900</updated>
+    <task id="LOCAL-00030" summary="[UPDATE] Logger">
+      <created>1406841479726</created>
+      <updated>1406841479726</updated>
     </task>
-    <task id="LOCAL-00031" summary="[UPDATE] Url rewriting working">
-      <created>1406813906847</created>
-      <updated>1406813906847</updated>
+    <task id="LOCAL-00031" summary="[UPDATE] Logger">
+      <created>1406904261920</created>
+      <updated>1406904261920</updated>
     </task>
-    <task id="LOCAL-00032" summary="[UPDATE] newsletter (sans cron) + modifs partout">
-      <created>1406885414065</created>
-      <updated>1406885414065</updated>
+    <task id="LOCAL-00032" summary="[UPDATE] Paypal">
+      <created>1406919715254</created>
+      <updated>1406919715254</updated>
     </task>
-    <task id="LOCAL-00033" summary="[UPDATE] metta description">
-      <created>1406888393972</created>
-      <updated>1406888393972</updated>
+    <task id="LOCAL-00033" summary="[ADD] Text map">
+      <created>1407346864051</created>
+      <updated>1407346864051</updated>
     </task>
-    <task id="LOCAL-00034" summary="[UPDATE] Plein de rectif + back end admin">
-      <created>1407247891872</created>
-      <updated>1407247891872</updated>
+    <task id="LOCAL-00034" summary="[EDIT] Informations link">
+      <created>1407357063298</created>
+      <updated>1407357063298</updated>
     </task>
-    <task id="LOCAL-00035" summary="[ADD] confirmation inscription">
-      <created>1407289416124</created>
-      <updated>1407289416124</updated>
+    <task id="LOCAL-00035" summary="[FIX] Date firefox">
+      <created>1407361351625</created>
+      <updated>1407361351625</updated>
     </task>
-    <task id="LOCAL-00036" summary="Update du serv">
-      <created>1407441283093</created>
-      <updated>1407441283093</updated>
+    <task id="LOCAL-00036" summary="[EDIT] Text map">
+      <created>1407425892713</created>
+      <updated>1407425892713</updated>
     </task>
-    <task id="LOCAL-00037" summary="Redirect + city + others">
-      <created>1408017086795</created>
-      <updated>1408017086795</updated>
+    <task id="LOCAL-00037" summary="[EDIT] Titre et DatePicker">
+      <created>1407440822421</created>
+      <updated>1407440822421</updated>
     </task>
-    <task id="LOCAL-00038" summary="Plenty of things">
-      <created>1408109446288</created>
-      <updated>1408109446288</updated>
+    <task id="LOCAL-00038" summary="[Add] Calendrier Ville">
+      <created>1408027592074</created>
+      <updated>1408027592074</updated>
     </task>
-    <task id="LOCAL-00039" summary="Plenty of things">
-      <created>1408639769352</created>
-      <updated>1408639769352</updated>
+    <task id="LOCAL-00039" summary="[Add] Calendrier Region et Dept">
+      <created>1408038969623</created>
+      <updated>1408038969623</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="[Add] Calendrier Region et Dept">
+      <created>1408071485490</created>
+      <updated>1408071485490</updated>
+    </task>
+    <task id="LOCAL-00041" summary="[Add] Date FR">
+      <created>1408108210012</created>
+      <updated>1408108210012</updated>
+    </task>
+    <task id="LOCAL-00042" summary="[Add] Calendar">
+      <created>1408109166754</created>
+      <updated>1408109166754</updated>
+    </task>
+    <task id="LOCAL-00043" summary="[Add] Checkbox">
+      <created>1408109946722</created>
+      <updated>1408109946722</updated>
+    </task>
+    <task id="LOCAL-00044" summary="[Add] Pull left">
+      <created>1408111600118</created>
+      <updated>1408111600118</updated>
+    </task>
+    <task id="LOCAL-00045" summary="[Add] Pull left">
+      <created>1408164299247</created>
+      <updated>1408164299247</updated>
+    </task>
+    <task id="LOCAL-00046" summary="[Add] 30 prochain jours">
+      <created>1408455978997</created>
+      <updated>1408455978997</updated>
+    </task>
+    <task id="LOCAL-00047" summary="[FIX] 30 prochain jours">
+      <created>1408641797859</created>
+      <updated>1408641797859</updated>
+    </task>
+    <task id="LOCAL-00048" summary="[FIX] W3C">
+      <created>1409334865148</created>
+      <updated>1409334865148</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
+    <frame x="-1" y="27" width="1368" height="742" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31635803" sideWeight="0.49961567" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18672839" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31743667" sideWeight="0.49961567" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11624441" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32974634" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30517927" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24816984" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31635803" sideWeight="0.50038433" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31743667" sideWeight="0.50038433" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14896989" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33280507" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31635803" sideWeight="0.49961567" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31743667" sideWeight="0.49961567" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18672839" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11624441" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32974634" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31635803" sideWeight="0.50038433" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31743667" sideWeight="0.50038433" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2959262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24980783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -457,379 +1341,349 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="[ADD]manifestationManager + Merge" />
-    <MESSAGE value="[ADD] Search manif" />
-    <MESSAGE value="[ADD] Vue search" />
-    <MESSAGE value="[UPDATE] INdex" />
-    <MESSAGE value="[UPDATE] Add search + db" />
     <MESSAGE value="[UPDATE] results" />
     <MESSAGE value="[UPDATE] debut d'upload" />
-    <MESSAGE value="[UPDATE] plein de modif + upload + dept/region. Base à changer" />
-    <MESSAGE value="[UPDATE] li sur home + models news" />
-    <MESSAGE value="[UPDATE] Model news" />
-    <MESSAGE value="[UPDATE] Tableau key value pour dept/region avec date" />
-    <MESSAGE value="[UPDATE] kaka" />
-    <MESSAGE value="[UPDATE] htaccess" />
-    <MESSAGE value="[UPDATE] Lots of modifications" />
-    <MESSAGE value="[UPDATE] Modif on manif comment visits parking + town on the server" />
-    <MESSAGE value="[UPDATE] Redef mot de passe + autre truc" />
-    <MESSAGE value="[UPDATE] Redef mot de passe + autre truc + BIG BIG merge" />
-    <MESSAGE value="[UPDATE] Url rewriting working" />
-    <MESSAGE value="[UPDATE] newsletter (sans cron) + modifs partout" />
-    <MESSAGE value="[UPDATE] metta description" />
-    <MESSAGE value="[UPDATE] Plein de rectif + back end admin" />
-    <MESSAGE value="[ADD] confirmation inscription" />
-    <MESSAGE value="Update du serv" />
-    <MESSAGE value="Redirect + city + others" />
-    <MESSAGE value="Plenty of things" />
-    <option name="LAST_COMMIT_MESSAGE" value="Plenty of things" />
+    <MESSAGE value="[UPDATE] List Search" />
+    <MESSAGE value="[UPDATE] CSS" />
+    <MESSAGE value="[UPDATE] Url rewriting" />
+    <MESSAGE value="[UPDATE] AutoComplete" />
+    <MESSAGE value="[UPDATE] Bug et selection dans search" />
+    <MESSAGE value="[UPDATE] Region / Departement Show. Autocomplete bug" />
+    <MESSAGE value="[UPDATE] Region / Departement Show." />
+    <MESSAGE value="[UPDATE] Logger" />
+    <MESSAGE value="[UPDATE] Paypal" />
+    <MESSAGE value="[ADD] Text map" />
+    <MESSAGE value="[EDIT] Informations link" />
+    <MESSAGE value="[FIX] Date firefox" />
+    <MESSAGE value="[EDIT] Text map" />
+    <MESSAGE value="[EDIT] Titre et DatePicker" />
+    <MESSAGE value="[Add] Calendrier Ville" />
+    <MESSAGE value="[Add] Calendrier Region et Dept" />
+    <MESSAGE value="[Add] Date FR" />
+    <MESSAGE value="[Add] Calendar" />
+    <MESSAGE value="[Add] Checkbox" />
+    <MESSAGE value="[Add] Pull left" />
+    <MESSAGE value="[Add] 30 prochain jours" />
+    <MESSAGE value="[FIX] 30 prochain jours" />
+    <MESSAGE value="[FIX] W3C" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FIX] W3C" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Controller/ManifestationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4170">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/city/show.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5250">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2535">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/ManifestationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4170">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/city/show.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/ManifestationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/global.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/properta.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Manifestation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state line="250" column="99" selection-start="11545" selection-end="11545" vertical-scroll-proportion="0.0" vertical-offset="3750" max-vertical-offset="12570" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/pricing.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/News.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/newsManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/manifestationManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="350" column="106" selection-start="13544" selection-end="13544" vertical-scroll-proportion="5.1666665" vertical-offset="5299" max-vertical-offset="5880">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/region/show.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="343" column="47" selection-start="14607" selection-end="14614" vertical-scroll-proportion="0.33333334" vertical-offset="4960" max-vertical-offset="5760" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="25" selection-start="636" selection-end="665" vertical-scroll-proportion="0.1983471" vertical-offset="0" max-vertical-offset="605">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="44" selection-start="700" selection-end="703" vertical-scroll-proportion="0.4054054" vertical-offset="105" max-vertical-offset="660">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/DepartmentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="618">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/InformationsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="23" selection-start="9684" selection-end="9687" vertical-scroll-proportion="0.3783784" vertical-offset="2895" max-vertical-offset="3450">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/ManifestationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="196" column="182" selection-start="10646" selection-end="10658" vertical-scroll-proportion="0.33333334" vertical-offset="2755" max-vertical-offset="10140">
-          <folding />
-        </state>
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="41595" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-9.086487" vertical-offset="5043" max-vertical-offset="5730">
-          <folding />
-        </state>
+        <state line="33" column="13" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1545" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/VilleController.php">
+    <entry file="file://$PROJECT_DIR$/models/userManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="618">
-          <folding />
-        </state>
+        <state line="58" column="52" selection-start="1758" selection-end="1758" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="1485" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/manifestations.php">
+    <entry file="file://$PROJECT_DIR$/global.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0072072074" vertical-offset="4" max-vertical-offset="585">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="165" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/users.php">
+    <entry file="file://$PROJECT_DIR$/Controller/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-          <folding>
-            <marker date="1409257397167" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1409257397167" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1409257397167" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="15" column="13" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="420" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/city/show.php">
+    <entry file="file://$PROJECT_DIR$/views/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="98" selection-start="3412" selection-end="3424" vertical-scroll-proportion="0.33333334" vertical-offset="790" max-vertical-offset="5460">
-          <folding />
-        </state>
+        <state line="250" column="99" selection-start="11545" selection-end="11545" vertical-scroll-proportion="0.0" vertical-offset="3650" max-vertical-offset="12570" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/department/show.php">
+    <entry file="file://$PROJECT_DIR$/models/userManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="96" selection-start="3315" selection-end="3327" vertical-scroll-proportion="0.33333334" vertical-offset="760" max-vertical-offset="5430">
-          <folding />
-        </state>
+        <state line="53" column="35" selection-start="1525" selection-end="1525" vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="1650" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/manifestations/add.php">
+    <entry file="file://$PROJECT_DIR$/models/Type.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="312" column="74" selection-start="10409" selection-end="10421" vertical-scroll-proportion="0.33333334" vertical-offset="4420" max-vertical-offset="6405">
-          <folding />
-        </state>
+        <state line="14" column="34" selection-start="246" selection-end="246" vertical-scroll-proportion="-1.875" vertical-offset="90" max-vertical-offset="810" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/manifestations/mine.php">
+    <entry file="file://$PROJECT_DIR$/models/typeManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.046846848" vertical-offset="26" max-vertical-offset="1455">
-          <folding />
-        </state>
+        <state line="56" column="36" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="1155" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/properta.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3045" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/jquery.vmap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-5.9665604" vertical-offset="3747" max-vertical-offset="15720" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/jquery.vmap.france.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6195" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="50" selection-start="579" selection-end="579" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="525" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/img/tick.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/jqvmap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/manifestations/results.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.046846848" vertical-offset="26" max-vertical-offset="1275">
-          <folding>
-            <marker date="1409257428231" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="23" column="14" selection-start="496" selection-end="582" vertical-scroll-proportion="3.125" vertical-offset="345" max-vertical-offset="1245" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/manifestations/mine.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="58" selection-start="826" selection-end="826" vertical-scroll-proportion="-9.291667" vertical-offset="392" max-vertical-offset="1425" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/regionManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="9" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.0" vertical-offset="573" max-vertical-offset="1386" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Department.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="595" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2250" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/departmentManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="1363" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1116" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="62" selection-start="6597" selection-end="6597" vertical-scroll-proportion="4.418511" vertical-offset="0" max-vertical-offset="3348" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/global.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="198" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/manifestations/search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.046846848" vertical-offset="26" max-vertical-offset="2460">
+        <state line="42" column="0" selection-start="1209" selection-end="1474" vertical-scroll-proportion="-6.0" vertical-offset="594" max-vertical-offset="2952" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Region.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="34" selection-start="241" selection-end="241" vertical-scroll-proportion="-0.47513813" vertical-offset="474" max-vertical-offset="1044" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="62" selection-start="273" selection-end="273" vertical-scroll-proportion="0.12631579" vertical-offset="0" max-vertical-offset="570" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/autocomplete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="207" selection-end="474" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="648" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/VilleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="8" selection-start="661" selection-end="691" vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="666" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="118" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2700" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="0" selection-start="1831" selection-end="1831" vertical-scroll-proportion="0.0" vertical-offset="1077" max-vertical-offset="3024" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/DepartmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/validationPayment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pricing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="0" selection-start="2002" selection-end="3016" vertical-scroll-proportion="0.2868526" vertical-offset="1044" max-vertical-offset="1998" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Dump20140729.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="254" column="17" selection-start="1030983" selection-end="1315257" vertical-scroll-proportion="0.5846154" vertical-offset="4230" max-vertical-offset="4932" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="6552" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/headerView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="30" selection-start="2293" selection-end="2293" vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="2394" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/InformationsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="5" selection-start="576" selection-end="576" vertical-scroll-proportion="0.0" vertical-offset="424" max-vertical-offset="2448" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="69" selection-start="3567" selection-end="3567" vertical-scroll-proportion="-9.555555" vertical-offset="1506" max-vertical-offset="3024" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/manifestations/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="383" column="68" selection-start="12815" selection-end="12816" vertical-scroll-proportion="0.33199194" vertical-offset="6639" max-vertical-offset="8028" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Manifestation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0" vertical-offset="327" max-vertical-offset="6624" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/properta.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="17" selection-start="98224" selection-end="98224" vertical-scroll-proportion="0.0" vertical-offset="7" max-vertical-offset="702" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/footerView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="113" selection-start="3813" selection-end="4037" vertical-scroll-proportion="0.0" vertical-offset="1313" max-vertical-offset="3528">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/manifestations/show.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.046846848" vertical-offset="26" max-vertical-offset="5250">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/news/add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.046846848" vertical-offset="26" max-vertical-offset="1170">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/news/news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.046846848" vertical-offset="26" max-vertical-offset="1200">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/news/show.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.046846848" vertical-offset="26" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/footerView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="48" selection-start="2877" selection-end="2877" vertical-scroll-proportion="0.28648648" vertical-offset="921" max-vertical-offset="2940">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/headerView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="56" selection-start="325" selection-end="325" vertical-scroll-proportion="-0.046846848" vertical-offset="161" max-vertical-offset="1995">
-          <folding>
-            <marker date="1409266090451" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="210" selection-start="7722" selection-end="7734" vertical-scroll-proportion="0.33333334" vertical-offset="2335" max-vertical-offset="4080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/redefine.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.045774646" vertical-offset="26" max-vertical-offset="1800">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.046846848" vertical-offset="26" max-vertical-offset="2100">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/updateuser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.046846848" vertical-offset="26" max-vertical-offset="2100">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/autocomplete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="618">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="53" selection-start="3106" selection-end="3106" vertical-scroll-proportion="0.65225226" vertical-offset="1003" max-vertical-offset="2535">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/region.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="618">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/villeManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="22" selection-start="268" selection-end="270" vertical-scroll-proportion="0.37878788" vertical-offset="0" max-vertical-offset="1320">
+        <state line="183" column="35" selection-start="6280" selection-end="6280" vertical-scroll-proportion="0.0" vertical-offset="3294" max-vertical-offset="6300">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Ville.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="35" selection-start="1249" selection-end="1249" vertical-scroll-proportion="0.5858586" vertical-offset="702" max-vertical-offset="1320">
+        <state line="8" column="11" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="1674">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/villeManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1584">
+          <folding>
+            <marker date="1408017154619" expanded="true" signature="380:419" placeholder="SELECT * FRO..villes..." />
+            <marker date="1408017154619" expanded="true" signature="830:875" placeholder="SELECT * FRO..villes..." />
+            <marker date="1408017154619" expanded="true" signature="1176:1197" placeholder="SELECT * FRO..$villes..." />
+            <marker date="1408017154619" expanded="true" signature="1829:1872" placeholder="SELECT COUNT..villes..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/region/show.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="316" column="25" selection-start="13134" selection-end="13134" vertical-scroll-proportion="0.0" vertical-offset="5688" max-vertical-offset="7092">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/department/show.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="0" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.0" vertical-offset="1113" max-vertical-offset="6516">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/ManifestationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="460" column="15" selection-start="23998" selection-end="23998" vertical-scroll-proportion="0.0" vertical-offset="8280" max-vertical-offset="12168">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/manifestationManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="181" column="50" selection-start="6776" selection-end="6776" vertical-scroll-proportion="-19.25926" vertical-offset="2648" max-vertical-offset="7056">
+          <folding>
+            <marker date="1408641764353" expanded="true" signature="349:684" placeholder="INSERT INTO ..." />
+            <marker date="1408641764353" expanded="true" signature="2273:2346" placeholder="SELECT COUNT..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="2643:2706" placeholder="SELECT COUNT..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="3053:3143" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="3421:3477" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="3825:3891" placeholder="DELETE FROM ..." />
+            <marker date="1408641764353" expanded="true" signature="4077:4131" placeholder="DELETE FROM ..." />
+            <marker date="1408641764353" expanded="true" signature="4346:4498" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="4450:4493" placeholder="SELECT id fr..users..." />
+            <marker date="1408641764353" expanded="true" signature="4920:4992" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="5359:5517" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="5469:5512" placeholder="SELECT id fr..users..." />
+            <marker date="1408641764353" expanded="true" signature="5953:6053" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="6413:6569" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="6521:6564" placeholder="SELECT id fr..users..." />
+            <marker date="1408641764353" expanded="true" signature="7007:7105" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="7442:7831" placeholder="UPDATE Manif..." />
+            <marker date="1408641764353" expanded="true" signature="9881:9939" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="10660:10736" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="11229:11270" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="11229:11305" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="11796:11872" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="12343:12431" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="12731:12812" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="13118:13275" placeholder="SELECT v.id,..villes..." />
+            <marker date="1408641764353" expanded="true" signature="13205:13260" placeholder="SELECT COUNT..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="13616:13724" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="14102:14154" placeholder="SELECT * FRO..Manifestations..." />
+            <marker date="1408641764353" expanded="true" signature="14516:14599" placeholder="UPDATE Manif..." />
+            <marker date="1408641764353" expanded="true" signature="14783:14856" placeholder="UPDATE Manif..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/city/show.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="313" column="30" selection-start="13210" selection-end="13210" vertical-scroll-proportion="2.0" vertical-offset="5634" max-vertical-offset="6498">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="171" column="103" selection-start="7522" selection-end="7522" vertical-scroll-proportion="0.3325062" vertical-offset="2872" max-vertical-offset="4896">
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
