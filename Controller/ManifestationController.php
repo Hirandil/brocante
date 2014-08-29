@@ -175,7 +175,7 @@ class ManifestationController extends Controller
     public function rechercher()
     {
         $_SESSION['title'] = "Rechercher une manifestation";
-        $_SESSION['ariane'] = "Manifestation > Rechercher";
+        $_SESSION['ariane'] = "<a href=\"Manifestation/Rechercher-des-manifestations\">Recherche</a> > Résultats";
         $_SESSION['description'] = "Rechercher des " . $_SESSION['type'] . " et plus encore dans votre region et dans toute la France avec 123Brocante";
         if (isset($_POST['region'], $_POST['department'])) {
             $filtre = array();
@@ -292,6 +292,7 @@ class ManifestationController extends Controller
                 }
             }
         } else {
+            $_SESSION['ariane'] = "Recherche";
             $regions = $this->_rm->getAll();
             $departments = $this->_dm->getAll();
             $types = $this->_tm->getAll();
@@ -386,7 +387,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                 }
             }
             $_SESSION['description'] = $department->getName().": consultez toutes les brocantes, vide-greniers et salons des collectionneurs pour le département ".$department->getName()." sur 123Brocante.com";
-            $_SESSION['ariane'] = "Manifestations > Département > " . $department->getName();
+            $_SESSION['ariane'] = "Département > " . $department->getName();
             $_SESSION['title'] = "Brocantes ".$department->getName()." (".$department->getZipCode()."):  vide-greniers et salons de collectionneurs";
             include('views/department/show.php');
         } else {
@@ -459,7 +460,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
 //                }
 //            }
             $_SESSION['description'] = $region->getName().": consultez toutes les brocantes, vide-greniers et salons des collectionneurs pour la région".$region->getName()."sur 123Brocante.com";
-            $_SESSION['ariane'] = "Manifestations > Region > " . $region->getName();
+            $_SESSION['ariane'] = "Region > " . $region->getName();
             $_SESSION['title'] = "Brocantes ".$region->getName()." : vide-greniers et salons de collectionneurs";
             include('views/region/show.php');
         } else {
@@ -514,7 +515,7 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                 }
             }
             $_SESSION['description'] = $_GET['id'].": consultez toutes les brocantes, vide-greniers et salons des collectionneurs pour ".$_GET['id']." sur 123Brocante.com";
-            $_SESSION['ariane'] = "Manifestations > Region > " . $region->getName();
+            $_SESSION['ariane'] = "Ville > " . $ville->getName();
             $_SESSION['title'] = "Brocantes ".$_GET['id']." (".$ville->getDepartment()."): vide-greniers et salons de collectionneurs";
             include('views/city/show.php');
         } else {
@@ -537,12 +538,15 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                 $dateStart = date('d/m/Y', strtotime($manifestation->getStart()));
                 $dateEnd = date('d/m/Y', strtotime($manifestation->getEnd()));
                 $department = $this->_dm->getByName($manifestation->getDepartment());
+                $region = $this->_rm->get($manifestation->getRegion());
                 $nearTowns = $this->_mm->getNearTowns($department->getZipCode());
                 $organiser = $this->_um->get((int)$manifestation->getIdOrganiser());
                 $type = $this->_tm->get($manifestation->getType());
                 if (isset($_SESSION['userId']) && $manifestation->getIdOrganiser() != $_SESSION['userId'])
                     $this->_mm->upVisits($_GET['name']);
-                $_SESSION['ariane'] = $manifestation->getRegion() . " > " . $manifestation->getDepartment() . " > " . $manifestation->getName();
+                $_SESSION['ariane'] = "<a href=\"/Manifestation/region/".str_replace(' ','-',$region->getName())."/" . $region->getId() ."\">" . $region->getName() . "</a>
+                 > <a href=\"/Manifestation/".str_replace(" ","-",$region->getName())."/".str_replace(" ","-",$department->getName())."/".str_replace(" ","-",$department->getZipCode())."\" >".$department->getName()."</a>".
+                    " > " . $manifestation->getName();
                 $_SESSION['title'] = $manifestation->getName()." - ".$manifestation->getCity()." - ".$department->getZipCode()." - ".$department->getName();
                 $_SESSION['description'] = $manifestation->getName().": consultez toutes les infos pratiques. Lieu, nombre d'exposants, prix de l'entrée";
                 include 'views/manifestations/show.php';

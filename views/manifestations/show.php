@@ -16,7 +16,7 @@
 
         <div class="wrapper">
             <div class="title">
-                <h2>
+                <h2 style='margin-top: 3px;'>
                     <?php echo $type->getLibelle(); ?></h2>
                 <h3 style='margin-bottom: 5px;'> <?php echo $manifestation->getAddress() ?></h3>
     
@@ -24,20 +24,46 @@
             </div>
             <!-- /.title -->
 
-            <div class="location">Département: <?php echo $manifestation->getDepartment() ?></div>
-            <div class="location">Region: <?php echo $manifestation->getRegion() ?></div>
+            <div class="location" style='font-size: 14px; '>Département: <?php echo $manifestation->getDepartment() ?> /
+            Region: <?php echo $manifestation->getRegion() ?></div>
 
             <!-- /.location -->
 
-            <div class="price">
-                <a href="mailto:<?php echo $organiser->getEmail() ?>">Contacter l'organisateur</a>
+<?php
+
+	$sqlphone = "SELECT * FROM users WHERE email='".$organiser->getEmail()."'";
+	$reqphone = mysql_query($sqlphone) or die (mysql_error());
+	$aphone = mysql_fetch_array($reqphone);
+        $phonephone = $aphone['phone'];
+
+?>
+
+            <div align='center' style='float: left; max-width: 280px;'>
+
+            <div align='center' style='padding: 5px; max-width: 280px; background-color: white; margin-top: 5px; font-size: 18px;'>
+            <span style='background-color: none;'><b>Contacter l'organisateur</b></span>
+            <br /><?php echo file_get_contents('http://adt.123brocante.com/gen-num/genere_num_mobile.php?num='.$phonephone.'&time='.time()); ?>*
+            <br />
             </div>
+
+<div align="left" style='font-size: 11px; line-height: 15px; margin-top: 10px; color: #666666;'>
+*co&ucirc;t : 1,35&euro;/appel+0,34&euro;/min <br />
+Service de mise en relation, num&eacute;ro de t&eacute;l&eacute;phone valable 9 minutes. <a href='http://mise-en-relation.svaplus.fr/' target='blank_'>Pourquoi ce num&eacute;ro?</a>
+</div>
+
+</div>
+
+<div style='clear: both;'></div>
+
+
+
+
             <!-- /.price -->
         </div>
         <!-- /.wrapper -->
     </div>
-    <div class="property-info clearfix">
-        <h5 class="showH5">Localisation</h5>
+    <div class="property-info clearfix" style=' font-size: 14px;'>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px;'>Localisation</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -48,14 +74,14 @@
         <!--        2-->
         <!--    </div>-->
         <br>
-        <h5 class="showH5">Dates</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px;'>Dates</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
             Du <?php echo $dateStart." au ".$dateEnd ?>
         </div>
         <br>
-        <h5 class="showH5">Horaires</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Horaires</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -63,7 +89,7 @@
         </div>
         <br>
 
-        <h5 class="showH5">Site web de l'organisateur</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Site web de l'organisateur</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -75,20 +101,7 @@
             ?>
         </div>
         <br>
-
-        <h5 class="showH5">Contact de l'organisateur</h5>
-
-        <div class="area">
-            <i class="icon icon-normal-cursor-scale-up"></i>
-            <?php
-            if ($manifestation->getContact() == '')
-                echo 'Non renseigné';
-            else
-                echo $manifestation->getContact();
-            ?>
-        </div>
-        <br>
-        <h5 class="showH5">Prix d'entrée</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Prix d'entrée</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -100,7 +113,7 @@
             ?>
         </div>
         <br>
-        <h5 class="showH5">Nombre d'exposants</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Nombre d'exposants</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -112,7 +125,7 @@
             ?>
         </div>
         <br>
-        <h5 class="showH5">Tarif pour exposant</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Tarif pour les exposants</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -123,23 +136,8 @@
                 echo $manifestation->getExhibitorPrice();
             ?>
         </div>
-        <br>
-        <h5 class="showH5">Parking à proximité</h5>
-
-        <div class="area">
-            <i class="icon icon-normal-cursor-scale-up"></i>
-            <?php
-            if ($manifestation->getParking() == '')
-                echo 'Non renseigné';
-            else
-                if ($manifestation->getParking() == 'true/')
-                    echo "Oui";
-                else
-                    echo "Non";
-            ?>
-        </div>
-        <br>
-        <h5 class="showH5">Informations supplémentaires</h5>
+               <br>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Informations supplémentaires</h5>
 
         <div class="area">
             <?php
@@ -170,7 +168,7 @@
         </div>
 
 
-        <h2>Carte des brocantes du département</h2>
+        <h2>Localisation de la manifestation</h2>
 
         <div id="property-map"
              style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden; -webkit-transform: translateZ(0);">
@@ -231,12 +229,15 @@
                             S'inscrire !</button>
                     </div>
 
-
                     <!-- /.form-actions -->
                 </form>
             </div>
             <!-- /.content -->
         </div>
+
+<?php
+include('facebook.php');
+?>
 
         <script type="text/javascript">
             jQuery(document).ready(function ($) {

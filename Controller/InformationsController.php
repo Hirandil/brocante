@@ -27,7 +27,7 @@ class InformationsController extends Controller
     public function create()
     {
         $_SESSION['title'] = "Nouvelle actualité";
-        $_SESSION['ariane'] = "Nouvelle actualité";
+        $_SESSION['ariane'] = "<a href=\"/Informations/actualites\">Actualités</a> > Nouvelle actualité";
         if (isset($_POST['title'], $_POST['content'])) {
             if ($_POST['title'] != "" && $_POST['content'] != "") {
                 $curr_user = $this->_um->get((int)$_SESSION['userId']);
@@ -210,7 +210,7 @@ class InformationsController extends Controller
             if($this->_nm->exists($name)){
                 $news = $this->_nm->get($name);
                 $_SESSION['description'] = html_entity_decode(substr($news->getContent(),0,140));
-                $_SESSION['ariane'] = "Actualités > ".$news->getTitle();
+                $_SESSION['ariane'] = "<a href=\"/Informations/actualites\">Actualités</a> > ".$news->getTitle();
                 $_SESSION['title'] = $news->getTitle();
                 include('views/news/show.php');
             }

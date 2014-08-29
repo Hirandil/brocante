@@ -55,6 +55,8 @@
     <!-- /.row -->
 </div>
 <div class="container">
+    <?php echo $region->getName() .": découvrez sur cette section toutes les brocantes, les vide-greniers ainsi que les manifestation de collectionneurs pour la région ".$region->getName().". Consultez les brocantes et vide-greniers pour les 30 prochains jours en cliquant sur le nom de la manifestation. Vous pourrez ainsi obtenir toutes les informations pratiques concernant la manifestation (horaires, adresse, contact de l'organisateur de la brocante / vide-grenier)"; ?>
+
 <div class="row">
 <div class="sidebar span8">
     <h1 class="page-header"><?php echo $region->getName() .' -- '
@@ -74,6 +76,9 @@
     {
         foreach ((array)$d as $manifestation)
         {
+$oo++;
+
+if($oo <= 2){
             ?>
             <div class="property clearfix">
                 <div class="image">
@@ -111,6 +116,7 @@
             <br>
 
         <?php
+}
         }
     }
     ?>
@@ -147,8 +153,8 @@
                 foreach ((array)$d as $manifestation)
                 {
                     ?>
-                    <h5 class="showH5"><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment())
-                            .'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>"><?php echo $manifestation->getName() ?></a></h5>
+                    <h5 class="showH5"><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment())
+                            .'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>"><?php echo $manifestation->getName() ?></a></h5>
 
                     <div class="area">
                         <i class="icon icon-normal-cursor-scale-up"></i>
@@ -185,7 +191,7 @@
         </div>
 
 
-        <h2>Carte des brocantes du département</h2>
+        <h2>Carte des brocantes de la R&eacute;gion</h2>
 
         <div id="property-map"
              style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden; -webkit-transform: translateZ(0);">
@@ -237,6 +243,11 @@
             </div>
             <!-- /.content -->
         </div>
+
+<?php
+include('facebook.php');
+?>
+
         <?php
         if (sizeof($nearRegion) !=0 ){
             ?>
@@ -282,7 +293,7 @@
                         foreach ((array)$d as $manifestation)
                         {
                      ?>
-                        {<?php echo "title : '".$manifestation->getName() ?>', <?php echo "start : '". $manifestation->getStart() ?>' <?php echo ", end : '". $manifestation->getEnd() ?>', url : '<?php echo '/Manifestation/' . str_replace(" ", "_", $manifestation->getRegion()) . '/' . str_replace(" ", "_", $manifestation->getDepartment()) . '/' . str_replace(" ", "_", $manifestation->getCity()) . '/' . str_replace(' ', '_', $manifestation->getName()); ?>'},
+                        {<?php echo "title : '".$manifestation->getName() ?>', <?php echo "start : '". $manifestation->getStart() ?>' <?php echo ", end : '". $manifestation->getEnd() ?>', url : '<?php echo '/Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCity()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()); ?>'},
                         <?php
             }
         }

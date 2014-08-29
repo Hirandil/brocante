@@ -1,42 +1,34 @@
 <div id="content" class="clearfix">
     <!-- /.map-wrapper -->
-<div class="container">
+<div class="container" style=''>
 
-<div class="row">
+<div class="" style=''>
 
-<div class="sidebar span8">
+<div class="sidebar" style=';'>
     <br>
         <div class="property clearfix">
-            <div class="image" style='width: 150px;'>
-                <img width="150" src="/<?php echo $news->getImage() ?>"
-                     alt="<?php echo $news->getTitle(); ?>"/>
+            <div class="image" style='background: none; width: 150px;'>
+                <img width="150" src="/<?php echo $news->getImage() ?>" alt="<?php echo $news->getTitle(); ?>" style='border-radius: 10px;' />
             </div>
             <!-- /.image -->
 
-            <div class="wrapper" style="margin-left: 25px;float: left">
                 <br>
                 <br>
-                <div class="title">
-                    <h1>
-                        <?php echo $news->getTitle(); ?></h1>
-                </div>
+
                 <!-- /.title -->
             </div>
             <!-- /.wrapper -->
         </div>
-            <div class="row">
-                <br>
+               
+                <div class="title">
+                    <h1>
+                        <?php echo $news->getTitle(); ?></h1>
+                </div>
 
-                <div class="span6">
-
-                    <div class="row">
-                        <div style="padding: 10px" class="span10 box-search">
-                            <br>
+                        <div style="padding-top: 10px; width: 100%; border-top: 1px dashed;">
                             <?php echo html_entity_decode($news->getContent()); ?>
                         </div>
-                    </div>
-                </div>
-            </div>
+              
         </div>
     </div>
 </div>

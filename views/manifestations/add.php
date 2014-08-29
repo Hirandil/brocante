@@ -258,27 +258,8 @@
             <input type="file" name="image" id="image">
         </div>
     </div>
-    <div class="control-group">
-        <label class="control-label">
-            Parking à proximité </label>
 
-        <div class="controls">
 
-            <ul class="unstyled">
-                <li>
-                    <label>
-                        <input type="radio" name="parking" value=true/>
-                        &nbsp;&nbsp;Oui </label>
-                </li>
-
-                <li>
-                    <label>
-                        <input type="radio" name="parking" value=false/>
-                        &nbsp;&nbsp;Non </label>
-                </li>
-            </ul>
-        </div>
-    </div>
     <div class="control-group">
         <label class="control-label" for="address">
             Site internet
@@ -421,7 +402,7 @@
                         }
                         else{
                             $.ajax({
-                                url: "http://123Brocante.com/autocomplete.php",
+                                url: "http://www.123Brocante.com/autocomplete.php",
                                 type: 'POST',
                                 data: {
                                     'key': $(this).val()

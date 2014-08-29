@@ -7,7 +7,7 @@
                 <div class="branding pull-left">
                     <div class="logo">
                         <a href="/" title="Home">
-                            <img width="250px" height="250px" src="assets/img/123Brocante.png" alt="Accueil">
+                            <img width="250" height="250" src="assets/img/123Brocante.png" alt="Accueil">
                         </a>
                     </div>
                     <!-- /.logo -->
@@ -19,12 +19,12 @@
                 <div class="contact-top">
                     <ul class="menu nav">
                         <li class="first leaf facebook">
-                            <a href="http://www.facebook.com" class="facebook"><i>F</i></a>
+                            <a href="https://www.facebook.com/123brocante?fref=ts" class="facebook" target='blank_'><i>F</i></a>
                         </li>
 
-                        <li class="leaf google-plus"><a href="http://plus.google.com" class="google"><i>g</i></a></li>
+                        <li class="leaf google-plus"><a href="https://plus.google.com/u/0/111116772030929335882/about" class="google" target='blank_'><i>g</i></a></li>
 
-                        <li class="leaf twitter"><a href="http://www.twitter.com" class="twitter"><i>T</i></a></li>
+                        <li class="leaf twitter"><a href="https://twitter.com/123brocante" class="twitter" target='blank_'><i>T</i></a></li>
                     </ul>
                 </div>
 

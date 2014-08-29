@@ -55,6 +55,10 @@
     <!-- /.row -->
 </div>
 <div class="container">
+
+    <?php echo $department->getName().": découvrez sur cette section toutes les brocantes, les vide-greniers ainsi que les manifestation de collectionneurs pour le département ".$department->getName().". Consultez les brocantes et vide-greniers pour les 30 prochains jours en cliquant sur le nom de la manifestation. Vous pourrez ainsi obtenir toutes les informations pratiques concernant la manifestation (horaires, adresse, contact de l'organisateur de la brocante / vide-grenier)" ?>
+
+
     <div class="row">
 <div class="sidebar span8">
     <h1 class="page-header"><?php echo $department->getName() . ' (' . $department->getZipCode() . ') -- '
@@ -147,8 +151,8 @@
             foreach ((array)$d as $manifestation)
             {
                 ?>
-                <h5 class="showH5"><a href="<?php echo '/Manifestation/'.str_replace(" ","_",$manifestation->getRegion()).'/'.str_replace(" ","_",$manifestation->getDepartment())
-                        .'/'.str_replace(" ","_",$manifestation->getCity()).'/'.str_replace(' ','_',$manifestation->getName());?>"><?php echo $manifestation->getName() ?></a></h5>
+                <h5 class="showH5"><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment())
+                        .'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>"><?php echo $manifestation->getName() ?></a></h5>
 
                 <div class="area">
                     <i class="icon icon-normal-cursor-scale-up"></i>
@@ -232,12 +236,17 @@
                             S'inscrire !</button>
                     </div>
 
-
                     <!-- /.form-actions -->
                 </form>
             </div>
+
             <!-- /.content -->
         </div>
+
+<?php
+include('facebook.php');
+?>
+
         <?php
         if (sizeof($nearRegion) !=0 ){
         ?>
