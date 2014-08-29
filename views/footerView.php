@@ -58,7 +58,7 @@
 
 
 <div class="span4">
-    <div id="featuredproperties_widget-2" class="widget properties">
+    <div class="widget properties">
 
         <h2>Manifestations les plus consultées</h2>
 
@@ -175,7 +175,7 @@
 
 <!-- /#footer-wrapper -->
 <script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3&#038;sensor=true&#038;ver=3.6'></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&amp;sensor=false"></script>
 <!--<script type='text/javascript' src='/assets/js/aviators-map.js'></script>-->
 <script type='text/javascript' src='/assets/js/gmap3.infobox.min.js'></script>
 <script type='text/javascript' src='/assets/js/bootstrap.min.js'></script>
