@@ -169,7 +169,7 @@
         {
             ?>
             <li style="display: table;font-size: 13px;margin: 5px">
-                <?php echo "<input type=\"hidden\" value=\"".$d->getRegion()."\"></input>
+                <?php echo "<input type=\"hidden\" value=\"".$d->getRegion()."\">
                     <a href=\"/Manifestation/".str_replace(" ","-",$regions[$d->getRegion()]->getName())."/".str_replace(" ","-",$d->getName())."/".str_replace(" ","-",$d->getZipCode())."\" >(".$d->getZipCode().")"." ".$d->getName()."</a>"?></li>
         <?php
         }
