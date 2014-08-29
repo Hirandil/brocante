@@ -113,7 +113,7 @@
 
     </div>
 <div class="span4">
-        <div id="featuredproperties_widget-2" class="widget properties">
+        <div class="widget properties">
 
             <h2>Actualités</h2>
 
