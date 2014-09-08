@@ -82,7 +82,7 @@
     ?>
     <div class="property clearfix">
         <div class="image">
-            <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment()).'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
+            <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment()).'/'.str_replace(" ","-",$manifestation->getCityUrl()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
 
             <img width="570" height="425" src="/<?php echo $manifestation->getImage() ?>"
                  class="thumbnail-image " alt="19"/>
@@ -93,7 +93,7 @@
         <div class="wrapper">
             <div class="title">
                 <h2>
-                    <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment()).'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
+                    <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment()).'/'.str_replace(" ","-",$manifestation->getCityUrl()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
                         <?php echo $manifestation->getName() ?></a>
                 </h2>
                 <h3>
@@ -152,7 +152,7 @@
             {
                 ?>
                 <h5 class="showH5"><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment())
-                        .'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>"><?php echo $manifestation->getName() ?></a></h5>
+                        .'/'.str_replace(" ","-",$manifestation->getCityUrl()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>"><?php echo $manifestation->getName() ?></a></h5>
 
                 <div class="area">
                     <i class="icon icon-normal-cursor-scale-up"></i>
@@ -257,13 +257,32 @@ include('facebook.php');
                     <?php
                     foreach ((array)$nearRegion as $nearRegion) {
                         ?>
-                        <p><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$nearRegion->getRegion()).'/'.str_replace(" ","-",$nearRegion->getDepartment()).'/'.str_replace(" ","-",$nearRegion->getCity()).'/'.str_replace(' ','-',$nearRegion->getNameUrl());?>">
+                        <p><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$nearRegion->getRegion()).'/'.str_replace(" ","-",$nearRegion->getDepartment()).'/'.str_replace(" ","-",$nearRegion->getCityUrl()).'/'.str_replace(' ','-',$nearRegion->getNameUrl());?>">
                                 <img width="40" height="35" src="/<?php echo $nearRegion->getImage() ?>"
                                      class="thumbnail-image " alt="Image"/>
                                 <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></p>
                     <?php
                     }
                     ?>
+
+            </div>
+            <!-- /.content -->
+        </div>
+        <?php
+        }else{
+        ?>
+        <div class="alentourBlock">
+            <div class="content" style="margin-bottom: 20px">
+                <p style="border-bottom: 1px; border-style:solid">Brocantes de la région</p>
+
+                <?php
+                foreach ((array)$cityDept as $nearRegion) {
+                    ?>
+                    <p><a href="<?php echo '/Manifestation/ville/'.str_replace(" ","-",$nearRegion->getDepartment()).'/'.str_replace(" ","-",$nearRegion->getNameUrl());?>">
+                            <?php echo 'Manifestations' ?> à <?php echo $nearRegion->getName() ?></a></p>
+                <?php
+                }
+                ?>
 
             </div>
             <!-- /.content -->
@@ -281,7 +300,7 @@ foreach ((array)$manifByDate as $d)
     foreach ((array)$d as $manifestation)
     {
  ?>
-                ['<?php echo $manifestation->getNameUrl() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid() ?>','<?php echo $manifestation->getRegion() ?>','<?php echo $manifestation->getDepartment() ?>','<?php echo $manifestation->getCity() ?>'],
+                ['<?php echo $manifestation->getNameUrl() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid() ?>','<?php echo $manifestation->getRegion() ?>','<?php echo $manifestation->getDepartment() ?>','<?php echo $manifestation->getCityUrl() ?>'],
                 <?php
     }
 }

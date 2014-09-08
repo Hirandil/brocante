@@ -59,7 +59,7 @@
 </div>
 <div class="container">
 
-   <?php echo $ville->getName()." (".$ville->getDepartment()."): découvrez sur cette section toutes les brocantes, les vide-greniers ainsi que les manifestation de collectionneurs pour ".$ville->getName().". Consultez les brocantes et vide-greniers pour les 30 prochains jours en cliquant sur le nom de la manifestation. Vous pourrez ainsi obtenir toutes les informations pratiques concernant la manifestation (horaires, adresse, contact de l'organisateur de la brocante / vide-grenier)"; ?>
+   <?php echo $ville->getName()." (".$ville->getDepartment()."): découvrez sur cette section toutes les brocantes, les vide-greniers ainsi que les manifestations de collectionneurs pour ".$ville->getName().". Consultez les brocantes et vide-greniers pour les 30 prochains jours en cliquant sur le nom de la manifestation. Vous pourrez ainsi obtenir toutes les informations pratiques concernant la manifestation (horaires, adresse, contact de l'organisateur de la brocante / vide-grenier)"; ?>
 
 <div class="row">
 <div class="sidebar span8">
@@ -82,7 +82,7 @@
             ?>
             <div class="property clearfix">
                 <div class="image">
-                    <a href="<?php echo '/Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCity()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()); ?>">
+                    <a href="<?php echo '/Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCityUrl()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()); ?>">
 
                         <img width="570" height="425" src="/<?php echo $manifestation->getImage() ?>"
                              class="thumbnail-image " alt="19"/>
@@ -93,7 +93,7 @@
                 <div class="wrapper">
                     <div class="title">
                         <h2>
-                            <a href="<?php echo '/Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCity()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()); ?>">
+                            <a href="<?php echo '/Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCityUrl()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()); ?>">
                                 <?php echo $manifestation->getName() ?></a>
                         </h2>
 
@@ -120,7 +120,7 @@
     }
     ?>
 
-    <h2>Calendrier des brocantes sur le departement : <?php echo $department->getName() ?></h2>
+    <h2>Calendrier des brocantes pour : <?php echo $ville->getName() ?></h2>
 
     <?php
     for ($i = 0; $i <= 30; $i++) {
@@ -153,7 +153,7 @@
                 {
                     ?>
                     <h5 class="showH5"><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment())
-                            .'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>"><?php echo $manifestation->getName() ?></a></h5>
+                            .'/'.str_replace(" ","-",$manifestation->getCityUrl()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>"><?php echo $manifestation->getName() ?></a></h5>
 
                     <div class="area">
                         <i class="icon icon-normal-cursor-scale-up"></i>
@@ -261,7 +261,7 @@ include('facebook.php');
                         foreach ((array)$nearRegion as $nearRegion) {
                             ?>
                             <p>
-                                <a href="<?php echo '/Manifestation/' . str_replace(" ", "-", $nearRegion->getRegion()) . '/' . str_replace(" ", "-", $nearRegion->getDepartment()) . '/' . str_replace(" ", "-", $nearRegion->getCity()) . '/' . str_replace(' ', '-', $nearRegion->getNameUrl()); ?>">
+                                <a href="<?php echo '/Manifestation/' . str_replace(" ", "-", $nearRegion->getRegion()) . '/' . str_replace(" ", "-", $nearRegion->getDepartment()) . '/' . str_replace(" ", "-", $nearRegion->getCityUrl()) . '/' . str_replace(' ', '-', $nearRegion->getNameUrl()); ?>">
                                     <img width="40" height="35" src="/<?php echo $nearRegion->getImage() ?>"
                                          class="thumbnail-image " alt="Image"/>
                                     <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></p>
@@ -284,7 +284,7 @@ include('facebook.php');
                         foreach ((array)$d as $manifestation)
                         {
                      ?>
-                    ['<?php echo $manifestation->getNameUrl() ?>', '<?php echo $manifestation->getAddress() ?>', '<?php echo $manifestation->getid() ?>', '<?php echo $manifestation->getRegion() ?>', '<?php echo $manifestation->getDepartment() ?>', '<?php echo $manifestation->getCity() ?>'],
+                    ['<?php echo $manifestation->getNameUrl() ?>', '<?php echo $manifestation->getAddress() ?>', '<?php echo $manifestation->getid() ?>', '<?php echo $manifestation->getRegion() ?>', '<?php echo $manifestation->getDepartment() ?>', '<?php echo $manifestation->getCityUrl() ?>'],
                     <?php
         }
     }

@@ -10,15 +10,34 @@ class ville{
 
     private $_id;
     private $_name;
+    private $_nameUrl;
     private $_department;
     private $_zipCode;
 
     public function __construct($data){
         $this->_id = $data['id'];
-        $this->_name = $data['name'];
+        $this->_name = $data['ville_nom_reel'];
+        $this->_nameUrl = $data['ville_slug'];
         $this->_zipCode = $data['zipCode'];
         $this->_department = $data['department'];
     }
+
+    /**
+     * @param mixed $nameUrl
+     */
+    public function setNameUrl($nameUrl)
+    {
+        $this->_nameUrl = $nameUrl;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNameUrl()
+    {
+        return $this->_nameUrl;
+    }
+
 
     /**
      * @param mixed $department

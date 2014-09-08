@@ -83,7 +83,7 @@ if($oo <= 2){
             <div class="property clearfix">
                 <div class="image">
                     <a href="<?php echo 'Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment())
-                        .'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
+                        .'/'.str_replace(" ","-",$manifestation->getCityUrl()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
                         <img width="570" height="425" src="/<?php echo $manifestation->getImage() ?>"
                              class="thumbnail-image " alt="19"/>
                     </a>
@@ -94,7 +94,7 @@ if($oo <= 2){
                     <div class="title">
                         <h2>
                             <a href="<?php echo 'Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment())
-                                .'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
+                                .'/'.str_replace(" ","-",$manifestation->getCityUrl()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>">
                                 <?php echo $manifestation->getName() ?></a>
                         </h2>
                         <h3>
@@ -154,7 +154,7 @@ if($oo <= 2){
                 {
                     ?>
                     <h5 class="showH5"><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manifestation->getRegion()).'/'.str_replace(" ","-",$manifestation->getDepartment())
-                            .'/'.str_replace(" ","-",$manifestation->getCity()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>"><?php echo $manifestation->getName() ?></a></h5>
+                            .'/'.str_replace(" ","-",$manifestation->getCityUrl()).'/'.str_replace(' ','-',$manifestation->getNameUrl());?>"><?php echo $manifestation->getName() ?></a></h5>
 
                     <div class="area">
                         <i class="icon icon-normal-cursor-scale-up"></i>
@@ -260,7 +260,7 @@ include('facebook.php');
                     foreach ((array)$nearRegion as $nearRegion) {
                         ?>
                         <p><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$nearRegion->getRegion()).'/'.str_replace(" ","-",$nearRegion->getDepartment())
-                            .'/'.str_replace(" ","-",$nearRegion->getCity()).'/'.str_replace(' ','-',$nearRegion->getNameUrl());?>">
+                            .'/'.str_replace(" ","-",$nearRegion->getCityUrl()).'/'.str_replace(' ','-',$nearRegion->getNameUrl());?>">
                                 <img width="40" height="35" src="/<?php echo $nearRegion->getImage() ?>"
                                      class="thumbnail-image " alt="Image"/>
                                 <?php echo $nearRegion->getName() ?> à <?php echo $nearRegion->getCity() ?></a></p>
@@ -270,11 +270,33 @@ include('facebook.php');
                     }
                     ?>
             </div>
+        </div>
             <?php
             }
+            else{
             ?>
-            <!-- /.content -->
+        <div class="alentourBlock">
+            <div class="content" style="margin-bottom: 20px">
+                <p style="border-bottom: 1px; border-style:solid">Brocantes de la région</p>
+
+                <?php
+                foreach ((array)$cityRegion as $nearRegion) {
+                    ?>
+                    <p><a href="<?php echo '/Manifestation/'.str_replace(" ","-",$region->getName())
+                            .'/'.str_replace(" ","-",$nearRegion->getName()).'/'.$nearRegion->getZipCode();?>">
+                            <?php echo 'Manifestations' ?> dans le <?php echo $nearRegion->getName() ?></a></p>
+
+                <?php
+
+                }
+                ?>
+            </div>
         </div>
+            <!-- /.content -->
+        <?php
+            }
+        ?>
+
 
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
@@ -293,7 +315,7 @@ include('facebook.php');
                         foreach ((array)$d as $manifestation)
                         {
                      ?>
-                        {<?php echo "title : '".$manifestation->getName() ?>', <?php echo "start : '". $manifestation->getStart() ?>' <?php echo ", end : '". $manifestation->getEnd() ?>', url : '<?php echo '/Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCity()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()); ?>'},
+                        {<?php echo "title : '".$manifestation->getName() ?>', <?php echo "start : '". $manifestation->getStart() ?>' <?php echo ", end : '". $manifestation->getEnd() ?>', url : '<?php echo '/Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCityUrl()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()); ?>'},
                         <?php
             }
         }
@@ -313,7 +335,7 @@ include('facebook.php');
                         foreach ((array)$d as $manifestation)
                         {
                      ?>
-                    ['<?php echo $manifestation->getNameUrl() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid()?>','<?php echo $manifestation->getRegion() ?>','<?php echo $manifestation->getDepartment() ?>','<?php echo $manifestation->getCity() ?>'],
+                    ['<?php echo $manifestation->getNameUrl() ?>','<?php echo $manifestation->getAddress() ?>','<?php echo $manifestation->getid()?>','<?php echo $manifestation->getRegion() ?>','<?php echo $manifestation->getDepartment() ?>','<?php echo $manifestation->getCityUrl() ?>'],
                     <?php
         }
     }

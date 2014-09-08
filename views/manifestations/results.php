@@ -40,7 +40,7 @@
     <tr>
         <td class="thumbnail">
             <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manif->getRegion()).'/'.str_replace(" ","-",$manif->getDepartment())
-            .'/'.str_replace(" ","-",$manif->getCity()).'/'.str_replace(' ','-',$manif->getNameUrl());?>">
+            .'/'.str_replace(" ","-",$manif->getCityUrl()).'/'.str_replace(' ','-',$manif->getNameUrl());?>">
                 <img width="80" height="59"
                      src="<?php echo $manif->getImage(); ?>"
                      class="attachment-admin-thumb" alt="<?php echo $manif->getName(); ?>">
@@ -49,7 +49,7 @@
 
         <td class="title">
             <a href="<?php echo '/Manifestation/'.str_replace(" ","-",$manif->getRegion()).'/'.str_replace(" ","-",$manif->getDepartment())
-            .'/'.str_replace(" ","-",$manif->getCity()).'/'.str_replace(' ','-',$manif->getNameUrl());?>"><?php echo $manif->getName(); ?></a>
+            .'/'.str_replace(" ","-",$manif->getCityUrl()).'/'.str_replace(' ','-',$manif->getNameUrl());?>"><?php echo $manif->getName(); ?></a>
         </td>
 
         <td class="post-date">

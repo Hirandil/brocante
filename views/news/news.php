@@ -1,4 +1,6 @@
 <div class="container" style=''>
+
+<div id='news_ii' style=''>
     <div id="main" class="span9 property-listing" style='width: 100%; padding-left: 0px; margin-left: 0px; padding-right: 0px; margin-right: 0px;'>
 
         <h1 class="titleH1"> Actualités sur 123brocante</h1>
@@ -14,7 +16,7 @@
 
                 ?>
                 <div class="properties-rows" style='width: 100%;'>
-                        <div class="property span9" style='padding-left:0px; margin-left: 0px; width: 99%; background-color: #F2F2F2; border-radius: 6px; padding-bottom: 0px;' >
+                        <div class="article_media property span9" style='padding-left:0px; margin-left: 0px; background-color: #F2F2F2; border-radius: 6px; padding-bottom: 0px;' >
                             <div class="body span6" style='width: 100%; padding-left: 0px; margin-left: 0px;'>
                              <div class="property " style=' padding-botom: 0px; height: auto; margin-top: 0px;'>
                                 <div class="image" style='width: 80px; background: none;'>
@@ -68,8 +70,73 @@
             }
             ?>
 
+
+
         </div>
         <!-- /.container -->
+</div>
+
+</div>
+
+<div id='bloc_news_menu' style='margin-top: 45px;'>
+<div class='bloc_menu_sous' style=''>
+
+<div style=' width: 100%; border: 1px solid #f8947a; margin-bottom: 20px;'>
+<div style='padding: 10px;'>
+<div style='border-bottom: 1px solid; padding-bottom: 5px;'>Les 5 derni&egrave;res actualit&eacute;s</div>
+
+<ul style='margin-top: 10px; list-style-type: none; margin-left: -0px;'>
+<?php
+	$sqlphone = "SELECT * FROM news ORDER BY id ASC LIMIT 0,5";
+	$reqphone = mysql_query($sqlphone) or die (mysql_error());
+	while($aphone = mysql_fetch_array($reqphone)){
+        $titlebbbb = $aphone['title'];
+        $titleUrbbbb = $aphone['titleUrl'];
+        $contentbbbb = $aphone['content'];
+
+?>
+<li style='margin-bottom: 10px; '><a href='<?php echo "/Informations/show/$titleUrbbbb"; ?>'><?php echo "$titlebbbb"; ?></a></li>
+<?php
+}
+?>
+</ul>
+</div>
+
+
+</div>
+
+<div style=' width: 100%; border: 1px solid #f8947a; margin-bottom: 20px;'>
+<div style='padding: 10px;'>
+<div style='border-bottom: 1px solid; padding-bottom: 5px;'>Manifestations</div>
+
+<ul style='margin-top: 10px; list-style-type: none; margin-left: -0px;'>
+<?php
+	$sqlphonevv = "SELECT * FROM villes ORDER BY RAND() DESC LIMIT 0,5 ";
+	$reqphonevv = mysql_query($sqlphonevv) or die (mysql_error());
+	while($aphonevv = mysql_fetch_array($reqphonevv)){
+        $departmentbbbbvv = $aphonevv['department'];
+        $ville_slugbbbbvv = $aphonevv['ville_slug'];
+        $ville_nom_reelbbbbvv = utf8_encode($aphonevv['ville_nom_reel']);
+
+?>
+<li style='margin-bottom: 10px; '><a href='<?php echo "/Manifestation/ville/".$departmentbbbbvv."/$ville_slugbbbbvv"; ?>'><?php echo "Manifestations $ville_nom_reelbbbbvv"; ?></a></li>
+<?php
+}
+?>
+</ul>
+
+</div>
+</div>
+
+<div align="center">
+<?php
+include('facebook.php');
+?>
+</div>
+
+</div>
+</div>
+
 
     </div>
 </div>

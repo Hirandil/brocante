@@ -91,7 +91,6 @@ class UserController extends Controller
                 $this->_um->cleanToken($_POST['userLogin']);
                 $token = md5(rand());
                 $this->_um->generate($token,$_POST['userLogin'],2);
-                echo $token;
                 if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $_POST['userLogin']))
                     $passage_ligne = "\r\n";
                 else
@@ -124,7 +123,7 @@ class UserController extends Controller
                 mail($_POST['userLogin'],$sujet,$message,$header);
 
                 $_SESSION['message'] = 'Confirmation envoyée !';
-                header('Location: /User/login');
+                header('Location: /User/sent');
                 exit;
             }
 
@@ -148,6 +147,9 @@ class UserController extends Controller
         }
     }
 
+    public function sent(){
+        echo '<br><label style="text-align: center">Une confirmation vous a été envoyée par e-mail à l\'adresse spécifiée.</label>';
+    }
     public function manifestations()
     {
         $_SESSION['ariane'] = "Mes manifestations";

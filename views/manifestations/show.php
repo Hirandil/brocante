@@ -1,7 +1,6 @@
 <div id="content" class="clearfix">
 <!-- /.map-wrapper -->
 <div class="container">
-
 <div class="row">
 
 <div class="sidebar span8">
@@ -63,7 +62,7 @@ Service de mise en relation, num&eacute;ro de t&eacute;l&eacute;phone valable 9 
         <!-- /.wrapper -->
     </div>
     <div class="property-info clearfix" style=' font-size: 14px;'>
-        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px;'>Localisation</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px;border-bottom: 1px solid #f69679;'>Localisation</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -74,14 +73,14 @@ Service de mise en relation, num&eacute;ro de t&eacute;l&eacute;phone valable 9 
         <!--        2-->
         <!--    </div>-->
         <br>
-        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px;'>Dates</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px;border-bottom: 1px solid #f69679;'>Dates</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
             Du <?php echo $dateStart." au ".$dateEnd ?>
         </div>
         <br>
-        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Horaires</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;border-bottom: 1px solid #f69679;'>Horaires</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -89,7 +88,7 @@ Service de mise en relation, num&eacute;ro de t&eacute;l&eacute;phone valable 9 
         </div>
         <br>
 
-        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Site web de l'organisateur</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;border-bottom: 1px solid #f69679;'>Site web de l'organisateur</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -101,7 +100,7 @@ Service de mise en relation, num&eacute;ro de t&eacute;l&eacute;phone valable 9 
             ?>
         </div>
         <br>
-        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Prix d'entrée</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;border-bottom: 1px solid #f69679;'>Prix d'entrée</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -113,7 +112,7 @@ Service de mise en relation, num&eacute;ro de t&eacute;l&eacute;phone valable 9 
             ?>
         </div>
         <br>
-        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Nombre d'exposants</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;border-bottom: 1px solid #f69679;'>Nombre d'exposants</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -125,7 +124,7 @@ Service de mise en relation, num&eacute;ro de t&eacute;l&eacute;phone valable 9 
             ?>
         </div>
         <br>
-        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Tarif pour les exposants</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;border-bottom: 1px solid #f69679;'>Tarif pour les exposants</h5>
 
         <div class="area">
             <i class="icon icon-normal-cursor-scale-up"></i>
@@ -137,7 +136,7 @@ Service de mise en relation, num&eacute;ro de t&eacute;l&eacute;phone valable 9 
             ?>
         </div>
                <br>
-        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;'>Informations supplémentaires</h5>
+        <h5 class="showH5" style='margin-top: 15px; padding-bottom: 10px; font-size: 20px;border-bottom: 1px solid #f69679;'>Informations supplémentaires</h5>
 
         <div class="area">
             <?php
@@ -181,7 +180,7 @@ Service de mise en relation, num&eacute;ro de t&eacute;l&eacute;phone valable 9 
                     <?php
                     foreach ((array)$nearTowns as $nearTown) {
                         ?>
-                       <p><a href="<?php echo 'Manifestation/ville/'.$nearTown->getDepartment  ().'/'.$nearTown->getName(); ?>">
+                       <p><a href="<?php echo 'Manifestation/ville/'.$nearTown->getDepartment  ().'/'.$nearTown->getNameUrl(); ?>">
                              Manifestation à <?php echo $nearTown->getName() ?> </a></p>
                     <?php
                     }

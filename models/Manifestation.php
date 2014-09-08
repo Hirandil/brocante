@@ -5,6 +5,7 @@
         private $_name;
         private $_nameUrl;
         private $_city;
+        private $_cityUrl;
         private $_department;
         private $_region;
         private $_address;
@@ -28,6 +29,7 @@
             $this->_name = $data['name'];
             $this->_nameUrl = $data['nameUrl'];
             $this->_city = $data['city'];
+            $this->_cityUrl = $data['cityUrl'];
             $this->_department = $data['department'];
             $this->_region = $data['region'];
             $this->_address = $data['address'];
@@ -45,6 +47,23 @@
             $this->_parking = $data['parking'];
             $this->_contact = $data['contact'];
         }
+
+        /**
+         * @param mixed $cityUrl
+         */
+        public function setCityUrl($cityUrl)
+        {
+            $this->_cityUrl = $cityUrl;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getCityUrl()
+        {
+            return $this->_cityUrl;
+        }
+
 
         /**
          * @param mixed $nameUrl

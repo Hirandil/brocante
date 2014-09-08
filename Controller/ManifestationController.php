@@ -94,10 +94,14 @@ class ManifestationController extends Controller
                     }
                     $region = $_POST['region'];
                     $department = $_POST['department'];
+                    $cityUrl = $_POST['city'];
                     $city = $this->_vm->get($_POST['city']);
                     if ($city->getId() == "") {
                         $city->setDepartment(75);
                         $_SESSION['error'] = "Ville inexistante!";
+                    }
+                    else{
+                        $cityUrl = $city->getNameUrl();
                     }
                     //Test région et departement
                     if ($region == "null") {
@@ -119,10 +123,10 @@ class ManifestationController extends Controller
                         header('Location: /Manifestation/Annoncer-une-manifestation');
                         exit;
                     }
-                    $nameUrl = removeSpecialCarac(htmlentities($_POST['title']));
+                    $nameUrl = removeSpecialCarac(($_POST['title']));
                     $schedule = "De " . $_POST['timeStart'] . " à " . $_POST['timeEnd'];
                     $array = array('idManifestation' => 0, 'name' => $_POST['title'],'nameUrl' => $nameUrl, 'city' => $_POST['city'],
-                        'department' => $department, 'address' => $_POST['route'], 'region' => $region,
+                        'cityUrl' => $cityUrl,'department' => $department, 'address' => $_POST['route'], 'region' => $region,
                         'start' => $dateStart, 'end' => $dateEnd, 'idOrganiser' => $_SESSION['userId'],
                         'type' => $_POST['type'], 'site' => $_POST['site'], 'price' => $_POST['price'],
                         'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'contact' => $_POST['contact'],
@@ -202,9 +206,9 @@ class ManifestationController extends Controller
                 header('Location: /Manifestation/' . str_replace(" ", "-", $region->getName()) . '/' . str_replace(" ", "-", $department->getName()) . '/' . $department->getZipCode());
             } else if ($_POST['city'] != null && $_POST['region'] == "null")
             {
-                if($this->_vm->exists(htmlentities($_POST['city']))){
-                    $city = $this->_vm->get(htmlentities($_POST['city']));
-                    header('Location: /Manifestation/ville/'.$city->getDepartment  ().'/'.$city->getName());
+                if($this->_vm->exists(($_POST['city']))){
+                    $city = $this->_vm->get(($_POST['city']));
+                    header('Location: /Manifestation/ville/'.$city->getDepartment  ().'/'.$city->getNameUrl());
                 }else{
                     $_SESSION['error'] = "La ville n'existe pas";
                     header('Location /');
@@ -322,6 +326,9 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             $department = $this->_dm->get($_GET['id']);
             $region = $this->_rm->get((int)$department->getRegion());
             $nearRegion = $this->_mm->getNearRegion($region->getName());
+            if(sizeof($nearRegion) == 0){
+                $cityDept = $this->_vm->getRandomCities($_GET['id']);
+            }
             $manifestations = $this->_mm->getByDepartment($department->getName());
             $manifestationsPro = $this->_mm->getProByDepartment($department->getName());
 
@@ -405,6 +412,9 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             $region = $this->_rm->get((int)$_GET['id']);
             $regions = $this->_rm->getAll();
             $nearRegion = $this->_mm->getNearRegion($region->getName());
+            if(sizeof($nearRegion) == 0){
+                $cityRegion = $this->_vm->getDeptRegion($_GET['id']);
+            }
             $manifestations = $this->_mm->getByRegion($region->getName());
 
             for ($i = 0; $i <= 30; $i++) {
@@ -479,11 +489,11 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
             $department = $this->_dm->get($_GET['dept']);
             $region = $this->_rm->get((int)$department->getRegion());
             $nearRegion = $this->_mm->getNearRegion($region->getName());
-            $manifestations = $this->_mm->getByCity($_GET['id']);
-            $manifestationsPro = $this->_mm->getProByCity($_GET['id']);
+            $manifestations = $this->_mm->getByCity($ville->getNameUrl());
+            $manifestationsPro = $this->_mm->getProByCity($ville->getNameUrl());
 
             for ($i = 0; $i <= 30; $i++) {
-                ${'tomorrow'.$i} = $this->_mm->getTomorrowCity($i, $_GET['id']);
+                ${'tomorrow'.$i} = $this->_mm->getTomorrowCity($i, $ville->getNameUrl());
                 ${'manifTomorrow'.$i} = array();
                 foreach ((array)${'tomorrow'.$i} as $m) {
                     if (!array_key_exists($m->getStart(), ${'manifTomorrow'.$i})) {
@@ -514,9 +524,9 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                     $manifProByDate[$m->getStart()][] = $m;
                 }
             }
-            $_SESSION['description'] = $_GET['id'].": consultez toutes les brocantes, vide-greniers et salons des collectionneurs pour ".$_GET['id']." sur 123Brocante.com";
+            $_SESSION['description'] = $ville->getName().": consultez toutes les brocantes, vide-greniers et salons des collectionneurs pour ".$ville->getName()." sur 123Brocante.com";
             $_SESSION['ariane'] = "Ville > " . $ville->getName();
-            $_SESSION['title'] = "Brocantes ".$_GET['id']." (".$ville->getDepartment()."): vide-greniers et salons de collectionneurs";
+            $_SESSION['title'] = "Brocantes ".$ville->getName()." (".$ville->getDepartment()."): vide-greniers et salons de collectionneurs";
             include('views/city/show.php');
         } else {
             $_SESSION['error'] = "Cette ville n'existe pas";
@@ -540,6 +550,9 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                 $department = $this->_dm->getByName($manifestation->getDepartment());
                 $region = $this->_rm->get($manifestation->getRegion());
                 $nearTowns = $this->_mm->getNearTowns($department->getZipCode());
+                if(sizeof($nearTowns) == 0){
+                    $nearTowns = $this->_vm->getRandomCities($department->getZipCode());
+                }
                 $organiser = $this->_um->get((int)$manifestation->getIdOrganiser());
                 $type = $this->_tm->get($manifestation->getType());
                 if (isset($_SESSION['userId']) && $manifestation->getIdOrganiser() != $_SESSION['userId'])
@@ -626,14 +639,19 @@ le vide-grenier à coté de chez eux. Les videgreniers sont classés par région
                 header('Location: /Manifestation/update/' . $formerManifestation->getId());
                 exit;
             }
+            $cityUrl = $_POST['city'];
+            $city = $this->_vm->get($_POST['city']);
+            if($city->getId() != ""){
+                $cityUrl = $city->getNameUrl();
+            }
             $nameUrl = removeSpecialCarac($_POST['title']);
-            $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'],'nameUrl' => $nameUrl, 'city' => $_POST['city'], 'department' => $_POST['department'], 'address' => $_POST['route'], 'region' => $_POST['region'], 'contact' => $_POST['contact'], 'start' => $dateStart, 'end' => $dateEnd, 'idOrganiser' => $_SESSION['userId'], 'type' => $_POST['type'], 'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path, 'informations' => $_POST['content'], 'parking' => $parking);
+            $array = array('idManifestation' => $_POST['manifId'], 'name' => $_POST['title'],'nameUrl' => $nameUrl, 'city' => $_POST['city'],'cityUrl' => $cityUrl, 'department' => $_POST['department'], 'address' => $_POST['route'], 'region' => $_POST['region'], 'contact' => $_POST['contact'], 'start' => $dateStart, 'end' => $dateEnd, 'idOrganiser' => $formerManifestation->getIdOrganiser(), 'type' => $_POST['type'], 'site' => $_POST['site'], 'price' => $_POST['price'], 'exhibitorNumber' => $_POST['exhibitorNumber'], 'exhibitorPrice' => $_POST['exhibitorPrice'], 'schedule' => $schedule, 'image' => $path, 'informations' => $_POST['content'], 'parking' => $parking);
             $manifestation = new Manifestation($array);
             $this->_mm->update($manifestation);
             if (!isset($_SESSION['error']))
                 $_SESSION['message'] = 'Manifestation mise à jour';
 
-            header('Location: /Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCity()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()));
+            header('Location: /Manifestation/' . str_replace(" ", "-", $manifestation->getRegion()) . '/' . str_replace(" ", "-", $manifestation->getDepartment()) . '/' . str_replace(" ", "-", $manifestation->getCityUrl()) . '/' . str_replace(' ', '-', $manifestation->getNameUrl()));
             exit;
         } else {
             $departments = $this->_dm->getAll();
