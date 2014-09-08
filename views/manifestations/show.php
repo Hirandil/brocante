@@ -298,6 +298,15 @@ include('facebook.php');
                             });
 
                         }
+                        else{
+                            var mapOptions = {
+                                zoom: 14,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                scrollwheel: false
+                            };
+                            var map = new google.maps.Map(document.getElementById('property-map'), mapOptions);
+                        }
+
                     });
 
 
